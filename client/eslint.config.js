@@ -1,3 +1,4 @@
+// Bộ quy tắc của mà code của bạn tuân theo
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'

@@ -1,8 +1,12 @@
+// hiển thị các tab thông tin chi tiết về sản phẩm (như Mô tả, Hướng dẫn chăm sóc, Hướng dẫn màu sắc) trên trang chi tiết sản phẩm.
+// một bản phác thảo tĩnh của phần thông tin chi tiết sản phẩm theo kiểu tab
 import React from "react";
 
 const ProductDescription = () => {
   return (
+    // Khung chứa toàn bộ phần mô tả sản phẩm với nền trắng
     <div className="mt-14 bg-white">
+      {/* Thanh tab bar cho các phần mô tả sản phẩm */}
       <div className="flex gap-3">
         <button className="medium-14 p-3 w-32 border-b-2 border-secondary">Description</button>
         <button className="medium-14 p-3 w-32">Care Guide</button>
@@ -11,6 +15,7 @@ const ProductDescription = () => {
       <hr className="h-[1px] w-full"/>
       <div className="flex flex-col gap-3 p-3">
         <div>
+          {/* Phần chi tiết mô tả sản phẩm */}
           <h5 className="h5">Detail</h5>
           <p className="text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
@@ -24,6 +29,7 @@ const ProductDescription = () => {
           </p>
         </div>
         <div>
+          {/* Phần lợi ích của sản phẩm */}
           <h5 className="h5">Benefit</h5>
           <ul className="list-disc pl-5 text-sm text-gray-30 flex flex-col gap-1">
             <li>
