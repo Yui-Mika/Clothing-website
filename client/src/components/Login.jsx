@@ -3,6 +3,7 @@
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext"; 
 import toast from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Xử lý đầu vào của người dùng (tên, email, mật khẩu) và gửi yêu cầu API đến máy chủ để xác thực (login) hoặc tạo tài khoản mới (register).
 const Login = () => {
@@ -13,13 +14,25 @@ const Login = () => {
     const [name, setName] = useState(""); //Các state lưu trữ giá trị đầu vào của biểu mẫu (input fields).
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [recaptchaToken, setRecaptchaToken] = useState(""); // State để lưu trữ token reCAPTCHA
 
+    const onChange = (token) => {
+      console.log("reCAPTCHA verified:", token);
+      setRecaptchaToken(token);
+    };
+    
     //Logic xử lý khi người dùng gửi biểu mẫu (form)
     const onSubmitHandler = async (event) => { // Ngăn chặn hành vi mặc định của biểu mẫu (tải lại trang)
       event.preventDefault();
+
+      if (!recaptchaToken) {
+        toast.error("Please verify you are not a robot!");
+      return;
+      }
+      
       try {
         const { data } = await axios.post(`/api/user/${state}`, { // Gửi yêu cầu POST đến endpoint tương ứng dựa trên trạng thái hiện tại (login hoặc register)
-          name, email, password // Gửi dưới dạng JSON
+          name, email, password, recaptchaToken // Gửi dưới dạng JSON
         });
 
         // Xử lý phản hồi API (máy chủ)
@@ -83,6 +96,12 @@ const Login = () => {
             type="password"
             required
           />
+
+          <ReCAPTCHA
+            sitekey="6Lc-tPgrAAAAAAq8WkM_mE_62TpEMIDLHwj0k8G0"
+            onChange={onChange}
+          />
+
         </div>
         {/* Chuyển đổi giữa trạng thái đăng nhập và đăng ký */}
         {state === "register" ? (

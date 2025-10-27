@@ -22,6 +22,7 @@ import AddProduct from './pages/admin/AddProduct'
 import MyOrders from './pages/MyOrders'
 import Orders from './pages/admin/Orders'
 import Loading from './components/Loading'
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Logic Điều kiện và Cấu trúc Tổng thể
 const App = () => {
