@@ -13,21 +13,21 @@ const Hero = () => {
   const slides = [ //Mảng array thông tin của tất cả các slide mà bạn muốn hiển thị trong banner trượt.
     {
       id: 1,
-      image: "/src/assets/bg.png",
+      image: "/src/assets/slider1.jpg",
       brand: "PREMIUM",
       subtitle: "Luxury Fashion Collection",
       season: "AUTUMN / WINTER 2025",
     },
     {
       id: 2,
-      image: "/src/assets/banner.png",
+      image: "/src/assets/slider2.jpg",
       brand: "ESSENTIAL",
       subtitle: "Modern Minimalist Style",
       season: "NEW ARRIVALS",
     },
     {
       id: 3,
-      image: "/src/assets/bg.png",
+      image: "/src/assets/slider3.jpg",
       brand: "CLASSIC",
       subtitle: "Heritage Collection",
       season: "TIMELESS PIECES",

@@ -1,11 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "./Title";
-import { categories } from "../assets/data";
 import { ShopContext } from "../context/ShopContext";
+import Loading from "./Loading";
 
 const Categories = () => {
+  const { navigate, axios } = useContext(ShopContext);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const {navigate} = useContext(ShopContext)
+  // Fetch categories từ API
+  const fetchCategories = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get("/api/category/list");
+      
+      if (data.success) {
+        setCategories(data.categories);
+      } else {
+        console.error("Failed to fetch categories:", data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <section className="max-padd-container py-16 md:py-24">
@@ -19,8 +46,8 @@ const Categories = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
         {categories.map((category) => (
           <div
-            key={category.name}
-            onClick={()=>navigate(`/collection/${category.name.toLocaleLowerCase()}`)}
+            key={category._id}
+            onClick={() => navigate(`/collection/${category.slug}`)}
             className="group cursor-pointer"
           >
             {/* Image Container */}
