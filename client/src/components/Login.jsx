@@ -96,7 +96,9 @@ const Login = () => {
             type="password"
             required
           />
-
+        </div>
+        {/* reCAPTCHA */}
+        <div className="w-full my-2">
           <ReCAPTCHA
             sitekey="6Lc-tPgrAAAAAAq8WkM_mE_62TpEMIDLHwj0k8G0"
             onChange={onChange}
