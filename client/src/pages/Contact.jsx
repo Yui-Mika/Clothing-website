@@ -1,4 +1,3 @@
-// Giao diện trang Contact với biểu mẫu liên hệ và thông tin liên hệ.
 import React from 'react'
 import { FaEnvelope, FaHeadphones, FaLocationDot, FaPhone } from 'react-icons/fa6'
 import Title from "../components/Title"
@@ -7,15 +6,13 @@ import Title from "../components/Title"
 const Contact = () => {
   return (
     <div className="max-padd-container py-28 bg-primary">
-      {/* Contact Form */}
+      {/* Contact Form and Details */}
       <div className="flex flex-col xl:flex-row gap-20">
-        {/* Contact Details */}
+        {/* Contact Form */}
         <div className='flex-1'>
-          {/* Biểu mẫu liên hệ - Contact Form */}
           {/* Title */}
           <Title title1={'Get'} title2={'in Touch'} titleStyles={"pb-5"} para={"Have questions or need help? Send us a message, and we'll get back to you as soon as possible."}/>
           <form>
-            {/* Name and Email Fields */}
             <div className='flex gap-x-5'>
               <div className="w-1/2 mb-4">
                 <input
@@ -35,7 +32,6 @@ const Contact = () => {
               </div>
             </div>
             <div className="mb-4">
-              {/* Message Field */}
               <textarea
                 id="message"
                 rows="4"
@@ -43,7 +39,6 @@ const Contact = () => {
                 className="w-full mt-1 py-1.5 px-3 border-none ring-1 ring-secondary/20 rounded-sm regular-14 bg-white resize-none"
               ></textarea>
             </div>
-            {/* Submit Button */}
             <button
               type="submit"
               className="btn-dark shadow-sm rounded-sm"

@@ -72,6 +72,19 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
         )
     
     # ========================================================================
+    # BƯỚC 1.1: Kiểm tra name đã tồn tại chưa
+    # ========================================================================
+    # Tìm user có name trùng trong database
+    existing_name = await users_collection.find_one({"name": user.name})
+    
+    # Nếu name đã tồn tại → throw error 400 Bad Request
+    if existing_name:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,  # Status code 400
+            detail="Username already taken. Please choose another name."  # Thông báo lỗi
+        )
+    
+    # ========================================================================
     # BƯỚC 1.5: Validate password mạnh
     # ========================================================================
     password = user.password
@@ -125,6 +138,10 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
         "name": user.name,              # Tên người dùng
         "email": user.email,            # Email (unique)
         "password": hashed_password,    # Password đã được hash
+        "phone": user.phone,            # Số điện thoại (optional)
+        "address": user.address,        # Địa chỉ (optional)
+        "dateOfBirth": user.dateOfBirth.isoformat() if user.dateOfBirth else None,  # Ngày sinh (YYYY-MM-DD)
+        "gender": user.gender,          # Giới tính (optional)
         "cartData": {},                 # Giỏ hàng trống {}
         "role": "customer",             # Role mặc định là customer
         "emailVerified": False,         # 👈 Chưa xác thực email

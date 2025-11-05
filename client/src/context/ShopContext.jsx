@@ -28,6 +28,7 @@ const ShopContextProvider = ({ children }) => {
   const delivery_charges = 10; // Phí vận chuyển cố định là $10
   const [showUserLogin, setShowUserLogin] = useState(false); // State kiểm soát việc hiển thị/ẩn modal đăng nhập của người dùng.
   const [products, setProducts] = useState([]); // State lưu trữ tất cả sản phẩm từ backend
+  const [categories, setCategories] = useState([]); // State lưu trữ tất cả categories từ backend
   const [user, setUser] = useState(null); // State lưu trữ thông tin người dùng đã đăng nhập
   const [isAdmin, setIsAdmin] = useState(false); // State kiểm tra xem người dùng hiện tại có phải là admin hay không
   const [cartItems, setCartItems] = useState({}); // State lưu trữ dữ liệu giỏ hàng của người dùng
@@ -45,6 +46,22 @@ const ShopContextProvider = ({ children }) => {
       }
     } catch (error) {
       toast.error(error.message);
+    }
+  };
+
+  // Hàm tải categories từ backend (API Call)
+  // Gửi yêu cầu GET đến endpoint /api/category/list để lấy danh sách categories
+  const fetchCategories = async () => {
+    try {
+      const { data } = await axios.get("/api/category/list"); // Gọi API để lấy danh sách categories
+      if (data.success) { // Nếu thành công, cập nhật state categories với dữ liệu nhận được
+        setCategories(data.categories);
+      } else { // Nếu thất bại, hiển thị thông báo lỗi
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      // Không hiển thị toast error để tránh làm phiền user nếu categories không quan trọng lắm
     }
   };
 
@@ -85,21 +102,47 @@ const ShopContextProvider = ({ children }) => {
       if (data.success) { /*Nếu thành công, hiển thị thông báo đặt state user về null,
         đặt cartItems về rỗng, và chuyển hướng người dùng về trang chủ (/). */
         toast.success(data.message);
-        setUser(null)
-        setCartItems({})
-        navigate("/");
+        setUser(null); // Clear user state
+        setIsAdmin(false); // Clear admin state
+        setCartItems({}); // Clear cart
+        navigate("/"); // Chuyển về trang chủ
       } else {
         toast.error(data.message);
       }
     } catch (error) {
       toast.error(error.message);
+      // Vẫn clear state ngay cả khi có lỗi
+      setUser(null);
+      setIsAdmin(false);
+      setCartItems({});
+      navigate("/");
     }
   };
 
   // Xử lý sau khi đăng nhập thành công
   const handleLoginSuccess = async () => {
     await fetchUser(); // Tải lại thông tin người dùng và giỏ hàng từ server
-    navigate("/"); // sau đó chuyển hướng người dùng về trang chủ
+    
+    // Kiểm tra role của user để chuyển hướng đúng trang
+    try {
+      const { data } = await axios.get("/api/user/is-auth");
+      if (data.success && data.user) {
+        const userRole = data.user.role;
+        
+        // Nếu là admin hoặc staff, chuyển đến trang danh sách sản phẩm admin
+        if (userRole === "admin" || userRole === "staff") {
+          navigate("/admin/list"); // Chuyển đến trang danh sách sản phẩm trong admin panel
+        } else {
+          // Nếu là customer, chuyển về trang chủ
+          navigate("/");
+        }
+      } else {
+        navigate("/"); // Mặc định về trang chủ nếu không lấy được thông tin
+      }
+    } catch (error) {
+      console.error("Error checking user role:", error);
+      navigate("/"); // Mặc định về trang chủ nếu có lỗi
+    }
   };
 
   // Logic thêm vào giỏ hàng
@@ -170,6 +213,7 @@ const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     fetchUser(); // Kiểm tra và tải thông tin người dùng đã đăng nhập
     fetchProducts(); // Tải danh sách sản phẩm từ backend
+    fetchCategories(); // Tải danh sách categories từ backend
     fetchAdmin(); // Kiểm tra trạng thái admin
   }, []); // Chỉ chạy một lần khi component được mount
 
@@ -178,12 +222,14 @@ const ShopContextProvider = ({ children }) => {
   const value = {
     navigate,
     fetchProducts,
+    fetchCategories,
     showUserLogin,
     setShowUserLogin,
     axios,
     currency,
     delivery_charges,
     products,
+    categories,
     user,
     isAdmin,
     setIsAdmin,

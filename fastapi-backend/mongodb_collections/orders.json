@@ -1,0 +1,148 @@
+[
+  {
+    "_id": {"$oid": "673b1234567890abcdef2001"},
+    "userId": "673b1234567890abcdef0001",
+    "items": [
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1002",
+          "name": "Men's White Oxford Dress Shirt",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/ao-so-mi-trang-1.jpg"
+          ],
+          "offerPrice": 399000
+        },
+        "quantity": 2,
+        "size": "L"
+      },
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1011",
+          "name": "Premium Leather Men's Wallet",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/vi-da-nam-1.jpg"
+          ],
+          "offerPrice": 399000
+        },
+        "quantity": 1,
+        "size": "OneSize"
+      }
+    ],
+    "amount": 1197000,
+    "address": {
+      "firstName": "John",
+      "lastName": "Anderson",
+      "email": "john.anderson@example.com",
+      "street": "123 Main Street",
+      "city": "Ho Chi Minh City",
+      "state": "District 1",
+      "zipcode": "700000",
+      "country": "Vietnam",
+      "phone": "+84901234567"
+    },
+    "status": "Delivered",
+    "paymentMethod": "Stripe",
+    "isPaid": true,
+    "paidAt": {"$date": "2024-10-10T14:30:00.000Z"},
+    "stripeSessionId": "cs_test_a1b2c3d4e5f6g7h8i9j0",
+    "createdAt": {"$date": "2024-10-10T14:25:00.000Z"},
+    "updatedAt": {"$date": "2024-10-18T10:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef2002"},
+    "userId": "673b1234567890abcdef0002",
+    "items": [
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1003",
+          "name": "Men's Dark Blue Slim Fit Jeans",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/quan-jean-slim-1.jpg"
+          ],
+          "offerPrice": 495000
+        },
+        "quantity": 1,
+        "size": "31"
+      },
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1012",
+          "name": "Men's Leather Belt with Auto Buckle",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/that-lung-da-1.jpg"
+          ],
+          "offerPrice": 329000
+        },
+        "quantity": 1,
+        "size": "OneSize"
+      }
+    ],
+    "amount": 854000,
+    "address": {
+      "firstName": "Michael",
+      "lastName": "Chen",
+      "email": "michael.chen@example.com",
+      "street": "456 Le Loi Avenue",
+      "city": "Hanoi",
+      "state": "Hoan Kiem",
+      "zipcode": "100000",
+      "country": "Vietnam",
+      "phone": "+84912345678"
+    },
+    "status": "Shipped",
+    "paymentMethod": "COD",
+    "isPaid": false,
+    "paidAt": null,
+    "createdAt": {"$date": "2024-10-20T09:15:00.000Z"},
+    "updatedAt": {"$date": "2024-10-22T11:30:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef2003"},
+    "userId": "673b1234567890abcdef0001",
+    "items": [
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1001",
+          "name": "Men's Premium Cotton Basic T-Shirt",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/ao-thun-basic-1.jpg"
+          ],
+          "offerPrice": 249000
+        },
+        "quantity": 3,
+        "size": "M"
+      },
+      {
+        "product": {
+          "_id": "673b1234567890abcdef1014",
+          "name": "Men's Waterproof Fashion Backpack",
+          "image": [
+            "https://res.cloudinary.com/veloura/image/upload/v1/products/balo-nam-1.jpg"
+          ],
+          "offerPrice": 459000
+        },
+        "quantity": 1,
+        "size": "OneSize"
+      }
+    ],
+    "amount": 1206000,
+    "address": {
+      "firstName": "John",
+      "lastName": "Anderson",
+      "email": "john.anderson@example.com",
+      "street": "123 Main Street",
+      "city": "Ho Chi Minh City",
+      "state": "District 1",
+      "zipcode": "700000",
+      "country": "Vietnam",
+      "phone": "+84901234567"
+    },
+    "status": "Order Placed",
+    "paymentMethod": "Stripe",
+    "isPaid": true,
+    "paidAt": {"$date": "2024-10-23T08:20:00.000Z"},
+    "stripeSessionId": "cs_test_k9l8m7n6o5p4q3r2s1t0",
+    "createdAt": {"$date": "2024-10-23T08:15:00.000Z"},
+    "updatedAt": {"$date": "2024-10-23T08:20:00.000Z"}
+  }
+]

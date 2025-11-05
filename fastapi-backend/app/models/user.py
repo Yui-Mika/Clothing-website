@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, Dict, List
-from datetime import datetime
+from datetime import datetime, date
 from bson import ObjectId
 
 class PyObjectId(ObjectId):
@@ -22,6 +22,10 @@ class UserBase(BaseModel):
     name: str = Field(..., min_length=2, max_length=100)
     email: EmailStr
     password: str = Field(..., min_length=6)
+    phone: Optional[str] = Field(None, min_length=10, max_length=15)
+    address: Optional[str] = Field(None, max_length=200)
+    dateOfBirth: Optional[date] = Field(None, description="Date of birth (YYYY-MM-DD)")
+    gender: Optional[str] = Field(None, pattern="^(male|female|other)$")
 
 class UserCreate(UserBase):
     pass
@@ -34,6 +38,10 @@ class User(BaseModel):
     id: str = Field(alias="_id")
     name: str
     email: EmailStr
+    phone: Optional[str] = None
+    address: Optional[str] = None
+    dateOfBirth: Optional[date] = None
+    gender: Optional[str] = None
     cartData: Dict[str, Dict[str, int]] = Field(default_factory=dict)
     role: str = "customer"  # customer, staff, admin
     emailVerified: bool = False  # 👈 Thêm field xác thực email
@@ -49,6 +57,10 @@ class UserResponse(BaseModel):
     id: str = Field(alias="_id")
     name: str
     email: EmailStr
+    phone: Optional[str] = None
+    address: Optional[str] = None
+    dateOfBirth: Optional[date] = None
+    gender: Optional[str] = None
     role: str
     cartData: Dict[str, Dict[str, int]] = Field(default_factory=dict)
     isActive: bool
@@ -63,6 +75,10 @@ class UserUpdate(BaseModel):
     name: Optional[str] = None
     email: Optional[EmailStr] = None
     password: Optional[str] = None
+    phone: Optional[str] = None
+    address: Optional[str] = None
+    dateOfBirth: Optional[date] = None
+    gender: Optional[str] = None
     role: Optional[str] = None
     isActive: Optional[bool] = None
 

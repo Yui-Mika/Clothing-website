@@ -1,0 +1,52 @@
+[
+  {
+    "_id": {"$oid": "673b1234567890abcdef0001"},
+    "name": "John Anderson",
+    "email": "john.anderson@example.com",
+    "password": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYIeWPyS2mC",
+    "cartData": {
+      "673b1234567890abcdef1001": {
+        "M": 2,
+        "L": 1
+      }
+    },
+    "role": "customer",
+    "isActive": true,
+    "createdAt": {"$date": "2024-10-01T10:00:00.000Z"},
+    "updatedAt": {"$date": "2024-10-23T15:30:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef0002"},
+    "name": "Michael Chen",
+    "email": "michael.chen@example.com",
+    "password": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYIeWPyS2mC",
+    "cartData": {},
+    "role": "customer",
+    "isActive": true,
+    "createdAt": {"$date": "2024-10-05T08:00:00.000Z"},
+    "updatedAt": {"$date": "2024-10-20T12:15:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef0003"},
+    "name": "Admin Veloura",
+    "email": "admin@veloura.com",
+    "password": "$2b$12$FZmTwo.tke7/9cSpon21I.KRE5VTzzrHgF.YL6dVck9R9WNezRRva",
+    "cartData": {},
+    "role": "admin",
+    "emailVerified": true,
+    "isActive": true,
+    "createdAt": {"$date": "2024-09-01T00:00:00.000Z"},
+    "updatedAt": {"$date": "2024-10-23T10:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef0004"},
+    "name": "Staff Manager",
+    "email": "staff@veloura.com",
+    "password": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewY5GyYIeWPyS2mC",
+    "cartData": {},
+    "role": "staff",
+    "isActive": true,
+    "createdAt": {"$date": "2024-09-15T00:00:00.000Z"},
+    "updatedAt": {"$date": "2024-10-22T14:00:00.000Z"}
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "_id": {"$oid": "673b1234567890abcdef4001"},
+    "title": "Top 10 Men's Fashion Trends 2024-2025",
+    "category": "Fashion Trends",
+    "content": "Discover the 10 hottest men's fashion trends for 2024-2025. From Japanese minimalism to Korean streetwear, from oversized to tailored fit. We analyze in detail how to mix and match outfits, choose colors and materials suitable for each body type. Especially, Vietnamese local brands are gradually establishing their position with unique designs combining Eastern and Western culture. The Uniqlo style with the 'less is more' philosophy is becoming the most popular trend among Vietnamese youth.",
+    "author": "Fashion Editor",
+    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/xu-huong-nam-2024.jpg",
+    "isPublished": true,
+    "createdAt": {"$date": "2024-10-01T10:00:00.000Z"},
+    "updatedAt": {"$date": "2024-10-01T10:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef4002"},
+    "title": "How to Build a Basic Wardrobe for Men",
+    "category": "Styling Guide",
+    "content": "A perfect men's wardrobe doesn't need too many items but focuses on quality and versatility. This article will guide you to build a capsule wardrobe with essential pieces: 5 basic t-shirts, 3 dress shirts (white, blue, checkered), 2 jeans (dark blue, black), 2 chinos (beige, gray), 1 hoodie, 1 jacket. With these 15-20 items, you can create over 50 different outfits for all occasions from work, casual wear to important meetings. Investing in quality will help your clothes stay beautiful over time.",
+    "author": "Professional Stylist",
+    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/tu-do-co-ban-nam.jpg",
+    "isPublished": true,
+    "createdAt": {"$date": "2024-10-05T14:30:00.000Z"},
+    "updatedAt": {"$date": "2024-10-05T14:30:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef4003"},
+    "title": "Vietnamese Local Brands - The New Trend Among Youth",
+    "category": "Vietnamese Brands",
+    "content": "Vietnamese local brands are gradually dominating the domestic and regional fashion market. With the slogan 'Made in Vietnam - Wear with Pride', brands like Coolmate, Routine, and Mint Basics have proven that Vietnamese products can compete in quality and design. The strength of local brands is understanding Vietnamese preferences, using materials suitable for tropical climate, reasonable prices, and dedicated customer service. Let's support high-quality Vietnamese products!",
+    "author": "Fashion Expert",
+    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/local-brand-viet.jpg",
+    "isPublished": true,
+    "createdAt": {"$date": "2024-10-10T09:15:00.000Z"},
+    "updatedAt": {"$date": "2024-10-10T09:15:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "673b1234567890abcdef4004"},
+    "title": "Secrets to Choosing Men's T-Shirts for Different Body Types",
+    "category": "Shopping Guide",
+    "content": "T-shirts are an indispensable item in men's wardrobes, but not everyone knows how to choose shirts suitable for their body type. Skinny build should choose fitted or slim fit to enhance physique, avoid oversized which makes you look smaller. Athletic/muscular build should choose regular fit with good stretch fabric. Heavy build should choose t-shirts that go past the hips, moderate sleeve length, avoid too tight shirts. Ideal sleeve length is across the bicep. Cotton or cotton-polyester blend materials provide good moisture absorption and color retention. Basic colors like white, black, gray, navy are easiest to mix and match.",
+    "author": "Personal Stylist",
+    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/chon-ao-thun.jpg",
+    "isPublished": true,
+    "createdAt": {"$date": "2024-10-15T16:45:00.000Z"},
+    "updatedAt": {"$date": "2024-10-15T16:45:00.000Z"}
+  }
+]

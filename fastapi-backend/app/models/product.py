@@ -3,6 +3,14 @@ from typing import List, Optional
 from datetime import datetime
 from bson import ObjectId
 
+class ProductDetails(BaseModel):
+    material: str
+    fit: str
+    care: str
+    features: List[str] = Field(default_factory=list)
+    weight: str
+    origin: str
+
 class ProductBase(BaseModel):
     name: str = Field(..., min_length=3, max_length=200)
     description: str = Field(..., min_length=10)
@@ -10,8 +18,9 @@ class ProductBase(BaseModel):
     offerPrice: float = Field(..., gt=0)
     category: str
     sizes: List[str] = Field(default_factory=list)
+    colors: Optional[List[str]] = Field(default_factory=list)
+    details: Optional[ProductDetails] = None
     popular: bool = False
-    stock: int = Field(default=20, ge=0)
 
 class ProductCreate(ProductBase):
     pass
@@ -25,8 +34,10 @@ class Product(BaseModel):
     offerPrice: float
     category: str
     sizes: List[str]
+    colors: Optional[List[str]] = Field(default_factory=list)
+    details: Optional[ProductDetails] = None
     popular: bool
-    stock: int = Field(default=20, ge=0)
+    inStock: bool = True
     createdAt: datetime = Field(default_factory=datetime.utcnow)
     updatedAt: datetime = Field(default_factory=datetime.utcnow)
 
@@ -41,9 +52,11 @@ class ProductUpdate(BaseModel):
     offerPrice: Optional[float] = None
     category: Optional[str] = None
     sizes: Optional[List[str]] = None
+    colors: Optional[List[str]] = None
+    details: Optional[ProductDetails] = None
     popular: Optional[bool] = None
     image: Optional[List[str]] = None
-    stock: Optional[int] = Field(None, ge=0)
+    inStock: Optional[bool] = None
 
 class ProductResponse(BaseModel):
     id: str = Field(alias="_id")
@@ -54,8 +67,10 @@ class ProductResponse(BaseModel):
     offerPrice: float
     category: str
     sizes: List[str]
+    colors: Optional[List[str]] = Field(default_factory=list)
+    details: Optional[ProductDetails] = None
     popular: bool
-    stock: int
+    inStock: bool
     createdAt: datetime
     updatedAt: datetime
 

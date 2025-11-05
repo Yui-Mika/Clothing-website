@@ -24,18 +24,11 @@ async def place_cod_order(order_data: OrderCreate, request: Request, user: dict 
     total_amount = 0
     
     for item in order_data.items:
-        product = await products_collection.find_one({"_id": ObjectId(item.product), "stock": {"$gt": 0}})
+        product = await products_collection.find_one({"_id": ObjectId(item.product), "isActive": True})
         if not product:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Product {item.product} not found or out of stock"
-            )
-        
-        # Check if there's enough stock
-        if product["stock"] < item.quantity:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Not enough stock for product {product['name']}. Available: {product['stock']}"
+                detail=f"Product {item.product} not found"
             )
         
         item_total = product["offerPrice"] * item.quantity
@@ -95,18 +88,11 @@ async def place_stripe_order(order_data: OrderCreate, request: Request, user: di
     line_items = []
     
     for item in order_data.items:
-        product = await products_collection.find_one({"_id": ObjectId(item.product), "stock": {"$gt": 0}})
+        product = await products_collection.find_one({"_id": ObjectId(item.product), "isActive": True})
         if not product:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Product {item.product} not found or out of stock"
-            )
-        
-        # Check if there's enough stock
-        if product["stock"] < item.quantity:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Not enough stock for product {product['name']}. Available: {product['stock']}"
+                detail=f"Product {item.product} not found"
             )
         
         item_total = product["offerPrice"] * item.quantity

@@ -8,36 +8,53 @@ import { useParams } from "react-router-dom";
 
 // Quản lý State
 const CategoryCollection = () => {
-  const { products, searchQuery } = useContext(ShopContext); // Lấy danh sách sản phẩm và từ khóa tìm kiếm từ context.
+  const { products, searchQuery, axios } = useContext(ShopContext); // Lấy danh sách sản phẩm và từ khóa tìm kiếm từ context.
   const [filteredProducts, setFilteredProducts] = useState([]); // Mảng sản phẩm sau khi đã được lọc theo danh mục và từ khóa tìm kiếm.
   const [currentPage, setCurrentPage] = useState(1); //Số trang hiện tại mà người dùng đang xem (dùng cho phân trang).
   const itemsPerPage = 8; // Số lượng sản phẩm hiển thị trên mỗi trang.
-  const { category } = useParams();
+  const { category } = useParams(); // Lấy slug từ URL
+  const [categoryName, setCategoryName] = useState(""); // Tên category thực sự từ database
 
+
+  // Fetch category name từ slug
+  useEffect(() => {
+    const fetchCategoryName = async () => {
+      if (category) {
+        try {
+          const { data } = await axios.get(`/api/category/slug/${category}`);
+          if (data.success) {
+            setCategoryName(data.category.name);
+          }
+        } catch (error) {
+          console.error("Error fetching category:", error);
+        }
+      }
+    };
+    fetchCategoryName();
+  }, [category, axios]);
 
   // Logic lọc sản phẩm
   // Chịu trách nhiệm cập nhật danh sách sản phẩm hiển thị mỗi khi dữ liệu hoặc điều kiện lọc thay đổi
   useEffect(() => {
     let result = products;
 
-    // Filter by category from URL
-    if (category) {
+    // Filter by category name (đã convert từ slug)
+    if (categoryName) {
       result = result.filter(
-        (product) => product.category.toLowerCase() === category.toLowerCase()
+        (product) => product.category === categoryName
       );
     }
 
     // Lọc theo từ khóa tìm kiếm (searchQuery) từ Context
     if (searchQuery.length > 0) {
-      setFilteredProducts(
-        (result = result.filter((product) =>
-          product.name.toLowerCase().includes(searchQuery.toLowerCase())
-        ))
+      result = result.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
+    
     setFilteredProducts(result);
     setCurrentPage(1); // 🔁 Reset to first page on search/filter change
-  }, [products, searchQuery, category]);
+  }, [products, searchQuery, categoryName]);
 
   // Tính toán tổng số trang dựa trên số sản phẩm đã lọc và số sản phẩm trên mỗi trang
   // Lưu ý: chỉ tính các sản phẩm còn hàng (inStock)
@@ -50,30 +67,26 @@ const CategoryCollection = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
-  // Hiển thị giao diện
+  // 
   return (
     <div className="max-padd-container py-16 pt-28">
       <Title
-        title1={`${category}`}
+        title1={categoryName || category}
         title2={"Products"}
-        titleStyles={"pb-5 capitalize"}
+        titleStyles={"pb-5"}
       />
-      {/* Sản phẩm và phân trang */}
-      {/* Hiển thị danh sách sản phẩm */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3"> {/* Sử dụng CSS grid để bố trí sản phẩm */}
-        {/* Logic hiển thị */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
         {filteredProducts.length > 0 ? (
           filteredProducts
-            .filter((product) => product.inStock) // Chỉ hiển thị sản phẩm còn hàng
-            .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) // Chọn sản phẩm cho trang hiện tại
+            .filter((product) => product.inStock)
+            .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
             .map((product) => <Item key={product._id} product={product} />)
         ) : (
-          <p>Oops! Nothing matched your search.</p> // Trường hợp không có sản phẩm nào phù hợp
+          <p>Oops! Nothing matched your search.</p>
         )}
       </div>
-      {/* Phân trang - PAGINATION */}
+      {/* PAGINATION */}
       <div className="flexCenter flex-wrap gap-4 mt-14 mb-10">
-        {/* Nút Previous */}
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((prev) => prev - 1)}
@@ -83,7 +96,6 @@ const CategoryCollection = () => {
         >
           Previous
         </button>
-        {/* Các nút số trang */}
         {Array.from({ length: totalPages }, (_, index) => (
           <button
             key={index + 1}
@@ -95,7 +107,6 @@ const CategoryCollection = () => {
             {index + 1}
           </button>
         ))}
-        {/* Nút Next */}
         <button
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage((prev) => prev + 1)}
