@@ -14,7 +14,8 @@ async def get_all_categories():
     """Get all active categories"""
     categories_collection = await get_collection("categories")
     
-    categories = await categories_collection.find({"isActive": True}).to_list(length=None)
+    # Query categories có inStock=True (database dùng inStock thay vì isActive)
+    categories = await categories_collection.find({"inStock": True}).sort("order", 1).to_list(length=None)
     
     for category in categories:
         category["_id"] = str(category["_id"])
@@ -29,7 +30,29 @@ async def get_category(category_id: str):
     """Get single category"""
     categories_collection = await get_collection("categories")
     
-    category = await categories_collection.find_one({"_id": ObjectId(category_id), "isActive": True})
+    # Query với inStock=True thay vì isActive
+    category = await categories_collection.find_one({"_id": ObjectId(category_id), "inStock": True})
+    
+    if not category:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Category not found"
+        )
+    
+    category["_id"] = str(category["_id"])
+    
+    return {
+        "success": True,
+        "category": category
+    }
+
+@router.get("/slug/{slug}", response_model=dict)
+async def get_category_by_slug(slug: str):
+    """Get single category by slug"""
+    categories_collection = await get_collection("categories")
+    
+    # Query với slug và inStock=True
+    category = await categories_collection.find_one({"slug": slug, "inStock": True})
     
     if not category:
         raise HTTPException(
@@ -68,12 +91,21 @@ async def add_category(
         content = await image.read()
         image_url = await upload_image(content, folder="veloura/categories")
     
+    # Tự động tạo slug từ name
+    slug = name.lower().replace(" & ", "-").replace(" ", "-").replace("&", "and")
+    
+    # Get the highest order number
+    last_category = await categories_collection.find_one(sort=[("order", -1)])
+    next_order = (last_category.get("order", 0) + 1) if last_category else 1
+    
     # Create category
     category_doc = {
         "name": name,
+        "slug": slug,
         "description": description,
         "image": image_url,
-        "isActive": True,
+        "inStock": True,
+        "order": next_order,
         "createdAt": datetime.utcnow(),
         "updatedAt": datetime.utcnow()
     }
@@ -109,6 +141,8 @@ async def update_category(
     
     if name:
         update_data["name"] = name
+        # Tự động cập nhật slug khi đổi name
+        update_data["slug"] = name.lower().replace(" & ", "-").replace(" ", "-").replace("&", "and")
     if description:
         update_data["description"] = description
     
@@ -135,9 +169,10 @@ async def delete_category(category_id: str, staff: dict = Depends(auth_staff)):
     """Soft delete category (Staff/Admin only)"""
     categories_collection = await get_collection("categories")
     
+    # Soft delete bằng cách set inStock=False
     result = await categories_collection.update_one(
         {"_id": ObjectId(category_id)},
-        {"$set": {"isActive": False, "updatedAt": datetime.utcnow()}}
+        {"$set": {"inStock": False, "updatedAt": datetime.utcnow()}}
     )
     
     if result.matched_count == 0:

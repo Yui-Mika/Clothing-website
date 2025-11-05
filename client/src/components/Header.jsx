@@ -14,10 +14,18 @@ const Header = () => {
   const { navigate, user, setShowUserLogin, searchQuery, setSearchQuery, getCartCount, axios, logoutUser } = useContext(ShopContext);
   const [menuOpened, setMenuOpened] = useState(false); // State để theo dõi trạng thái mở/đóng của menu trên di động
   const [showSearch, setShowSearch] = useState(false); // State để theo dõi trạng thái hiển thị thanh tìm kiếm
+  const [showUserMenu, setShowUserMenu] = useState(false); // State để quản lý menu user dropdown
   // kiểm tra xem người dùng có đang ở trang chủ hay không
   const location = useLocation()
   const isHomepage = location.pathname === '/';
   const isOnCollectionPage = location.pathname.endsWith('/collection') // ktra có đang ở trang danh mục sản phẩm hay không
+
+  // Đóng menu user khi user logout (user === null)
+  useEffect(() => {
+    if (!user) {
+      setShowUserMenu(false);
+    }
+  }, [user]);
 
   // hàm xử lý chuyển đổi trạng thái mở/đóng menu (true thành false và ngược lại)
   const toggleMenu = () => setMenuOpened((prev) => !prev);
@@ -104,9 +112,12 @@ const Header = () => {
           
           {/* Hồ sơ người dùng - USER PROFILE */}
           {/* Phần này có logic điều kiện để hiển thị giao diện khác nhau tùy thuộc vào trạng thái user */}
-          <div className="group relative">
+          <div className="relative">
             {user ? ( // nếu user là true (người dùng đã đăng nhập)
-              <div className="p-1 hover:bg-gray-100 rounded-lg transition-all duration-300 cursor-pointer">
+              <div 
+                onClick={() => setShowUserMenu(!showUserMenu)}
+                className="p-1 hover:bg-gray-100 rounded-lg transition-all duration-300 cursor-pointer"
+              >
                 <img src={userImg} alt="User" className="h-9 w-9 rounded-full object-cover ring-2 ring-gray-200" /> {/* hiển thị ảnh hồ sơ người dùng */}
               </div>
             ) : ( // nếu user là false (người dùng chưa đăng nhập)
@@ -120,17 +131,23 @@ const Header = () => {
             )}
             
             {/* DROPDOWN - phần Dropdown (thả xuống) trong khối Hồ sơ Người dùng */}
-            {user && (
-              <ul className="bg-white p-2 w-36 border border-gray-200 rounded-lg absolute right-0 top-12 hidden group-hover:flex flex-col text-sm shadow-lg z-50">
+            {user && showUserMenu && (
+              <ul className="bg-white p-2 w-36 border border-gray-200 rounded-lg absolute right-0 top-12 flex flex-col text-sm shadow-lg z-50">
                 {/* Nội dung Dropdown */}
                 <li
-                  onClick={() => navigate("/my-orders")}
+                  onClick={() => {
+                    navigate("/my-orders");
+                    setShowUserMenu(false);
+                  }}
                   className="px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 hover:text-tertiary cursor-pointer transition-all duration-200"
                 >
                   My Orders
                 </li>
                 <li
-                  onClick={logoutUser}
+                  onClick={() => {
+                    logoutUser();
+                    setShowUserMenu(false);
+                  }}
                   className="px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 hover:text-red-600 cursor-pointer transition-all duration-200"
                 >
                   Logout

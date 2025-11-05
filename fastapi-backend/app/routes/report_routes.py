@@ -16,7 +16,7 @@ async def get_dashboard_stats(admin: dict = Depends(auth_admin_only)):
     
     # Total counts
     total_customers = await users_collection.count_documents({"role": "customer"})
-    total_products = await products_collection.count_documents({"stock": {"$gt": 0}})
+    total_products = await products_collection.count_documents({"isActive": True})
     total_orders = await orders_collection.count_documents({})
     
     # Total revenue
@@ -148,12 +148,12 @@ async def get_product_report(admin: dict = Depends(auth_admin_only)):
     # Get unique categories from orders
     category_sales = await orders_collection.aggregate(category_pipeline).to_list(length=None)
     
-    # Total active products (products with stock > 0)
-    total_active_products = await products_collection.count_documents({"stock": {"$gt": 0}})
+    # Total active products
+    total_active_products = await products_collection.count_documents({"isActive": True})
     
     # Products by category
     products_by_category = await products_collection.aggregate([
-        {"$match": {"stock": {"$gt": 0}}},
+        {"$match": {"isActive": True}},
         {"$group": {"_id": "$category", "count": {"$sum": 1}}}
     ]).to_list(length=None)
     
