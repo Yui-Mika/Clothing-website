@@ -1,5 +1,7 @@
 // Bộ khung của Home
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import Hero from '../components/Hero' // nhập khẩu component bằng tên Hero từ tệp Hero.jsx
 import Categories from '../components/Categories' // nhập khẩu component Categories từ tệp Categories.jsx
 import Features from '../components/Features' // nhập khẩu component Features từ tệp Features.jsx
@@ -8,6 +10,30 @@ import banner from "../assets/banner.jpg" // nhập khẩu hình ảnh banner t�
 import Blog from '../components/Blog' // nhập khẩu component Blog từ tệp Blog.jsx
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check for email verification status in URL
+    const searchParams = new URLSearchParams(location.search);
+    const verified = searchParams.get('verified');
+    const error = searchParams.get('error');
+
+    if (verified === 'true') {
+      toast.success('Email verified successfully! You can now login.', {
+        duration: 5000,
+        icon: '✅'
+      });
+      // Clean URL
+      window.history.replaceState({}, '', '/');
+    } else if (verified === 'false') {
+      toast.error(error || 'Email verification failed. Please try again.', {
+        duration: 5000
+      });
+      // Clean URL
+      window.history.replaceState({}, '', '/');
+    }
+  }, [location]);
+
   return (
     <>
     {/* Nội dung chính của trang chủ */}

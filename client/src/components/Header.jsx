@@ -104,7 +104,7 @@ const Header = () => {
           >
             <FaShoppingBasket className="text-2xl text-gray-700 group-hover:text-tertiary transition-colors" />
             {getCartCount() > 0 && ( // Hiển thị số lượng sản phẩm trong giỏ hàng nếu có
-              <span className="absolute -top-1 -right-1 bg-tertiary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
                 {getCartCount()}
               </span>
             )}

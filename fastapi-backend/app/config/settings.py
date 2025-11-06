@@ -28,11 +28,24 @@ class Settings(BaseSettings):
     SMTP_FROM_EMAIL: Optional[str] = None
     SMTP_FROM_NAME: str = "Veloura Shop"
     
+    # Email Configuration (for fastapi-mail)
+    MAIL_USERNAME: Optional[str] = None
+    MAIL_PASSWORD: Optional[str] = None
+    MAIL_FROM: Optional[str] = None
+    MAIL_SERVER: str = "smtp.gmail.com"
+    MAIL_PORT: int = 587
+    MAIL_TLS: str = "true"
+    MAIL_SSL: str = "false"
+    MAIL_FROM_NAME: str = "Veloura Shop"
+    
     # Resend API (alternative to SMTP)
     RESEND_API_KEY: Optional[str] = None
     
     # Frontend URL
     FRONTEND_URL: str = "http://localhost:5173"
+    
+    # Backend URL (for email verification links)
+    BACKEND_URL: str = "http://localhost:8000"
     
     # Admin credentials
     ADMIN_EMAIL: str = "admin@veloura.com"

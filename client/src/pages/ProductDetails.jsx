@@ -127,7 +127,7 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <ProductDescription />
+        <ProductDescription product={product} />
         <ProductFeatures />
         {/* Related Products */}
         <RelatedProducts product={product} id={id} />
