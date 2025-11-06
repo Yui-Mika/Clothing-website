@@ -1,1601 +1,1599 @@
-[
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1001"
-    },
-    "name": "Men's Premium Cotton Basic T-Shirt",
-    "description": "Men's t-shirt made from 100% premium Supima cotton, excellent stretch and moisture absorption. Regular fit for comfort, suitable for all body types. Minimalist Japanese-style design.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455359/item/goods_09_455359.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455359/sub/goods_455359_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455359/sub/goods_455359_sub17.jpg"
-    ],
-    "price": 299000,
-    "offerPrice": 249000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Black",
-      "White"
-    ],
-    "details": {
-      "material": "100% Supima Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Moisture-wicking",
-        "Soft and comfortable",
-        "Durable stitching"
-      ],
-      "weight": "180g",
-      "origin": "Made in Vietnam"
-    },
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-01T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-15T10:00:00.000Z"
-    }
+[{
+  "_id": {
+    "$oid": "673b1234567890abcdef1001"
   },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1002"
-    },
-    "name": "Men's White Oxford Dress Shirt",
-    "description": "Men's office dress shirt in premium Oxford fabric, wrinkle-resistant. Classic collar design with slim fit silhouette. Perfect for office environments and important meetings.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450294/item/goods_01_450294.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450294/sub/goods_450294_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450294/sub/goods_450294_sub17.jpg"
+  "name": "Washable Milano Ribbed Knitted T-Shirt",
+  "description": "Men's t-shirt made from 100% premium Supima cotton, excellent stretch and moisture absorption. Regular fit for comfort, suitable for all body types. Minimalist Japanese-style design.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/481004/sub/goods_481004_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature2.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature1.jpg?width=600 height=200"
+  ],
+  "price": 299000,
+  "offerPrice": 249000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Black",
+    "White"
+  ],
+  "details": {
+    "material": "100% Supima Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Moisture-wicking",
+      "Soft and comfortable",
+      "Durable stitching"
     ],
-    "price": 450000,
-    "offerPrice": 399000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "White",
-      "Light Blue",
-      "Pink"
-    ],
-    "details": {
-      "material": "100% Oxford Cotton",
-      "fit": "Slim Fit",
-      "care": "Dry clean recommended, or machine wash cold with similar colors",
-      "features": [
-        "Wrinkle-resistant",
-        "Classic collar",
-        "Button cuffs",
-        "Formal design"
-      ],
-      "weight": "220g",
-      "origin": "Made in Bangladesh"
-    },
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-05T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-10T12:00:00.000Z"
-    }
+    "weight": "180g",
+    "origin": "Made in Vietnam"
   },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1003"
-    },
-    "name": "Men's Dark Blue Slim Fit Jeans",
-    "description": "Men's jeans in 4-way stretch denim, soft and comfortable. Slim fit with flattering silhouette. Dark blue color that's fade-resistant and easy to pair.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450471/item/goods_69_450471.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450471/sub/goods_450471_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/450471/sub/goods_450471_sub17.jpg"
-    ],
-    "price": 550000,
-    "offerPrice": 495000,
-    "category": "Bottoms",
-    "sizes": [
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34"
-    ],
-    "colors": [
-      "Dark Blue",
-      "Black",
-      "Light Blue"
-    ],
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "4-way stretch",
-        "Fade-resistant dye",
-        "Five-pocket design",
-        "Belt loops"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    },
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-10T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2024-10-18T09:00:00.000Z"
-    }
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-01T00:00:00.000Z"
   },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1004"
-    },
-    "name": "Men's Pique Cotton Polo Shirt",
-    "description": "Men's polo shirt in breathable pique cotton, excellent moisture absorption. Elegant collar design with regular fit. Perfect for golf, casual wear, or meeting friends.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/453992/item/goods_69_453992.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/453992/sub/goods_453992_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/453992/sub/goods_453992_sub17.jpg"
-    ],
-    "price": 380000,
-    "offerPrice": 329000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Navy",
-      "White",
-      "Red",
-      "Green"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-12T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.555692Z"
-    },
-    "details": {
-      "material": "100% Premium Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Comfortable wear",
-        "Durable stitching",
-        "Easy care"
-      ],
-      "weight": "200g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1005"
-    },
-    "name": "Men's Beige Slim Fit Chinos",
-    "description": "Men's chinos in slim fit, stretch cotton blend fabric. Neutral beige color for easy pairing. Modern diagonal pocket design with meticulous stitching.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455382/item/goods_30_455382.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455382/sub/goods_455382_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455382/sub/goods_455382_sub17.jpg"
-    ],
-    "price": 480000,
-    "offerPrice": 429000,
-    "category": "Bottoms",
-    "sizes": [
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34"
-    ],
-    "colors": [
-      "Beige",
-      "Navy",
-      "Olive",
-      "Black"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-15T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.555770Z"
-    },
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "Stretch fabric",
-        "Comfortable fit",
-        "Durable denim",
-        "Classic style"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1006"
-    },
-    "name": "Men's Unisex Hoodie Jacket",
-    "description": "Men's hoodie in thick fleece fabric, excellent warmth. Trendy oversized fit with hood and kangaroo pocket. Dynamic streetwear style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455349/item/goods_08_455349.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455349/sub/goods_455349_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455349/sub/goods_455349_sub17.jpg"
-    ],
-    "price": 650000,
-    "offerPrice": 549000,
-    "category": "Outerwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Gray",
-      "Black",
-      "Navy"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-20T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.555841Z"
-    },
-    "details": {
-      "material": "Polyester blend with fleece lining",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, hang to dry",
-      "features": [
-        "Windproof",
-        "Water-resistant",
-        "Warm lining",
-        "Multiple pockets"
-      ],
-      "weight": "600g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1007"
-    },
-    "name": "Men's Crew Neck Basic T-Shirt",
-    "description": "Men's basic crew neck t-shirt in soft compact cotton. Comfortable regular fit. Available in multiple colors to choose from.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455359/item/goods_01_455359.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455359/sub/goods_455359_sub7.jpg"
-    ],
-    "price": 250000,
-    "offerPrice": 199000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "White",
-      "Black",
-      "Gray",
-      "Navy",
-      "Red"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-25T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556083Z"
-    },
-    "details": {
-      "material": "100% Premium Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Comfortable wear",
-        "Durable stitching",
-        "Easy care"
-      ],
-      "weight": "200g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1008"
-    },
-    "name": "Men's Flannel Plaid Checkered Shirt",
-    "description": "Men's flannel shirt with vintage plaid checkered pattern. Soft and warm fabric. Korean casual style, perfect for autumn and winter.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455508/item/goods_33_455508.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455508/sub/goods_455508_sub14.jpg"
-    ],
-    "price": 420000,
-    "offerPrice": 369000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
-    "colors": [
-      "Red Check",
-      "Blue Check"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-09-28T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556131Z"
-    },
-    "details": {
-      "material": "100% Premium Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Comfortable wear",
-        "Durable stitching",
-        "Easy care"
-      ],
-      "weight": "200g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1009"
-    },
-    "name": "Men's Light Wash Baggy Jeans",
-    "description": "Men's trending baggy fit jeans, light wash for vintage effect. Thick and durable denim fabric. Unique retro style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455467/item/goods_60_455467.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455467/sub/goods_455467_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455467/sub/goods_455467_sub17.jpg"
-    ],
-    "price": 590000,
-    "offerPrice": 499000,
-    "category": "Bottoms",
-    "sizes": [
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34"
-    ],
-    "colors": [
-      "Light Blue",
-      "Black"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-01T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556153Z"
-    },
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "Stretch fabric",
-        "Comfortable fit",
-        "Durable denim",
-        "Classic style"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1010"
-    },
-    "name": "Men's Reversible Bomber Jacket",
-    "description": "Men's reversible 2-sided bomber jacket, one side solid one side with pattern. Lightweight windproof polyester fabric. Dynamic unisex design.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455528/item/goods_09_455528.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455528/sub/goods_455528_sub14.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455528/sub/goods_455528_sub17.jpg"
-    ],
-    "price": 750000,
-    "offerPrice": 649000,
-    "category": "Outerwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL"
-    ],
-    "colors": [
-      "Black/Gray"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-05T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556345Z"
-    },
-    "details": {
-      "material": "Polyester blend with fleece lining",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, hang to dry",
-      "features": [
-        "Windproof",
-        "Water-resistant",
-        "Warm lining",
-        "Multiple pockets"
-      ],
-      "weight": "600g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1011"
-    },
-    "name": "Premium Leather Men's Wallet",
-    "description": "Authentic men's leather wallet, 100% genuine cowhide leather, multiple card slots and cash compartments. Elegant design, perfect as a gift.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455188/item/goods_09_455188.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455188/sub/goods_455188_sub14.jpg"
-    ],
-    "price": 450000,
-    "offerPrice": 399000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Brown"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-08T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556528Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1012"
-    },
-    "name": "Men's Leather Belt with Auto Buckle",
-    "description": "Genuine cowhide leather belt, premium rustproof automatic buckle. Adjustable length with cuttable strap. Elegant style for gentlemen.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/429990/item/goods_38_429990.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/429990/sub/goods_429990_sub14.jpg"
-    ],
-    "price": 380000,
-    "offerPrice": 329000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Brown"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-10T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556611Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1013"
-    },
-    "name": "Men's Embroidered Logo Baseball Cap",
-    "description": "Men's baseball cap in premium fabric, featuring delicate embroidered logo. Adjustable size at back. Dynamic streetwear style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455199/item/goods_09_455199.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455199/sub/goods_455199_sub14.jpg"
-    ],
-    "price": 180000,
-    "offerPrice": 149000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Navy",
-      "White"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-12T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556687Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1014"
-    },
-    "name": "Men's Waterproof Fashion Backpack",
-    "description": "Men's office backpack, water-resistant material with multiple convenient compartments. Simple and modern design. Perfect for work, school, or travel.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455442/item/goods_09_455442.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455442/sub/goods_455442_sub14.jpg"
-    ],
-    "price": 520000,
-    "offerPrice": 459000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Navy"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-14T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556736Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1015"
-    },
-    "name": "Premium Cotton Men's Socks (3-Pair Combo)",
-    "description": "3-pair combo of men's socks in cotton-spandex blend, good stretch and moisture absorption. Available in multiple colors. Suitable for all occasions.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/443533/item/goods_01_443533.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/443533/sub/goods_443533_sub14.jpg"
-    ],
-    "price": 120000,
-    "offerPrice": 99000,
-    "category": "Accessories",
-    "sizes": [
-      "M",
-      "L"
-    ],
-    "colors": [
-      "Black",
-      "White",
-      "Gray"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-16T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.556949Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1016"
-    },
-    "name": "Men's Striped Long Sleeve Polo",
-    "description": "Classic striped polo shirt with long sleeves, made from soft cotton blend. Perfect for smart casual occasions and cooler weather.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/462778/item/goods_09_462778.jpg",
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/462778/sub/goods_462778_sub14.jpg"
-    ],
-    "price": 420000,
-    "offerPrice": 359000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Navy Stripe",
-      "Gray Stripe",
-      "Green Stripe"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-18T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557065Z"
-    },
-    "details": {
-      "material": "100% Premium Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Comfortable wear",
-        "Durable stitching",
-        "Easy care"
-      ],
-      "weight": "200g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1017"
-    },
-    "name": "Men's Linen Blend Short Sleeve Shirt",
-    "description": "Lightweight linen blend shirt perfect for summer. Breathable and comfortable with a relaxed fit. Natural wrinkle texture adds to the casual charm.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456112/item/goods_01_456112.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456112/sub/goods_456112_sub14.jpg"
-    ],
-    "price": 390000,
-    "offerPrice": 329000,
-    "category": "Shirts & Polos",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL"
-    ],
-    "colors": [
-      "White",
-      "Beige",
-      "Light Blue"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-19T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557109Z"
-    },
-    "details": {
-      "material": "100% Premium Cotton",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, tumble dry low",
-      "features": [
-        "Breathable fabric",
-        "Comfortable wear",
-        "Durable stitching",
-        "Easy care"
-      ],
-      "weight": "200g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1018"
-    },
-    "name": "Men's Cargo Pants with Multiple Pockets",
-    "description": "Functional cargo pants with multiple utility pockets. Made from durable cotton twill. Modern tapered fit for contemporary street style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461312/item/goods_56_461312.jpg",
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461312/sub/goods_461312_sub14.jpg"
-    ],
-    "price": 550000,
-    "offerPrice": 479000,
-    "category": "Bottoms",
-    "sizes": [
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34"
-    ],
-    "colors": [
-      "Olive",
-      "Black",
-      "Khaki"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-20T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557163Z"
-    },
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "Stretch fabric",
-        "Comfortable fit",
-        "Durable denim",
-        "Classic style"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1019"
-    },
-    "name": "Men's Corduroy Straight Pants",
-    "description": "Classic corduroy pants with vintage appeal. Soft texture and warm feel. Straight leg cut that works with any style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457854/item/goods_38_457854.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457854/sub/goods_457854_sub14.jpg"
-    ],
-    "price": 490000,
-    "offerPrice": 429000,
-    "category": "Bottoms",
-    "sizes": [
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34"
-    ],
-    "colors": [
-      "Brown",
-      "Navy",
-      "Beige"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-21T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557214Z"
-    },
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "Stretch fabric",
-        "Comfortable fit",
-        "Durable denim",
-        "Classic style"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1020"
-    },
-    "name": "Men's Jogger Sweatpants",
-    "description": "Comfortable jogger sweatpants in soft fleece. Elastic waistband with drawstring. Perfect for lounging or casual outings.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/458349/item/goods_08_458349.jpg",
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/458349/sub/goods_458349_sub14.jpg"
-    ],
-    "price": 420000,
-    "offerPrice": 359000,
-    "category": "Bottoms",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Gray",
-      "Black",
-      "Navy"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-22T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557251Z"
-    },
-    "details": {
-      "material": "98% Cotton, 2% Spandex",
-      "fit": "Slim Fit",
-      "care": "Machine wash cold inside out, hang to dry",
-      "features": [
-        "Stretch fabric",
-        "Comfortable fit",
-        "Durable denim",
-        "Classic style"
-      ],
-      "weight": "450g",
-      "origin": "Made in China"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1021"
-    },
-    "name": "Men's Puffer Down Jacket",
-    "description": "Premium down-filled puffer jacket with 90% down fill power. Ultra-lightweight yet warm. Packable design for easy carrying.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/460315/item/goods_09_460315.jpg",
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/460315/sub/goods_460315_sub14.jpg"
-    ],
-    "price": 890000,
-    "offerPrice": 749000,
-    "category": "Outerwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Black",
-      "Navy",
-      "Olive"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-23T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557277Z"
-    },
-    "details": {
-      "material": "Polyester blend with fleece lining",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, hang to dry",
-      "features": [
-        "Windproof",
-        "Water-resistant",
-        "Warm lining",
-        "Multiple pockets"
-      ],
-      "weight": "600g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1022"
-    },
-    "name": "Men's Windproof Parka Jacket",
-    "description": "Water-resistant parka with windproof technology. Adjustable hood and multiple pockets. Perfect for rainy and windy weather.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459742/item/goods_56_459742.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459742/sub/goods_459742_sub14.jpg"
-    ],
-    "price": 790000,
-    "offerPrice": 679000,
-    "category": "Outerwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Khaki",
-      "Navy",
-      "Black"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-24T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557313Z"
-    },
-    "details": {
-      "material": "Polyester blend with fleece lining",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, hang to dry",
-      "features": [
-        "Windproof",
-        "Water-resistant",
-        "Warm lining",
-        "Multiple pockets"
-      ],
-      "weight": "600g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1023"
-    },
-    "name": "Men's Fleece Full-Zip Jacket",
-    "description": "Cozy fleece jacket with full-zip closure. Soft and warm interior lining. Two side pockets for convenience.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461455/item/goods_08_461455.jpg",
-      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461455/sub/goods_461455_sub14.jpg"
-    ],
-    "price": 590000,
-    "offerPrice": 499000,
-    "category": "Outerwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Gray",
-      "Black",
-      "Navy",
-      "Green"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-25T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557362Z"
-    },
-    "details": {
-      "material": "Polyester blend with fleece lining",
-      "fit": "Regular Fit",
-      "care": "Machine wash cold, hang to dry",
-      "features": [
-        "Windproof",
-        "Water-resistant",
-        "Warm lining",
-        "Multiple pockets"
-      ],
-      "weight": "600g",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1024"
-    },
-    "name": "Men's Cotton Boxer Briefs (3-Pack)",
-    "description": "Premium cotton boxer briefs in 3-pack combo. Soft elastic waistband. Breathable fabric for all-day comfort.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455534/item/goods_69_455534.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455534/sub/goods_455534_sub14.jpg"
-    ],
-    "price": 350000,
-    "offerPrice": 299000,
-    "category": "Innerwear & Underwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Black",
-      "Gray",
-      "Navy"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-26T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557397Z"
-    },
-    "details": {
-      "material": "95% Cotton, 5% Elastane",
-      "fit": "Comfortable Fit",
-      "care": "Machine wash warm, tumble dry low",
-      "features": [
-        "Soft fabric",
-        "Elastic waistband",
-        "Breathable",
-        "Pack of 3"
-      ],
-      "weight": "150g",
-      "origin": "Made in Bangladesh"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1025"
-    },
-    "name": "Men's Heattech Thermal Long Sleeve Top",
-    "description": "Advanced Heattech technology for superior warmth. Moisture-wicking and quick-dry. Slim fit design layers perfectly under clothes.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457894/item/goods_09_457894.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457894/sub/goods_457894_sub14.jpg"
-    ],
-    "price": 280000,
-    "offerPrice": 239000,
-    "category": "Innerwear & Underwear",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "Black",
-      "Gray",
-      "White"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-27T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557425Z"
-    },
-    "details": {
-      "material": "95% Cotton, 5% Elastane",
-      "fit": "Comfortable Fit",
-      "care": "Machine wash warm, tumble dry low",
-      "features": [
-        "Soft fabric",
-        "Elastic waistband",
-        "Breathable",
-        "Pack of 3"
-      ],
-      "weight": "150g",
-      "origin": "Made in Bangladesh"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1026"
-    },
-    "name": "Men's Airism Mesh Tank Top",
-    "description": "Ultra-breathable Airism mesh tank top. Quick-dry and odor control technology. Smooth fabric feels cool against skin.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456743/item/goods_01_456743.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456743/sub/goods_456743_sub14.jpg"
-    ],
-    "price": 220000,
-    "offerPrice": 189000,
-    "category": "Innerwear & Underwear",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "colors": [
-      "White",
-      "Black",
-      "Gray"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-28T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557449Z"
-    },
-    "details": {
-      "material": "95% Cotton, 5% Elastane",
-      "fit": "Comfortable Fit",
-      "care": "Machine wash warm, tumble dry low",
-      "features": [
-        "Soft fabric",
-        "Elastic waistband",
-        "Breathable",
-        "Pack of 3"
-      ],
-      "weight": "150g",
-      "origin": "Made in Bangladesh"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1027"
-    },
-    "name": "Men's Canvas Slip-On Sneakers",
-    "description": "Classic canvas slip-on shoes. Comfortable cushioned insole. Easy to wear design perfect for everyday casual style.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455622/item/goods_01_455622.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455622/sub/goods_455622_sub14.jpg"
-    ],
-    "price": 450000,
-    "offerPrice": 389000,
-    "category": "Shoes",
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
-    "colors": [
-      "White",
-      "Black",
-      "Navy"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-29T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557474Z"
-    },
-    "details": {
-      "material": "Canvas upper with rubber sole",
-      "fit": "True to size",
-      "care": "Wipe clean with damp cloth",
-      "features": [
-        "Cushioned insole",
-        "Non-slip sole",
-        "Breathable",
-        "Lace-up closure"
-      ],
-      "weight": "800g per pair",
-      "origin": "Made in Indonesia"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1028"
-    },
-    "name": "Men's Sport Running Shoes",
-    "description": "Lightweight running shoes with breathable mesh upper. Cushioned sole for impact absorption. Suitable for jogging and gym workouts.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458834/item/goods_01_458834.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458834/sub/goods_458834_sub14.jpg"
-    ],
-    "price": 590000,
-    "offerPrice": 499000,
-    "category": "Shoes",
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
-    "colors": [
-      "Black",
-      "Gray"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-30T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557497Z"
-    },
-    "details": {
-      "material": "Canvas upper with rubber sole",
-      "fit": "True to size",
-      "care": "Wipe clean with damp cloth",
-      "features": [
-        "Cushioned insole",
-        "Non-slip sole",
-        "Breathable",
-        "Lace-up closure"
-      ],
-      "weight": "800g per pair",
-      "origin": "Made in Indonesia"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1029"
-    },
-    "name": "Men's Leather Loafers",
-    "description": "Premium leather loafers with classic design. Comfortable padded insole. Perfect for office wear or smart casual occasions.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456889/item/goods_38_456889.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456889/sub/goods_456889_sub14.jpg"
-    ],
-    "price": 690000,
-    "offerPrice": 599000,
-    "category": "Shoes",
-    "sizes": [
-      "40",
-      "41",
-      "42",
-      "43",
-      "44"
-    ],
-    "colors": [
-      "Brown",
-      "Black"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-10-31T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557536Z"
-    },
-    "details": {
-      "material": "Canvas upper with rubber sole",
-      "fit": "True to size",
-      "care": "Wipe clean with damp cloth",
-      "features": [
-        "Cushioned insole",
-        "Non-slip sole",
-        "Breathable",
-        "Lace-up closure"
-      ],
-      "weight": "800g per pair",
-      "origin": "Made in Indonesia"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1030"
-    },
-    "name": "Men's Crossbody Shoulder Bag",
-    "description": "Compact crossbody bag with adjustable strap. Multiple compartments for organization. Water-resistant fabric protects your belongings.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455645/item/goods_09_455645.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455645/sub/goods_455645_sub14.jpg"
-    ],
-    "price": 380000,
-    "offerPrice": 329000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Navy",
-      "Gray"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-01T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557660Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1031"
-    },
-    "name": "Men's Beanie Winter Hat",
-    "description": "Soft knit beanie hat for cold weather. Comfortable stretch fit. Classic style that pairs with any winter outfit.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458992/item/goods_09_458992.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458992/sub/goods_458992_sub14.jpg"
-    ],
-    "price": 150000,
-    "offerPrice": 129000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Gray",
-      "Navy",
-      "Beige"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-02T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557689Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1032"
-    },
-    "name": "Men's Wool Blend Gloves",
-    "description": "Warm wool blend gloves with soft lining. Touch-screen compatible fingertips. Elastic cuffs keep out cold air.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459078/item/goods_09_459078.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459078/sub/goods_459078_sub14.jpg"
-    ],
-    "price": 180000,
-    "offerPrice": 149000,
-    "category": "Accessories",
-    "sizes": [
-      "M",
-      "L"
-    ],
-    "colors": [
-      "Black",
-      "Gray"
-    ],
-    "popular": false,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-03T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557717Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1033"
-    },
-    "name": "Men's Cashmere Blend Scarf",
-    "description": "Luxurious cashmere blend scarf with ultra-soft texture. Elegant drape and sophisticated look. Perfect accessory for formal or casual winter wear.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457921/item/goods_08_457921.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457921/sub/goods_457921_sub14.jpg"
-    ],
-    "price": 490000,
-    "offerPrice": 429000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Gray",
-      "Navy",
-      "Camel"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-03T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557873Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1034"
-    },
-    "name": "Men's Stainless Steel Watch",
-    "description": "Minimalist stainless steel watch with leather strap. Water-resistant Japanese quartz movement. Timeless design suitable for any occasion.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455821/item/goods_09_455821.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455821/sub/goods_455821_sub14.jpg"
-    ],
-    "price": 890000,
-    "offerPrice": 749000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Silver",
-      "Black"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-04T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557943Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "673b1234567890abcdef1035"
-    },
-    "name": "Men's Polarized Sunglasses",
-    "description": "UV400 protection polarized sunglasses. Durable metal frame with comfortable nose pads. Reduces glare for clear vision in bright conditions.",
-    "image": [
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456234/item/goods_09_456234.jpg",
-      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456234/sub/goods_456234_sub14.jpg"
-    ],
-    "price": 320000,
-    "offerPrice": 279000,
-    "category": "Accessories",
-    "sizes": [
-      "OneSize"
-    ],
-    "colors": [
-      "Black",
-      "Brown"
-    ],
-    "popular": true,
-    "inStock": true,
-    "createdAt": {
-      "$date": "2024-11-04T00:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-04T06:40:11.557992Z"
-    },
-    "details": {
-      "material": "Various premium materials",
-      "fit": "One Size / Adjustable",
-      "care": "Spot clean only",
-      "features": [
-        "Durable construction",
-        "Stylish design",
-        "Practical use",
-        "Quality materials"
-      ],
-      "weight": "Varies",
-      "origin": "Made in Vietnam"
-    }
+  "updatedAt": {
+    "$date": "2024-10-15T10:00:00.000Z"
   }
-]
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1002"
+  },
+  "name": "Men's Blue Oxford Dress Shirt",
+  "description": "Men's office dress shirt in premium Oxford fabric, wrinkle-resistant. Classic collar design with slim fit silhouette. Perfect for office environments and important meetings.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub15_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/456630/feature/usgoods_456630_feature9.jpg?width=600 height=200"
+  ],
+  "price": 450000,
+  "offerPrice": 399000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "White",
+    "Light Blue",
+    "Pink"
+  ],
+  "details": {
+    "material": "100% Oxford Cotton",
+    "fit": "Slim Fit",
+    "care": "Dry clean recommended, or machine wash cold with similar colors",
+    "features": [
+      "Wrinkle-resistant",
+      "Classic collar",
+      "Button cuffs",
+      "Formal design"
+    ],
+    "weight": "220g",
+    "origin": "Made in Bangladesh"
+  },
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-05T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-10T12:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1003"
+  },
+  "name": "Men's Dark Blue Slim Fit Jeans",
+  "description": "Men's jeans in 4-way stretch denim, soft and comfortable. Slim fit with flattering silhouette. Dark blue color that's fade-resistant and easy to pair.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub15_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/459688/feature/vngoods_459688_feature6.jpg?width=600 height=200"
+  ],
+  "price": 550000,
+  "offerPrice": 495000,
+  "category": "Bottoms",
+  "sizes": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34"
+  ],
+  "colors": [
+    "Dark Blue",
+    "Black",
+    "Light Blue"
+  ],
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "4-way stretch",
+      "Fade-resistant dye",
+      "Five-pocket design",
+      "Belt loops"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  },
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-10T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-18T09:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1004"
+  },
+  "name": "Men's Pique Cotton Polo Shirt",
+  "description": "Men's polo shirt in breathable pique cotton, excellent moisture absorption. Elegant collar design with regular fit. Perfect for golf, casual wear, or meeting friends.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465196/sub/goods_465196_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465196/sub/goods_465196_sub17_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465196/sub/goods_465196_sub23_3x4.jpg?width=600 height=200"
+  ],
+  "price": 380000,
+  "offerPrice": 329000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Navy",
+    "White",
+    "Red",
+    "Green"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-12T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.555Z"
+  },
+  "details": {
+    "material": "100% Premium Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Comfortable wear",
+      "Durable stitching",
+      "Easy care"
+    ],
+    "weight": "200g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1005"
+  },
+  "name": "Men's Beige Slim Fit Chinos",
+  "description": "Men's chinos in slim fit, stretch cotton blend fabric. Neutral beige color for easy pairing. Modern diagonal pocket design with meticulous stitching.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub15_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/gb/imagesgoods/450251/feature/gbgoods_450251_feature2.jpg?width=600 height=200"
+  ],
+  "price": 480000,
+  "offerPrice": 429000,
+  "category": "Bottoms",
+  "sizes": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34"
+  ],
+  "colors": [
+    "Beige",
+    "Navy",
+    "Olive",
+    "Black"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-15T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.555Z"
+  },
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "Stretch fabric",
+      "Comfortable fit",
+      "Durable denim",
+      "Classic style"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1006"
+  },
+  "name": "Sweat Oversized Pullover Hoodie",
+  "description": "Men's hoodie in thick fleece fabric, excellent warmth. Trendy oversized fit with hood and kangaroo pocket. Dynamic streetwear style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/471808/sub/goods_471808_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/471808/sub/vngoods_471808_sub23_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/471808/sub/vngoods_471808_sub24_3x4.jpg?width=600 height=200"
+  ],
+  "price": 650000,
+  "offerPrice": 549000,
+  "category": "Outerwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Gray",
+    "Black",
+    "Navy"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-20T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.555Z"
+  },
+  "details": {
+    "material": "Polyester blend with fleece lining",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, hang to dry",
+    "features": [
+      "Windproof",
+      "Water-resistant",
+      "Warm lining",
+      "Multiple pockets"
+    ],
+    "weight": "600g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1007"
+  },
+  "name": "Men's Crew Neck Basic T-Shirt",
+  "description": "Men's basic crew neck t-shirt in soft compact cotton. Comfortable regular fit. Available in multiple colors to choose from.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/422992/sub/goods_422992_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/422992/feature/vngoods_422992_feature2.jpg?width=600 height=200"
+  ],
+  "price": 250000,
+  "offerPrice": 199000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "White",
+    "Black",
+    "Gray",
+    "Navy",
+    "Red"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-25T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "100% Premium Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Comfortable wear",
+      "Durable stitching",
+      "Easy care"
+    ],
+    "weight": "200g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1008"
+  },
+  "name": "Men's Flannel Plaid Checkered Shirt",
+  "description": "Men's flannel shirt with vintage plaid checkered pattern. Soft and warm fabric. Korean casual style, perfect for autumn and winter.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub15_3x4.jpg?width=600 height=200"
+  ],
+  "price": 420000,
+  "offerPrice": 369000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "colors": [
+    "Red Check",
+    "Blue Check"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-09-28T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "100% Premium Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Comfortable wear",
+      "Durable stitching",
+      "Easy care"
+    ],
+    "weight": "200g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1009"
+  },
+  "name": "Men's Wide Straight Jeans",
+  "description": "Men's trending baggy fit jeans, light wash for vintage effect. Thick and durable denim fabric. Unique retro style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub15_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/470542/feature/vngoods_470542_feature2.jpg?width=600 height=200"
+  ],
+  "price": 590000,
+  "offerPrice": 499000,
+  "category": "Bottoms",
+  "sizes": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34"
+  ],
+  "colors": [
+    "Light Blue",
+    "Black"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "Stretch fabric",
+      "Comfortable fit",
+      "Durable denim",
+      "Classic style"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1010"
+  },
+  "name": "Men's Zip Up Short Blouson",
+  "description": "Men's reversible 2-sided bomber jacket, one side solid one side with pattern. Lightweight windproof polyester fabric. Dynamic unisex design.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478230/sub/goods_478230_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature2.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature1.jpg?width=600 height=200"
+  ],
+  "price": 750000,
+  "offerPrice": 649000,
+  "category": "Outerwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL"
+  ],
+  "colors": [
+    "Black/Gray"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-05T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Polyester blend with fleece lining",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, hang to dry",
+    "features": [
+      "Windproof",
+      "Water-resistant",
+      "Warm lining",
+      "Multiple pockets"
+    ],
+    "weight": "600g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1011"
+  },
+  "name": "Premium Leather Men's Wallet",
+  "description": "Authentic men's leather wallet, 100% genuine cowhide leather, multiple card slots and cash compartments. Elegant design, perfect as a gift.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455188/item/goods_09_455188.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455188/sub/goods_455188_sub14.jpg"
+  ],
+  "price": 450000,
+  "offerPrice": 399000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Brown"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-08T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1012"
+  },
+  "name": "Men's Leather Belt with Auto Buckle",
+  "description": "Genuine cowhide leather belt, premium rustproof automatic buckle. Adjustable length with cuttable strap. Elegant style for gentlemen.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/429990/item/goods_38_429990.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/429990/sub/goods_429990_sub14.jpg"
+  ],
+  "price": 380000,
+  "offerPrice": 329000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Brown"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-10T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1013"
+  },
+  "name": "Men's Embroidered Logo Baseball Cap",
+  "description": "Men's baseball cap in premium fabric, featuring delicate embroidered logo. Adjustable size at back. Dynamic streetwear style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455199/item/goods_09_455199.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455199/sub/goods_455199_sub14.jpg"
+  ],
+  "price": 180000,
+  "offerPrice": 149000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Navy",
+    "White"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-12T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1014"
+  },
+  "name": "Men's Waterproof Fashion Backpack",
+  "description": "Men's office backpack, water-resistant material with multiple convenient compartments. Simple and modern design. Perfect for work, school, or travel.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455442/item/goods_09_455442.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455442/sub/goods_455442_sub14.jpg"
+  ],
+  "price": 520000,
+  "offerPrice": 459000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Navy"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-14T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1015"
+  },
+  "name": "Premium Cotton Men's Socks (3-Pair Combo)",
+  "description": "3-pair combo of men's socks in cotton-spandex blend, good stretch and moisture absorption. Available in multiple colors. Suitable for all occasions.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/443533/item/goods_01_443533.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/443533/sub/goods_443533_sub14.jpg"
+  ],
+  "price": 120000,
+  "offerPrice": 99000,
+  "category": "Accessories",
+  "sizes": [
+    "M",
+    "L"
+  ],
+  "colors": [
+    "Black",
+    "White",
+    "Gray"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-16T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.556Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1016"
+  },
+  "name": "Rugger Long Sleeve Polo Shirt",
+  "description": "Classic striped polo shirt with long sleeves, made from soft cotton blend. Perfect for smart casual occasions and cooler weather.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub18_3x4.jpg?width=600 height=200"
+  ],
+  "price": 420000,
+  "offerPrice": 359000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Navy Stripe",
+    "Gray Stripe",
+    "Green Stripe"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-18T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "100% Premium Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Comfortable wear",
+      "Durable stitching",
+      "Easy care"
+    ],
+    "weight": "200g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1017"
+  },
+  "name": "Cotton Linen Open Collar Short Sleeve Shirt",
+  "description": "Lightweight linen blend shirt perfect for summer. Breathable and comfortable with a relaxed fit. Natural wrinkle texture adds to the casual charm.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub19_3x4.jpg?width=600 height=200"
+  ],
+  "price": 390000,
+  "offerPrice": 329000,
+  "category": "Shirts & Polos",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "colors": [
+    "White",
+    "Beige",
+    "Light Blue"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-19T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "100% Premium Cotton",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, tumble dry low",
+    "features": [
+      "Breathable fabric",
+      "Comfortable wear",
+      "Durable stitching",
+      "Easy care"
+    ],
+    "weight": "200g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1018"
+  },
+  "name": "Men's Cargo Pants with Multiple Pockets",
+  "description": "Functional cargo pants with multiple utility pockets. Made from durable cotton twill. Modern tapered fit for contemporary street style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub15_3x4.jpg?width=600 height=200"
+  ],
+  "price": 550000,
+  "offerPrice": 479000,
+  "category": "Bottoms",
+  "sizes": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34"
+  ],
+  "colors": [
+    "Olive",
+    "Black",
+    "Khaki"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-20T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "Stretch fabric",
+      "Comfortable fit",
+      "Durable denim",
+      "Classic style"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1019"
+  },
+  "name": "Corduroy Work Pants",
+  "description": "Classic corduroy pants with vintage appeal. Soft texture and warm feel. Straight leg cut that works with any style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479817/sub/goods_479817_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479817/feature/vngoods_479817_feature2.jpg?width=600 height=200"
+  ],
+  "price": 490000,
+  "offerPrice": 429000,
+  "category": "Bottoms",
+  "sizes": [
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34"
+  ],
+  "colors": [
+    "Brown",
+    "Navy",
+    "Beige"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-21T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "Stretch fabric",
+      "Comfortable fit",
+      "Durable denim",
+      "Classic style"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1020"
+  },
+  "name": "Men's Jogger Sweatpants",
+  "description": "Comfortable jogger sweatpants in soft fleece. Elastic waistband with drawstring. Perfect for lounging or casual outings.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub14_3x4.jpg?width=600 height=200",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub15_3x4.jpg?width=600 height=200"
+  ],
+  "price": 420000,
+  "offerPrice": 359000,
+  "category": "Bottoms",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Gray",
+    "Black",
+    "Navy"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-22T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "98% Cotton, 2% Spandex",
+    "fit": "Slim Fit",
+    "care": "Machine wash cold inside out, hang to dry",
+    "features": [
+      "Stretch fabric",
+      "Comfortable fit",
+      "Durable denim",
+      "Classic style"
+    ],
+    "weight": "450g",
+    "origin": "Made in China"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1021"
+  },
+  "name": "Men's Puffer Down Jacket",
+  "description": "Premium down-filled puffer jacket with 90% down fill power. Ultra-lightweight yet warm. Packable design for easy carrying.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/460315/item/goods_09_460315.jpg",
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/460315/sub/goods_460315_sub14.jpg"
+  ],
+  "price": 890000,
+  "offerPrice": 749000,
+  "category": "Outerwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Black",
+    "Navy",
+    "Olive"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-23T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Polyester blend with fleece lining",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, hang to dry",
+    "features": [
+      "Windproof",
+      "Water-resistant",
+      "Warm lining",
+      "Multiple pockets"
+    ],
+    "weight": "600g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1022"
+  },
+  "name": "Men's Windproof Parka Jacket",
+  "description": "Water-resistant parka with windproof technology. Adjustable hood and multiple pockets. Perfect for rainy and windy weather.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459742/item/goods_56_459742.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459742/sub/goods_459742_sub14.jpg"
+  ],
+  "price": 790000,
+  "offerPrice": 679000,
+  "category": "Outerwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Khaki",
+    "Navy",
+    "Black"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-24T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Polyester blend with fleece lining",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, hang to dry",
+    "features": [
+      "Windproof",
+      "Water-resistant",
+      "Warm lining",
+      "Multiple pockets"
+    ],
+    "weight": "600g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1023"
+  },
+  "name": "Men's Fleece Full-Zip Jacket",
+  "description": "Cozy fleece jacket with full-zip closure. Soft and warm interior lining. Two side pockets for convenience.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461455/item/goods_08_461455.jpg",
+    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/461455/sub/goods_461455_sub14.jpg"
+  ],
+  "price": 590000,
+  "offerPrice": 499000,
+  "category": "Outerwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Gray",
+    "Black",
+    "Navy",
+    "Green"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-25T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Polyester blend with fleece lining",
+    "fit": "Regular Fit",
+    "care": "Machine wash cold, hang to dry",
+    "features": [
+      "Windproof",
+      "Water-resistant",
+      "Warm lining",
+      "Multiple pockets"
+    ],
+    "weight": "600g",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1024"
+  },
+  "name": "Men's Cotton Boxer Briefs (3-Pack)",
+  "description": "Premium cotton boxer briefs in 3-pack combo. Soft elastic waistband. Breathable fabric for all-day comfort.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455534/item/goods_69_455534.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455534/sub/goods_455534_sub14.jpg"
+  ],
+  "price": 350000,
+  "offerPrice": 299000,
+  "category": "Innerwear & Underwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Black",
+    "Gray",
+    "Navy"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-26T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "95% Cotton, 5% Elastane",
+    "fit": "Comfortable Fit",
+    "care": "Machine wash warm, tumble dry low",
+    "features": [
+      "Soft fabric",
+      "Elastic waistband",
+      "Breathable",
+      "Pack of 3"
+    ],
+    "weight": "150g",
+    "origin": "Made in Bangladesh"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1025"
+  },
+  "name": "Men's Heattech Thermal Long Sleeve Top",
+  "description": "Advanced Heattech technology for superior warmth. Moisture-wicking and quick-dry. Slim fit design layers perfectly under clothes.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457894/item/goods_09_457894.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457894/sub/goods_457894_sub14.jpg"
+  ],
+  "price": 280000,
+  "offerPrice": 239000,
+  "category": "Innerwear & Underwear",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "Black",
+    "Gray",
+    "White"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-27T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "95% Cotton, 5% Elastane",
+    "fit": "Comfortable Fit",
+    "care": "Machine wash warm, tumble dry low",
+    "features": [
+      "Soft fabric",
+      "Elastic waistband",
+      "Breathable",
+      "Pack of 3"
+    ],
+    "weight": "150g",
+    "origin": "Made in Bangladesh"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1026"
+  },
+  "name": "Men's Airism Mesh Tank Top",
+  "description": "Ultra-breathable Airism mesh tank top. Quick-dry and odor control technology. Smooth fabric feels cool against skin.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456743/item/goods_01_456743.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456743/sub/goods_456743_sub14.jpg"
+  ],
+  "price": 220000,
+  "offerPrice": 189000,
+  "category": "Innerwear & Underwear",
+  "sizes": [
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "colors": [
+    "White",
+    "Black",
+    "Gray"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-28T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "95% Cotton, 5% Elastane",
+    "fit": "Comfortable Fit",
+    "care": "Machine wash warm, tumble dry low",
+    "features": [
+      "Soft fabric",
+      "Elastic waistband",
+      "Breathable",
+      "Pack of 3"
+    ],
+    "weight": "150g",
+    "origin": "Made in Bangladesh"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1027"
+  },
+  "name": "Men's Canvas Slip-On Sneakers",
+  "description": "Classic canvas slip-on shoes. Comfortable cushioned insole. Easy to wear design perfect for everyday casual style.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455622/item/goods_01_455622.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455622/sub/goods_455622_sub14.jpg"
+  ],
+  "price": 450000,
+  "offerPrice": 389000,
+  "category": "Shoes",
+  "sizes": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+  ],
+  "colors": [
+    "White",
+    "Black",
+    "Navy"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-29T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Canvas upper with rubber sole",
+    "fit": "True to size",
+    "care": "Wipe clean with damp cloth",
+    "features": [
+      "Cushioned insole",
+      "Non-slip sole",
+      "Breathable",
+      "Lace-up closure"
+    ],
+    "weight": "800g per pair",
+    "origin": "Made in Indonesia"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1028"
+  },
+  "name": "Men's Sport Running Shoes",
+  "description": "Lightweight running shoes with breathable mesh upper. Cushioned sole for impact absorption. Suitable for jogging and gym workouts.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458834/item/goods_01_458834.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458834/sub/goods_458834_sub14.jpg"
+  ],
+  "price": 590000,
+  "offerPrice": 499000,
+  "category": "Shoes",
+  "sizes": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+  ],
+  "colors": [
+    "Black",
+    "Gray"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-30T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Canvas upper with rubber sole",
+    "fit": "True to size",
+    "care": "Wipe clean with damp cloth",
+    "features": [
+      "Cushioned insole",
+      "Non-slip sole",
+      "Breathable",
+      "Lace-up closure"
+    ],
+    "weight": "800g per pair",
+    "origin": "Made in Indonesia"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1029"
+  },
+  "name": "Men's Leather Loafers",
+  "description": "Premium leather loafers with classic design. Comfortable padded insole. Perfect for office wear or smart casual occasions.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456889/item/goods_38_456889.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456889/sub/goods_456889_sub14.jpg"
+  ],
+  "price": 690000,
+  "offerPrice": 599000,
+  "category": "Shoes",
+  "sizes": [
+    "40",
+    "41",
+    "42",
+    "43",
+    "44"
+  ],
+  "colors": [
+    "Brown",
+    "Black"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-10-31T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Canvas upper with rubber sole",
+    "fit": "True to size",
+    "care": "Wipe clean with damp cloth",
+    "features": [
+      "Cushioned insole",
+      "Non-slip sole",
+      "Breathable",
+      "Lace-up closure"
+    ],
+    "weight": "800g per pair",
+    "origin": "Made in Indonesia"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1030"
+  },
+  "name": "Men's Crossbody Shoulder Bag",
+  "description": "Compact crossbody bag with adjustable strap. Multiple compartments for organization. Water-resistant fabric protects your belongings.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455645/item/goods_09_455645.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455645/sub/goods_455645_sub14.jpg"
+  ],
+  "price": 380000,
+  "offerPrice": 329000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Navy",
+    "Gray"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1031"
+  },
+  "name": "Men's Beanie Winter Hat",
+  "description": "Soft knit beanie hat for cold weather. Comfortable stretch fit. Classic style that pairs with any winter outfit.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458992/item/goods_09_458992.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/458992/sub/goods_458992_sub14.jpg"
+  ],
+  "price": 150000,
+  "offerPrice": 129000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Gray",
+    "Navy",
+    "Beige"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-02T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1032"
+  },
+  "name": "Men's Wool Blend Gloves",
+  "description": "Warm wool blend gloves with soft lining. Touch-screen compatible fingertips. Elastic cuffs keep out cold air.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459078/item/goods_09_459078.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459078/sub/goods_459078_sub14.jpg"
+  ],
+  "price": 180000,
+  "offerPrice": 149000,
+  "category": "Accessories",
+  "sizes": [
+    "M",
+    "L"
+  ],
+  "colors": [
+    "Black",
+    "Gray"
+  ],
+  "popular": false,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-03T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1033"
+  },
+  "name": "Men's Cashmere Blend Scarf",
+  "description": "Luxurious cashmere blend scarf with ultra-soft texture. Elegant drape and sophisticated look. Perfect accessory for formal or casual winter wear.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457921/item/goods_08_457921.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457921/sub/goods_457921_sub14.jpg"
+  ],
+  "price": 490000,
+  "offerPrice": 429000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Gray",
+    "Navy",
+    "Camel"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-03T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1034"
+  },
+  "name": "Men's Stainless Steel Watch",
+  "description": "Minimalist stainless steel watch with leather strap. Water-resistant Japanese quartz movement. Timeless design suitable for any occasion.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455821/item/goods_09_455821.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455821/sub/goods_455821_sub14.jpg"
+  ],
+  "price": 890000,
+  "offerPrice": 749000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Silver",
+    "Black"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-04T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef1035"
+  },
+  "name": "Men's Polarized Sunglasses",
+  "description": "UV400 protection polarized sunglasses. Durable metal frame with comfortable nose pads. Reduces glare for clear vision in bright conditions.",
+  "image": [
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456234/item/goods_09_456234.jpg",
+    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/456234/sub/goods_456234_sub14.jpg"
+  ],
+  "price": 320000,
+  "offerPrice": 279000,
+  "category": "Accessories",
+  "sizes": [
+    "OneSize"
+  ],
+  "colors": [
+    "Black",
+    "Brown"
+  ],
+  "popular": true,
+  "inStock": true,
+  "createdAt": {
+    "$date": "2024-11-04T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-04T06:40:11.557Z"
+  },
+  "details": {
+    "material": "Various premium materials",
+    "fit": "One Size / Adjustable",
+    "care": "Spot clean only",
+    "features": [
+      "Durable construction",
+      "Stylish design",
+      "Practical use",
+      "Quality materials"
+    ],
+    "weight": "Varies",
+    "origin": "Made in Vietnam"
+  }
+}]

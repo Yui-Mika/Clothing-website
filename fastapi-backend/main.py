@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from app.config.database import connect_to_mongo, close_mongo_connection
-from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes
+from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes, review_routes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -46,6 +46,7 @@ app.include_router(blog_routes.router, prefix="/api/blog", tags=["Blogs"])
 app.include_router(testimonial_routes.router, prefix="/api/testimonial", tags=["Testimonials"])
 app.include_router(contact_routes.router, prefix="/api/contact", tags=["Contact"])
 app.include_router(report_routes.router, prefix="/api/report", tags=["Reports"])
+app.include_router(review_routes.router, prefix="/api/review", tags=["Reviews"])
 
 @app.get("/")
 async def root():

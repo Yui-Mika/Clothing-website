@@ -10,6 +10,7 @@
 # Request: Đối tượng request để đọc cookies/headers
 # BackgroundTasks: Chạy tác vụ nền (gửi email) sau khi response
 from fastapi import APIRouter, Depends, HTTPException, status, Response, Request, BackgroundTasks
+from fastapi.responses import RedirectResponse
 
 # UserCreate: Model cho data đăng ký (name, email, password)
 # UserLogin: Model cho data đăng nhập (email, password)
@@ -365,16 +366,18 @@ async def get_profile(request: Request, user: dict = Depends(auth_user)):
 # ============================================================================
 # VERIFY EMAIL ENDPOINT - API Xác thực email
 # ============================================================================
-@router.get("/verify-email", response_model=dict)  # GET /api/user/verify-email?token=xxx
+@router.get("/verify-email")  # GET /api/user/verify-email?token=xxx
 async def verify_email(token: str, background_tasks: BackgroundTasks):
     """
     Xác thực email từ link trong email
     - Decode JWT token từ query parameter
     - Kiểm tra token hợp lệ và đúng mục đích
     - Cập nhật emailVerified=True và isActive=True
-    - Gửi email chào mừng (optional)
+    - Redirect về frontend với success message
     """
     from app.utils.auth import decode_access_token
+    from app.config.settings import Settings
+    settings = Settings()
     
     try:
         # ====================================================================
@@ -433,21 +436,25 @@ async def verify_email(token: str, background_tasks: BackgroundTasks):
             )
         
         # ====================================================================
-        # BƯỚC 4: Trả về response thành công
+        # BƯỚC 4: Redirect về frontend với success message
         # ====================================================================
-        return {
-            "success": True,
-            "message": "Email verified successfully! Your account is now active. You can login now."
-        }
+        # Redirect về trang login với thông báo thành công
+        return RedirectResponse(
+            url=f"{settings.FRONTEND_URL}/?verified=true",
+            status_code=status.HTTP_303_SEE_OTHER
+        )
         
-    except HTTPException:
-        # Re-raise HTTPException (đã có status code và detail)
-        raise
+    except HTTPException as e:
+        # Redirect về frontend với error message
+        return RedirectResponse(
+            url=f"{settings.FRONTEND_URL}/?verified=false&error={e.detail}",
+            status_code=status.HTTP_303_SEE_OTHER
+        )
     except Exception as e:
         # Các lỗi khác (token expired, invalid format...)
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid or expired verification token"
+        return RedirectResponse(
+            url=f"{settings.FRONTEND_URL}/?verified=false&error=Invalid or expired token",
+            status_code=status.HTTP_303_SEE_OTHER
         )
 
 # ============================================================================
