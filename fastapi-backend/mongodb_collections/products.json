@@ -10,7 +10,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature1.jpg?width=600 height=200"
   ],
   "price": 299000,
-  "offerPrice": 249000,
+  "offerPrice": 254150,
   "category": "Shirts & Polos",
   "sizes": [
     "S",
@@ -38,11 +38,19 @@
   },
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 15.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-01T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2024-10-15T10:00:00.000Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   }
 },
 {
@@ -57,7 +65,7 @@
     "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/456630/feature/usgoods_456630_feature9.jpg?width=600 height=200"
   ],
   "price": 450000,
-  "offerPrice": 399000,
+  "offerPrice": 405000,
   "category": "Shirts & Polos",
   "sizes": [
     "S",
@@ -86,11 +94,19 @@
   },
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 10.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-15T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-05T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2024-10-10T12:00:00.000Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   }
 },
 {
@@ -105,7 +121,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/459688/feature/vngoods_459688_feature6.jpg?width=600 height=200"
   ],
   "price": 550000,
-  "offerPrice": 495000,
+  "offerPrice": 440000,
   "category": "Bottoms",
   "sizes": [
     "29",
@@ -135,11 +151,19 @@
   },
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 20.0,
+  "discountStartDate": {
+    "$date": "2024-10-15T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2025-01-31T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-10T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2024-10-18T09:00:00.000Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   }
 },
 {
@@ -154,7 +178,7 @@
     "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/465196/sub/goods_465196_sub23_3x4.jpg?width=600 height=200"
   ],
   "price": 380000,
-  "offerPrice": 329000,
+  "offerPrice": 285000,
   "category": "Shirts & Polos",
   "sizes": [
     "S",
@@ -171,11 +195,19 @@
   ],
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 25.0,
+  "discountStartDate": {
+    "$date": "2024-11-05T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-11-30T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-12T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.555Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "100% Premium Cotton",
@@ -203,7 +235,7 @@
     "https://image.uniqlo.com/UQ/ST3/gb/imagesgoods/450251/feature/gbgoods_450251_feature2.jpg?width=600 height=200"
   ],
   "price": 480000,
-  "offerPrice": 429000,
+  "offerPrice": 336000,
   "category": "Bottoms",
   "sizes": [
     "29",
@@ -221,11 +253,19 @@
   ],
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 30.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-15T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.555Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "98% Cotton, 2% Spandex",
@@ -253,7 +293,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/471808/sub/vngoods_471808_sub24_3x4.jpg?width=600 height=200"
   ],
   "price": 650000,
-  "offerPrice": 549000,
+  "offerPrice": 617500,
   "category": "Outerwear",
   "sizes": [
     "M",
@@ -268,11 +308,19 @@
   ],
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 5.0,
+  "discountStartDate": {
+    "$date": "2024-10-20T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-20T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-20T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.555Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "Polyester blend with fleece lining",
@@ -299,7 +347,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/422992/feature/vngoods_422992_feature2.jpg?width=600 height=200"
   ],
   "price": 250000,
-  "offerPrice": 199000,
+  "offerPrice": 220000,
   "category": "Shirts & Polos",
   "sizes": [
     "S",
@@ -317,11 +365,19 @@
   ],
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 12.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-25T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.556Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "100% Premium Cotton",
@@ -348,7 +404,7 @@
     "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub15_3x4.jpg?width=600 height=200"
   ],
   "price": 420000,
-  "offerPrice": 369000,
+  "offerPrice": 386400,
   "category": "Shirts & Polos",
   "sizes": [
     "S",
@@ -362,11 +418,19 @@
   ],
   "popular": false,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 8.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-11-15T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-09-28T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.556Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "100% Premium Cotton",
@@ -394,7 +458,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/470542/feature/vngoods_470542_feature2.jpg?width=600 height=200"
   ],
   "price": 590000,
-  "offerPrice": 499000,
+  "offerPrice": 483800,
   "category": "Bottoms",
   "sizes": [
     "29",
@@ -410,11 +474,19 @@
   ],
   "popular": true,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 18.0,
+  "discountStartDate": {
+    "$date": "2024-10-25T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2025-02-28T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-10-01T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.556Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "98% Cotton, 2% Spandex",
@@ -442,7 +514,7 @@
     "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature1.jpg?width=600 height=200"
   ],
   "price": 750000,
-  "offerPrice": 649000,
+  "offerPrice": 487500,
   "category": "Outerwear",
   "sizes": [
     "M",
@@ -454,11 +526,19 @@
   ],
   "popular": false,
   "inStock": true,
+  "hasDiscount": true,
+  "discountPercent": 35.0,
+  "discountStartDate": {
+    "$date": "2024-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
   "createdAt": {
     "$date": "2024-10-05T00:00:00.000Z"
   },
   "updatedAt": {
-    "$date": "2025-11-04T06:40:11.556Z"
+    "$date": "2024-11-08T00:00:00.000Z"
   },
   "details": {
     "material": "Polyester blend with fleece lining",

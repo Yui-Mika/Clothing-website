@@ -68,17 +68,45 @@ const ProductDetails = () => {
               </div>
               <p className="medium-14">({22})</p> {/*  hard-coded values */}
             </div>
-            <div className="h4 flex items-baseline gap-4 my-2">
-              <h3 className="h3 line-through text-secondary">
-                {currency}
-                {product.price}.00
-              </h3>
-              <h4 className="h4">
-                {" "}
-                {currency}
-                {product.offerPrice}.00
-              </h4>
-            </div>
+
+            {/* PRICE DISPLAY WITH DISCOUNT LOGIC */}
+            {product.hasDiscount ? (
+              <div className="my-3">
+                {/* Discount Badge */}
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="px-3 py-1 bg-red-500 text-white text-sm font-bold rounded-md">
+                    GIẢM GIÁ {product.discountPercent}%
+                  </span>
+                  {product.discountEndDate && (
+                    <span className="text-xs text-gray-500">
+                      Kết thúc: {new Date(product.discountEndDate).toLocaleDateString('vi-VN')}
+                    </span>
+                  )}
+                </div>
+                {/* Price with discount */}
+                <div className="flex items-baseline gap-3">
+                  <h3 className="h3 text-red-600 font-bold">
+                    {currency}
+                    {product.offerPrice.toLocaleString()}
+                  </h3>
+                  <h4 className="h4 line-through text-gray-400">
+                    {currency}
+                    {product.price.toLocaleString()}
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-600 mt-1">
+                  Tiết kiệm: {currency}
+                  {(product.price - product.offerPrice).toLocaleString()}
+                </p>
+              </div>
+            ) : (
+              <div className="my-3">
+                <h3 className="h3 text-gray-900 font-bold">
+                  {currency}
+                  {product.price.toLocaleString()}
+                </h3>
+              </div>
+            )}
             <p className="max-w-[555px]">{product.description}</p>
             <div className="flex flex-col gap-4 my-4 mb-5">
               <div className="flex gap-2">

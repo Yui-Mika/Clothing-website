@@ -22,13 +22,14 @@ app = FastAPI(
 )
 
 # CORS Configuration
-# Cho phép frontend truy cập từ localhost và IP server (10.7.72.114)
+# Cho phép frontend truy cập từ localhost và IP server (192.168.1.6)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",      # Development local
         "http://localhost:3000",      # Alternative port
-        "http://10.7.72.114:5173",    # Server IP (cho các máy khác truy cập)
+        "http://10.7.72.114:5173",    # Old server IP (backup)
+        "http://192.168.1.6:5173",    # Current server IP
     ],
     allow_credentials=True,
     allow_methods=["*"],

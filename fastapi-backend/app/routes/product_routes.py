@@ -29,12 +29,58 @@ from datetime import datetime
 # Import kiểu dữ liệu List và Optional
 from typing import List, Optional
 
+# Import Pydantic BaseModel để define request schemas
+from pydantic import BaseModel, Field
+
 # Import json để parse chuỗi JSON
 import json
 
 # ===== KHỞI TẠO ROUTER =====
 # Tạo router để gom nhóm các endpoint về sản phẩm
 router = APIRouter()
+
+# ===== HELPER FUNCTION: TÍNH GIÁ SAU GIẢM =====
+def calculate_offer_price(price: float, discount_percent: float) -> float:
+    """
+    Calculate discounted price (offer price) from original price and discount percentage.
+    
+    Args:
+        price (float): Original product price
+        discount_percent (float): Discount percentage (0-100)
+        
+    Returns:
+        float: Calculated offer price, rounded to nearest 1000 VND
+        
+    Raises:
+        ValueError: If discount_percent is not in valid range (0-100)
+        
+    Examples:
+        >>> calculate_offer_price(500000, 10.0)
+        450000.0
+        >>> calculate_offer_price(299000, 15.0)
+        254000.0
+        >>> calculate_offer_price(750000, 35.0)
+        488000.0
+    """
+    # Validate discount percentage
+    if discount_percent < 0 or discount_percent > 100:
+        raise ValueError(f"Discount percent must be between 0 and 100, got {discount_percent}")
+    
+    # Return original price if no discount
+    if discount_percent == 0:
+        return price
+    
+    # Round discount to 2 decimal places for consistency
+    discount_percent = round(discount_percent, 2)
+    
+    # Calculate offer price: price * (1 - discount/100)
+    offer_price = price * (1 - discount_percent / 100)
+    
+    # Round to nearest 1000 VND for Vietnamese currency
+    # Example: 254150 → 254000, 487500 → 488000
+    offer_price = round(offer_price, -3)
+    
+    return offer_price
 
 # ===== ENDPOINT 1: LẤY DANH SÁCH TẤT CẢ SẢN PHẨM =====
 # Route: GET /api/product/list
@@ -334,11 +380,241 @@ async def get_products_by_category(category: str):  # category từ URL path
         "products": products
     }
 
+# ===== PYDANTIC SCHEMAS CHO DISCOUNT ENDPOINTS =====
+class ToggleDiscountRequest(BaseModel):
+    productId: str
+    hasDiscount: bool
+
+class ApplyDiscountRequest(BaseModel):
+    productIds: Optional[List[str]] = None
+    category: Optional[str] = None
+    applyToAll: bool = False
+    discountPercent: float = Field(..., ge=0, le=100)
+    startDate: Optional[datetime] = None
+    endDate: Optional[datetime] = None
+
+class RemoveDiscountRequest(BaseModel):
+    productIds: Optional[List[str]] = None
+    category: Optional[str] = None
+    removeAll: bool = False
+
+class UpdateDiscountRequest(BaseModel):
+    productIds: List[str]
+    newDiscountPercent: float = Field(..., ge=0, le=100)
+
+# ===== ENDPOINT 7: TOGGLE DISCOUNT ON/OFF =====
+@router.post("/toggle-discount", response_model=dict)
+async def toggle_discount(
+    data: ToggleDiscountRequest,
+    staff: dict = Depends(auth_staff)
+):
+    """Toggle discount on/off for a single product (Admin/Staff only)"""
+    
+    products_collection = await get_collection("products")
+    
+    # Find product
+    product = await products_collection.find_one({"_id": ObjectId(data.productId)})
+    if not product:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Product not found"
+        )
+    
+    # Update hasDiscount field
+    update_data = {
+        "hasDiscount": data.hasDiscount,
+        "updatedAt": datetime.utcnow()
+    }
+    
+    # If turning off discount, reset to original price
+    if not data.hasDiscount:
+        update_data["offerPrice"] = product["price"]
+        update_data["discountPercent"] = 0.0
+    
+    await products_collection.update_one(
+        {"_id": ObjectId(data.productId)},
+        {"$set": update_data}
+    )
+    
+    return {
+        "success": True,
+        "message": f"Discount {'enabled' if data.hasDiscount else 'disabled'} successfully"
+    }
+
+# ===== ENDPOINT 8: APPLY DISCOUNT =====
+@router.post("/apply-discount", response_model=dict)
+async def apply_discount(
+    data: ApplyDiscountRequest,
+    staff: dict = Depends(auth_staff)
+):
+    """Apply discount to products or entire category (Admin/Staff only)"""
+    
+    products_collection = await get_collection("products")
+    
+    # Build query
+    query = {}
+    if data.applyToAll and data.category:
+        # Apply to entire category
+        query = {"category": data.category, "inStock": True}
+    elif data.productIds:
+        # Apply to specific products
+        query = {"_id": {"$in": [ObjectId(pid) for pid in data.productIds]}}
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Must provide either productIds or (category with applyToAll=true)"
+        )
+    
+    # Find products
+    products = await products_collection.find(query).to_list(length=None)
+    if not products:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No products found"
+        )
+    
+    # Update each product
+    updated_count = 0
+    for product in products:
+        # Calculate new offer price
+        offer_price = calculate_offer_price(product["price"], data.discountPercent)
+        
+        # Prepare update data
+        update_data = {
+            "hasDiscount": True,
+            "discountPercent": round(data.discountPercent, 2),
+            "offerPrice": offer_price,
+            "updatedAt": datetime.utcnow()
+        }
+        
+        # Add dates if provided
+        if data.startDate:
+            update_data["discountStartDate"] = data.startDate
+        if data.endDate:
+            update_data["discountEndDate"] = data.endDate
+        
+        # Update product
+        await products_collection.update_one(
+            {"_id": product["_id"]},
+            {"$set": update_data}
+        )
+        updated_count += 1
+    
+    return {
+        "success": True,
+        "message": f"Applied {data.discountPercent}% discount to {updated_count} products",
+        "updatedCount": updated_count
+    }
+
+# ===== ENDPOINT 9: REMOVE DISCOUNT =====
+@router.post("/remove-discount", response_model=dict)
+async def remove_discount(
+    data: RemoveDiscountRequest,
+    staff: dict = Depends(auth_staff)
+):
+    """Remove discount from products or entire category (Admin/Staff only)"""
+    
+    products_collection = await get_collection("products")
+    
+    # Build query
+    query = {}
+    if data.removeAll and data.category:
+        # Remove from entire category
+        query = {"category": data.category, "hasDiscount": True}
+    elif data.productIds:
+        # Remove from specific products
+        query = {"_id": {"$in": [ObjectId(pid) for pid in data.productIds]}}
+    else:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Must provide either productIds or (category with removeAll=true)"
+        )
+    
+    # Find products
+    products = await products_collection.find(query).to_list(length=None)
+    if not products:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No products found"
+        )
+    
+    # Update each product
+    updated_count = 0
+    for product in products:
+        # Reset to original price
+        update_data = {
+            "hasDiscount": False,
+            "discountPercent": 0.0,
+            "offerPrice": product["price"],
+            "updatedAt": datetime.utcnow()
+        }
+        
+        # Update product
+        await products_collection.update_one(
+            {"_id": product["_id"]},
+            {"$set": update_data, "$unset": {"discountStartDate": "", "discountEndDate": ""}}
+        )
+        updated_count += 1
+    
+    return {
+        "success": True,
+        "message": f"Removed discount from {updated_count} products",
+        "updatedCount": updated_count
+    }
+
+# ===== ENDPOINT 10: UPDATE DISCOUNT PERCENTAGE =====
+@router.post("/update-discount", response_model=dict)
+async def update_discount(
+    data: UpdateDiscountRequest,
+    staff: dict = Depends(auth_staff)
+):
+    """Update discount percentage for existing discounted products (Admin/Staff only)"""
+    
+    products_collection = await get_collection("products")
+    
+    # Find products
+    query = {"_id": {"$in": [ObjectId(pid) for pid in data.productIds]}}
+    products = await products_collection.find(query).to_list(length=None)
+    
+    if not products:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No products found"
+        )
+    
+    # Update each product
+    updated_count = 0
+    for product in products:
+        # Calculate new offer price
+        offer_price = calculate_offer_price(product["price"], data.newDiscountPercent)
+        
+        # Update product
+        await products_collection.update_one(
+            {"_id": product["_id"]},
+            {"$set": {
+                "discountPercent": round(data.newDiscountPercent, 2),
+                "offerPrice": offer_price,
+                "hasDiscount": True,
+                "updatedAt": datetime.utcnow()
+            }}
+        )
+        updated_count += 1
+    
+    return {
+        "success": True,
+        "message": f"Updated discount to {data.newDiscountPercent}% for {updated_count} products",
+        "updatedCount": updated_count
+    }
+
 # ===== KẾT THÚC FILE =====
-# Tổng cộng 6 endpoint:
-# 1. GET  /list                    → Lấy tất cả sản phẩm (có filter)
-# 2. GET  /{product_id}            → Lấy 1 sản phẩm
-# 3. POST /add                     → Thêm sản phẩm mới (Admin/Staff)
-# 4. PUT  /{product_id}            → Cập nhật sản phẩm (Admin/Staff)
-# 5. DELETE /{product_id}          → Xóa mềm sản phẩm (Admin/Staff)
-# 6. GET  /category/{category}     → Lấy sản phẩm theo danh mục
+# Tổng cộng 10 endpoints:
+# 1.  GET    /list                    → Lấy tất cả sản phẩm (có filter)
+# 2.  GET    /{product_id}            → Lấy 1 sản phẩm
+# 3.  POST   /add                     → Thêm sản phẩm mới (Admin/Staff)
+# 4.  PUT    /{product_id}            → Cập nhật sản phẩm (Admin/Staff)
+# 5.  DELETE /{product_id}            → Xóa mềm sản phẩm (Admin/Staff)
+# 6.  GET    /category/{category}     → Lấy sản phẩm theo danh mục
+# 7.  POST   /toggle-discount         → Bật/tắt discount (Admin/Staff)
+# 8.  POST   /apply-discount          → Áp dụng discount (Admin/Staff)
+# 9.  POST   /remove-discount         → Xóa discount (Admin/Staff)
+# 10. POST   /update-discount         → Cập nhật % discount (Admin/Staff)

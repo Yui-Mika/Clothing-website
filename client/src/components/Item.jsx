@@ -9,9 +9,10 @@ const Item = ({ product }) => {
   const { addToCart, navigate } = useContext(ShopContext);
   const [hovered, setHovered] = useState(false);
 
-  // Calculate discount percentage
-  const discountPercent = product.price && product.offerPrice 
-    ? Math.round(((product.price - product.offerPrice) / product.price) * 100)
+  // Get discount info from product (from backend discount system)
+  const hasDiscount = product.hasDiscount || false;
+  const discountPercent = hasDiscount && product.discountPercent 
+    ? Math.round(product.discountPercent)
     : 0;
 
   return (
@@ -87,17 +88,23 @@ const Item = ({ product }) => {
           {product.description}
         </p>
         
-        {/* Price Section */}
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-xl font-bold text-gray-900">
-            ${product.offerPrice}.00
-          </span>
-          {product.price && product.price > product.offerPrice && (
-            <span className="text-sm text-gray-400 line-through">
-              ${product.price}.00
+        {/* Price Section with Discount Logic */}
+        {hasDiscount ? (
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xl font-bold text-red-600">
+              ${product.offerPrice.toLocaleString()}
             </span>
-          )}
-        </div>
+            <span className="text-sm text-gray-400 line-through">
+              ${product.price.toLocaleString()}
+            </span>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xl font-bold text-gray-900">
+              ${product.price.toLocaleString()}
+            </span>
+          </div>
+        )}
 
         {/* Add to Cart Button - Bottom */}
         <button
