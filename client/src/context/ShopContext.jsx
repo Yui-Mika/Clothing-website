@@ -17,6 +17,81 @@ axios.defaults.withCredentials = true; /*Cấu hình Axios để gửi cookies c
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL; /*Đặt URL cơ sở (base URL) cho tất cả các yêu cầu API. 
 Nó lấy giá trị từ một biến môi trường (VITE_BACKEND_URL) để dễ dàng chuyển đổi giữa môi trường phát triển và sản xuất.*/
 
+// Cấu hình axios interceptor để tự động gửi JWT token trong mọi request
+axios.interceptors.request.use(
+  (config) => {
+    // Đảm bảo headers object luôn tồn tại
+    if (!config.headers) {
+      config.headers = {};
+    }
+    
+    // Lấy tokens từ localStorage
+    const adminToken = localStorage.getItem('admin_token');
+    const userToken = localStorage.getItem('user_token');
+    
+    // Debug: Log URL để kiểm tra
+    console.log('🔧 Axios request URL:', config.url);
+    console.log('🔧 Headers before:', JSON.stringify(config.headers));
+    
+    // Xác định loại route dựa trên token có sẵn
+    // Nếu có admin_token → coi như admin route
+    // Nếu chỉ có user_token → user route
+    const url = config.url || '';
+    const isAdminLoggedIn = !!adminToken;
+    const isUserLoggedIn = !!userToken;
+    
+    // Debug: Log route type
+    console.log('🔧 isAdminLoggedIn:', isAdminLoggedIn);
+    console.log('🔧 adminToken:', adminToken ? 'exists' : 'null');
+    console.log('🔧 userToken:', userToken ? 'exists' : 'null');
+    
+    // Nếu admin đã login, gửi admin token cho TẤT CẢ các route
+    if (adminToken) {
+      config.headers.Authorization = `Bearer ${adminToken}`;
+      console.log('✅ Sending admin token (admin logged in)');
+    }
+    // Nếu chỉ có user token, gửi user token
+    else if (userToken) {
+      config.headers.Authorization = `Bearer ${userToken}`;
+      console.log('✅ Sending user token (user logged in)');
+    } else {
+      console.log('⚠️ No token sent - no user logged in');
+    }
+    
+    // Debug: Log headers sau khi set
+    console.log('🔧 Headers after:', JSON.stringify(config.headers));
+    
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Cấu hình response interceptor để xử lý lỗi 401 (token hết hạn)
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // Xử lý lỗi 401 Unauthorized (token hết hạn hoặc invalid)
+    if (error.response?.status === 401) {
+      // Nếu đang ở admin routes
+      if (window.location.pathname.startsWith('/admin')) {
+        localStorage.removeItem('admin_token');
+        localStorage.removeItem('user_token');
+        window.location.href = '/'; // Redirect về trang chủ, login modal sẽ tự mở
+      } 
+      // Nếu đang ở user routes (không phải admin)
+      else {
+        localStorage.removeItem('user_token');
+        localStorage.removeItem('admin_token');
+        // Reload page để trigger login modal
+        window.location.reload();
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 
 // Tạo đối tượng Context để các component con có thể truy cập dữ liệu và hàm từ đây
 export const ShopContext = createContext();
@@ -33,6 +108,12 @@ const ShopContextProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false); // State kiểm tra xem người dùng hiện tại có phải là admin hay không
   const [cartItems, setCartItems] = useState({}); // State lưu trữ dữ liệu giỏ hàng của người dùng
   const [searchQuery, setSearchQuery] = useState(""); //State lưu trữ chuỗi tìm kiếm hiện tại của người dùng.
+  
+  // ============================================================================
+  // WISHLIST STATE - Quản lý wishlist của user
+  // ============================================================================
+  const [wishlistCount, setWishlistCount] = useState(0); // Số lượng sản phẩm trong wishlist (hiển thị badge)
+  const [wishlistProducts, setWishlistProducts] = useState([]); // Danh sách sản phẩm trong wishlist (dùng trong Wishlist page)
 
   // Hàm tải sản phẩm từ backend (API Call)
   // Gửi yêu cầu GET đến endpoint /api/product/list để lấy danh sách sản phẩm
@@ -70,27 +151,29 @@ const ShopContextProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/user/is-auth"); // Gọi API để kiểm tra xác thực người dùng
+      console.log("🔍 fetchUser response:", data); // Debug log
+      console.log("🔍 data.success:", data.success, typeof data.success); // Debug success field
+      console.log("🔍 data.user:", data.user); // Debug user field
       if (data.success) { // Nếu người dùng đã đăng nhập, cập nhật state user và giỏ hàng
+        console.log("✅ User logged in:", data.user); // Debug log
         setUser(data.user);
         setCartItems(data.user.cartData);
+        
+        // Set isAdmin dựa trên role
+        const userRole = data.user.role;
+        setIsAdmin(userRole === 'admin' || userRole === 'staff');
+        console.log("✅ isAdmin set to:", userRole === 'admin' || userRole === 'staff'); // Debug log
       } else {
+        console.log("❌ User not logged in - data.success is:", data.success); // Debug log
         setUser(null); // xử lý khi ko đăng nhập
         setCartItems({});
+        setIsAdmin(false); // Clear admin state
       }
-    } catch {
+    } catch (error) {
+      console.log("⚠️ fetchUser error:", error); // Debug log
       setUser(null); // xử lý khi bị lỗi
       setCartItems({});
-    }
-  };
-
-  // Kiểm tra trạng thái admin
-  // Gọi API để kiểm tra xem người dùng hiện tại có phải là admin hay không
-  const fetchAdmin = async () => {
-    try {
-      const { data } = await axios.get("/api/admin/is-auth"); // Gọi API để kiểm tra xác thực admin
-      setIsAdmin(data.success); // nếu thành công, cập nhật state isAdmin
-    } catch {
-      setIsAdmin(false);
+      setIsAdmin(false); // Clear admin state
     }
   };
 
@@ -102,6 +185,9 @@ const ShopContextProvider = ({ children }) => {
       if (data.success) { /*Nếu thành công, hiển thị thông báo đặt state user về null,
         đặt cartItems về rỗng, và chuyển hướng người dùng về trang chủ (/). */
         toast.success(data.message);
+        // Xóa cả 2 tokens khỏi localStorage
+        localStorage.removeItem('user_token');
+        localStorage.removeItem('admin_token');
         setUser(null); // Clear user state
         setIsAdmin(false); // Clear admin state
         setCartItems({}); // Clear cart
@@ -112,6 +198,8 @@ const ShopContextProvider = ({ children }) => {
     } catch (error) {
       toast.error(error.message);
       // Vẫn clear state ngay cả khi có lỗi
+      localStorage.removeItem('user_token');
+      localStorage.removeItem('admin_token');
       setUser(null);
       setIsAdmin(false);
       setCartItems({});
@@ -119,9 +207,119 @@ const ShopContextProvider = ({ children }) => {
     }
   };
 
+  // ============================================================================
+  // WISHLIST FUNCTIONS - Quản lý wishlist
+  // ============================================================================
+  
+  // Fetch wishlist count - Lấy số lượng sản phẩm trong wishlist
+  // Gọi khi user login để hiển thị badge số lượng
+  const fetchWishlistCount = async () => {
+    try {
+      const { data } = await axios.get('/api/wishlist/count');
+      if (data.success) {
+        setWishlistCount(data.count);
+      }
+    } catch (error) {
+      console.log('Error fetching wishlist count:', error);
+      // Không hiển thị toast để không làm phiền user
+    }
+  };
+
+  // Fetch full wishlist - Lấy toàn bộ sản phẩm trong wishlist
+  // Gọi trong Wishlist page để hiển thị danh sách
+  const fetchWishlist = async () => {
+    try {
+      const { data } = await axios.get('/api/wishlist');
+      if (data.success) {
+        setWishlistProducts(data.products);
+        setWishlistCount(data.count);
+      }
+    } catch (error) {
+      console.log('Error fetching wishlist:', error);
+      toast.error('Failed to load wishlist');
+    }
+  };
+
+  // Add to wishlist - Thêm sản phẩm vào wishlist
+  const addToWishlist = async (productId) => {
+    if (!user) {
+      toast.error('Please login to add to wishlist');
+      setShowUserLogin(true);
+      return;
+    }
+
+    try {
+      const { data } = await axios.post('/api/wishlist/add', { productId });
+      if (data.success) {
+        setWishlistCount(data.count);
+        toast.success(data.message || 'Added to wishlist!');
+        return true;
+      } else {
+        toast.error(data.message || 'Product already in wishlist');
+        return false;
+      }
+    } catch (error) {
+      console.log('Error adding to wishlist:', error);
+      toast.error('Failed to add to wishlist');
+      return false;
+    }
+  };
+
+  // Remove from wishlist - Xóa sản phẩm khỏi wishlist
+  const removeFromWishlist = async (productId) => {
+    try {
+      const { data } = await axios.delete('/api/wishlist/remove', { 
+        data: { productId } 
+      });
+      if (data.success) {
+        setWishlistCount(data.count);
+        setWishlistProducts(prev => prev.filter(p => p._id !== productId));
+        toast.success(data.message || 'Removed from wishlist');
+        return true;
+      } else {
+        toast.error(data.message);
+        return false;
+      }
+    } catch (error) {
+      console.log('Error removing from wishlist:', error);
+      toast.error('Failed to remove from wishlist');
+      return false;
+    }
+  };
+
+  // Check if product in wishlist - Kiểm tra sản phẩm có trong wishlist
+  // Dùng để hiển thị trạng thái button wishlist (filled/outline)
+  const checkInWishlist = async (productId) => {
+    if (!user) return false;
+    
+    try {
+      const { data } = await axios.get(`/api/wishlist/check/${productId}`);
+      return data.inWishlist || false;
+    } catch (error) {
+      console.log('Error checking wishlist:', error);
+      return false;
+    }
+  };
+
+  // Clear wishlist - Xóa toàn bộ wishlist
+  const clearWishlist = async () => {
+    try {
+      const { data } = await axios.delete('/api/wishlist/clear');
+      if (data.success) {
+        setWishlistCount(0);
+        setWishlistProducts([]);
+        toast.success('Wishlist cleared');
+      }
+    } catch (error) {
+      console.log('Error clearing wishlist:', error);
+      toast.error('Failed to clear wishlist');
+    }
+  };
+
   // Xử lý sau khi đăng nhập thành công
   const handleLoginSuccess = async () => {
     await fetchUser(); // Tải lại thông tin người dùng và giỏ hàng từ server
+    await fetchWishlistCount(); // Tải số lượng wishlist sau khi login
     
     // Kiểm tra role của user để chuyển hướng đúng trang
     try {
@@ -129,9 +327,9 @@ const ShopContextProvider = ({ children }) => {
       if (data.success && data.user) {
         const userRole = data.user.role;
         
-        // Nếu là admin hoặc staff, chuyển đến trang danh sách sản phẩm admin
+        // Nếu là admin hoặc staff, chuyển đến trang thêm sản phẩm admin
         if (userRole === "admin" || userRole === "staff") {
-          navigate("/admin/list"); // Chuyển đến trang danh sách sản phẩm trong admin panel
+          navigate("/admin"); // Chuyển đến trang thêm sản phẩm (AddProduct) trong admin panel
         } else {
           // Nếu là customer, chuyển về trang chủ
           navigate("/");
@@ -211,11 +409,20 @@ const ShopContextProvider = ({ children }) => {
 
   // Tải dữ liệu ban đầu cần thiết cho ứng dụng khi component được render lần đầu tiên.
   useEffect(() => {
-    fetchUser(); // Kiểm tra và tải thông tin người dùng đã đăng nhập
+    fetchUser(); // Kiểm tra và tải thông tin người dùng đã đăng nhập (bao gồm cả isAdmin)
     fetchProducts(); // Tải danh sách sản phẩm từ backend
     fetchCategories(); // Tải danh sách categories từ backend
-    fetchAdmin(); // Kiểm tra trạng thái admin
   }, []); // Chỉ chạy một lần khi component được mount
+
+  // Load wishlist count khi user đăng nhập hoặc logout
+  useEffect(() => {
+    if (user) {
+      fetchWishlistCount(); // Tải số lượng wishlist khi user đã login
+    } else {
+      setWishlistCount(0); // Reset wishlist count khi logout
+      setWishlistProducts([]); // Clear wishlist products
+    }
+  }, [user]); // Chạy lại khi user state thay đổi
 
   // Đối tượng value chứa tất cả dữ liệu và hàm sẽ được cung cấp cho các component con thông qua Context
   // Bất kỳ component nào sử dụng useContext(ShopContext) đều có thể truy cập bất kỳ thuộc tính nào trong đối tượng value này.
@@ -243,6 +450,15 @@ const ShopContextProvider = ({ children }) => {
     getCartAmount,
     logoutUser,
     handleLoginSuccess, // <--- call this after login
+    // Wishlist functions & state
+    wishlistCount,
+    wishlistProducts,
+    fetchWishlist,
+    fetchWishlistCount,
+    addToWishlist,
+    removeFromWishlist,
+    checkInWishlist,
+    clearWishlist,
   };
 
   // Render Component

@@ -15,7 +15,9 @@ from fastapi.responses import RedirectResponse
 # UserCreate: Model cho data đăng ký (name, email, password)
 # UserLogin: Model cho data đăng nhập (email, password)
 # UserResponse, Token: Models cho response data
-from app.models.user import UserCreate, UserLogin, UserResponse, Token
+# VerifyCodeRequest: Model cho verify OTP code
+# ResendCodeRequest: Model cho resend OTP code
+from app.models.user import UserCreate, UserLogin, UserResponse, Token, VerifyCodeRequest, ResendCodeRequest
 
 # get_collection: Hàm lấy collection từ MongoDB
 from app.config.database import get_collection
@@ -133,6 +135,15 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     hashed_password = get_password_hash(user.password)
     
     # ========================================================================
+    # BƯỚC 2.5: Tạo mã OTP verification code
+    # ========================================================================
+    from app.utils.verification import generate_verification_code
+    from datetime import timedelta
+    
+    verification_code = generate_verification_code(length=6)  # Mã 6 số
+    code_expiry = datetime.utcnow() + timedelta(minutes=10)  # Hết hạn sau 10 phút
+    
+    # ========================================================================
     # BƯỚC 3: Tạo document user mới
     # ========================================================================
     user_doc = {
@@ -147,6 +158,10 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
         "role": "customer",             # Role mặc định là customer
         "emailVerified": False,         # 👈 Chưa xác thực email
         "isActive": False,              # 👈 Tài khoản chưa active (đợi xác thực email)
+        "verificationCode": verification_code,  # 👈 Mã OTP 6 số
+        "codeExpiry": code_expiry,      # 👈 Thời gian hết hạn code
+        "codeAttempts": 0,              # 👈 Số lần thử sai (max 5)
+        "lastCodeSentAt": datetime.utcnow(),  # 👈 Thời gian gửi code (rate limiting)
         "createdAt": datetime.utcnow(), # Thời gian tạo (UTC)
         "updatedAt": datetime.utcnow()  # Thời gian cập nhật
     }
@@ -159,15 +174,17 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     user_id = str(result.inserted_id)  # Lấy ID của user vừa tạo
     
     # ========================================================================
-    # BƯỚC 5: Gửi email xác thực (background task - không block response)
+    # BƯỚC 5: Gửi email với mã OTP (background task - không block response)
     # ========================================================================
+    from app.utils.email import send_verification_code_email
+    
     # BackgroundTasks cho phép gửi email bất đồng bộ sau khi trả response
     # User không phải đợi email gửi xong mới nhận được response
     background_tasks.add_task(
-        send_verification_email,
+        send_verification_code_email,
         email=user.email,
         name=user.name,
-        user_id=user_id
+        code=verification_code
     )
     
     # ========================================================================
@@ -175,8 +192,10 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     # ========================================================================
     return {
         "success": True,
-        "message": "Registration successful! Please check your email to verify your account."
+        "message": "Registration successful! Please check your email for verification code.",
+        "email": user.email  # 👈 Trả về email để frontend redirect đến trang verify
     }
+
 
 # ============================================================================
 # LOGIN ENDPOINT - API Đăng nhập
@@ -251,39 +270,28 @@ async def login_user(user: UserLogin, response: Response):
     access_token = create_access_token(data=token_data)
     
     # ========================================================================
-    # BƯỚC 6: Lưu token vào HTTP-only cookie
+    # BƯỚC 6: Trả về response thành công với token
     # ========================================================================
-    response.set_cookie(
-        key="token",              # Tên cookie
-        value=access_token,       # Giá trị = JWT token
-        httponly=True,            # Không cho JS đọc (bảo mật XSS)
-        max_age=60 * 60 * 24 * 7, # Expire sau 7 ngày (giây)
-        samesite="lax"            # CSRF protection
-    )
-    
-    # ========================================================================
-    # BƯỚC 7: Trả về response thành công
-    # ========================================================================
+    # KHÔNG dùng cookie nữa - Frontend sẽ lưu token vào localStorage
+    # và gửi qua Authorization header
     return {
         "success": True,           # Flag thành công
         "message": "Login successful",  # Thông báo
-        "token": access_token      # Token (cho client nếu cần)
+        "token": access_token      # Token để frontend lưu vào localStorage
     }
 
 # ============================================================================
 # LOGOUT ENDPOINT - API Đăng xuất
 # ============================================================================
 @router.post("/logout", response_model=dict)  # POST /api/user/logout
-async def logout_user(response: Response):
+async def logout_user():
     """
     Đăng xuất user
-    - Xóa token cookie
+    - Frontend sẽ tự xóa token khỏi localStorage
     """
     # ========================================================================
-    # Xóa cookie "token" khỏi browser
+    # KHÔNG cần xóa cookie nữa - Frontend tự xóa localStorage
     # ========================================================================
-    response.delete_cookie(key="token")  # Delete cookie có tên "token"
-    
     return {
         "success": True,              # Flag thành công
         "message": "Logout successful"  # Thông báo
@@ -309,7 +317,9 @@ async def is_authenticated(request: Request):
         # 2. Decode JWT token
         # 3. Tìm user trong DB
         # 4. Return user document
+        print("🔍 /is-auth endpoint called - calling auth_user()...")
         user = await auth_user(request)
+        print(f"✅ auth_user() returned user: {user.get('email')}")
         
         # ====================================================================
         # BƯỚC 2: Format user data
@@ -327,10 +337,13 @@ async def is_authenticated(request: Request):
             "success": True,  # User đã login
             "user": user      # Thông tin user (không có password)
         }
-    except:
+    except Exception as e:
         # ====================================================================
         # Nếu auth_user throw error → user chưa login hoặc token invalid
         # ====================================================================
+        print(f"❌ /is-auth error: {type(e).__name__}: {str(e)}")
+        import traceback
+        print(f"❌ Traceback:\n{traceback.format_exc()}")
         return {
             "success": False,  # User chưa login
             "user": None       # Không có user info
@@ -458,7 +471,214 @@ async def verify_email(token: str, background_tasks: BackgroundTasks):
         )
 
 # ============================================================================
-# RESEND VERIFICATION EMAIL ENDPOINT - Gửi lại email xác thực
+# VERIFY CODE ENDPOINT - API Xác thực email bằng OTP code
+# ============================================================================
+@router.post("/verify-code", response_model=dict)
+async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTasks):
+    """
+    Xác thực email bằng mã OTP 6 số
+    - Kiểm tra email và code
+    - Validate code chưa hết hạn
+    - Check số lần thử (max 5 attempts)
+    - Cập nhật emailVerified=True, isActive=True
+    - Xóa code sau khi verify thành công
+    """
+    from app.utils.verification import is_code_expired
+    
+    users_collection = await get_collection("users")
+    
+    # ========================================================================
+    # BƯỚC 1: Tìm user theo email
+    # ========================================================================
+    user = await users_collection.find_one({"email": request.email})
+    
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found with this email"
+        )
+    
+    # ========================================================================
+    # BƯỚC 2: Kiểm tra đã verify chưa
+    # ========================================================================
+    if user.get("emailVerified", False):
+        return {
+            "success": False,
+            "message": "Email is already verified. You can login now."
+        }
+    
+    # ========================================================================
+    # BƯỚC 3: Kiểm tra số lần thử (prevent brute force)
+    # ========================================================================
+    code_attempts = user.get("codeAttempts", 0)
+    
+    if code_attempts >= 5:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many failed attempts. Please request a new verification code."
+        )
+    
+    # ========================================================================
+    # BƯỚC 4: Kiểm tra code tồn tại
+    # ========================================================================
+    stored_code = user.get("verificationCode")
+    code_expiry = user.get("codeExpiry")
+    
+    if not stored_code or not code_expiry:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="No verification code found. Please request a new one."
+        )
+    
+    # ========================================================================
+    # BƯỚC 5: Kiểm tra code đã hết hạn chưa
+    # ========================================================================
+    if is_code_expired(code_expiry):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Verification code has expired. Please request a new one."
+        )
+    
+    # ========================================================================
+    # BƯỚC 6: So sánh code
+    # ========================================================================
+    if stored_code != request.code:
+        # Tăng số lần thử sai
+        await users_collection.update_one(
+            {"_id": user["_id"]},
+            {"$inc": {"codeAttempts": 1}}
+        )
+        
+        remaining_attempts = 4 - code_attempts
+        
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Invalid verification code. {remaining_attempts} attempt(s) remaining."
+        )
+    
+    # ========================================================================
+    # BƯỚC 7: ✅ Code đúng! Cập nhật user
+    # ========================================================================
+    await users_collection.update_one(
+        {"_id": user["_id"]},
+        {
+            "$set": {
+                "emailVerified": True,      # Đã xác thực email
+                "isActive": True,           # Kích hoạt tài khoản
+                "updatedAt": datetime.utcnow()
+            },
+            "$unset": {
+                "verificationCode": "",     # Xóa code
+                "codeExpiry": "",           # Xóa expiry
+                "codeAttempts": "",         # Xóa attempts counter
+                "lastCodeSentAt": ""        # Xóa last sent time
+            }
+        }
+    )
+    
+    # ========================================================================
+    # BƯỚC 8: Gửi email chào mừng
+    # ========================================================================
+    background_tasks.add_task(
+        send_welcome_email,
+        email=user["email"],
+        name=user["name"]
+    )
+    
+    return {
+        "success": True,
+        "message": "Email verified successfully! You can now login to your account."
+    }
+
+# ============================================================================
+# RESEND VERIFICATION CODE ENDPOINT - Gửi lại mã OTP xác thực
+# ============================================================================
+@router.post("/resend-code", response_model=dict)
+async def resend_verification_code(request: ResendCodeRequest, background_tasks: BackgroundTasks):
+    """
+    Gửi lại mã OTP verification code với rate limiting
+    - Tìm user theo email
+    - Kiểm tra chưa verify
+    - Check rate limiting (60 giây cooldown)
+    - Tạo code mới và gửi email
+    """
+    from app.utils.verification import can_resend_code, generate_verification_code, get_remaining_cooldown
+    from app.utils.email import send_verification_code_email
+    from datetime import timedelta
+    
+    users_collection = await get_collection("users")
+    
+    # ========================================================================
+    # BƯỚC 1: Tìm user theo email
+    # ========================================================================
+    user = await users_collection.find_one({"email": request.email})
+    
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found with this email"
+        )
+    
+    # ========================================================================
+    # BƯỚC 2: Kiểm tra đã verify chưa
+    # ========================================================================
+    if user.get("emailVerified", False):
+        return {
+            "success": False,
+            "message": "Email is already verified. You can login now."
+        }
+    
+    # ========================================================================
+    # BƯỚC 3: Rate limiting - Kiểm tra cooldown
+    # ========================================================================
+    last_sent = user.get("lastCodeSentAt")
+    
+    if not can_resend_code(last_sent, cooldown_seconds=60):
+        remaining = get_remaining_cooldown(last_sent, cooldown_seconds=60)
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail=f"Please wait {remaining} seconds before requesting a new code."
+        )
+    
+    # ========================================================================
+    # BƯỚC 4: Tạo mã OTP mới
+    # ========================================================================
+    new_code = generate_verification_code(length=6)
+    new_expiry = datetime.utcnow() + timedelta(minutes=10)
+    
+    # ========================================================================
+    # BƯỚC 5: Cập nhật database với code mới
+    # ========================================================================
+    await users_collection.update_one(
+        {"_id": user["_id"]},
+        {
+            "$set": {
+                "verificationCode": new_code,
+                "codeExpiry": new_expiry,
+                "codeAttempts": 0,  # Reset số lần thử
+                "lastCodeSentAt": datetime.utcnow(),
+                "updatedAt": datetime.utcnow()
+            }
+        }
+    )
+    
+    # ========================================================================
+    # BƯỚC 6: Gửi email với code mới
+    # ========================================================================
+    background_tasks.add_task(
+        send_verification_code_email,
+        email=user["email"],
+        name=user["name"],
+        code=new_code
+    )
+    
+    return {
+        "success": True,
+        "message": "A new verification code has been sent to your email. Please check your inbox."
+    }
+
+# ============================================================================
+# RESEND VERIFICATION EMAIL ENDPOINT - Gửi lại email xác thực (OLD METHOD - Keep for backward compatibility)
 # ============================================================================
 @router.post("/resend-verification", response_model=dict)
 async def resend_verification_email(email: str, background_tasks: BackgroundTasks):
@@ -503,4 +723,46 @@ async def resend_verification_email(email: str, background_tasks: BackgroundTask
     return {
         "success": True,
         "message": "Verification email has been sent. Please check your inbox."
+    }
+
+# ============================================================================
+# LIST ALL USERS ENDPOINT - Lấy danh sách tất cả users (Admin only)
+# ============================================================================
+@router.get("/list-all", response_model=dict)
+async def list_all_users(request: Request):
+    """
+    Lấy danh sách tất cả users trong hệ thống (Admin only)
+    - Chỉ admin/staff mới có quyền
+    - Trả về thông tin cơ bản của users
+    """
+    # Import auth_admin middleware
+    from app.middleware.auth_admin import auth_admin
+    
+    # ========================================================================
+    # BƯỚC 1: Xác thực admin
+    # ========================================================================
+    admin = await auth_admin(request)
+    
+    # ========================================================================
+    # BƯỚC 2: Lấy danh sách users
+    # ========================================================================
+    users_collection = await get_collection("users")
+    
+    # Lấy tất cả users, loại bỏ password và chỉ lấy các trường cần thiết
+    users = await users_collection.find(
+        {},
+        {
+            "password": 0,  # Không trả về password
+            "verificationCode": 0,  # Không trả về verification code
+            "verificationCodeExpiry": 0  # Không trả về expiry
+        }
+    ).to_list(length=None)
+    
+    # Chuyển ObjectId thành string
+    for user in users:
+        user["_id"] = str(user["_id"])
+    
+    return {
+        "success": True,
+        "users": users
     }

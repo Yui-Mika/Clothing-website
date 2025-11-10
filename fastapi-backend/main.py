@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from app.config.database import connect_to_mongo, close_mongo_connection
-from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes, review_routes
+from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes, review_routes, wishlist_routes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -27,6 +27,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",      # Development local
+        "http://127.0.0.1:5173",      # 127.0.0.1 variant
         "http://localhost:3000",      # Alternative port
         "http://10.7.72.114:5173",    # Old server IP (backup)
         "http://192.168.1.6:5173",    # Current server IP
@@ -48,6 +49,7 @@ app.include_router(testimonial_routes.router, prefix="/api/testimonial", tags=["
 app.include_router(contact_routes.router, prefix="/api/contact", tags=["Contact"])
 app.include_router(report_routes.router, prefix="/api/report", tags=["Reports"])
 app.include_router(review_routes.router, prefix="/api/review", tags=["Reviews"])
+app.include_router(wishlist_routes.router, prefix="/api", tags=["Wishlist"])
 
 @app.get("/")
 async def root():

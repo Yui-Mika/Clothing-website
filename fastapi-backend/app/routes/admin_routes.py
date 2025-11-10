@@ -136,23 +136,33 @@ async def admin_logout(response: Response):
 # Endpoint GET /api/admin/is-auth để kiểm tra xem admin/staff có đăng nhập không
 async def is_admin_authenticated(request: Request):
     """Check if admin/staff is authenticated"""
-    # Hàm này kiểm tra xem cookie "admin_token" có hợp lệ không
+    # Hàm này kiểm tra xem user có role admin/staff không
     
     try:
-        # Thử gọi middleware auth_admin để xác thực token từ cookie
-        user = await auth_admin(request)
+        # Sử dụng auth_user thay vì auth_admin vì frontend gửi token qua Authorization header
+        from app.middleware.auth_user import auth_user
+        user = await auth_user(request)
         # Nếu token hợp lệ -> trả về thông tin user (bao gồm role)
+        
+        # Kiểm tra xem user có role admin hoặc staff không
+        user_role = user.get("role")
+        if user_role not in ["admin", "staff"]:
+            return {
+                "success": False,
+                "message": "Unauthorized: Only admin and staff can access this resource"
+            }
         
         # Trả về kết quả thành công với role của user
         return {
             "success": True,           # Đã xác thực thành công
-            "role": user.get("role")   # Role: "admin" hoặc "staff"
+            "role": user_role          # Role: "admin" hoặc "staff"
         }
-    except:
+    except Exception as e:
         # Nếu có lỗi (token không hợp lệ, hết hạn, hoặc không có token)
         # Trả về success=False
         return {
-            "success": False  # Chưa xác thực hoặc token không hợp lệ
+            "success": False,  # Chưa xác thực hoặc token không hợp lệ
+            "message": str(e)
         }
 
 # ========================================

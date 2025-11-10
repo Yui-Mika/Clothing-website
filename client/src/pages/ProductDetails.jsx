@@ -4,16 +4,27 @@ import { Link, useParams } from "react-router-dom";
 import ProductDescription from "../components/ProductDescription";
 import ProductFeatures from "../components/ProductFeatures";
 import { FaTruckFast } from "react-icons/fa6";
-import { TbShoppingBagPlus, TbHeart, TbStarHalfFilled, TbStarFilled } from "react-icons/tb";
+import { TbShoppingBagPlus, TbHeart, TbHeartFilled, TbStarHalfFilled, TbStarFilled } from "react-icons/tb";
 import RelatedProducts from "../components/RelatedProducts";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
-  const { products, navigate, currency, addToCart } = useContext(ShopContext);
+  const { products, navigate, currency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
   const { id } = useParams();
 
   const product = products.find((item) => item._id === id);
   const [image, setImage] = useState(null);
-  const [size, setSize] = useState(null)
+  const [size, setSize] = useState(null);
+  const [inWishlist, setInWishlist] = useState(false); // Track wishlist status
+
+  // Check if product is in wishlist when component loads
+  useEffect(() => {
+    if (user && product) {
+      checkInWishlist(product._id).then(result => setInWishlist(result));
+    } else {
+      setInWishlist(false);
+    }
+  }, [user, product]);
 
   useEffect(() => {
     if (product) {
@@ -21,6 +32,26 @@ const ProductDetails = () => {
       // console.log(product);
     }
   }, [product]);
+
+  // Handle wishlist toggle (add/remove)
+  const handleWishlistToggle = async () => {
+    if (!user) {
+      toast.error('Please login to add to wishlist');
+      return;
+    }
+
+    if (inWishlist) {
+      const success = await removeFromWishlist(product._id);
+      if (success) {
+        setInWishlist(false);
+      }
+    } else {
+      const success = await addToWishlist(product._id);
+      if (success) {
+        setInWishlist(true);
+      }
+    }
+  };
 
   return (
     product && (
@@ -137,8 +168,16 @@ const ProductDetails = () => {
               >
                 Add to Cart <TbShoppingBagPlus />
               </button>
-              <button className="btn-light ">
-                <TbHeart className="text-xl"/>
+              <button 
+                onClick={handleWishlistToggle}
+                className={`btn-light ${inWishlist ? 'bg-red-50 border-red-200' : ''}`}
+                title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+              >
+                {inWishlist ? (
+                  <TbHeartFilled className="text-xl text-red-500" />
+                ) : (
+                  <TbHeart className="text-xl" />
+                )}
               </button>
             </div>
             <div className="flex items-center gap-x-2 mt-3">

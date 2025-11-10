@@ -23,6 +23,7 @@ const Login = () => {
 
     // State để theo dõi các yêu cầu password
     const [passwordRequirements, setPasswordRequirements] = useState({
+      hasMinLength: false,
       hasUpperCase: false,
       hasLowerCase: false,
       hasNumber: false,
@@ -36,6 +37,7 @@ const Login = () => {
 
       // Cập nhật trạng thái các yêu cầu
       setPasswordRequirements({
+        hasMinLength: newPassword.length >= 8,
         hasUpperCase: /[A-Z]/.test(newPassword),
         hasLowerCase: /[a-z]/.test(newPassword),
         hasNumber: /[0-9]/.test(newPassword),
@@ -51,11 +53,16 @@ const Login = () => {
 
     // Kiểm tra độ mạnh của mật khẩu
     const validatePassword = (password) => {
+      const hasMinLength = password.length >= 8;
       const hasUpperCase = /[A-Z]/.test(password);
       const hasLowerCase = /[a-z]/.test(password);
       const hasNumber = /[0-9]/.test(password);
       const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
       
+      if (!hasMinLength) {
+        toast.error("Password must be at least 8 characters long!");
+        return false;
+      }
       if (!hasUpperCase) {
         toast.error("Password must contain at least 1 uppercase letter!");
         return false;
@@ -78,15 +85,20 @@ const Login = () => {
     //Logic xử lý khi người dùng gửi biểu mẫu (form)
     const onSubmitHandler = async (event) => { // Ngăn chặn hành vi mặc định của biểu mẫu (tải lại trang)
       event.preventDefault();
+      console.log('🚀 onSubmitHandler START - state:', state); // Debug log
+      
       if (!recaptchaToken) {
         toast.error("Please verify you are not a robot!");
-      return;
+        return;
       }
 
       // Kiểm tra mật khẩu khi đăng ký
       if (state === "register" && !validatePassword(password)) {
         return;
       }
+      
+      console.log('🔄 About to send API request to:', `/api/user/${state}`); // Debug log
+      
       try {
         const { data } = await axios.post(`/api/user/${state}`, { // Gửi yêu cầu POST đến endpoint tương ứng dựa trên trạng thái hiện tại (login hoặc register)
           name, 
@@ -101,22 +113,58 @@ const Login = () => {
         });
 
         // Xử lý phản hồi API (máy chủ)
+        console.log('✅ ========== API RESPONSE RECEIVED =========='); // Debug log
+        console.log('🔍 Login response data:', data); // Debug log
+        console.log('🔍 data.success:', data.success, typeof data.success); // Debug log
+        console.log('🔍 data.token:', data.token ? 'exists' : 'null'); // Debug log
+        console.log('🔍 data.token length:', data.token ? data.token.length : 0); // Debug log
+        console.log('✅ ========================================'); // Debug log
+        
         if (data.success) {
           toast.success(`${state === 'register' ? 'Account Created! Please check your email to verify your account.' : 'Login Successful'}`);
           
           // Chỉ đóng modal và load data khi login thành công
           // Khi register thì user cần verify email trước
           if (state === 'login') {
+            console.log('🔍 Processing login - state is:', state); // Debug log
+            // Lưu token vào localStorage dựa trên role
+            if (data.token) {
+              console.log('🔍 Token exists, attempting to decode...'); // Debug log
+              // Decode JWT để lấy role (phần payload là phần giữa của JWT)
+              try {
+                const tokenPayload = JSON.parse(atob(data.token.split('.')[1]));
+                const userRole = tokenPayload.role;
+                console.log('🔍 Decoded role:', userRole); // Debug log
+                
+                // Xóa cả 2 tokens cũ trước khi lưu token mới
+                localStorage.removeItem('user_token');
+                localStorage.removeItem('admin_token');
+                
+                // Lưu vào đúng key dựa trên role
+                if (userRole === 'admin' || userRole === 'staff') {
+                  localStorage.setItem('admin_token', data.token);
+                  console.log('✅ Saved admin token to localStorage');
+                } else {
+                  localStorage.setItem('user_token', data.token);
+                  console.log('✅ Saved user token to localStorage');
+                }
+              } catch (error) {
+                // Fallback: nếu decode thất bại, lưu vào user_token
+                console.error('❌ Error decoding token:', error);
+                localStorage.setItem('user_token', data.token);
+                console.log('✅ Saved token to user_token (fallback)');
+              }
+            } else {
+              console.log('⚠️ No token in response!'); // Debug log
+            }
             await handleLoginSuccess();   // tải thông tin người dùng, giỏ hàng sau khi đăng nhập thành công và chuyển về trang chủ
             setShowUserLogin(false); // ẩn/đóng modal đăng nhập
           } else {
-            // Đăng ký thành công - chuyển sang màn hình login
-            setState('login');
-            setPassword(''); // Clear password field
-            setPhone('');
-            setAddress('');
-            setDateOfBirth('');
-            setGender('');
+            // Đăng ký thành công - redirect đến trang verify email
+            setShowUserLogin(false); // Đóng modal
+            navigate('/verify-email', { 
+              state: { email: data.email || email } 
+            });
           }
         } else {
           toast.error(data.message);
@@ -267,6 +315,10 @@ const Login = () => {
           {/* Hiển thị yêu cầu mật khẩu khi đang ở chế độ đăng ký */}
           {state === "register" && (
             <ul className="text-xs mt-2 space-y-1">
+              <li className={`flex items-center gap-1 ${passwordRequirements.hasMinLength ? 'text-green-600' : 'text-gray-500'}`}>
+                <span>{passwordRequirements.hasMinLength ? '✓' : '○'}</span>
+                At least 8 characters
+              </li>
               <li className={`flex items-center gap-1 ${passwordRequirements.hasUpperCase ? 'text-green-600' : 'text-gray-500'}`}>
                 <span>{passwordRequirements.hasUpperCase ? '✓' : '○'}</span>
                 At least 1 uppercase letter
