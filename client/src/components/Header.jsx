@@ -1,5 +1,5 @@
 // Phần header của trang web, hiển thị logo, thanh điều hướng, biểu tượng giỏ hàng, nút login
-import { FaSearch, FaShoppingBasket } from "react-icons/fa";
+import { FaSearch, FaShoppingBasket, FaHeart } from "react-icons/fa";
 import { FaBars, FaBarsStaggered } from "react-icons/fa6";
 import userImg from "../assets/user.png"
 import logo from "../assets/logo.png" // phần import logo
@@ -8,10 +8,11 @@ import { Link, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext"; // import Context để truy cập dữ liệu và hàm từ ShopContext
+import toast from "react-hot-toast"; // Import toast for notifications
 
 const Header = () => {
   // Truy cập các giá trị và hàm từ ShopContext
-  const { navigate, user, setShowUserLogin, searchQuery, setSearchQuery, getCartCount, axios, logoutUser } = useContext(ShopContext);
+  const { navigate, user, setShowUserLogin, searchQuery, setSearchQuery, getCartCount, axios, logoutUser, wishlistCount } = useContext(ShopContext);
   const [menuOpened, setMenuOpened] = useState(false); // State để theo dõi trạng thái mở/đóng của menu trên di động
   const [showSearch, setShowSearch] = useState(false); // State để theo dõi trạng thái hiển thị thanh tìm kiếm
   const [showUserMenu, setShowUserMenu] = useState(false); // State để quản lý menu user dropdown
@@ -94,6 +95,28 @@ const Header = () => {
               <FaBarsStaggered className="text-xl text-gray-700" />
             ) : (
               <FaBars className="text-xl text-gray-700" />
+            )}
+          </button>
+          
+          {/* WISHLIST */}
+          <button 
+            onClick={() => {
+              if (!user) {
+                toast.error('Please login to view wishlist');
+                setShowUserLogin(true);
+              } else {
+                navigate('/wishlist');
+              }
+            }}
+            className="relative p-2 hover:bg-gray-100 rounded-lg transition-all duration-300 group"
+          >
+            <FaHeart className="text-2xl text-gray-700 group-hover:text-red-500 transition-colors" />
+            
+            {/* Badge số lượng wishlist */}
+            {user && wishlistCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
+                {wishlistCount}
+              </span>
             )}
           </button>
           

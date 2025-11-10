@@ -9,27 +9,18 @@ import { ShopContext } from "../../context/ShopContext"; // Context để sử d
 import toast from "react-hot-toast"; // Thư viện thông báo
 
 const Sidebar = () => {
-  // Lấy navigate và axios từ context để sử dụng
-  const { navigate, axios } = useContext(ShopContext);
+  // Lấy navigate, axios và logoutUser từ context để sử dụng
+  const { navigate, axios, logoutUser } = useContext(ShopContext);
 
-  // Hàm xử lý đăng xuất
+  // Hàm xử lý đăng xuất - Sử dụng logoutUser từ context để đảm bảo đồng bộ
   const logout = async () => {
-   try {
-    // Gửi request đến API logout
-    const {data} = await axios.post('/api/admin/logout')
-    if(data.success){
-      // Nếu thành công, hiển thị thông báo và chuyển về trang chủ
-      console.log(data)
-      toast.success(data.message)
-      navigate('/');
-    }else{
-      // Nếu thất bại, hiển thị lỗi
-      toast.error(data.message)
-    }
-   } catch (error) {
-    // Xử lý lỗi nếu có
-    toast.error(data.message)
-   }
+    // Gọi logoutUser từ context - hàm này đã xử lý đầy đủ:
+    // 1. Gửi request đến API logout
+    // 2. Xóa cả admin_token và user_token
+    // 3. Clear tất cả states (user, isAdmin, cartItems)
+    // 4. Navigate về trang chủ
+    // 5. Hiển thị thông báo
+    await logoutUser();
   };
 
   // Mảng chứa các menu item của sidebar

@@ -123,7 +123,57 @@ const List = () => {
       }
     } catch (error) {
       console.error("Apply discount error:", error)
-      toast.error(error.message || "Lỗi khi áp dụng giảm giá")
+      toast.error(error.response?.data?.message || error.message || "Lỗi khi áp dụng giảm giá")
+    }
+  }
+
+  // Hàm apply discount cho toàn bộ category
+  const applyDiscountToCategory = async () => {
+    if (selectedCategory === "All") {
+      toast.error("Vui lòng chọn một danh mục cụ thể")
+      return
+    }
+    if (!discountPercent || discountPercent <= 0 || discountPercent > 100) {
+      toast.error("Vui lòng nhập % giảm giá hợp lệ (1-100)")
+      return
+    }
+    if (!startDate || !endDate) {
+      toast.error("Vui lòng chọn ngày bắt đầu và kết thúc")
+      return
+    }
+    if (new Date(startDate) > new Date(endDate)) {
+      toast.error("Ngày bắt đầu phải trước ngày kết thúc")
+      return
+    }
+
+    // Đếm số sản phẩm trong category
+    const categoryProducts = filteredProducts.filter(p => p.category === selectedCategory)
+    
+    if (!window.confirm(`Bạn có chắc chắn muốn áp dụng giảm giá ${discountPercent}% cho toàn bộ ${categoryProducts.length} sản phẩm trong danh mục "${selectedCategory}"?`)) {
+      return
+    }
+
+    try {
+      const {data} = await axios.post('/api/product/apply-discount', {
+        category: selectedCategory,
+        applyToAll: true,
+        discountPercent: Number(discountPercent),
+        startDate,
+        endDate
+      })
+      
+      if(data.success){
+        fetchProducts()
+        setDiscountPercent("")
+        setStartDate("")
+        setEndDate("")
+        toast.success(data.message || `Áp dụng giảm giá cho ${data.updatedCount} sản phẩm thành công!`)
+      } else {
+        toast.error(data.message || "Lỗi khi áp dụng giảm giá")
+      }
+    } catch (error) {
+      console.error("Apply discount to category error:", error)
+      toast.error(error.response?.data?.message || error.message || "Lỗi khi áp dụng giảm giá")
     }
   }
 
@@ -152,7 +202,44 @@ const List = () => {
       }
     } catch (error) {
       console.error("Remove discount error:", error)
-      toast.error(error.message || "Lỗi khi hủy giảm giá")
+      toast.error(error.response?.data?.message || error.message || "Lỗi khi hủy giảm giá")
+    }
+  }
+
+  // Hàm remove discount cho toàn bộ category
+  const removeDiscountFromCategory = async () => {
+    if (selectedCategory === "All") {
+      toast.error("Vui lòng chọn một danh mục cụ thể")
+      return
+    }
+
+    // Đếm số sản phẩm có discount trong category
+    const categoryProductsWithDiscount = filteredProducts.filter(p => p.category === selectedCategory && p.hasDiscount)
+    
+    if (categoryProductsWithDiscount.length === 0) {
+      toast.error(`Không có sản phẩm nào trong danh mục "${selectedCategory}" đang có giảm giá`)
+      return
+    }
+
+    if (!window.confirm(`Bạn có chắc chắn muốn hủy giảm giá cho ${categoryProductsWithDiscount.length} sản phẩm trong danh mục "${selectedCategory}"?`)) {
+      return
+    }
+
+    try {
+      const {data} = await axios.post('/api/product/remove-discount', {
+        category: selectedCategory,
+        removeAll: true
+      })
+      
+      if(data.success){
+        fetchProducts()
+        toast.success(data.message || `Hủy giảm giá cho ${data.updatedCount} sản phẩm thành công!`)
+      } else {
+        toast.error(data.message || "Lỗi khi hủy giảm giá")
+      }
+    } catch (error) {
+      console.error("Remove discount from category error:", error)
+      toast.error(error.response?.data?.message || error.message || "Lỗi khi hủy giảm giá")
     }
   }
 
@@ -322,80 +409,105 @@ const List = () => {
       </div>
 
       {/* Discount Control Bar */}
-      <div className="mb-4 flex flex-wrap items-center gap-3 bg-white p-4 rounded-lg border border-gray-200">
-        <div className="flex items-center gap-2">
-          <label className="font-semibold text-gray-700">% Giảm giá:</label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            value={discountPercent}
-            onChange={(e) => setDiscountPercent(e.target.value)}
-            placeholder="0-100"
-            className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
-          />
-        </div>
-        
-        <button
-          onClick={selectAllProducts}
-          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
-        >
-          {selectedProducts.length === filteredProducts.length ? "Bỏ chọn tất cả" : "Chọn tất cả"}
-        </button>
+      <div className="mb-4 bg-white p-4 rounded-lg border border-gray-200">
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <div className="flex items-center gap-2">
+            <label className="font-semibold text-gray-700">% Giảm giá:</label>
+            <input
+              type="number"
+              min="0"
+              max="100"
+              value={discountPercent}
+              onChange={(e) => setDiscountPercent(e.target.value)}
+              placeholder="0-100"
+              className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+          
+          <button
+            onClick={selectAllProducts}
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+          >
+            {selectedProducts.length === filteredProducts.length ? "Bỏ chọn tất cả" : "Chọn tất cả"}
+          </button>
 
-        <div className="flex items-center gap-2">
-          <label className="font-semibold text-gray-700">Ngày bắt đầu:</label>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
-          />
+          <div className="flex items-center gap-2">
+            <label className="font-semibold text-gray-700">Từ:</label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+
+          <div className="flex items-center gap-2">
+            <label className="font-semibold text-gray-700">Đến:</label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              min={startDate}
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+          
+          {selectedProducts.length > 0 && (
+            <span className="text-sm text-gray-600 ml-auto">
+              Đã chọn: <span className="font-semibold">{selectedProducts.length}</span> sản phẩm
+            </span>
+          )}
         </div>
 
-        <div className="flex items-center gap-2">
-          <label className="font-semibold text-gray-700">Ngày kết thúc:</label>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            min={startDate} // Không cho chọn ngày kết thúc trước ngày bắt đầu
-            className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
-          />
-        </div>
-        
-        <button
-          onClick={applyDiscount}
-          className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"
-        >
-          <FiCheck size={18} />
-          <span>Áp dụng</span>
-        </button>
+        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-gray-200">
+          <button
+            onClick={applyDiscount}
+            className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"
+          >
+            <FiCheck size={18} />
+            <span>Áp dụng cho sản phẩm đã chọn</span>
+          </button>
 
-        <button
-          onClick={removeDiscount}
-          className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-colors"
-        >
-          <FiX size={18} />
-          <span>Hủy giảm giá</span>
-        </button>
-        
-        {selectedProducts.length > 0 && (
-          <span className="text-sm text-gray-600">
-            Đã chọn: <span className="font-semibold">{selectedProducts.length}</span> sản phẩm
-          </span>
-        )}
+          <button
+            onClick={applyDiscountToCategory}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors"
+            disabled={selectedCategory === "All"}
+            title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
+          >
+            <FiCheck size={18} />
+            <span>Áp dụng cho category "{selectedCategory}"</span>
+          </button>
+
+          <button
+            onClick={removeDiscount}
+            className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-colors"
+          >
+            <FiX size={18} />
+            <span>Hủy giảm giá</span>
+          </button>
+
+          <button
+            onClick={removeDiscountFromCategory}
+            className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors"
+            disabled={selectedCategory === "All"}
+            title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
+          >
+            <FiX size={18} />
+            <span>Hủy giảm giá cho category "{selectedCategory}"</span>
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
         {/* Header bảng danh sách sản phẩm */}
-        <div className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
+        <div className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1.5fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
           <h5></h5>
           <h5>Image</h5>
           <h5>Name</h5>
           <h5>Category</h5>
           <h5>Price</h5>
           <h5>Offer Price</h5>
+          <h5>Discount</h5>
           <h5>Actions</h5>
         </div>
         {/* Product List - lặp qua mảng products và render từng sản phẩm */}
@@ -403,7 +515,7 @@ const List = () => {
           filteredProducts.map((product) => (
           <div
             key={product._id}
-            className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1fr] items-center gap-2 p-2 bg-white rounded-lg"
+            className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1.5fr_1fr] items-center gap-2 p-2 bg-white rounded-lg"
           >
             {/* Checkbox để chọn sản phẩm */}
             <div className="flex items-center justify-center">
@@ -422,18 +534,42 @@ const List = () => {
               className="w-12 rounded bg-primary"
             />
             {/* Tên sản phẩm */}
-            <h5 className="text-sm font-semibold">{product.name}</h5>
+            <div>
+              <h5 className="text-sm font-semibold">{product.name}</h5>
+              {product.hasDiscount && (
+                <span className="inline-block mt-1 px-2 py-0.5 bg-red-100 text-red-600 text-xs font-semibold rounded">
+                  GIẢM GIÁ
+                </span>
+              )}
+            </div>
             {/* Danh mục */}
             <p className="text-sm font-semibold">{product.category}</p>
             {/* Giá gốc */}
             <div className="text-sm font-semibold">
               {currency}
-              {product.price}
+              {product.price.toLocaleString()}
             </div>
             {/* Giá khuyến mãi */}
-            <div className="text-sm font-semibold text-red-600">
+            <div className={`text-sm font-semibold ${product.hasDiscount ? 'text-red-600' : 'text-gray-700'}`}>
               {currency}
-              {product.offerPrice}
+              {product.offerPrice.toLocaleString()}
+            </div>
+            {/* Thông tin discount */}
+            <div className="text-xs">
+              {product.hasDiscount ? (
+                <div className="space-y-1">
+                  <div className="font-semibold text-red-600">
+                    -{product.discountPercent}%
+                  </div>
+                  {product.discountStartDate && product.discountEndDate && (
+                    <div className="text-gray-500">
+                      {new Date(product.discountStartDate).toLocaleDateString('vi-VN')} - {new Date(product.discountEndDate).toLocaleDateString('vi-VN')}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <span className="text-gray-400">Không giảm giá</span>
+              )}
             </div>
             {/* Actions - nút Edit và Delete */}
             <div className="flex items-center gap-2">

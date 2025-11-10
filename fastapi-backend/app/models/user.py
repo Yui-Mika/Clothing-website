@@ -90,3 +90,12 @@ class TokenData(BaseModel):
     user_id: str
     email: str
     role: str
+
+class VerifyCodeRequest(BaseModel):
+    """Request model for email verification with OTP code"""
+    email: EmailStr
+    code: str = Field(..., min_length=6, max_length=6, pattern="^[0-9]{6}$")
+
+class ResendCodeRequest(BaseModel):
+    """Request model for resending verification code"""
+    email: EmailStr

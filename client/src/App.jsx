@@ -13,18 +13,27 @@ import CategoryCollection from './pages/CategoryCollection'
 import Testimonial from './pages/Testimonial'
 import Contact from './pages/Contact'
 import PlaceOrder from './pages/PlaceOrder'
-import AdminLogin from './components/admin/AdminLogin'
 import Sidebar from './components/admin/Sidebar'
 import List from './pages/admin/List'
 import AddProduct from './pages/admin/AddProduct'
 import MyOrders from './pages/MyOrders'
 import Orders from './pages/admin/Orders'
 import Loading from './components/Loading'
+import Wishlist from './pages/Wishlist' // Import Wishlist page
+import VerifyEmail from './pages/VerifyEmail' // Import VerifyEmail page
 
 const App = () => {
-  const {showUserLogin, isAdmin} = useContext(ShopContext)
+  const {showUserLogin, isAdmin, navigate, setShowUserLogin} = useContext(ShopContext)
   const location = useLocation();
   const isAdminPath = location.pathname.includes('admin')
+
+  // Redirect về home và mở login modal nếu truy cập admin mà chưa login
+  React.useEffect(() => {
+    if (isAdminPath && !isAdmin) {
+      navigate('/');
+      setShowUserLogin(true); // Mở login modal
+    }
+  }, [isAdminPath, isAdmin, navigate, setShowUserLogin]);
 
   return (
     <main className='overflow-hidden text-tertiary'>
@@ -41,11 +50,15 @@ const App = () => {
         <Route path='/place-order' element={<PlaceOrder />}/>
         <Route path='/my-orders' element={<MyOrders />}/>
         <Route path='/cart' element={<Cart />}/>
+        <Route path='/wishlist' element={<Wishlist />}/>
+        <Route path='/product/:id' element={<ProductDetails />}/>
+        <Route path='/verify-email' element={<VerifyEmail />}/>
         <Route path='/loader' element={<Loading />}/>
-        <Route path='/admin' element={isAdmin ? <Sidebar /> : <AdminLogin />}>
+        {/* Admin Routes - Chỉ hiển thị khi đã login với role admin/staff */}
+        <Route path='/admin' element={isAdmin ? <Sidebar /> : <Home />}>
             <Route index element={isAdmin ? <AddProduct /> : null}/>
-            <Route path='list' element={<List />}/>
-            <Route path='orders' element={<Orders  />}/>
+            <Route path='list' element={isAdmin ? <List /> : null}/>
+            <Route path='orders' element={isAdmin ? <Orders /> : null}/>
         </Route>
       </Routes>
       {!isAdminPath && <Footer />}
