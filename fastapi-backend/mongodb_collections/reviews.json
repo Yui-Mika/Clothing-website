@@ -9,6 +9,8 @@
     "userName": "John Anderson",
     "userAvatar": "https://ui-avatars.com/api/?name=John+Anderson&background=3B82F6&color=fff",
     "verified": true,
+    "helpfulCount": 12,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-18T10:00:00.000Z"},
     "createdAt": {"$date": "2024-11-01T14:30:00.000Z"},
     "updatedAt": {"$date": "2024-11-01T14:30:00.000Z"}
@@ -23,6 +25,8 @@
     "userName": "John Anderson",
     "userAvatar": "https://ui-avatars.com/api/?name=John+Anderson&background=3B82F6&color=fff",
     "verified": true,
+    "helpfulCount": 8,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-18T10:00:00.000Z"},
     "createdAt": {"$date": "2024-10-28T09:15:00.000Z"},
     "updatedAt": {"$date": "2024-10-28T09:15:00.000Z"}
@@ -37,6 +41,8 @@
     "userName": "Michael Chen",
     "userAvatar": "https://ui-avatars.com/api/?name=Michael+Chen&background=10B981&color=fff",
     "verified": true,
+    "helpfulCount": 15,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-22T11:30:00.000Z"},
     "createdAt": {"$date": "2024-11-02T16:45:00.000Z"},
     "updatedAt": {"$date": "2024-11-02T16:45:00.000Z"}
@@ -51,6 +57,8 @@
     "userName": "Michael Chen",
     "userAvatar": "https://ui-avatars.com/api/?name=Michael+Chen&background=10B981&color=fff",
     "verified": true,
+    "helpfulCount": 9,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-22T11:30:00.000Z"},
     "createdAt": {"$date": "2024-11-03T10:20:00.000Z"},
     "updatedAt": {"$date": "2024-11-03T10:20:00.000Z"}
@@ -65,6 +73,8 @@
     "userName": "John Anderson",
     "userAvatar": "https://ui-avatars.com/api/?name=John+Anderson&background=3B82F6&color=fff",
     "verified": true,
+    "helpfulCount": 18,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-18T10:00:00.000Z"},
     "createdAt": {"$date": "2024-10-25T11:00:00.000Z"},
     "updatedAt": {"$date": "2024-10-25T11:00:00.000Z"}
@@ -79,6 +89,8 @@
     "userName": "Sarah Martinez",
     "userAvatar": "https://ui-avatars.com/api/?name=Sarah+Martinez&background=F59E0B&color=fff",
     "verified": true,
+    "helpfulCount": 6,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-15T14:20:00.000Z"},
     "createdAt": {"$date": "2024-10-30T13:45:00.000Z"},
     "updatedAt": {"$date": "2024-10-30T13:45:00.000Z"}
@@ -93,6 +105,8 @@
     "userName": "David Kim",
     "userAvatar": "https://ui-avatars.com/api/?name=David+Kim&background=8B5CF6&color=fff",
     "verified": true,
+    "helpfulCount": 11,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-12T09:30:00.000Z"},
     "createdAt": {"$date": "2024-10-27T15:10:00.000Z"},
     "updatedAt": {"$date": "2024-10-27T15:10:00.000Z"}
@@ -107,6 +121,8 @@
     "userName": "James Wilson",
     "userAvatar": "https://ui-avatars.com/api/?name=James+Wilson&background=EF4444&color=fff",
     "verified": true,
+    "helpfulCount": 3,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-08T16:45:00.000Z"},
     "createdAt": {"$date": "2024-10-22T12:30:00.000Z"},
     "updatedAt": {"$date": "2024-10-22T12:30:00.000Z"}
@@ -121,6 +137,8 @@
     "userName": "Emma Thompson",
     "userAvatar": "https://ui-avatars.com/api/?name=Emma+Thompson&background=EC4899&color=fff",
     "verified": true,
+    "helpfulCount": 14,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-05T11:15:00.000Z"},
     "createdAt": {"$date": "2024-10-19T14:20:00.000Z"},
     "updatedAt": {"$date": "2024-10-19T14:20:00.000Z"}
@@ -135,6 +153,8 @@
     "userName": "Robert Lee",
     "userAvatar": "https://ui-avatars.com/api/?name=Robert+Lee&background=06B6D4&color=fff",
     "verified": true,
+    "helpfulCount": 7,
+    "images": [],
     "purchaseDate": {"$date": "2024-10-11T13:40:00.000Z"},
     "createdAt": {"$date": "2024-10-26T10:55:00.000Z"},
     "updatedAt": {"$date": "2024-10-26T10:55:00.000Z"}

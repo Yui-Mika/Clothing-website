@@ -149,28 +149,28 @@ const VerifyEmail = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 px-4 py-8">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 px-3 sm:px-4 py-6 sm:py-8">
+      <div className="w-full max-w-[95vw] sm:max-w-md lg:max-w-lg bg-white rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-100">
         {/* Icon */}
-        <div className="flex justify-center mb-6">
-          <div className="bg-gradient-to-br from-purple-500 to-blue-500 p-5 rounded-full shadow-lg">
-            <TbMail className="text-white text-5xl" />
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="bg-gradient-to-br from-purple-500 to-blue-500 p-3 sm:p-4 md:p-5 rounded-full shadow-lg">
+            <TbMail className="text-white text-3xl sm:text-4xl md:text-5xl" />
           </div>
         </div>
 
         {/* Title */}
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-2">
           Verify Your Email
         </h2>
-        <p className="text-center text-gray-600 mb-2">
+        <p className="text-center text-sm sm:text-base text-gray-600 mb-2">
           We sent a 6-digit verification code to
         </p>
-        <p className="text-center font-semibold text-purple-600 mb-8 break-all">
+        <p className="text-center font-semibold text-sm sm:text-base text-purple-600 mb-6 sm:mb-8 break-all px-2">
           {email}
         </p>
 
         {/* Code Input */}
-        <div className="flex gap-2 justify-center mb-6" onKeyPress={handleKeyPress}>
+        <div className="flex gap-1.5 sm:gap-2 md:gap-3 justify-center mb-6" onKeyPress={handleKeyPress}>
           {code.map((digit, index) => (
             <input
               key={index}
@@ -183,19 +183,19 @@ const VerifyEmail = () => {
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
               onPaste={index === 0 ? handlePaste : undefined}
-              className="w-12 h-14 text-center text-2xl font-bold border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all"
+              className="w-10 h-12 sm:w-12 sm:h-14 md:w-14 md:h-16 text-center text-xl sm:text-2xl font-bold border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 transition-all"
               disabled={loading}
             />
           ))}
         </div>
 
         {/* Info Box */}
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded mb-6">
+        <div className="bg-blue-50 border-l-4 border-blue-400 p-2.5 sm:p-3 rounded mb-6">
           <div className="flex items-start gap-2">
-            <TbAlertCircle className="text-blue-600 text-xl flex-shrink-0 mt-0.5" />
+            <TbAlertCircle className="text-blue-600 text-lg sm:text-xl flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-blue-800 font-medium">Code expires in 10 minutes</p>
-              <p className="text-xs text-blue-700 mt-1">You have 5 attempts to enter the correct code</p>
+              <p className="text-xs sm:text-sm text-blue-800 font-medium">Code expires in 10 minutes</p>
+              <p className="text-[10px] sm:text-xs text-blue-700 mt-1">You have 5 attempts to enter the correct code</p>
             </div>
           </div>
         </div>
@@ -204,35 +204,35 @@ const VerifyEmail = () => {
         <button
           onClick={handleVerify}
           disabled={loading || code.join('').length !== 6}
-          className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:from-purple-600 hover:to-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:shadow-lg hover:from-purple-600 hover:to-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {loading ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-              Verifying...
+              <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white"></div>
+              <span className="text-sm sm:text-base">Verifying...</span>
             </>
           ) : (
             <>
-              <TbShieldCheck className="text-xl" />
-              Verify Email
+              <TbShieldCheck className="text-lg sm:text-xl" />
+              <span className="text-sm sm:text-base">Verify Email</span>
             </>
           )}
         </button>
 
         {/* Resend Code */}
-        <div className="text-center mt-6">
-          <p className="text-gray-600 text-sm mb-2">
+        <div className="text-center mt-5 sm:mt-6">
+          <p className="text-gray-600 text-xs sm:text-sm mb-2">
             Didn't receive the code?
           </p>
           <button
             onClick={handleResend}
             disabled={resendLoading || countdown > 0}
-            className="text-purple-600 font-semibold hover:text-purple-700 hover:underline disabled:text-gray-400 disabled:cursor-not-allowed disabled:no-underline transition-colors"
+            className="text-sm sm:text-base text-purple-600 font-semibold hover:text-purple-700 hover:underline disabled:text-gray-400 disabled:cursor-not-allowed disabled:no-underline transition-colors"
           >
             {resendLoading ? (
               <span className="flex items-center justify-center gap-2">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-600"></div>
-                Sending...
+                <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-purple-600"></div>
+                <span className="text-xs sm:text-sm">Sending...</span>
               </span>
             ) : countdown > 0 ? (
               `Resend in ${countdown}s`
@@ -243,10 +243,10 @@ const VerifyEmail = () => {
         </div>
 
         {/* Back to Home */}
-        <div className="text-center mt-8 pt-6 border-t border-gray-200">
+        <div className="text-center mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-200">
           <button
             onClick={() => navigate('/')}
-            className="text-gray-500 text-sm hover:text-gray-700 transition-colors"
+            className="text-gray-500 text-xs sm:text-sm hover:text-gray-700 transition-colors"
           >
             ← Back to Home
           </button>
