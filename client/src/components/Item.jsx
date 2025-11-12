@@ -51,24 +51,6 @@ const Item = ({ product }) => {
             -{discountPercent}%
           </div>
         )}
-
-        {/* Quick Add Overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 
-                       transition-all duration-300 flex items-center justify-center">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              addToCart(product._id);
-            }}
-            className="translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100
-                     transition-all duration-300 bg-white text-gray-900 px-6 py-3 rounded-full
-                     font-medium text-sm flex items-center gap-2 hover:bg-gray-900 hover:text-white
-                     shadow-xl"
-          >
-            <TbShoppingBagPlus className="text-lg" />
-            Quick Add
-          </button>
-        </div>
       </div>
 
       {/* Hiển thị chi tiết sản phẩm và tương tác - INFO */}

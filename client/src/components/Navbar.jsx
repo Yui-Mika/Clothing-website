@@ -28,6 +28,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
     // Dữ liệu liên kết điều hướng
     const navLinks = [
         { path: '/', title: 'Home' },
+        { path: '/blogs', title: 'Blogs' },
         { path: '/testimonial', title: 'Testimonial' },
         { path: '/contact', title: 'Contact' },
     ]

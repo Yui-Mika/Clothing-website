@@ -27,7 +27,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",      # Development local
-        "http://127.0.0.1:5173",      # 127.0.0.1 variant
         "http://localhost:3000",      # Alternative port
         "http://10.7.72.114:5173",    # Old server IP (backup)
         "http://192.168.1.6:5173",    # Current server IP

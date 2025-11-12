@@ -61,9 +61,20 @@ const Sidebar = () => {
             {/* Logo của website */}
             <Link
               to="/admin"
-              className="bold-20 md:bold-24 uppercase font-paci lg:pl-[15%]"
+              className="flex items-center justify-center sm:justify-start lg:pl-[15%] group"
             >
-              Shopprr <span className="text-secondary bold-28">.</span>
+              <div className="flex flex-col items-center sm:items-start gap-3">
+                <h1 className="text-3xl md:text-4xl font-extrabold tracking-[0.15em] uppercase relative">
+                  <span className="text-black drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition-all duration-300 hover:tracking-[0.2em]">
+                    VELOURA
+                  </span>
+                  <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-black to-transparent opacity-30"></span>
+                </h1>
+                <div className="flex items-center justify-center sm:justify-start gap-2 px-3 py-1 bg-black/5 rounded-full border border-black/10">
+                  <span className="text-[9px] md:text-[10px] text-black/70 font-bold tracking-[0.25em] uppercase">Admin Panel</span>
+                  <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse shadow-sm"></span>
+                </div>
+              </div>
             </Link>
 
             <div className="flex sm:flex-col sm:gap-x-5 gap-y-8 sm:pt-10">

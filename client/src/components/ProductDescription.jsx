@@ -222,15 +222,16 @@ const ProductDescription = ({ product }) => {
                         ? (count / reviewStats.totalReviews) * 100 
                         : 0;
                       return (
-                        <div key={star} className="flex items-center gap-3 mb-2">
-                          <span className="text-sm text-gray-600 w-8">{star} ⭐</span>
+                        <div key={star} className="flex items-center gap-2 mb-2">
+                          <span className="text-sm text-gray-600 w-6 text-right font-mono">{star}</span>
+                          <span className="text-sm w-5">⭐</span>
                           <div className="flex-1 bg-gray-200 rounded-full h-2">
                             <div
                               className="bg-yellow-400 h-2 rounded-full transition-all"
                               style={{ width: `${percentage}%` }}
                             />
                           </div>
-                          <span className="text-sm text-gray-600 w-8 text-right">{count}</span>
+                          <span className="text-sm text-gray-600 w-10 text-right font-mono">{count}</span>
                         </div>
                       );
                     })}

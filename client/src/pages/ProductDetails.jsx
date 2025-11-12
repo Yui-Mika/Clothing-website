@@ -4,9 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import ProductDescription from "../components/ProductDescription";
 import ProductFeatures from "../components/ProductFeatures";
 import { FaTruckFast } from "react-icons/fa6";
-import { TbShoppingBagPlus, TbHeart, TbHeartFilled, TbStarHalfFilled, TbStarFilled } from "react-icons/tb";
+import { TbShoppingBagPlus, TbHeart, TbHeartFilled, TbStarHalfFilled, TbStarFilled, TbStar } from "react-icons/tb";
 import RelatedProducts from "../components/RelatedProducts";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const ProductDetails = () => {
   const { products, navigate, currency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
@@ -16,6 +17,11 @@ const ProductDetails = () => {
   const [image, setImage] = useState(null);
   const [size, setSize] = useState(null);
   const [inWishlist, setInWishlist] = useState(false); // Track wishlist status
+  const [reviewStats, setReviewStats] = useState({
+    averageRating: 0,
+    totalReviews: 0,
+    ratingDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+  });
 
   // Check if product is in wishlist when component loads
   useEffect(() => {
@@ -31,6 +37,35 @@ const ProductDetails = () => {
       setImage(product.image[0]);
       // console.log(product);
     }
+  }, [product]);
+
+  // Fetch review statistics for the product
+  const fetchReviewStats = async () => {
+    if (!product) return;
+    
+    try {
+      const response = await axios.get(`/api/review/product/${product._id}/stats`);
+      if (response.data.success) {
+        setReviewStats({
+          averageRating: response.data.averageRating || 0,
+          totalReviews: response.data.totalReviews || 0,
+          ratingDistribution: response.data.ratingDistribution || { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching review stats:", error);
+      // Keep default values on error
+      setReviewStats({
+        averageRating: 0,
+        totalReviews: 0,
+        ratingDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
+      });
+    }
+  };
+
+  // Fetch review stats when product changes
+  useEffect(() => {
+    fetchReviewStats();
   }, [product]);
 
   // Handle wishlist toggle (add/remove)
@@ -51,6 +86,31 @@ const ProductDetails = () => {
         setInWishlist(true);
       }
     }
+  };
+
+  // Render stars based on rating (0-5)
+  const renderStars = (rating) => {
+    const stars = [];
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+    // Add full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<TbStarFilled key={`full-${i}`} />);
+    }
+
+    // Add half star if needed
+    if (hasHalfStar) {
+      stars.push(<TbStarHalfFilled key="half" />);
+    }
+
+    // Add empty stars
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<TbStar key={`empty-${i}`} />);
+    }
+
+    return stars;
   };
 
   return (
@@ -91,13 +151,13 @@ const ProductDetails = () => {
             {/* RATING & PRICE */}
             <div className="flex items-center gap-x-2 pt-2">
               <div className="flex gap-x-2 text-yellow-500">
-                <TbStarFilled />
-                <TbStarFilled />
-                <TbStarFilled />
-                <TbStarFilled />
-                <TbStarHalfFilled />
+                {renderStars(reviewStats.averageRating)}
               </div>
-              <p className="medium-14">({22})</p> {/*  hard-coded values */}
+              <p className="medium-14">
+                {reviewStats.totalReviews > 0 
+                  ? `(${reviewStats.totalReviews})` 
+                  : '(No reviews yet)'}
+              </p>
             </div>
 
             {/* PRICE DISPLAY WITH DISCOUNT LOGIC */}

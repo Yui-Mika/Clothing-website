@@ -1,46 +1,106 @@
 [
   {
-    "_id": {"$oid": "673b1234567890abcdef4001"},
-    "title": "Top 10 Men's Fashion Trends 2024-2025",
-    "category": "Fashion Trends",
-    "content": "Discover the 10 hottest men's fashion trends for 2024-2025. From Japanese minimalism to Korean streetwear, from oversized to tailored fit. We analyze in detail how to mix and match outfits, choose colors and materials suitable for each body type. Especially, Vietnamese local brands are gradually establishing their position with unique designs combining Eastern and Western culture. The Uniqlo style with the 'less is more' philosophy is becoming the most popular trend among Vietnamese youth.",
-    "author": "Fashion Editor",
-    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/xu-huong-nam-2024.jpg",
+    "title": "Top 10 Fashion Trends to Watch in 2025",
+    "content": "<h2>Introduction</h2><p>The fashion world is constantly evolving, and 2025 promises to bring exciting new trends that blend sustainability, technology, and timeless elegance. From eco-friendly fabrics to bold color palettes, here's what you need to know about the upcoming fashion trends.</p><h3>1. Sustainable Fashion Takes Center Stage</h3><p>Consumers are increasingly conscious about environmental impact. Brands are responding with recycled materials, organic cotton, and transparent supply chains.</p><h3>2. Tech-Infused Clothing</h3><p>Smart fabrics that regulate temperature, track fitness metrics, and even charge your devices are becoming mainstream.</p><h3>3. Vintage Revival</h3><p>90s and early 2000s fashion is making a strong comeback with baggy jeans, crop tops, and chunky sneakers.</p><p>Stay ahead of the curve by incorporating these trends into your wardrobe!</p>",
+    "excerpt": "Discover the hottest fashion trends of 2025, from sustainable materials to tech-infused clothing and vintage revivals.",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800",
     "isPublished": true,
-    "createdAt": {"$date": "2024-10-01T10:00:00.000Z"},
-    "updatedAt": {"$date": "2024-10-01T10:00:00.000Z"}
+    "createdAt": {
+      "$date": "2025-11-01T10:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-01T10:00:00.000Z"
+    }
   },
   {
-    "_id": {"$oid": "673b1234567890abcdef4002"},
-    "title": "How to Build a Basic Wardrobe for Men",
-    "category": "Styling Guide",
-    "content": "A perfect men's wardrobe doesn't need too many items but focuses on quality and versatility. This article will guide you to build a capsule wardrobe with essential pieces: 5 basic t-shirts, 3 dress shirts (white, blue, checkered), 2 jeans (dark blue, black), 2 chinos (beige, gray), 1 hoodie, 1 jacket. With these 15-20 items, you can create over 50 different outfits for all occasions from work, casual wear to important meetings. Investing in quality will help your clothes stay beautiful over time.",
-    "author": "Professional Stylist",
-    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/tu-do-co-ban-nam.jpg",
+    "title": "How to Style Your Winter Wardrobe Like a Pro",
+    "content": "<h2>Master Winter Fashion</h2><p>Winter fashion doesn't have to be boring! Learn how to layer effectively, choose the right fabrics, and create stunning outfits that keep you warm and stylish.</p><h3>Layering Techniques</h3><p>Start with a base layer (thermal wear), add a mid-layer (sweater or cardigan), and finish with an outer layer (coat or jacket).</p><h3>Must-Have Winter Pieces</h3><ul><li>Wool coat in neutral colors</li><li>Cashmere sweaters</li><li>Leather boots</li><li>Scarves and beanies</li></ul><h3>Color Palette</h3><p>Stick to earth tones, burgundy, forest green, and navy blue for a sophisticated winter look.</p>",
+    "excerpt": "Master the art of winter styling with layering techniques, must-have pieces, and color palette ideas for the cold season.",
+    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800",
     "isPublished": true,
-    "createdAt": {"$date": "2024-10-05T14:30:00.000Z"},
-    "updatedAt": {"$date": "2024-10-05T14:30:00.000Z"}
+    "createdAt": {
+      "$date": "2025-10-28T14:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-28T14:30:00.000Z"
+    }
   },
   {
-    "_id": {"$oid": "673b1234567890abcdef4003"},
-    "title": "Vietnamese Local Brands - The New Trend Among Youth",
-    "category": "Vietnamese Brands",
-    "content": "Vietnamese local brands are gradually dominating the domestic and regional fashion market. With the slogan 'Made in Vietnam - Wear with Pride', brands like Coolmate, Routine, and Mint Basics have proven that Vietnamese products can compete in quality and design. The strength of local brands is understanding Vietnamese preferences, using materials suitable for tropical climate, reasonable prices, and dedicated customer service. Let's support high-quality Vietnamese products!",
-    "author": "Fashion Expert",
-    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/local-brand-viet.jpg",
+    "title": "The Ultimate Guide to Building a Capsule Wardrobe",
+    "content": "<h2>What is a Capsule Wardrobe?</h2><p>A capsule wardrobe is a collection of essential items that don't go out of style, which can be mixed and matched to create multiple outfits.</p><h3>Benefits</h3><p>Save money, reduce clutter, make getting dressed easier, and be more sustainable.</p><h3>Essential Pieces (30-40 items total)</h3><ul><li>5-7 tops (t-shirts, blouses, shirts)</li><li>3-5 bottoms (jeans, trousers, skirts)</li><li>3-4 dresses</li><li>2-3 jackets/coats</li><li>3-5 pairs of shoes</li><li>Accessories (bags, belts, scarves)</li></ul><h3>Color Scheme</h3><p>Choose 3 neutral colors (black, white, gray, navy, beige) and 2-3 accent colors.</p>",
+    "excerpt": "Learn how to build a versatile capsule wardrobe with essential pieces that mix and match effortlessly for any occasion.",
+    "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800",
     "isPublished": true,
-    "createdAt": {"$date": "2024-10-10T09:15:00.000Z"},
-    "updatedAt": {"$date": "2024-10-10T09:15:00.000Z"}
+    "createdAt": {
+      "$date": "2025-10-25T09:15:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-25T09:15:00.000Z"
+    }
   },
   {
-    "_id": {"$oid": "673b1234567890abcdef4004"},
-    "title": "Secrets to Choosing Men's T-Shirts for Different Body Types",
-    "category": "Shopping Guide",
-    "content": "T-shirts are an indispensable item in men's wardrobes, but not everyone knows how to choose shirts suitable for their body type. Skinny build should choose fitted or slim fit to enhance physique, avoid oversized which makes you look smaller. Athletic/muscular build should choose regular fit with good stretch fabric. Heavy build should choose t-shirts that go past the hips, moderate sleeve length, avoid too tight shirts. Ideal sleeve length is across the bicep. Cotton or cotton-polyester blend materials provide good moisture absorption and color retention. Basic colors like white, black, gray, navy are easiest to mix and match.",
-    "author": "Personal Stylist",
-    "image": "https://res.cloudinary.com/veloura/image/upload/v1/blogs/chon-ao-thun.jpg",
+    "title": "Spring/Summer 2025: Fresh Colors and Breezy Fabrics",
+    "content": "<h2>Welcome the Warm Season</h2><p>As temperatures rise, it's time to refresh your wardrobe with light fabrics, vibrant colors, and breathable designs.</p><h3>Trending Colors</h3><p>Pastel pink, mint green, lavender, coral, and sky blue dominate the SS25 runways.</p><h3>Fabric Choices</h3><ul><li>Linen - breathable and elegant</li><li>Cotton - versatile and comfortable</li><li>Silk - luxurious and lightweight</li><li>Chambray - casual and cool</li></ul><h3>Key Styles</h3><p>Flowy maxi dresses, wide-leg trousers, crop tops, and oversized sunglasses are must-haves.</p>",
+    "excerpt": "Explore the spring/summer 2025 fashion trends featuring fresh colors, breezy fabrics, and key styles for the warm season.",
+    "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800",
     "isPublished": true,
-    "createdAt": {"$date": "2024-10-15T16:45:00.000Z"},
-    "updatedAt": {"$date": "2024-10-15T16:45:00.000Z"}
+    "createdAt": {
+      "$date": "2025-10-20T11:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-20T11:00:00.000Z"
+    }
+  },
+  {
+    "title": "How to Care for Your Premium Clothing: A Complete Guide",
+    "content": "<h2>Protect Your Investment</h2><p>Premium clothing requires special care to maintain quality and longevity. Follow these expert tips.</p><h3>Washing Guidelines</h3><ul><li>Always read care labels</li><li>Separate colors from whites</li><li>Use cold water for delicates</li><li>Turn garments inside out</li><li>Use gentle detergent</li></ul><h3>Drying Methods</h3><p>Air dry whenever possible. Avoid direct sunlight. Use padded hangers for suits and dresses.</p><h3>Storage Tips</h3><p>Store in breathable garment bags, use cedar blocks for moths, and fold knits instead of hanging.</p><h3>Professional Cleaning</h3><p>Dry clean suits, coats, and silk items. Build relationship with trusted cleaner.</p>",
+    "excerpt": "Learn professional tips for washing, drying, and storing your premium clothing to extend their lifespan and maintain quality.",
+    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800",
+    "isPublished": true,
+    "createdAt": {
+      "$date": "2025-10-15T16:45:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-15T16:45:00.000Z"
+    }
+  },
+  {
+    "title": "Accessorize Like a Fashion Icon: Complete Guide",
+    "content": "<h2>The Power of Accessories</h2><p>Accessories can transform a simple outfit into a statement look. Learn how to choose and style them effectively.</p><h3>Essential Accessories</h3><ul><li>Watch - timeless and functional</li><li>Sunglasses - protect and style</li><li>Bags - from casual to formal</li><li>Belts - define your waist</li><li>Jewelry - add sparkle</li><li>Scarves - versatile layers</li></ul><h3>Styling Rules</h3><p>Don't overdo it - choose 2-3 statement pieces. Match metals (gold with gold, silver with silver). Consider outfit color palette.</p><h3>Investment Pieces</h3><p>Quality over quantity. Invest in leather bags, designer watches, and timeless jewelry.</p>",
+    "excerpt": "Master the art of accessorizing with this complete guide on choosing, styling, and investing in the right accessories.",
+    "image": "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800",
+    "isPublished": true,
+    "createdAt": {
+      "$date": "2025-10-10T13:20:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-10T13:20:00.000Z"
+    }
+  },
+  {
+    "title": "Dressing for Your Body Type: Flatter Your Figure",
+    "content": "<h2>Find Your Best Fit</h2><p>Understanding your body type helps you choose clothes that enhance your natural shape and boost confidence.</p><h3>Body Type Categories</h3><ul><li>Hourglass - balanced bust and hips, defined waist</li><li>Pear - wider hips than shoulders</li><li>Apple - fuller midsection</li><li>Rectangle - straight silhouette</li><li>Inverted Triangle - broader shoulders than hips</li></ul><h3>Universal Tips</h3><p>Proper fit is key. Tailoring makes huge difference. Wear what makes you feel confident.</p><h3>Style Recommendations</h3><p>Hourglass: wrap dresses, fitted tops. Pear: A-line skirts, boat necks. Apple: empire waists, v-necks. Rectangle: belts, peplum tops. Inverted Triangle: wide-leg pants, A-line skirts.</p>",
+    "excerpt": "Discover how to dress for your body type with flattering styles, cuts, and silhouettes that enhance your natural beauty.",
+    "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800",
+    "isPublished": true,
+    "createdAt": {
+      "$date": "2025-10-05T10:30:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-05T10:30:00.000Z"
+    }
+  },
+  {
+    "title": "Why Sustainable Fashion Matters: Join the Movement",
+    "content": "<h2>Fashion's Environmental Impact</h2><p>The fashion industry is one of the world's largest polluters. Learn why sustainable fashion matters and how you can contribute.</p><h3>The Problems</h3><ul><li>Water pollution from textile dyeing</li><li>Massive carbon footprint</li><li>Textile waste in landfills</li><li>Exploitative labor practices</li></ul><h3>What You Can Do</h3><ul><li>Buy less, choose quality</li><li>Support ethical brands</li><li>Shop secondhand</li><li>Repair and upcycle</li><li>Donate or recycle old clothes</li></ul><h3>Sustainable Materials</h3><p>Organic cotton, recycled polyester, Tencel, hemp, and bamboo are eco-friendly alternatives.</p><h3>Our Commitment</h3><p>At Veloura, we're committed to sustainable practices and transparent sourcing.</p>",
+    "excerpt": "Learn about sustainable fashion's importance, the industry's environmental impact, and how you can make eco-conscious choices.",
+    "image": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=800",
+    "isPublished": true,
+    "createdAt": {
+      "$date": "2025-10-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-10-01T08:00:00.000Z"
+    }
   }
 ]

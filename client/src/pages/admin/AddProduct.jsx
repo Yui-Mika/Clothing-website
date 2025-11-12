@@ -94,8 +94,13 @@ const AddProduct = () => {
             {/* Giá gốc */}
             <div>
               <h5 className='h5'>Product Price</h5>
-              <input onChange={(e) => setPrice(e.target.value)} value={price} type="number" placeholder='10' className='px-3
-               py-2 bg-white rounded max-w-24 ring-1 ring-slate-900/5' />
+              <input 
+                onChange={(e) => setPrice(e.target.value)} 
+                value={price} 
+                type="number" 
+                placeholder='10' 
+                className='px-3 py-2 bg-white rounded max-w-24 ring-1 ring-slate-900/5 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' 
+              />
             </div>
           </div>
         </div>
