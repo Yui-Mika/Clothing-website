@@ -115,38 +115,44 @@ const ProductDetails = () => {
 
   return (
     product && (
-      <div className="max-padd-container py-16 pt-28 bg-primary">
-        <p>
-          <Link to={"/"}>Home</Link> /
-          <Link to={"/collection"}> Collection</Link> /
-          <Link to={`/collection/${product.category}`}>
-            {" "}
-            {product.category}
-          </Link>{" "}
-          /<span className="text-secondary"> {product.name}</span>
-        </p>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <div className="max-padd-container py-8 pt-36">
+        {/* Breadcrumb Navigation */}
+        <div className="bg-white/70 backdrop-blur-sm px-4 py-3 rounded-lg shadow-sm border border-gray-200/50 mb-8 inline-block">
+          <p className="text-sm text-gray-600 flex items-center flex-wrap gap-2">
+            <Link to={"/"} className="hover:text-secondary transition-colors font-medium">Home</Link>
+            <span className="text-gray-400">/</span>
+            <Link to={"/collection"} className="hover:text-secondary transition-colors font-medium">Collection</Link>
+            <span className="text-gray-400">/</span>
+            <Link to={`/collection/${product.category}`} className="hover:text-secondary transition-colors font-medium">
+              {product.category}
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-secondary font-semibold">{product.name}</span>
+          </p>
+        </div>
         {/* PRODUCT DATA */}
         <div className="flex gap-10 flex-col xl:flex-row my-6">
           {/* IMAGE */}
           <div className="flex flex-1 gap-x-2 max-w-[533px]">
             <div className="flex-1 flexCenter flex-col gap-[7px] flex-wrap">
               {product.image.map((item, i) => (
-                <div key={i} className="bg-white">
+                <div key={i} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 cursor-pointer">
                   <img
                     onClick={() => setImage(item)}
                     src={item}
                     alt="prdctImg"
-                    className="object-cover aspect-square"
+                    className="object-cover aspect-square hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               ))}
             </div>
-            <div className="flex-[4] flex bg-white">
-              <img src={image} alt="prdctImg" />
+            <div className="flex-[4] flex bg-white rounded-xl overflow-hidden shadow-lg border border-gray-200">
+              <img src={image} alt="prdctImg" className="w-full h-full object-cover" />
             </div>
           </div>
           {/* PRODUCT INFO */}
-          <div className="flex-1 px-5 py-3 bg-white">
+          <div className="flex-1 px-6 py-6 bg-white rounded-xl shadow-lg border border-gray-200">
             <h3 className="h3 leading-none">{product.name}</h3>
             {/* RATING & PRICE */}
             <div className="flex items-center gap-x-2 pt-2">
@@ -258,6 +264,7 @@ const ProductDetails = () => {
         <ProductFeatures />
         {/* Related Products */}
         <RelatedProducts product={product} id={id} />
+        </div>
       </div>
     )
   );

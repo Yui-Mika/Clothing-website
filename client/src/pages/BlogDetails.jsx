@@ -169,7 +169,10 @@ const BlogDetails = () => {
               {relatedBlogs.map((relatedBlog) => (
                 <div
                   key={relatedBlog._id}
-                  onClick={() => navigate(`/blogs/${relatedBlog._id}`)}
+                  onClick={() => {
+                    navigate(`/blogs/${relatedBlog._id}`);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   className="group cursor-pointer"
                 >
                   {/* Image */}
@@ -195,7 +198,10 @@ const BlogDetails = () => {
         {/* Bottom Back Button */}
         <div className="mt-12 text-center">
           <button
-            onClick={() => navigate('/blogs')}
+            onClick={() => {
+              navigate('/blogs');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 hover:bg-tertiary hover:text-white transition-all duration-300"
           >
             <FiArrowLeft />
