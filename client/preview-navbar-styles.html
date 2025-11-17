@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Style Preview - 3 Options</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .nav-section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+        }
+        /* Fix overlapping sections */
+        #style2, #style3 {
+            margin-top: 0;
+        }
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link-hover:hover::after {
+            width: 100%;
+        }
+        .floating-nav {
+            max-width: 1400px;
+            margin: 1.5rem auto;
+        }
+        @keyframes shrink {
+            to {
+                transform: scale(0.95);
+            }
+        }
+        .demo-content {
+            background: linear-gradient(to bottom right, #f9fafb, #ffffff, #f9fafb);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation between styles -->
+    <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 backdrop-blur-md rounded-full px-6 py-3 shadow-2xl">
+        <div class="flex gap-4 text-sm font-medium">
+            <a href="#style1" class="text-white hover:text-gray-300 transition">Style 1: Glass</a>
+            <span class="text-gray-500">|</span>
+            <a href="#style2" class="text-white hover:text-gray-300 transition">Style 2: Clean</a>
+            <span class="text-gray-500">|</span>
+            <a href="#style3" class="text-white hover:text-gray-300 transition">Style 3: Floating</a>
+        </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- STYLE 1: GLASS NAVBAR (RECOMMENDED) -->
+    <!-- ========================================= -->
+    <section id="style1" class="nav-section">
+        <!-- Glass Navbar -->
+        <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl flex items-center justify-center">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Velou ra</span>
+                    </div>
+
+                    <!-- Menu Links -->
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#" class="nav-link-hover text-gray-900 font-medium hover:text-gray-600 transition pb-1">Home</a>
+                        <a href="#" class="nav-link-hover text-gray-900 font-medium hover:text-gray-600 transition pb-1">Collection ▾</a>
+                        <a href="#" class="nav-link-hover text-gray-900 font-medium hover:text-gray-600 transition pb-1">Blogs</a>
+                        <a href="#" class="nav-link-hover text-gray-900 font-medium hover:text-gray-600 transition pb-1">Testimonial</a>
+                        <a href="#" class="nav-link-hover text-gray-900 font-medium hover:text-gray-600 transition pb-1">Contact</a>
+                    </div>
+
+                    <!-- Icons -->
+                    <div class="flex items-center gap-4">
+                        <!-- Search -->
+                        <button class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <!-- Wishlist -->
+                        <button class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            <span class="badge bg-gray-900 text-white rounded-full">7</span>
+                        </button>
+                        <!-- Cart -->
+                        <button class="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <span class="badge bg-gray-900 text-white rounded-full">1</span>
+                        </button>
+                        <!-- User -->
+                        <button class="w-10 h-10 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 hover:shadow-lg flex items-center justify-center transition">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Demo Content -->
+        <div class="pt-20 demo-content min-h-screen">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+                <div class="glass-card rounded-3xl shadow-xl p-12 mt-8">
+                    <h1 class="text-5xl font-bold text-gray-900 mb-4">
+                        Style 1: <span class="text-gray-400 font-light">Glass Navbar</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">✨ <strong>KHUYẾN NGHỊ</strong> - Phù hợp nhất với Minimalist Luxury</p>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🎨</span>
+                            <div>
+                                <strong>Glass Morphism Effect:</strong>
+                                <p class="text-gray-600">Background trong suốt với backdrop-blur, tạo cảm giác nhẹ nhàng và hiện đại</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🌟</span>
+                            <div>
+                                <strong>Hover Underline Animation:</strong>
+                                <p class="text-gray-600">Menu items có hiệu ứng gạch chân mượt mà khi hover</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">⚫</span>
+                            <div>
+                                <strong>Dark Badge Numbers:</strong>
+                                <p class="text-gray-600">Số đếm wishlist/cart dùng màu đen thay vì đỏ, sang trọng hơn</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🔘</span>
+                            <div>
+                                <strong>Circular Hover Effects:</strong>
+                                <p class="text-gray-600">Icons có background tròn khi hover</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✅</span>
+                            <div>
+                                <strong>Perfect Match:</strong>
+                                <p class="text-gray-600">Khớp hoàn hảo với glass container của Collection page</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- STYLE 2: MINIMAL CLEAN NAVBAR -->
+    <!-- ========================================= -->
+    <section id="style2" class="nav-section bg-white">
+        <!-- Clean Navbar -->
+        <nav class="sticky top-0 left-0 right-0 z-40 bg-white shadow-sm">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="flex items-center justify-between h-24">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-light text-gray-900 tracking-wide">Velou ra</span>
+                    </div>
+
+                    <!-- Menu Links -->
+                    <div class="hidden md:flex items-center gap-12">
+                        <a href="#" class="text-gray-900 font-light text-lg hover:text-gray-400 transition">Home</a>
+                        <a href="#" class="text-gray-900 font-light text-lg hover:text-gray-400 transition">Collection ▾</a>
+                        <a href="#" class="text-gray-900 font-light text-lg hover:text-gray-400 transition">Blogs</a>
+                        <a href="#" class="text-gray-900 font-light text-lg hover:text-gray-400 transition">Testimonial</a>
+                        <a href="#" class="text-gray-900 font-light text-lg hover:text-gray-400 transition">Contact</a>
+                    </div>
+
+                    <!-- Icons -->
+                    <div class="flex items-center gap-6">
+                        <!-- Search -->
+                        <button class="text-gray-700 hover:text-gray-900 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <!-- Wishlist -->
+                        <button class="relative text-gray-700 hover:text-gray-900 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            <span class="absolute top-0 right-0 w-2 h-2 bg-black rounded-full"></span>
+                        </button>
+                        <!-- Cart -->
+                        <button class="relative text-gray-700 hover:text-gray-900 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <span class="absolute top-0 right-0 w-2 h-2 bg-black rounded-full"></span>
+                        </button>
+                        <!-- User -->
+                        <button class="w-10 h-10 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center transition">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Demo Content -->
+        <div class="pt-24 demo-content min-h-screen">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+                <div class="glass-card rounded-3xl shadow-xl p-12 mt-8">
+                    <h1 class="text-5xl font-bold text-gray-900 mb-4">
+                        Style 2: <span class="text-gray-400 font-light">Minimal Clean</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">🧹 Tối giản tuyệt đối - Sạch sẽ và chuyên nghiệp</p>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">⚪</span>
+                            <div>
+                                <strong>Pure White Background:</strong>
+                                <p class="text-gray-600">Background trắng tinh, không có blur hay gradient</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">📏</span>
+                            <div>
+                                <strong>Extra Spacing:</strong>
+                                <p class="text-gray-600">Navbar cao hơn (h-24) tạo không gian thở</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">✍️</span>
+                            <div>
+                                <strong>Light Typography:</strong>
+                                <p class="text-gray-600">Font mỏng (font-light), kích thước lớn hơn</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">⚫</span>
+                            <div>
+                                <strong>Dot Notifications:</strong>
+                                <p class="text-gray-600">Chỉ hiển thị dot nhỏ thay vì số đếm - cực kỳ minimal</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🎯</span>
+                            <div>
+                                <strong>Focus on Content:</strong>
+                                <p class="text-gray-600">Navbar gần như "biến mất", người dùng tập trung vào sản phẩm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- STYLE 3: FLOATING NAVBAR -->
+    <!-- ========================================= -->
+    <section id="style3" class="nav-section bg-gray-100">
+        <!-- Floating Navbar -->
+        <nav class="sticky top-0 left-0 right-0 z-40">
+            <div class="floating-nav bg-white rounded-full shadow-2xl px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-2">
+                        <div class="w-9 h-9 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold text-gray-900">Velou ra</span>
+                    </div>
+
+                    <!-- Menu Links -->
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#" class="text-gray-900 font-medium hover:text-gray-600 transition text-sm">Home</a>
+                        <a href="#" class="text-gray-900 font-medium hover:text-gray-600 transition text-sm">Collection ▾</a>
+                        <a href="#" class="text-gray-900 font-medium hover:text-gray-600 transition text-sm">Blogs</a>
+                        <a href="#" class="text-gray-900 font-medium hover:text-gray-600 transition text-sm">Testimonial</a>
+                        <a href="#" class="text-gray-900 font-medium hover:text-gray-600 transition text-sm">Contact</a>
+                    </div>
+
+                    <!-- Icons -->
+                    <div class="flex items-center gap-3">
+                        <!-- Search -->
+                        <button class="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                        <!-- Wishlist -->
+                        <button class="relative w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            <span class="badge bg-gray-900 text-white rounded-full text-xs">7</span>
+                        </button>
+                        <!-- Cart -->
+                        <button class="relative w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                            </svg>
+                            <span class="badge bg-gray-900 text-white rounded-full text-xs">1</span>
+                        </button>
+                        <!-- User -->
+                        <button class="w-9 h-9 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 hover:shadow-lg flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Demo Content -->
+        <div class="pt-24 demo-content min-h-screen">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+                <div class="glass-card rounded-3xl shadow-xl p-12 mt-8">
+                    <h1 class="text-5xl font-bold text-gray-900 mb-4">
+                        Style 3: <span class="text-gray-400 font-light">Floating Navbar</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">🚀 Hiện đại & Táo bạo - Tạo điểm nhấn độc đáo</p>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🎈</span>
+                            <div>
+                                <strong>Floating Design:</strong>
+                                <p class="text-gray-600">Navbar "nổi" giữa màn hình với margin left/right</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">⭕</span>
+                            <div>
+                                <strong>Fully Rounded:</strong>
+                                <p class="text-gray-600">Bo tròn hoàn toàn (rounded-full) như viên thuốc</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">💎</span>
+                            <div>
+                                <strong>Strong Shadow:</strong>
+                                <p class="text-gray-600">Đổ bóng mạnh (shadow-2xl) tạo hiệu ứng nổi bật</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">📐</span>
+                            <div>
+                                <strong>Compact Layout:</strong>
+                                <p class="text-gray-600">Thiết kế gọn gàng, compact hơn (h-16)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">🎨</span>
+                            <div>
+                                <strong>Unique & Trendy:</strong>
+                                <p class="text-gray-600">Style độc đáo, có thể add shrink animation khi scroll</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl">⚠️</span>
+                            <div>
+                                <strong>Lưu ý:</strong>
+                                <p class="text-gray-600">Khó khớp với glass container hơn, cần responsive cẩn thận</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to top button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-gray-900 text-white rounded-full shadow-xl hover:shadow-2xl hover:scale-110 transition flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+</body>
+</html>

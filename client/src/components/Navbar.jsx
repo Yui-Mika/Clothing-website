@@ -51,11 +51,11 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                     relative px-4 py-2 text-sm font-medium tracking-wide
                     transition-all duration-300 ease-in-out
                     ${isActive 
-                        ? "text-tertiary" 
-                        : "text-gray-600 hover:text-tertiary"
+                        ? "text-gray-900" 
+                        : "text-gray-600 hover:text-gray-900"
                     }
                     after:content-[''] after:absolute after:bottom-0 after:left-0 
-                    after:w-full after:h-[2px] after:bg-tertiary
+                    after:w-full after:h-[2px] after:bg-gray-900
                     after:transform after:origin-left
                     ${isActive 
                         ? "after:scale-x-100" 
@@ -76,10 +76,10 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                 <button
                     className="relative px-4 py-2 text-sm font-medium tracking-wide
                         transition-all duration-300 ease-in-out
-                        text-gray-600 hover:text-tertiary
+                        text-gray-600 hover:text-gray-900
                         flex items-center gap-1
                         after:content-[''] after:absolute after:bottom-0 after:left-0 
-                        after:w-full after:h-[2px] after:bg-tertiary
+                        after:w-full after:h-[2px] after:bg-gray-900
                         after:transform after:origin-left
                         after:scale-x-0 hover:after:scale-x-100
                         after:transition-transform after:duration-300 after:ease-out"
@@ -91,17 +91,17 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                 {/* Dropdown Menu */}
                 {showDropdown && (
                     <div className="absolute top-full left-0 pt-2 w-[600px] z-50">
-                        <div className="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100">
+                        <div className="bg-white/95 backdrop-blur-md shadow-xl rounded-2xl overflow-hidden border border-gray-200">
                             {/* Grid 2 rows x 3 columns */}
                             <div className="grid grid-cols-3 gap-4 p-4">
                                 {categories.map((category) => (
                                     <button
                                         key={category._id}
                                         onClick={() => handleCategoryClick(category.slug)}
-                                        className="flex flex-col items-center gap-2 p-3 hover:bg-gray-50 rounded-lg transition-all duration-200 group"
+                                        className="flex flex-col items-center gap-2 p-3 hover:bg-gray-50 rounded-xl transition-all duration-200 group"
                                     >
                                         {/* Category Image */}
-                                        <div className="w-20 h-20 rounded-md overflow-hidden bg-gray-100">
+                                        <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100">
                                             <img 
                                                 src={category.image} 
                                                 alt={category.name}
@@ -109,7 +109,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                                             />
                                         </div>
                                         {/* Category Name */}
-                                        <span className="text-xs font-medium text-gray-700 group-hover:text-tertiary transition-colors text-center">
+                                        <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors text-center">
                                             {category.name}
                                         </span>
                                     </button>
@@ -117,14 +117,14 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                             </div>
                             
                             {/* View All Link */}
-                            <div className="border-t border-gray-100">
+                            <div className="border-t border-gray-200">
                                 <button
                                     onClick={() => {
                                         navigate('/collection')
                                         setShowDropdown(false)
                                         setMenuOpened && setMenuOpened(false)
                                     }}
-                                    className="w-full px-4 py-3 text-sm font-semibold text-tertiary hover:bg-gray-50 transition-colors text-center"
+                                    className="w-full px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition-colors text-center"
                                 >
                                     View All Products →
                                 </button>
@@ -145,11 +145,11 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                         relative px-4 py-2 text-sm font-medium tracking-wide
                         transition-all duration-300 ease-in-out
                         ${isActive 
-                            ? "text-tertiary" 
-                            : "text-gray-600 hover:text-tertiary"
+                            ? "text-gray-900" 
+                            : "text-gray-600 hover:text-gray-900"
                         }
                         after:content-[''] after:absolute after:bottom-0 after:left-0 
-                        after:w-full after:h-[2px] after:bg-tertiary
+                        after:w-full after:h-[2px] after:bg-gray-900
                         after:transform after:origin-left
                         ${isActive 
                             ? "after:scale-x-100" 

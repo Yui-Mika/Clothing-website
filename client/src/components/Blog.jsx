@@ -57,7 +57,10 @@ const Blog = () => {
         {blogs.map((blog) => (
           <div
             key={blog._id}
-            onClick={() => navigate(`/blogs/${blog._id}`)}
+            onClick={() => {
+              navigate(`/blogs/${blog._id}`);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="group overflow-hidden relative cursor-pointer bg-gray-100 aspect-[4/5]"
           >
             {/* Image */}
@@ -94,7 +97,10 @@ const Blog = () => {
       {/* View All Blogs Button */}
       <div className="text-center mt-12">
         <button
-          onClick={() => navigate("/blogs")}
+          onClick={() => {
+            navigate("/blogs");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="inline-block px-8 py-3 bg-tertiary text-white text-sm font-semibold uppercase tracking-wide hover:bg-secondary transition-all duration-300 shadow-md hover:shadow-lg"
         >
           View All Blogs

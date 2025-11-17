@@ -346,20 +346,37 @@ const ShopContextProvider = ({ children }) => {
   // Logic thêm vào giỏ hàng
   // Hàm này thực hiện hai tác vụ: cập nhật giỏ hàng cục bộ và gửi yêu cầu đến backend để đồng bộ hóa giỏ hàng trên server.
   const addToCart = async (itemId, size) => {
-    if (!size) return toast.error("Please select size first"); // Kiểm tra nếu chưa chọn size thì hiển thị thông báo lỗi
-    let cartData = structuredClone(cartItems); // Tạo bản sao sâu (deep clone) của cartItems để tránh thay đổi trực tiếp state
-    cartData[itemId] = cartData[itemId] || {}; // Nếu sản phẩm chưa có trong giỏ hàng, khởi tạo nó dưới dạng một đối tượng rỗng
-    cartData[itemId][size] = (cartData[itemId][size] || 0) + 1; // Tăng số lượng sản phẩm theo size đã chọn
-    setCartItems(cartData); // Cập nhật state cartItems với dữ liệu giỏ hàng mới
+    // BƯỚC 1: Kiểm tra size
+    if (!size) {
+      return toast.error("Please select size first");
+    }
 
-    // Nếu người dùng đã đăng nhập, gửi yêu cầu đến backend để cập nhật giỏ hàng trên server
-    if (user) {
-      try {
-        const { data } = await axios.post("/api/cart/add", { itemId, size }); // Gọi API POST để lưu thay đổi giỏ hàng vào cơ sở dữ liệu của người dùng
-        data.success ? toast.success(data.message) : toast.error(data.message); // Hiển thị thông báo thành công hoặc lỗi dựa trên phản hồi từ server
-      } catch (err) {
-        toast.error(err.message);
+    // BƯỚC 2: Kiểm tra đăng nhập TRƯỚC KHI thêm vào giỏ hàng
+    if (!user) {
+      toast.error("Please login to add products to cart");
+      setShowUserLogin(true); // Hiển thị modal login
+      return;
+    }
+
+    // BƯỚC 3: Thêm vào giỏ hàng local
+    let cartData = structuredClone(cartItems);
+    cartData[itemId] = cartData[itemId] || {};
+    cartData[itemId][size] = (cartData[itemId][size] || 0) + 1;
+    setCartItems(cartData);
+
+    // BƯỚC 4: Đồng bộ với backend
+    try {
+      const { data } = await axios.post("/api/cart/add", { itemId, size });
+      if (data.success) {
+        toast.success(data.message || "Product added to cart successfully");
+      } else {
+        toast.error(data.message || "Failed to add product");
       }
+    } catch (err) {
+      toast.error(err.message || "Error adding to cart");
+      // Rollback nếu lỗi
+      let rollbackCart = structuredClone(cartItems);
+      setCartItems(rollbackCart);
     }
   };
 

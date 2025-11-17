@@ -39,31 +39,34 @@ const Header = () => {
   },[searchQuery])
 
   return (
-    <div className={`${!isHomepage && "bg-gradient-to-l from-primary via-white to-primary"} absolute top-0 left-0 right-0 max-padd-container flexBetween py-2`}>
-      {/* Nội dung header */}
-      <Link to={"/"} className="flex items-center">
-        {/* tăng kích thước logo */}
-        <img src={logo} alt="Logo" className="h-16 sm:h-20" />
-        {/* Hiển thị logo (src={logo}) và sử dụng <Link> để đảm bảo nhấp vào logo sẽ đưa người dùng về trang chủ (/). */}
-      </Link>
-      {/* Navbar  */}
-      <Navbar
-      setMenuOpened={setMenuOpened}
-        containerStyles={`${
-          menuOpened
-            ? "flex items-start flex-col gap-y-8 fixed top-16 right-6 p-5 bg-white shadow-md w-52 ring-1 ring-slate-900/5 z-50" // hiển thị menu trên di động khi menuOpened là true
-            : "hidden lg:flex gap-x-5 xl:gap-x-1 medium-15 p-1" // ẩn menu trên di động khi menuOpened là false
-        }`}
-      />
-      <div className="flex gap-4 items-center">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+      <div className="max-padd-container flexBetween py-4">
+        {/* Nội dung header */}
+        <Link to={"/"} className="flex items-center gap-3">
+          {/* tăng kích thước logo */}
+          <img src={logo} alt="Logo" className="h-16 sm:h-20" />
+          {/* Hiển thị logo (src={logo}) và sử dụng <Link> để đảm bảo nhấp vào logo sẽ đưa người dùng về trang chủ (/). */}
+        </Link>
+        
+        {/* Navbar  */}
+        <Navbar
+          setMenuOpened={setMenuOpened}
+          containerStyles={`${
+            menuOpened
+              ? "flex items-start flex-col gap-y-8 fixed top-20 right-6 p-5 bg-white/95 backdrop-blur-md shadow-xl rounded-2xl w-64 ring-1 ring-gray-200 z-50" // hiển thị menu trên di động khi menuOpened là true
+              : "hidden lg:flex gap-x-5 xl:gap-x-8 medium-15" // ẩn menu trên di động khi menuOpened là false
+          }`}
+        />
+        
+        <div className="flex gap-4 items-center">
         {/* Thanh tìm kiếm chỉ dành cho desktop */}
         <div className="relative hidden xl:flex">
           <div
             className={`${
               showSearch
-                ? "flex items-center border border-gray-300 rounded-lg bg-white w-[300px] px-4 py-2 transition-all duration-300"
+                ? "flex items-center border border-gray-300 rounded-full bg-white px-4 py-2.5 transition-all duration-300 shadow-sm w-[300px]"
                 : "hidden"
-            } ${!isHomepage && "!bg-primary !border-gray-200"}`}
+            }`}
           >
             <input
               onChange={(e)=> setSearchQuery(e.target.value)} // Cập nhật searchQuery khi người dùng nhập vào ô tìm kiếm
@@ -76,9 +79,10 @@ const Header = () => {
             onClick={() => setShowSearch((prev) => !prev)}
             className={`
               flex items-center justify-center w-10 h-10
-              text-gray-600 hover:text-tertiary hover:bg-gray-100
-              rounded-lg transition-all duration-300
-              ${showSearch ? "absolute top-0 right-0 bg-gray-100" : ""}
+              text-gray-600 hover:text-gray-900
+              rounded-full hover:bg-gray-100
+              transition-all duration-300
+              ${showSearch ? "absolute top-0 right-0" : ""}
             `}
           >
             <FaSearch className="text-lg" />
@@ -108,13 +112,13 @@ const Header = () => {
                 navigate('/wishlist');
               }
             }}
-            className="relative p-2 hover:bg-gray-100 rounded-lg transition-all duration-300 group"
+            className="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all duration-300 group"
           >
-            <FaHeart className="text-2xl text-gray-700 group-hover:text-red-500 transition-colors" />
+            <FaHeart className="text-xl text-gray-700 group-hover:text-red-500 transition-colors" />
             
             {/* Badge số lượng wishlist */}
             {user && wishlistCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
+              <span className="absolute -top-1 -right-1 bg-gray-900 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
                 {wishlistCount}
               </span>
             )}
@@ -123,11 +127,11 @@ const Header = () => {
           {/* CART */}
           <button 
             onClick={()=>navigate('/cart')} 
-            className="relative p-2 hover:bg-gray-100 rounded-lg transition-all duration-300 group"
+            className="relative w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-all duration-300 group"
           >
-            <FaShoppingBasket className="text-2xl text-gray-700 group-hover:text-tertiary transition-colors" />
+            <FaShoppingBasket className="text-xl text-gray-700 group-hover:text-gray-900 transition-colors" />
             {getCartCount() > 0 && ( // Hiển thị số lượng sản phẩm trong giỏ hàng nếu có
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
+              <span className="absolute -top-1 -right-1 bg-gray-900 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center shadow-md">
                 {getCartCount()}
               </span>
             )}
@@ -139,14 +143,14 @@ const Header = () => {
             {user ? ( // nếu user là true (người dùng đã đăng nhập)
               <div 
                 onClick={() => setShowUserMenu(!showUserMenu)}
-                className="p-1 hover:bg-gray-100 rounded-lg transition-all duration-300 cursor-pointer"
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-900 to-gray-700 hover:shadow-lg flex items-center justify-center transition-all duration-300 cursor-pointer"
               >
-                <img src={userImg} alt="User" className="h-9 w-9 rounded-full object-cover ring-2 ring-gray-200" /> {/* hiển thị ảnh hồ sơ người dùng */}
+                <img src={userImg} alt="User" className="h-full w-full rounded-full object-cover" /> {/* hiển thị ảnh hồ sơ người dùng */}
               </div>
             ) : ( // nếu user là false (người dùng chưa đăng nhập)
               <button
                 onClick={() => setShowUserLogin(true)} // mở modal đăng nhập khi nhấp vào nút Login
-                className="flex items-center gap-2 px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-gray-800 transition-all duration-300 font-medium text-sm"
+                className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-full hover:bg-gray-800 hover:shadow-lg transition-all duration-300 font-medium text-sm"
               >
                 Login
                 <RiUserLine className="text-lg" />
@@ -155,14 +159,14 @@ const Header = () => {
             
             {/* DROPDOWN - phần Dropdown (thả xuống) trong khối Hồ sơ Người dùng */}
             {user && showUserMenu && (
-              <ul className="bg-white p-2 w-36 border border-gray-200 rounded-lg absolute right-0 top-12 flex flex-col text-sm shadow-lg z-50">
+              <ul className="bg-white p-2 w-36 border border-gray-200 rounded-xl absolute right-0 top-14 flex flex-col text-sm shadow-xl z-50">
                 {/* Nội dung Dropdown */}
                 <li
                   onClick={() => {
                     navigate("/my-orders");
                     setShowUserMenu(false);
                   }}
-                  className="px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 hover:text-tertiary cursor-pointer transition-all duration-200"
+                  className="px-3 py-2.5 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all duration-200 font-medium"
                 >
                   My Orders
                 </li>
@@ -171,13 +175,14 @@ const Header = () => {
                     logoutUser();
                     setShowUserMenu(false);
                   }}
-                  className="px-3 py-2 text-gray-700 rounded-md hover:bg-gray-100 hover:text-red-600 cursor-pointer transition-all duration-200"
+                  className="px-3 py-2.5 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-red-600 cursor-pointer transition-all duration-200 font-medium"
                 >
                   Logout
                 </li>
               </ul>
             )}
           </div>
+        </div>
         </div>
       </div>
     </div>

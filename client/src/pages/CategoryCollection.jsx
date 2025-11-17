@@ -67,55 +67,100 @@ const CategoryCollection = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
+  // Calculate product range display
+  const inStockProducts = filteredProducts.filter(p => p.inStock);
+  const startProduct = (currentPage - 1) * itemsPerPage + 1;
+  const endProduct = Math.min(currentPage * itemsPerPage, inStockProducts.length);
+
   // 
   return (
-    <div className="max-padd-container py-16 pt-28">
-      <Title
-        title1={categoryName || category}
-        title2={"Products"}
-        titleStyles={"pb-5"}
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        {filteredProducts.length > 0 ? (
-          filteredProducts
-            .filter((product) => product.inStock)
-            .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
-            .map((product) => <Item key={product._id} product={product} />)
-        ) : (
-          <p>Oops! Nothing matched your search.</p>
-        )}
-      </div>
-      {/* PAGINATION */}
-      <div className="flexCenter flex-wrap gap-4 mt-14 mb-10">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage((prev) => prev - 1)}
-          className={`${
-            currentPage === 1 && "opacity-50 cursor-not-allowed"
-          } btn-dark !py-1 !px-3`}
-        >
-          Previous
-        </button>
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => setCurrentPage(index + 1)}
-            className={`${
-              currentPage === index + 1 && "!bg-tertiary text-white"
-            } btn-light !py-1 !px-3`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage((prev) => prev + 1)}
-          className={`${
-            currentPage === totalPages && "opacity-50 cursor-not-allowed"
-          } btn-dark !py-1 !px-3`}
-        >
-          Next
-        </button>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 py-16 pt-28">
+      <div className="max-padd-container">
+        {/* Glass Container */}
+        <div className="bg-white/50 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 md:p-12">
+          {/* Elegant Title */}
+          <div className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+              {categoryName || category} <span className="text-gray-400 font-light">Products</span>
+            </h1>
+          </div>
+
+          {/* Product Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+            {filteredProducts.length > 0 ? (
+              filteredProducts
+                .filter((product) => product.inStock)
+                .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                .map((product) => <Item key={product._id} product={product} />)
+            ) : (
+              <p className="text-gray-500 col-span-full text-center py-10">
+                Oops! Nothing matched your search.
+              </p>
+            )}
+          </div>
+
+          {/* Pagination */}
+          {inStockProducts.length > 0 && (
+            <div className="mt-16 mb-6">
+              <div className="flex flex-col items-center gap-6">
+                {/* Pagination Buttons */}
+                <div className="flex items-center gap-3">
+                  {/* Previous Button */}
+                  <button
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                    className={`w-11 h-11 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                      currentPage === 1
+                        ? "border-gray-200 text-gray-300 cursor-not-allowed"
+                        : "border-gray-300 text-gray-700 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-lg"
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Page Numbers */}
+                  <div className="flex gap-2">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                      <button
+                        key={index + 1}
+                        onClick={() => setCurrentPage(index + 1)}
+                        className={`w-11 h-11 rounded-full border-2 transition-all duration-300 font-medium ${
+                          currentPage === index + 1
+                            ? "border-gray-900 bg-gray-900 text-white shadow-lg"
+                            : "border-gray-300 text-gray-700 hover:border-gray-900 hover:bg-gray-50"
+                        }`}
+                      >
+                        {index + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                    className={`w-11 h-11 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
+                      currentPage === totalPages
+                        ? "border-gray-200 text-gray-300 cursor-not-allowed"
+                        : "border-gray-300 text-gray-700 hover:border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-lg"
+                    }`}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Product Count Display */}
+                <p className="text-sm text-gray-500">
+                  Showing {startProduct}-{endProduct} of {inStockProducts.length} products
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -39,7 +39,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-gray-700">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link to={"/"} className="inline-block mb-6">
+            <Link 
+              to={"/"} 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-block mb-6"
+            >
               <h2 className="text-3xl font-bold tracking-wider">
                 VELOURA<span className="text-gray-400"></span>
               </h2>
@@ -80,6 +84,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.path}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
                     >
                       {link.name}
@@ -97,10 +102,18 @@ const Footer = () => {
             © 2025 Veloura. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/contact" className="text-gray-500 hover:text-white transition-colors">
+            <Link 
+              to="/contact" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link to="/contact" className="text-gray-500 hover:text-white transition-colors">
+            <Link 
+              to="/contact" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Terms of Service
             </Link>
           </div>
