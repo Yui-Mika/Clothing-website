@@ -47,7 +47,7 @@ const Blog = () => {
       <Title
         title1={"Our Expert"}
         title2={"Blog"}
-        titleStyles={"pb-12"}
+        titleStyles={"pb-12 pt-30"}
         paraStyles={"!block"}
         para={"Stay ahead of fashion trends with styling tips, product reviews, and expert advice helping you shop smarter and dress better."}
       />

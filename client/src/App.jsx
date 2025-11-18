@@ -20,6 +20,7 @@ import MyOrders from './pages/MyOrders'
 import Orders from './pages/admin/Orders'
 import ListCustomer from './pages/admin/ListCustomer' // Import ListCustomer page
 import Report from './pages/admin/Report' // Import Report page
+import Testimonials from './pages/admin/Testimonials' // Import Testimonials admin page
 import Loading from './components/Loading'
 import Wishlist from './pages/Wishlist' // Import Wishlist page
 import VerifyEmail from './pages/VerifyEmail' // Import VerifyEmail page
@@ -67,6 +68,7 @@ const App = () => {
             <Route path='list' element={isAdmin ? <List /> : null}/>
             <Route path='orders' element={isAdmin ? <Orders /> : null}/>
             <Route path='customers' element={isAdmin ? <ListCustomer /> : null}/>
+            <Route path='testimonials' element={isAdmin ? <Testimonials /> : null}/>
             <Route path='report' element={isAdmin ? <Report /> : null}/>
         </Route>
       </Routes>

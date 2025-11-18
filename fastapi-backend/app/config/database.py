@@ -16,6 +16,22 @@ async def connect_to_mongo():
     # Test connection
     await db.client.admin.command('ping')
     print("✅ Connected to MongoDB successfully!")
+    
+    # Create indexes
+    await create_indexes()
+
+async def create_indexes():
+    """Create database indexes for better performance and constraints"""
+    try:
+        database = await get_database()
+        
+        # Create unique index on testimonials.userId to ensure one review per user
+        testimonials_collection = database["testimonials"]
+        await testimonials_collection.create_index("userId", unique=True)
+        print("✅ Created unique index on testimonials.userId")
+        
+    except Exception as e:
+        print(f"⚠️ Index creation info: {str(e)}")
 
 async def close_mongo_connection():
     """Close MongoDB connection"""
