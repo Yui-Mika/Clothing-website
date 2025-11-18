@@ -72,11 +72,11 @@ const Blogs = () => {
   }
 
   return (
-    <section className="max-padd-container py-16 md:py-24">
+    <section className="max-padd-container py-16 pt-28">
       <Title
         title1={'Our Expert'}
         title2={'Blog'}
-        titleStyles={'pb-12'}
+        titleStyles={'pb-10'}
         paraStyles={'!block'}
         para={'Stay ahead of fashion trends with styling tips, product reviews, and expert advice helping you shop smarter and dress better.'}
       />

@@ -15,9 +15,11 @@ async def auth_user(request: Request):
     # Ưu tiên lấy token từ Authorization header (Bearer token)
     auth_header = request.headers.get("Authorization")
     auth_header_lower = request.headers.get("authorization")  # Try lowercase
+    auth_token_header = request.headers.get("auth-token")  # Custom header for direct requests
     
     print(f"🔍 Authorization header (capital A): {auth_header}")
     print(f"🔍 authorization header (lowercase a): {auth_header_lower}")
+    print(f"🔍 auth-token header (custom): {auth_token_header}")
     
     token = None
     
@@ -28,6 +30,10 @@ async def auth_user(request: Request):
     elif auth_header_lower and auth_header_lower.startswith("Bearer "):
         token = auth_header_lower.replace("Bearer ", "")
         print(f"✅ Token extracted from authorization header (lowercase)")
+    elif auth_token_header:
+        # Lấy token từ custom header "auth-token"
+        token = auth_token_header
+        print(f"✅ Token extracted from auth-token header (custom)")
     else:
         # Fallback: Lấy token từ cookie (để tương thích ngược)
         token = request.cookies.get("user_token")

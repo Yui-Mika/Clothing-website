@@ -40,11 +40,11 @@ const Header = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
-      <div className="max-padd-container flexBetween py-4">
+      <div className="max-padd-container flexBetween py-2">
         {/* Nội dung header */}
         <Link to={"/"} className="flex items-center gap-3">
           {/* tăng kích thước logo */}
-          <img src={logo} alt="Logo" className="h-16 sm:h-20" />
+          <img src={logo} alt="Logo" className="h-14 sm:h-20" />
           {/* Hiển thị logo (src={logo}) và sử dụng <Link> để đảm bảo nhấp vào logo sẽ đưa người dùng về trang chủ (/). */}
         </Link>
         
