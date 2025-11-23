@@ -6,7 +6,7 @@ import Hero from '../components/Hero' // nhập khẩu component bằng tên Her
 import Categories from '../components/Categories' // nhập khẩu component Categories từ tệp Categories.jsx
 import Features from '../components/Features' // nhập khẩu component Features từ tệp Features.jsx
 import PopularProducts from '../components/PopularProducts' // nhập khẩu component PopularProducts từ tệp PopularProducts.jsx
-import banner from "../assets/banner.jpg" // nhập khẩu hình ảnh banner từ thư mục assets
+import banner from "../assets/banner.png" // nhập khẩu hình ảnh banner từ thư mục assets
 import Blog from '../components/Blog' // nhập khẩu component Blog từ tệp Blog.jsx
 
 const Home = () => {
