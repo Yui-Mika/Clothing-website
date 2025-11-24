@@ -1,0 +1,192 @@
+[{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439071"
+  },
+  "code": "WELCOME10",
+  "name": "Chào mừng khách hàng mới",
+  "description": "Giảm 10% cho đơn hàng đầu tiên của khách hàng mới",
+  "type": "percentage",
+  "value": 10,
+  "minOrderAmount": 500000,
+  "maxDiscount": 100000,
+  "usageLimit": 1000,
+  "usedCount": 156,
+  "validFrom": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
+  "applicableCategories": [
+    {
+      "$oid": "507f1f77bcf86cd799439021"
+    },
+    {
+      "$oid": "507f1f77bcf86cd799439022"
+    }
+  ],
+  "applicableProducts": [],
+  "isActive": true,
+  "createdAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439072"
+  },
+  "code": "SUMMER20",
+  "name": "Khuyến mãi mùa hè",
+  "description": "Giảm 20% cho tất cả sản phẩm mùa hè",
+  "type": "percentage",
+  "value": 20,
+  "minOrderAmount": 300000,
+  "maxDiscount": 200000,
+  "usageLimit": 500,
+  "usedCount": 89,
+  "validFrom": {
+    "$date": "2024-06-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2024-08-31T23:59:59.000Z"
+  },
+  "applicableCategories": [],
+  "applicableProducts": [
+    {
+      "$oid": "507f1f77bcf86cd799439031"
+    },
+    {
+      "$oid": "507f1f77bcf86cd799439040"
+    }
+  ],
+  "isActive": true,
+  "createdAt": {
+    "$date": "2024-05-15T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-15T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439073"
+  },
+  "code": "FREESHIP",
+  "name": "Miễn phí vận chuyển",
+  "description": "Miễn phí vận chuyển cho đơn hàng từ 1 triệu",
+  "type": "fixed",
+  "value": 50000,
+  "minOrderAmount": 1000000,
+  "maxDiscount": 50000,
+  "usageLimit": 200,
+  "usedCount": 45,
+  "validFrom": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
+  "applicableCategories": [],
+  "applicableProducts": [],
+  "isActive": true,
+  "createdAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439074"
+  },
+  "code": "VIP15",
+  "name": "Khách hàng VIP",
+  "description": "Giảm 15% cho khách hàng VIP",
+  "type": "percentage",
+  "value": 15,
+  "minOrderAmount": 800000,
+  "maxDiscount": 300000,
+  "usageLimit": 100,
+  "usedCount": 23,
+  "validFrom": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  },
+  "applicableCategories": [],
+  "applicableProducts": [],
+  "isActive": true,
+  "createdAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439075"
+  },
+  "code": "WATCH50",
+  "name": "Giảm giá đồng hồ",
+  "description": "Giảm 50k cho đồng hồ nam",
+  "type": "fixed",
+  "value": 50000,
+  "minOrderAmount": 500000,
+  "maxDiscount": 50000,
+  "usageLimit": 50,
+  "usedCount": 12,
+  "validFrom": {
+    "$date": "2024-02-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2024-03-31T23:59:59.000Z"
+  },
+  "applicableCategories": [
+    {
+      "$oid": "507f1f77bcf86cd799439023"
+    }
+  ],
+  "applicableProducts": [],
+  "isActive": true,
+  "createdAt": {
+    "$date": "2024-01-25T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-01-25T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "507f1f77bcf86cd799439076"
+  },
+  "code": "EXPIRED",
+  "name": "Coupon đã hết hạn",
+  "description": "Coupon test đã hết hạn",
+  "type": "percentage",
+  "value": 30,
+  "minOrderAmount": 200000,
+  "maxDiscount": 150000,
+  "usageLimit": 100,
+  "usedCount": 0,
+  "validFrom": {
+    "$date": "2023-12-01T00:00:00.000Z"
+  },
+  "validUntil": {
+    "$date": "2023-12-31T23:59:59.000Z"
+  },
+  "applicableCategories": [],
+  "applicableProducts": [],
+  "isActive": false,
+  "createdAt": {
+    "$date": "2023-11-15T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-15T00:00:00.000Z"
+  }
+}]

@@ -5,7 +5,7 @@ import { FiEdit2, FiTrash2, FiPlus, FiX, FiSearch } from "react-icons/fi" // imp
 
 // Component hiển thị danh sách đơn hàng (Admin)
 const Orders = () => {
-  const { currency, axios, products } = useContext(ShopContext) // lấy currency, axios và products từ context
+  const { currency, formatCurrency, axios, products } = useContext(ShopContext) // lấy currency, formatCurrency, axios và products từ context
   const [orders, setOrders] = useState([]) // state chứa mảng đơn hàng
   const [loading, setLoading] = useState(true) // state để hiển thị trạng thái đang tải
   const [error, setError] = useState(null) // state lưu lỗi nếu có
@@ -390,18 +390,18 @@ const Orders = () => {
                   {/* Thông tin phụ: giá, số lượng, size */}
                   <div className="flex flex-wrap gap-3 max-sm:gap-y-1 mt-1">
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Price:</h5>
+                      <h5 className="medium-14">Giá:</h5>
                       <p>
+                        {formatCurrency(item.product?.offerPrice || 0)}
                         {currency}
-                        {item.product?.offerPrice || 0}
                       </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Quantity:</h5>
+                      <h5 className="medium-14">Số lượng:</h5>
                       <p>{item.quantity}</p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Size:</h5>
+                      <h5 className="medium-14">Kích cỡ:</h5>
                       <p>{item.size}</p>
                     </div>
                   </div>
@@ -414,23 +414,23 @@ const Orders = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start gap-4 border-t border-gray-300 pt-3">
             <div className="flex flex-col gap-2 flex-1">
               <div className="flex items-center gap-x-2">
-                <h5 className="medium-14">OrderId:</h5>
+                <h5 className="medium-14">Mã đơn:</h5>
                 <p className="text-xs break-all">{order._id}</p>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Customer:</h5>
+                  <h5 className="medium-14">Khách hàng:</h5>
                   <p className="text-sm">
                     {order.address.firstName} {order.address.lastName}
                   </p>
                 </div>
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Phone:</h5>
+                  <h5 className="medium-14">Điện thoại:</h5>
                   <p className="text-sm">{order.address.phone}</p>
                 </div>
               </div>
               <div className="flex items-center gap-x-2">
-                <h5 className="medium-14">Address:</h5>
+                <h5 className="medium-14">Địa chỉ:</h5>
                 <p className="text-sm">
                   {order.address.street}, {order.address.city},{" "}
                   {order.address.state}, {order.address.country},{" "}
@@ -439,27 +439,27 @@ const Orders = () => {
               </div>
              <div className="flex gap-4">
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Payment Status:</h5>
+                  <h5 className="medium-14">Thanh toán:</h5>
                   <p className="text-sm">
-                    {order.isPaid ? "Done" : "Pending"}
+                    {order.isPaid ? "Đã thanh toán" : "Chưa thanh toán"}
                   </p>
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Method:</h5>
+                  <h5 className="medium-14">Phương thức:</h5>
                   <p className="text-sm">{order.paymentMethod}</p>
                 </div>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Date:</h5>
+                  <h5 className="medium-14">Ngày đặt:</h5>
                   <p className="text-sm">
-                    {new Date(order.createdAt).toDateString()}
+                    {new Date(order.createdAt).toLocaleDateString('vi-VN')}
                   </p>
                 </div>
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Amount:</h5>
+                  <h5 className="medium-14">Tổng tiền:</h5>
                   <p className="text-sm">
-                     {currency}{order.amount}
+                     {formatCurrency(order.amount)}{currency}
                   </p>
                 </div>
               </div>
@@ -469,17 +469,17 @@ const Orders = () => {
             <div className="flex flex-col gap-3 items-end">
               {/* Select để thay đổi trạng thái đơn hàng */}
               <div className="flex items-center gap-2">
-                <h5 className="medium-14">Status:</h5>
+                <h5 className="medium-14">Trạng thái:</h5>
                 <select
                   onChange={(e) => statusHandler(e, order._id)}
                   value={order.status}
                   className="text-xs font-semibold p-1 ring-1 ring-slate-900/5 rounded max-w-36 bg-primary"
                 >
-                  <option value="Order Placed">Order Placed</option>
-                  <option value="Packing">Packing</option>
-                  <option value="Shipped">Shipped</option>
-                  <option value="Delivered">Delivered</option>
-                  <option value="Done">Done</option>
+                  <option value="Order Placed">Đã đặt hàng</option>
+                  <option value="Packing">Đang chuẩn bị</option>
+                  <option value="Shipped">Đang giao</option>
+                  <option value="Delivered">Đã giao</option>
+                  <option value="Done">Hoàn thành</option>
                 </select>
               </div>
 
@@ -488,18 +488,18 @@ const Orders = () => {
                 <button
                   onClick={() => editOrder(order._id)}
                   className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg transition-colors text-xs font-medium"
-                  title="Sửa đơn hàng"
+                  title="Chỉnh sửa"
                 >
                   <FiEdit2 size={14} />
-                  <span>Edit</span>
+                  <span>Sửa</span>
                 </button>
                 <button
                   onClick={() => deleteOrder(order._id)}
                   className="flex items-center gap-1 px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition-colors text-xs font-medium"
-                  title="Xóa đơn hàng"
+                  title="Xóa"
                 >
                   <FiTrash2 size={14} />
-                  <span>Delete</span>
+                  <span>Xóa</span>
                 </button>
               </div>
             </div>
@@ -628,7 +628,7 @@ const Orders = () => {
                     <option value="">-- Chọn sản phẩm --</option>
                     {products.filter(p => p.inStock).map(product => (
                       <option key={product._id} value={product._id}>
-                        {product.name} - {currency}{product.offerPrice}
+                        {product.name} - {formatCurrency(product.offerPrice)}{currency}
                       </option>
                     ))}
                   </select>
@@ -671,7 +671,7 @@ const Orders = () => {
                         <div className="flex-1">
                           <p className="font-medium text-sm">{item.productName}</p>
                           <p className="text-xs text-gray-600">
-                            Size: {item.size} | SL: {item.quantity} | Giá: {currency}{item.productPrice}
+                            Size: {item.size} | SL: {item.quantity} | Giá: {formatCurrency(item.productPrice)}{currency}
                           </p>
                         </div>
                         <button
@@ -827,11 +827,11 @@ const Orders = () => {
                   onChange={(e) => setEditForm({...editForm, status: e.target.value})}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
                 >
-                  <option value="Order Placed">Order Placed</option>
-                  <option value="Packing">Packing</option>
-                  <option value="Shipped">Shipped</option>
-                  <option value="Delivered">Delivered</option>
-                  <option value="Done">Done</option>
+                  <option value="Order Placed">Đã đặt hàng</option>
+                  <option value="Packing">Đang chuẩn bị</option>
+                  <option value="Shipped">Đang giao</option>
+                  <option value="Delivered">Đã giao</option>
+                  <option value="Done">Hoàn thành</option>
                 </select>
               </div>
 

@@ -74,7 +74,7 @@ const ProductDescription = ({ product }) => {
               : "border-transparent text-gray-500 hover:text-gray-700"
           }`}
         >
-          Details
+          Chi tiết
         </button>
         <button 
           onClick={() => setActiveTab("care")}
@@ -84,7 +84,7 @@ const ProductDescription = ({ product }) => {
               : "border-transparent text-gray-500 hover:text-gray-700"
           }`}
         >
-          Care Guide
+          Hướng dẫn bảo quản
         </button>
         <button 
           onClick={() => setActiveTab("reviews")}
@@ -94,7 +94,7 @@ const ProductDescription = ({ product }) => {
               : "border-transparent text-gray-500 hover:text-gray-700"
           }`}
         >
-          Reviews
+          Đánh giá
         </button>
       </div>
 
@@ -106,7 +106,7 @@ const ProductDescription = ({ product }) => {
             {/* Product Description - Hiển thị trước */}
             {product.detailedDescription && (
               <div className="mb-6">
-                <h6 className="font-semibold text-gray-900 mb-3">Description</h6>
+                <h6 className="font-semibold text-gray-900 mb-3">Mô tả</h6>
                 <div className="text-sm text-gray-700 leading-relaxed space-y-3">
                   {product.detailedDescription.split('\n\n').map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
@@ -121,31 +121,31 @@ const ProductDescription = ({ product }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   {product.details.material && (
                     <div className="flex">
-                      <span className="font-semibold text-gray-900 w-28">Material:</span>
+                      <span className="font-semibold text-gray-900 w-28">Chất liệu:</span>
                       <span className="text-gray-700">{product.details.material}</span>
                     </div>
                   )}
                   {product.details.fit && (
                     <div className="flex">
-                      <span className="font-semibold text-gray-900 w-28">Fit:</span>
+                      <span className="font-semibold text-gray-900 w-28">Kiểu dáng:</span>
                       <span className="text-gray-700">{product.details.fit}</span>
                     </div>
                   )}
                   {product.details.weight && (
                     <div className="flex">
-                      <span className="font-semibold text-gray-900 w-28">Weight:</span>
+                      <span className="font-semibold text-gray-900 w-28">Trọng lượng:</span>
                       <span className="text-gray-700">{product.details.weight}</span>
                     </div>
                   )}
                   {product.details.origin && (
                     <div className="flex">
-                      <span className="font-semibold text-gray-900 w-28">Origin:</span>
+                      <span className="font-semibold text-gray-900 w-28">Xuất xứ:</span>
                       <span className="text-gray-700">{product.details.origin}</span>
                     </div>
                   )}
                   {product.details.features && product.details.features.length > 0 && (
                     <div className="md:col-span-2 mt-2">
-                      <span className="font-semibold text-gray-900 block mb-2">Key Features:</span>
+                      <span className="font-semibold text-gray-900 block mb-2">Đặc điểm nổi bật:</span>
                       <ul className="list-disc pl-5 text-gray-700 flex flex-col gap-1">
                         {product.details.features.map((feature, index) => (
                           <li key={index}>{feature}</li>
@@ -157,7 +157,7 @@ const ProductDescription = ({ product }) => {
               </div>
             ) : (
               <div className="text-sm text-gray-700 pt-6 border-t">
-                <p>Product specifications are not available at the moment.</p>
+                <p>Thông số kỹ thuật hiện chưa có.</p>
               </div>
             )}
           </div>
@@ -172,11 +172,11 @@ const ProductDescription = ({ product }) => {
               </p>
             ) : (
               <ul className="list-disc pl-5 text-sm text-gray-700 flex flex-col gap-2">
-                <li>Machine wash cold with similar colors</li>
-                <li>Do not bleach</li>
-                <li>Tumble dry low or hang to dry</li>
-                <li>Iron on low heat if needed</li>
-                <li>Do not dry clean</li>
+                <li>Giặt máy với nước lạnh cùng màu tương tự</li>
+                <li>Không sử dụng chất tẩy</li>
+                <li>Sấy khô ở nhiệt độ thấp hoặc phơi khô</li>
+                <li>Là ở nhiệt độ thấp nếu cần</li>
+                <li>Không giặt khô</li>
               </ul>
             )}
           </div>
@@ -210,7 +210,7 @@ const ProductDescription = ({ product }) => {
                       ))}
                     </div>
                     <p className="text-sm text-gray-600 mt-2">
-                      Based on {reviewStats.totalReviews} {reviewStats.totalReviews === 1 ? 'review' : 'reviews'}
+                      Dựa trên {reviewStats.totalReviews} đánh giá
                     </p>
                   </div>
 
@@ -243,23 +243,23 @@ const ProductDescription = ({ product }) => {
             {/* Sort & Write Review */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div className="flex items-center gap-3">
-                <label className="text-sm font-medium text-gray-700">Sort by:</label>
+                <label className="text-sm font-medium text-gray-700">Sắp xếp:</label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-secondary"
                 >
-                  <option value="newest">Newest First</option>
-                  <option value="oldest">Oldest First</option>
-                  <option value="rating_desc">Highest Rating</option>
-                  <option value="rating_asc">Lowest Rating</option>
+                  <option value="newest">Mới nhất</option>
+                  <option value="oldest">Cũ nhất</option>
+                  <option value="rating_desc">Đánh giá cao nhất</option>
+                  <option value="rating_asc">Đánh giá thấp nhất</option>
                 </select>
               </div>
               <button
                 onClick={() => setIsWriteModalOpen(true)}
                 className="px-6 py-2.5 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors shadow-md"
               >
-                Write a Review
+                Viết đánh giá
               </button>
             </div>
 
@@ -267,7 +267,7 @@ const ProductDescription = ({ product }) => {
             {isLoadingReviews ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-                <p className="text-gray-500 mt-4">Loading reviews...</p>
+                <p className="text-gray-500 mt-4">Đang tải đánh giá...</p>
               </div>
             ) : reviews.length > 0 ? (
               <div className="space-y-6">
@@ -293,7 +293,7 @@ const ProductDescription = ({ product }) => {
                               {review.verified && (
                                 <span className="flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
                                   <FiCheck className="w-3 h-3" />
-                                  Verified Purchase
+                                  Đã mua hàng
                                 </span>
                               )}
                             </div>
@@ -330,7 +330,7 @@ const ProductDescription = ({ product }) => {
                         {/* Purchase Date */}
                         {review.verified && review.purchaseDate && (
                           <p className="text-xs text-gray-500 mt-3">
-                            Purchased on {formatDate(review.purchaseDate)}
+                            Mua ngày {formatDate(review.purchaseDate)}
                           </p>
                         )}
                       </div>
@@ -345,13 +345,13 @@ const ProductDescription = ({ product }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                   </svg>
                 </div>
-                <h5 className="text-lg font-semibold text-gray-900 mb-2">No Reviews Yet</h5>
-                <p className="text-gray-500 text-sm mb-6">Be the first to share your thoughts about this product</p>
+                <h5 className="text-lg font-semibold text-gray-900 mb-2">Chưa có đánh giá</h5>
+                <p className="text-gray-500 text-sm mb-6">Hãy là người đầu tiên chia sẻ ý kiến về sản phẩm này</p>
                 <button
                   onClick={() => setIsWriteModalOpen(true)}
                   className="px-8 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors shadow-md"
                 >
-                  Write a Review
+                  Viết đánh giá
                 </button>
               </div>
             )}

@@ -4,23 +4,23 @@ import { FaInstagram, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   const linkSections = [
     {
-      title: "Quick Links",
+      title: "Liên kết nhanh",
       links: [
-        { name: "Home", path: "/" },
-        { name: "Best Sellers", path: "/collection" },
-        { name: "Offers & Deals", path: "/collection" },
-        { name: "Contact Us", path: "/contact" },
-        { name: "FAQs", path: "/contact" },
+        { name: "Trang chủ", path: "/" },
+        { name: "Bán chạy", path: "/collection" },
+        { name: "Ưu đãi", path: "/collection" },
+        { name: "Liên hệ", path: "/contact" },
+        { name: "Câu hỏi thường gặp", path: "/contact" },
       ],
     },
     {
-      title: "Need Help?",
+      title: "Cần hỗ trợ?",
       links: [
-        { name: "Delivery Information", path: "/contact" },
-        { name: "Return & Refund Policy", path: "/contact" },
-        { name: "Payment Methods", path: "/contact" },
-        { name: "Track your Order", path: "/my-orders" },
-        { name: "Contact Us", path: "/contact" },
+        { name: "Thông tin giao hàng", path: "/contact" },
+        { name: "Chính sách đổi trả", path: "/contact" },
+        { name: "Phương thức thanh toán", path: "/contact" },
+        { name: "Theo dõi đơn hàng", path: "/my-orders" },
+        { name: "Liên hệ", path: "/contact" },
       ],
     },
   ];
@@ -49,13 +49,13 @@ const Footer = () => {
               </h2>
             </Link>
             <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-              Discover stylish clothing and shoes online, crafted for comfort and quality. 
-              Shop fashion-forward designs that elevate your look and fit every lifestyle.
+              Khám phá quần áo và giày dép thời trang trực tuyến, được chế tác cho sự thoải mái và chất lượng. 
+              Mua sắm những thiết kế thời trang nâng tầm phong cách của bạn và phù hợp với mọi lối sống.
             </p>
             
             {/* Social Links */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wide mb-4">Follow Us</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wide mb-4">Theo dõi chúng tôi</h3>
               <div className="flex gap-3">
                 {socialLinks.map((social, i) => (
                   <a
@@ -99,7 +99,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2025 Veloura. All rights reserved.
+            © 2025 Veloura. Bảo lưu mọi quyền.
           </p>
           <div className="flex gap-6 text-sm">
             <Link 
@@ -107,14 +107,14 @@ const Footer = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-gray-500 hover:text-white transition-colors"
             >
-              Privacy Policy
+              Chính sách bảo mật
             </Link>
             <Link 
               to="/contact" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-gray-500 hover:text-white transition-colors"
             >
-              Terms of Service
+              Điều khoản dịch vụ
             </Link>
           </div>
         </div>

@@ -60,23 +60,23 @@ const Login = () => {
       const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
       
       if (!hasMinLength) {
-        toast.error("Password must be at least 8 characters long!");
+        toast.error("Mật khẩu phải có ít nhất 8 ký tự!");
         return false;
       }
       if (!hasUpperCase) {
-        toast.error("Password must contain at least 1 uppercase letter!");
+        toast.error("Mật khẩu phải có ít nhất 1 chữ hoa!");
         return false;
       }
       if (!hasLowerCase) {
-        toast.error("Password must contain at least 1 lowercase letter!");
+        toast.error("Mật khẩu phải có ít nhất 1 chữ thường!");
         return false;
       }
       if (!hasNumber) {
-        toast.error("Password must contain at least 1 number!");
+        toast.error("Mật khẩu phải có ít nhất 1 số!");
         return false;
       }
       if (!hasSpecialChar) {
-        toast.error("Password must contain at least 1 special character!");
+        toast.error("Mật khẩu phải có ít nhất 1 ký tự đặc biệt!");
         return false;
       }
       return true;
@@ -88,7 +88,7 @@ const Login = () => {
       console.log('🚀 onSubmitHandler START - state:', state); // Debug log
       
       if (!recaptchaToken) {
-        toast.error("Please verify you are not a robot!");
+        toast.error("Vui lòng xác nhận bạn không phải robot!");
         return;
       }
 
@@ -121,7 +121,7 @@ const Login = () => {
         console.log('✅ ========================================'); // Debug log
         
         if (data.success) {
-          toast.success(`${state === 'register' ? 'Account Created! Please check your email to verify your account.' : 'Login Successful'}`);
+          toast.success(`${state === 'register' ? 'Tạo tài khoản thành công! Vui lòng kiểm tra email để xác thực tài khoản.' : 'Đăng nhập thành công'}`);
           
           // Chỉ đóng modal và load data khi login thành công
           // Khi register thì user cần verify email trước
@@ -157,8 +157,17 @@ const Login = () => {
             } else {
               console.log('⚠️ No token in response!'); // Debug log
             }
-            await handleLoginSuccess();   // tải thông tin người dùng, giỏ hàng sau khi đăng nhập thành công và chuyển về trang chủ
+            
+            // Gọi handleLoginSuccess và nhận về role để navigate đúng
+            const userRole = await handleLoginSuccess();
             setShowUserLogin(false); // ẩn/đóng modal đăng nhập
+            
+            // Navigate dựa trên role sau khi state đã được update
+            if (userRole === "admin" || userRole === "staff") {
+              navigate("/admin");
+            } else {
+              navigate("/");
+            }
           } else {
             // Đăng ký thành công - redirect đến trang verify email
             setShowUserLogin(false); // Đóng modal
@@ -179,7 +188,7 @@ const Login = () => {
           toast.error(error.response.data.message);
         } else {
           // Lỗi chung
-          toast.error(error.message || 'An error occurred. Please try again.');
+          toast.error(error.message || 'Có lỗi xảy ra. Vui lòng thử lại.');
         }
       }
     };

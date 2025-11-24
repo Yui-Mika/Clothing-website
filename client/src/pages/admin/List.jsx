@@ -347,7 +347,7 @@ const List = () => {
   }
 
   return (
-    <div className="px-2 sm:px-6 py-12 m-2 h-[97vh] bg-primary overflow-y-scroll lg:w-4/5 rounded-xl">
+    <div className="px-2 sm:px-6 py-12 m-2 h-[97vh] bg-gray-50 overflow-y-scroll lg:w-4/5 rounded-xl">
       {/* Search & Filter Bar */}
       <div className="mb-4 flex flex-col sm:flex-row gap-3">
         {/* Search Box */}
@@ -358,7 +358,7 @@ const List = () => {
             placeholder="Tìm kiếm sản phẩm theo tên hoặc mô tả..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+            className="w-full pl-10 pr-4 py-2.5 border-2 border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200"
           />
         </div>
 
@@ -366,7 +366,7 @@ const List = () => {
         <div className="relative">
           <button
             onClick={() => setShowFilterDropdown(!showFilterDropdown)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium min-w-[160px] justify-between"
+            className="flex items-center gap-2 px-4 py-2.5 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-900 hover:bg-gray-50 transition-all duration-200 font-medium min-w-[160px] justify-between"
           >
             <div className="flex items-center gap-2">
               <FiFilter size={18} />
@@ -389,7 +389,7 @@ const List = () => {
                       setShowFilterDropdown(false)
                     }}
                     className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
-                      selectedCategory === category ? 'bg-gray-100 font-semibold text-secondary' : 'text-gray-700'
+                      selectedCategory === category ? 'bg-gray-100 font-semibold text-gray-900' : 'text-gray-700'
                     }`}
                   >
                     {category}
@@ -420,13 +420,13 @@ const List = () => {
               value={discountPercent}
               onChange={(e) => setDiscountPercent(e.target.value)}
               placeholder="0-100"
-              className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="w-24 px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200"
             />
           </div>
           
           <button
             onClick={selectAllProducts}
-            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+            className="px-4 py-2 bg-gray-200 hover:bg-gray-900 hover:text-white text-gray-700 font-semibold rounded-lg transition-all duration-200"
           >
             {selectedProducts.length === filteredProducts.length ? "Bỏ chọn tất cả" : "Chọn tất cả"}
           </button>
@@ -437,7 +437,7 @@ const List = () => {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200"
             />
           </div>
 
@@ -448,7 +448,7 @@ const List = () => {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               min={startDate}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="px-3 py-2 border-2 border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200"
             />
           </div>
           
@@ -462,7 +462,7 @@ const List = () => {
         <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-gray-200">
           <button
             onClick={applyDiscount}
-            className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
           >
             <FiCheck size={18} />
             <span>Áp dụng cho sản phẩm đã chọn</span>
@@ -470,7 +470,7 @@ const List = () => {
 
           <button
             onClick={applyDiscountToCategory}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={selectedCategory === "All"}
             title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
           >
@@ -480,7 +480,7 @@ const List = () => {
 
           <button
             onClick={removeDiscount}
-            className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
           >
             <FiX size={18} />
             <span>Hủy giảm giá</span>
@@ -488,7 +488,7 @@ const List = () => {
 
           <button
             onClick={removeDiscountFromCategory}
-            className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={selectedCategory === "All"}
             title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
           >
@@ -502,13 +502,13 @@ const List = () => {
         {/* Header bảng danh sách sản phẩm */}
         <div className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1.5fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
           <h5></h5>
-          <h5>Image</h5>
-          <h5>Name</h5>
-          <h5>Category</h5>
-          <h5>Price</h5>
-          <h5>Offer Price</h5>
-          <h5>Discount</h5>
-          <h5>Actions</h5>
+          <h5>Hình ảnh</h5>
+          <h5>Tên sản phẩm</h5>
+          <h5>Danh mục</h5>
+          <h5>Giá gốc</h5>
+          <h5>Giá KM</h5>
+          <h5>Giảm giá</h5>
+          <h5>Thao tác</h5>
         </div>
         {/* Product List - lặp qua mảng products và render từng sản phẩm */}
         {filteredProducts.length > 0 ? (
@@ -523,7 +523,7 @@ const List = () => {
                 type="checkbox"
                 checked={selectedProducts.includes(product._id)}
                 onChange={() => toggleSelectProduct(product._id)}
-                className="w-4 h-4 text-secondary border-gray-300 rounded focus:ring-secondary cursor-pointer"
+                className="w-4 h-4 text-gray-900 border-2 border-gray-300 rounded focus:ring-2 focus:ring-gray-900/20 cursor-pointer"
               />
             </div>
             
@@ -568,7 +568,7 @@ const List = () => {
                   )}
                 </div>
               ) : (
-                <span className="text-gray-400">Không giảm giá</span>
+                <span className="text-gray-400">Chưa giảm giá</span>
               )}
             </div>
             {/* Actions - nút Edit và Delete */}
@@ -576,14 +576,14 @@ const List = () => {
               <button
                 onClick={() => editProduct(product._id)}
                 className="p-2 hover:bg-blue-50 rounded-lg transition-colors group"
-                title="Sửa sản phẩm"
+                title="Chỉnh sửa"
               >
                 <FiEdit2 className="text-blue-600 group-hover:text-blue-700" size={18} />
               </button>
               <button
                 onClick={() => deleteProduct(product._id)}
                 className="p-2 hover:bg-red-50 rounded-lg transition-colors group"
-                title="Xóa sản phẩm"
+                title="Xóa"
               >
                 <FiTrash2 className="text-red-600 group-hover:text-red-700" size={18} />
               </button>

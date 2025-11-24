@@ -48,7 +48,7 @@ const AddProduct = () => {
     
     // Validate form
     if (!validateForm()) {
-      toast.error('Please fill in all required fields')
+      toast.error('Vui lòng điền đầy đủ thông tin bắt buộc')
       return
     }
 
@@ -78,7 +78,7 @@ const AddProduct = () => {
       const {data} = await axios.post('/api/product/add', formData)
 
       if (data.success) {
-        toast.success('✅ Product added successfully!', {
+        toast.success('✅ Thêm sản phẩm thành công!', {
           duration: 4000,
           style: {
             borderRadius: '12px',
@@ -101,7 +101,7 @@ const AddProduct = () => {
       }
 
     } catch (error) {
-     toast.error('❌ Failed to add product!', {
+     toast.error('❌ Không thể thêm sản phẩm!', {
         duration: 4000,
         style: {
           borderRadius: '12px',
@@ -133,9 +133,9 @@ const AddProduct = () => {
         <div className='flex items-center justify-between'>
           {/* Breadcrumb */}
           <div className='flex items-center gap-2 text-sm'>
-            <span className='text-gray-500 font-medium'>Admin</span>
+            <span className='text-gray-500 font-medium'>Quản trị</span>
             <FaChevronRight className='text-gray-400 text-xs' />
-            <span className='text-gray-900 font-semibold'>Add Product</span>
+            <span className='text-gray-900 font-semibold'>Thêm sản phẩm</span>
           </div>
           
           {/* Save Button */}
@@ -147,13 +147,13 @@ const AddProduct = () => {
           >
             {loading ? (
               <>
-                <span className='opacity-0'>Save Product</span>
+                <span className='opacity-0'>Lưu sản phẩm</span>
                 <div className='absolute inset-0 flex items-center justify-center'>
                   <div className='w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
                 </div>
               </>
             ) : (
-              'Save Product'
+              'Lưu sản phẩm'
             )}
           </button>
         </div>
@@ -165,13 +165,13 @@ const AddProduct = () => {
         <div className='bg-white rounded-2xl shadow-lg p-6 border border-gray-100'>
           <h3 className='text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2'>
             <span className='w-1 h-6 bg-gray-900 rounded-full'></span>
-            Basic Information
+            Thông tin cơ bản
           </h3>
           
           {/* Product Name */}
           <div className='mb-4'>
             <label className='block text-sm font-medium text-gray-700 mb-2'>
-              Product Name <span className='text-red-500'>*</span>
+              Tên sản phẩm <span className='text-red-500'>*</span>
             </label>
             <input 
               onChange={(e) => {
@@ -180,7 +180,7 @@ const AddProduct = () => {
               }} 
               value={name} 
               type="text" 
-              placeholder='Enter product name...' 
+              placeholder='Nhập tên sản phẩm...' 
               className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 ${
                 errors.name 
                   ? 'border-red-500 focus:ring-2 focus:ring-red-500' 
@@ -197,7 +197,7 @@ const AddProduct = () => {
           {/* Product Description */}
           <div>
             <label className='block text-sm font-medium text-gray-700 mb-2'>
-              Product Description <span className='text-red-500'>*</span>
+              Mô tả sản phẩm <span className='text-red-500'>*</span>
             </label>
             <textarea 
               onChange={(e) => {
@@ -206,7 +206,7 @@ const AddProduct = () => {
               }} 
               value={description} 
               rows={5} 
-              placeholder='Describe your product in detail...' 
+              placeholder='Mô tả chi tiết về sản phẩm...' 
               className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 resize-none ${
                 errors.description 
                   ? 'border-red-500 focus:ring-2 focus:ring-red-500' 
@@ -225,14 +225,14 @@ const AddProduct = () => {
         <div className='bg-white rounded-2xl shadow-lg p-6 border border-gray-100'>
           <h3 className='text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2'>
             <span className='w-1 h-6 bg-gray-900 rounded-full'></span>
-            Pricing & Category
+            Giá và danh mục
           </h3>
           
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
             {/* Category */}
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-2'>
-                Category
+                Danh mục
               </label>
               <select 
                 onChange={(e) => setCategory(e.target.value)} 
@@ -251,13 +251,13 @@ const AddProduct = () => {
             {/* Product Price */}
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-2'>
-                Product Price ($)
+                Giá sản phẩm (₫)
               </label>
               <input 
                 onChange={(e) => setPrice(e.target.value)} 
                 value={price} 
                 type="number" 
-                placeholder='10' 
+                placeholder='240000' 
                 className='w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' 
               />
             </div>
@@ -265,13 +265,13 @@ const AddProduct = () => {
             {/* Offer Price */}
             <div>
               <label className='block text-sm font-medium text-gray-700 mb-2'>
-                Offer Price ($)
+                Giá khuyến mãi (₫)
               </label>
               <input 
                 onChange={(e) => setOfferPrice(e.target.value)} 
                 value={offerPrice} 
                 type="number" 
-                placeholder='10' 
+                placeholder='240000' 
                 className='w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition-all duration-200 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' 
               />
             </div>
@@ -282,7 +282,7 @@ const AddProduct = () => {
         <div className='bg-white rounded-2xl shadow-lg p-6 border border-gray-100'>
           <h3 className='text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2'>
             <span className='w-1 h-6 bg-gray-900 rounded-full'></span>
-            Size Selection <span className='text-red-500'>*</span>
+            Chọn kích cỡ <span className='text-red-500'>*</span>
           </h3>
           
           <div className='flex flex-wrap gap-3'>
@@ -315,10 +315,10 @@ const AddProduct = () => {
         <div className='bg-white rounded-2xl shadow-lg p-6 border border-gray-100'>
           <h3 className='text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2'>
             <span className='w-1 h-6 bg-gray-900 rounded-full'></span>
-            Product Images <span className='text-red-500'>*</span>
+            Hình ảnh sản phẩm <span className='text-red-500'>*</span>
           </h3>
           
-          <p className='text-sm text-gray-500 mb-4'>Upload up to 4 images. First image will be the main product image.</p>
+          <p className='text-sm text-gray-500 mb-4'>Tải lên tối đa 4 hình ảnh. Hình ảnh đầu tiên sẽ là hình ảnh chính.</p>
           
           <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
             {Array(4).fill('').map((_, index) => (
@@ -359,7 +359,7 @@ const AddProduct = () => {
                     <div className='w-full h-full flex flex-col items-center justify-center gap-2 p-4'>
                       <img src={upload_icon} alt="Upload" className='w-12 h-12 opacity-40' />
                       <p className='text-xs text-gray-400 text-center font-medium'>
-                        Click to upload
+                        Nhấn để tải lên
                       </p>
                     </div>
                   )}
@@ -389,7 +389,7 @@ const AddProduct = () => {
         <div className='bg-white rounded-2xl shadow-lg p-6 border border-gray-100'>
           <h3 className='text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2'>
             <span className='w-1 h-6 bg-gray-900 rounded-full'></span>
-            Additional Options
+            Tùy chọn khác
           </h3>
           
           <label className='flex items-center gap-3 cursor-pointer group'>
@@ -400,7 +400,7 @@ const AddProduct = () => {
               className='w-5 h-5 rounded border-2 border-gray-300 text-gray-900 focus:ring-2 focus:ring-gray-900/20 cursor-pointer'
             />
             <span className='text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors'>
-              Add to popular products
+              Thêm vào sản phẩm nổi bật
             </span>
           </label>
         </div>

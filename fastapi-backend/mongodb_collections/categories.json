@@ -2,9 +2,9 @@
   "_id": {
     "$oid": "673b1234567890abcdef3001"
   },
-  "name": "Shirts & Polos",
+  "name": "Áo Sơ Mi & Polo",
   "slug": "shirts-polos",
-  "description": "Premium men's t-shirt collection, breathable cotton fabric, minimalist Uniqlo-style design",
+  "description": "Bộ sưu tập áo thun nam cao cấp, vải cotton thoáng khí, thiết kế tối giản phong cách Uniqlo",
   "image": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479852/sub/goods_479852_sub14_3x4.jpg?width=200",
   "inStock": true,
   "order": 1,
@@ -19,9 +19,9 @@
   "_id": {
     "$oid": "673b1234567890abcdef3002"
   },
-  "name": "Bottoms",
+  "name": "Quần",
   "slug": "bottoms",
-  "description": "Men's formal and casual shirts, premium fabric, modern fit",
+  "description": "Áo sơ mi nam công sở và casual, vải cao cấp, form hiện đại",
   "image": "https://im.uniqlo.com/global-cms/spa/res6e085e67ce70e655a86295785ecb3954fr.png",
   "inStock": true,
   "order": 2,
@@ -36,10 +36,10 @@
   "_id": {
     "$oid": "673b1234567890abcdef3003"
   },
-  "name": "Outerwear",
+  "name": "Áo Khoác",
   "slug": "outerwear",
-  "description": "Local brand men's jeans, premium denim fabric, timeless quality",
-  "image": "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/469292/item/usgoods_09_469292_3x4.jpg?width=200",
+  "description": "Quần jean nam thương hiệu nội địa, vải denim cao cấp, chất lượng vượt thời gian",
+  "image": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/470077/sub/goods_470077_sub14_3x4.jpg?width=400",
   "inStock": true,
   "order": 3,
   "createdAt": {
@@ -53,9 +53,9 @@
   "_id": {
     "$oid": "673b1234567890abcdef3004"
   },
-  "name": "Innerwear & Underwear",
+  "name": "Đồ Lót & Đồ Mặc Trong",
   "slug": "innerwear-underwear",
-  "description": "Elegant men's chino pants, perfect for office and casual wear",
+  "description": "Quần chino nam thanh lịch, hoàn hảo cho văn phòng và dạo phố",
   "image": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/466739/item/goods_67_466739_3x4.jpg?width=400",
   "inStock": true,
   "order": 4,
@@ -70,9 +70,9 @@
   "_id": {
     "$oid": "673b1234567890abcdef3005"
   },
-  "name": "Shoes",
+  "name": "Giày Dép",
   "slug": "shoes",
-  "description": "Men's jackets in various styles: bomber, hoodie, jacket, blazer",
+  "description": "Áo khoác nam đa dạng phong cách: bomber, hoodie, jacket, blazer",
   "image": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481358/item/goods_69_481358_3x4.jpg?width=150",
   "inStock": true,
   "order": 5,
@@ -87,9 +87,9 @@
   "_id": {
     "$oid": "673b1234567890abcdef3007"
   },
-  "name": "Accessories",
+  "name": "Phụ Kiện",
   "slug": "accessories",
-  "description": "Men's fashion accessories: leather wallets, belts, caps, bags, backpacks in various styles",
+  "description": "Phụ kiện thời trang nam: ví da, thắt lưng, mũ, túi xách, ba lô đa dạng phong cách",
   "image": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/463729/item/goods_09_463729_3x4.jpg?width=150",
   "inStock": true,
   "order": 6,

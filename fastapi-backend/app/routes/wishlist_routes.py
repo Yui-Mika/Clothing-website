@@ -169,7 +169,7 @@ async def add_to_wishlist(request_data: AddToWishlistRequest, request: Request, 
         if not product:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Product not found"
+                detail="Không tìm thấy sản phẩm"
             )
         
         wishlist_collection = await get_collection("wishlists")
@@ -196,7 +196,7 @@ async def add_to_wishlist(request_data: AddToWishlistRequest, request: Request, 
             
             return {
                 "success": True,
-                "message": "Product added to wishlist",
+                "message": "Đã thêm sản phẩm vào danh sách yêu thích",
                 "count": 1
             }
         
@@ -231,7 +231,7 @@ async def add_to_wishlist(request_data: AddToWishlistRequest, request: Request, 
         
         return {
             "success": True,
-            "message": "Product added to wishlist",
+            "message": "Đã thêm sản phẩm vào danh sách yêu thích",
             "count": new_count
         }
         
@@ -290,7 +290,7 @@ async def remove_from_wishlist(request_data: RemoveFromWishlistRequest, request:
         
         return {
             "success": True,
-            "message": "Product removed from wishlist",
+            "message": "Đã xóa sản phẩm khỏi danh sách yêu thích",
             "count": new_count
         }
         

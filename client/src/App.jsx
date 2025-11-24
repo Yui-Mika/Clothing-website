@@ -21,6 +21,7 @@ import Orders from './pages/admin/Orders'
 import ListCustomer from './pages/admin/ListCustomer' // Import ListCustomer page
 import Report from './pages/admin/Report' // Import Report page
 import Testimonials from './pages/admin/Testimonials' // Import Testimonials admin page
+import Settings from './pages/admin/Settings' // Import Settings admin page
 import Loading from './components/Loading'
 import Wishlist from './pages/Wishlist' // Import Wishlist page
 import VerifyEmail from './pages/VerifyEmail' // Import VerifyEmail page
@@ -28,18 +29,21 @@ import Blogs from './pages/Blogs' // Import Blogs page
 import BlogDetails from './pages/BlogDetails' // Import BlogDetails page
 
 const App = () => {
-  const {showUserLogin, isAdmin, navigate, setShowUserLogin} = useContext(ShopContext)
+  const {showUserLogin, isAdmin, navigate, setShowUserLogin, user} = useContext(ShopContext)
   const location = useLocation();
   const isAdminPath = location.pathname.includes('admin')
   const isVerifyPath = location.pathname.includes('verify-email')
 
   // Redirect về home và mở login modal nếu truy cập admin mà chưa login
   React.useEffect(() => {
-    if (isAdminPath && !isAdmin) {
+    const hasAdminToken = localStorage.getItem('admin_token');
+    // Chỉ redirect nếu đang ở admin path và không có token
+    // isAdmin state có thể chưa update ngay, nên ưu tiên check token
+    if (isAdminPath && !hasAdminToken) {
       navigate('/');
       setShowUserLogin(true); // Mở login modal
     }
-  }, [isAdminPath, isAdmin, navigate, setShowUserLogin]);
+  }, [isAdminPath, navigate, setShowUserLogin]);
 
   return (
     <main className='overflow-hidden text-tertiary'>
@@ -70,6 +74,7 @@ const App = () => {
             <Route path='customers' element={isAdmin ? <ListCustomer /> : null}/>
             <Route path='testimonials' element={isAdmin ? <Testimonials /> : null}/>
             <Route path='report' element={isAdmin ? <Report /> : null}/>
+            <Route path='settings' element={isAdmin ? <Settings /> : null}/>
         </Route>
       </Routes>
       {!isAdminPath && !isVerifyPath && <Footer />}

@@ -11,6 +11,7 @@ const Wishlist = () => {
     removeFromWishlist, 
     navigate, 
     currency,
+    formatCurrency,
     user 
   } = useContext(ShopContext);
 
@@ -27,12 +28,12 @@ const Wishlist = () => {
       <div className="max-padd-container py-28">
         <div className="flexCenter flex-col gap-4 py-20">
           <TbHeartOff className="text-6xl text-gray-400" />
-          <p className="text-xl">Please login to view your wishlist</p>
+          <p className="text-xl">Vui lòng đăng nhập để xem danh sách yêu thích</p>
           <button 
             onClick={() => navigate('/')} 
             className="btn-dark"
           >
-            Go to Home
+            Trở về trang chủ
           </button>
         </div>
       </div>
@@ -44,11 +45,11 @@ const Wishlist = () => {
       {/* TITLE */}
       <div className="mb-8">
         <Title 
-          title1="MY" 
-          title2="WISHLIST" 
+          title1="DANH SÁCH" 
+          title2="YÊU THÍCH" 
         />
         <p className="text-gray-600 mt-2">
-          You have {wishlistProducts.length} {wishlistProducts.length === 1 ? 'item' : 'items'} in your wishlist
+          Bạn có {wishlistProducts.length} sản phẩm trong danh sách yêu thích
         </p>
       </div>
 
@@ -56,13 +57,13 @@ const Wishlist = () => {
       {wishlistProducts.length === 0 ? (
         <div className="flexCenter flex-col gap-4 py-20 bg-white rounded-xl">
           <TbHeartOff className="text-6xl text-gray-400" />
-          <p className="text-xl text-gray-600">Your wishlist is empty</p>
-          <p className="text-gray-500">Add products you love to save them for later</p>
+          <p className="text-xl text-gray-600">Danh sách yêu thích trống</p>
+          <p className="text-gray-500">Thêm sản phẩm bạn thích để lưu lại sau này</p>
           <button 
             onClick={() => navigate('/collection')} 
             className="btn-dark mt-4"
           >
-            Continue Shopping
+            Tiếp tục mua sắm
           </button>
         </div>
       ) : (
@@ -146,22 +147,22 @@ const WishlistItem = ({ product, onRemove, currency, navigate }) => {
           {product.hasDiscount ? (
             <>
               <span className="text-lg font-bold text-red-600">
-                {currency}{product.offerPrice.toLocaleString()}
+                {formatCurrency(product.offerPrice)}{currency}
               </span>
               <span className="text-sm line-through text-gray-400">
-                {currency}{product.price.toLocaleString()}
+                {formatCurrency(product.price)}{currency}
               </span>
             </>
           ) : (
             <span className="text-lg font-bold text-gray-900">
-              {currency}{product.price.toLocaleString()}
+              {formatCurrency(product.price)}{currency}
             </span>
           )}
         </div>
 
         {/* Added Date */}
         <p className="text-xs text-gray-400 mb-3">
-          Added on {formatDate(product.addedAt)}
+          Đã thêm {formatDate(product.addedAt)}
         </p>
 
         {/* Actions */}
@@ -170,7 +171,7 @@ const WishlistItem = ({ product, onRemove, currency, navigate }) => {
             onClick={() => navigate(`/product/${product._id}`)}
             className="flex-1 btn-dark py-2 text-sm"
           >
-            View Details
+            Xem chi tiết
           </button>
         </div>
       </div>

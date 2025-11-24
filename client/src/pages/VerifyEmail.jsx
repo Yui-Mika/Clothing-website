@@ -18,7 +18,7 @@ const VerifyEmail = () => {
   // Redirect nếu không có email
   useEffect(() => {
     if (!email) {
-      toast.error('No email provided. Please register first.');
+      toast.error('Không có email. Vui lòng đăng ký trước.');
       navigate('/');
     }
   }, [email, navigate]);

@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const ProductDetails = () => {
-  const { products, navigate, currency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
+  const { products, navigate, currency, formatCurrency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
   const { id } = useParams();
 
   const product = products.find((item) => item._id === id);
@@ -71,7 +71,7 @@ const ProductDetails = () => {
   // Handle wishlist toggle (add/remove)
   const handleWishlistToggle = async () => {
     if (!user) {
-      toast.error('Please login to add to wishlist');
+      toast.error('Vui lòng đăng nhập để thêm vào danh sách yêu thích');
       return;
     }
 
@@ -162,7 +162,7 @@ const ProductDetails = () => {
               <p className="medium-14">
                 {reviewStats.totalReviews > 0 
                   ? `(${reviewStats.totalReviews})` 
-                  : '(No reviews yet)'}
+                  : '(Chưa có đánh giá)'}
               </p>
             </div>
 
@@ -183,24 +183,20 @@ const ProductDetails = () => {
                 {/* Price with discount */}
                 <div className="flex items-baseline gap-3">
                   <h3 className="h3 text-red-600 font-bold">
-                    {currency}
-                    {product.offerPrice.toLocaleString()}
+                    {formatCurrency(product.offerPrice)}{currency}
                   </h3>
                   <h4 className="h4 line-through text-gray-400">
-                    {currency}
-                    {product.price.toLocaleString()}
+                    {formatCurrency(product.price)}{currency}
                   </h4>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">
-                  Tiết kiệm: {currency}
-                  {(product.price - product.offerPrice).toLocaleString()}
+                  Tiết kiệm: {formatCurrency(product.price - product.offerPrice)}{currency}
                 </p>
               </div>
             ) : (
               <div className="my-3">
                 <h3 className="h3 text-gray-900 font-bold">
-                  {currency}
-                  {product.price.toLocaleString()}
+                  {formatCurrency(product.price)}{currency}
                 </h3>
               </div>
             )}
@@ -232,12 +228,12 @@ const ProductDetails = () => {
                 onClick={() => addToCart(product._id, size)}
                 className="btn-dark  sm:w-1/2 flexCenter gap-x-2 capitalize"
               >
-                Add to Cart <TbShoppingBagPlus />
+                Thêm vào giỏ <TbShoppingBagPlus />
               </button>
               <button 
                 onClick={handleWishlistToggle}
                 className={`btn-light ${inWishlist ? 'bg-red-50 border-red-200' : ''}`}
-                title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+                title={inWishlist ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích'}
               >
                 {inWishlist ? (
                   <TbHeartFilled className="text-xl text-red-500" />

@@ -14,23 +14,23 @@ const Hero = () => {
     {
       id: 1,
       image: "/src/assets/slider1.jpg",
-      brand: "PREMIUM",
-      subtitle: "Luxury Fashion Collection",
-      season: "AUTUMN / WINTER 2025",
+      brand: "CAO CẤP",
+      subtitle: "Bộ sưu tập thời trang sang trọng",
+      season: "THU / ĐÔNG 2025",
     },
     {
       id: 2,
       image: "/src/assets/slider2.jpg",
-      brand: "ESSENTIAL",
-      subtitle: "Modern Minimalist Style",
-      season: "NEW ARRIVALS",
+      brand: "THIẾT YẾU",
+      subtitle: "Phong cách tối giản hiện đại",
+      season: "HÀNG MỚI VỀ",
     },
     {
       id: 3,
       image: "/src/assets/slider3.jpg",
-      brand: "CLASSIC",
-      subtitle: "Heritage Collection",
-      season: "TIMELESS PIECES",
+      brand: "KINH ĐIỂN",
+      subtitle: "Bộ sưu tập di sản",
+      season: "NHỮNG MẪU VƯỢT THỜI GIAN",
     },
   ];
 
@@ -102,7 +102,7 @@ const Hero = () => {
                     to="/collection" // Liên kết đến trang bộ sưu tập khi bấm vào nút
                     className="inline-block bg-white text-tertiary px-10 py-4 text-sm font-medium tracking-wide hover:bg-tertiary hover:text-white transition-all duration-300"
                   >
-                    EXPLORE COLLECTION
+                    KHÁM PHÁ BỘ SƯU TẬP
                   </Link>
                 </div>
               </div>

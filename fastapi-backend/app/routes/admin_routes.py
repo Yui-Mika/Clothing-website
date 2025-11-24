@@ -64,7 +64,7 @@ async def admin_login(user: UserLogin, response: Response):
         # Nếu không tìm thấy user -> email sai HOẶC role không phải admin/staff
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,  # 401: Không được phép
-            detail="Invalid credentials or not an admin/staff"  # Thông báo lỗi
+            detail="Thông tin đăng nhập không hợp lệ hoặc không phải tài khoản admin/nhân viên"  # Thông báo lỗi
         )
     
     # Bước 4: Xác thực password
@@ -73,7 +73,7 @@ async def admin_login(user: UserLogin, response: Response):
         # Nếu không khớp -> password sai
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,  # 401: Không được phép
-            detail="Invalid credentials"  # Thông báo lỗi
+            detail="Thông tin đăng nhập không hợp lệ"  # Thông báo lỗi
         )
     
     # Bước 5: Kiểm tra tài khoản có đang active không
@@ -82,7 +82,7 @@ async def admin_login(user: UserLogin, response: Response):
         # Nếu isActive = False -> tài khoản bị vô hiệu hóa
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,  # 403: Cấm truy cập
-            detail="Account is inactive"  # Thông báo tài khoản không active
+            detail="Tài khoản đã bị vô hiệu hóa"  # Thông báo tài khoản không active
         )
     
     # Bước 6: Tạo JWT token
@@ -126,7 +126,7 @@ async def admin_logout(response: Response):
     # Trả về thông báo đăng xuất thành công
     return {
         "success": True,
-        "message": "Logout successful"
+        "message": "Đăng xuất thành công"
     }
 
 # ========================================
@@ -149,7 +149,7 @@ async def is_admin_authenticated(request: Request):
         if user_role not in ["admin", "staff"]:
             return {
                 "success": False,
-                "message": "Unauthorized: Only admin and staff can access this resource"
+                "message": "Không có quyền: Chỉ admin và nhân viên mới có thể truy cập"
             }
         
         # Trả về kết quả thành công với role của user
@@ -223,7 +223,7 @@ async def get_customer(customer_id: str, admin: dict = Depends(auth_admin_only))
         # Nếu không tìm thấy -> ném lỗi 404 Not Found
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Customer not found"
+            detail="Không tìm thấy khách hàng"
         )
     
     # Bước 4: Chuyển ObjectId thành string
@@ -255,7 +255,7 @@ async def toggle_customer_status(customer_id: str, admin: dict = Depends(auth_ad
     if not customer:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Customer not found"
+            detail="Không tìm thấy khách hàng"
         )
     
     # Bước 4: Đảo ngược trạng thái isActive (true -> false hoặc false -> true)
@@ -272,8 +272,8 @@ async def toggle_customer_status(customer_id: str, admin: dict = Depends(auth_ad
     # Bước 6: Trả về thông báo thành công
     return {
         "success": True,
-        "message": f"Customer {'activated' if new_status else 'deactivated'} successfully"
-        # Nếu new_status=True -> "activated", ngược lại -> "deactivated"
+        "message": f"Khách hàng đã {'kích hoạt' if new_status else 'vô hiệu hóa'} thành công"
+        # Nếu new_status=True -> "kích hoạt", ngược lại -> "vô hiệu hóa"
     }
 
 # ========================================
@@ -298,13 +298,13 @@ async def delete_customer(customer_id: str, admin: dict = Depends(auth_admin_onl
         # Nếu deleted_count = 0 -> không tìm thấy khách hàng để xóa
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Customer not found"
+            detail="Không tìm thấy khách hàng"
         )
     
     # Bước 4: Trả về thông báo xóa thành công
     return {
         "success": True,
-        "message": "Customer deleted successfully"
+        "message": "Xóa khách hàng thành công"
     }
 
 # ========================================
@@ -344,3 +344,175 @@ async def get_all_staff(admin: dict = Depends(auth_admin_only)):
 # ========================================
 from datetime import datetime
 # Import datetime để lấy thời gian hiện tại khi cập nhật updatedAt
+
+# ========================================
+# SETTINGS MANAGEMENT ENDPOINTS
+# ========================================
+
+# Import Settings models
+from app.models.settings import SettingsCreate, SettingsUpdate, SettingsResponse
+
+# GET /api/admin/settings - List all settings (all years)
+@router.get("/settings", response_model=dict, dependencies=[Depends(auth_admin)])
+async def get_all_settings():
+    """
+    Get all settings for all years (admin/staff only).
+    Returns list sorted by year descending (newest first).
+    """
+    try:
+        settings_collection = await get_collection("settings")
+        
+        # Lấy tất cả settings, sắp xếp theo năm giảm dần
+        settings_list = await settings_collection.find().sort("year", -1).to_list(length=None)
+        
+        # Chuyển ObjectId thành string
+        for setting in settings_list:
+            setting["_id"] = str(setting["_id"])
+        
+        return {
+            "success": True,
+            "settings": settings_list,
+            "total": len(settings_list)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching settings: {str(e)}"
+        )
+
+
+# POST /api/admin/settings - Create new settings for a year
+@router.post("/settings", response_model=dict, dependencies=[Depends(auth_admin_only)])
+async def create_settings(settings: SettingsCreate):
+    """
+    Create new settings for a year (admin only).
+    Year must be unique - cannot create duplicate.
+    """
+    try:
+        settings_collection = await get_collection("settings")
+        
+        # Kiểm tra xem năm đã tồn tại chưa
+        existing = await settings_collection.find_one({"year": settings.year})
+        if existing:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Settings for year {settings.year} already exists"
+            )
+        
+        # Tạo document mới
+        new_settings = {
+            "year": settings.year,
+            "shippingFee": settings.shippingFee,
+            "taxRate": settings.taxRate,
+            "isActive": settings.isActive,
+            "createdAt": datetime.utcnow(),
+            "updatedAt": datetime.utcnow()
+        }
+        
+        result = await settings_collection.insert_one(new_settings)
+        new_settings["_id"] = str(result.inserted_id)
+        
+        return {
+            "success": True,
+            "message": f"Cài đặt cho năm {settings.year} đã được tạo thành công",
+            "settings": new_settings
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error creating settings: {str(e)}"
+        )
+
+
+# PUT /api/admin/settings/{year} - Update settings for a specific year
+@router.put("/settings/{year}", response_model=dict, dependencies=[Depends(auth_admin_only)])
+async def update_settings(year: int, settings: SettingsUpdate):
+    """
+    Update settings for a specific year (admin only).
+    Can update shippingFee, taxRate, and isActive status.
+    """
+    try:
+        settings_collection = await get_collection("settings")
+        
+        # Tìm settings của năm cần update
+        existing = await settings_collection.find_one({"year": year})
+        if not existing:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Settings for year {year} not found"
+            )
+        
+        # Tạo update data (chỉ update các field được cung cấp)
+        update_data = {"updatedAt": datetime.utcnow()}
+        if settings.shippingFee is not None:
+            update_data["shippingFee"] = settings.shippingFee
+        if settings.taxRate is not None:
+            update_data["taxRate"] = settings.taxRate
+        if settings.isActive is not None:
+            update_data["isActive"] = settings.isActive
+        
+        # Update trong MongoDB
+        await settings_collection.update_one(
+            {"year": year},
+            {"$set": update_data}
+        )
+        
+        # Lấy settings đã update
+        updated_settings = await settings_collection.find_one({"year": year})
+        updated_settings["_id"] = str(updated_settings["_id"])
+        
+        return {
+            "success": True,
+            "message": f"Cài đặt cho năm {year} đã được cập nhật thành công",
+            "settings": updated_settings
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error updating settings: {str(e)}"
+        )
+
+
+# DELETE /api/admin/settings/{year} - Soft delete settings (set isActive=false)
+@router.delete("/settings/{year}", response_model=dict, dependencies=[Depends(auth_admin_only)])
+async def delete_settings(year: int):
+    """
+    Soft delete settings for a year (admin only).
+    Sets isActive to false instead of actually deleting the record.
+    This preserves historical data for orders.
+    """
+    try:
+        settings_collection = await get_collection("settings")
+        
+        # Tìm settings của năm cần xóa
+        existing = await settings_collection.find_one({"year": year})
+        if not existing:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Settings for year {year} not found"
+            )
+        
+        # Soft delete: set isActive = false
+        await settings_collection.update_one(
+            {"year": year},
+            {"$set": {
+                "isActive": False,
+                "updatedAt": datetime.utcnow()
+            }}
+        )
+        
+        return {
+            "success": True,
+            "message": f"Cài đặt cho năm {year} đã được vô hiệu hóa thành công"
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error deleting settings: {str(e)}"
+        )

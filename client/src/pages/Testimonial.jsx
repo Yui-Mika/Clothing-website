@@ -70,7 +70,7 @@ const Testimonial = () => {
   const handleWriteReview = () => {
     const token = getToken();
     if (!token && !user) {
-      toast.error("Please login to write a review");
+      toast.error("Vui lòng đăng nhập để viết đánh giá");
       return;
     }
     setModalMode("create");
@@ -102,7 +102,7 @@ const Testimonial = () => {
       }
     } catch (error) {
       console.error("Delete error:", error);
-      toast.error(error.response?.data?.detail || "Failed to delete review");
+      toast.error(error.response?.data?.detail || "Không thể xóa đánh giá");
     }
   };
 
@@ -140,12 +140,12 @@ const Testimonial = () => {
     <div className="max-padd-container py-16 pt-28 bg-gradient-to-br from-white via-gray-50 to-gray-100 min-h-screen">
       {/* Title */}
       <Title
-        title1={"People"}
-        title2={"Says"}
+        title1={"Khách hàng"}
+        title2={"nói gì"}
         titleStyles={"pb-10"}
         paraStyles={"!block"}
         para={
-          "Real stories from our happy customers sharing their experience, style inspiration, and trusted feedback on what they love."
+          "Câu chuyện thực từ khách hàng hài lòng chia sẻ trải nghiệm, cảm hứng phong cách và phản hồi đáng tin cậy về những gì họ yêu thích."
         }
       />
 
@@ -157,14 +157,14 @@ const Testimonial = () => {
             className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-medium shadow-lg"
           >
             <FaPlus size={18} />
-            Write a Review
+            Viết đánh giá
           </button>
         ) : (
           <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-xl p-6 border border-gray-200/50 max-w-2xl">
             <div className="flex justify-between items-start mb-4">
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-1">
-                  Your Review
+                  Đánh giá của bạn
                 </h3>
                 <div className="flex items-center gap-2">
                   <span
@@ -186,14 +186,14 @@ const Testimonial = () => {
                   <button
                     onClick={handleEdit}
                     className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors"
-                    title="Edit Review"
+                    title="Chỉnh sửa"
                   >
                     <FaEdit size={18} />
                   </button>
                   <button
                     onClick={handleDelete}
                     className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors"
-                    title="Delete Review"
+                    title="Xóa"
                   >
                     <FaTrash size={18} />
                   </button>

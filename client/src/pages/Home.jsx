@@ -6,7 +6,7 @@ import Hero from '../components/Hero' // nhập khẩu component bằng tên Her
 import Categories from '../components/Categories' // nhập khẩu component Categories từ tệp Categories.jsx
 import Features from '../components/Features' // nhập khẩu component Features từ tệp Features.jsx
 import PopularProducts from '../components/PopularProducts' // nhập khẩu component PopularProducts từ tệp PopularProducts.jsx
-import banner from "../assets/banner.png" // nhập khẩu hình ảnh banner từ thư mục assets
+import banner from "../assets/banner.jpg" // nhập khẩu hình ảnh banner từ thư mục assets
 import Blog from '../components/Blog' // nhập khẩu component Blog từ tệp Blog.jsx
 
 const Home = () => {
@@ -19,14 +19,14 @@ const Home = () => {
     const error = searchParams.get('error');
 
     if (verified === 'true') {
-      toast.success('Email verified successfully! You can now login.', {
+      toast.success('Xác thực email thành công! Bạn có thể đăng nhập ngay.', {
         duration: 5000,
         icon: '✅'
       });
       // Clean URL
       window.history.replaceState({}, '', '/');
     } else if (verified === 'false') {
-      toast.error(error || 'Email verification failed. Please try again.', {
+      toast.error(error || 'Xác thực email thất bại. Vui lòng thử lại.', {
         duration: 5000
       });
       // Clean URL

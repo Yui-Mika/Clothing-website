@@ -54,6 +54,12 @@ class Settings(BaseSettings):
     # Delivery charges
     DELIVERY_CHARGES: float = 10.0
     
+    # VNPay Configuration
+    VNPAY_TMN_CODE: str
+    VNPAY_HASH_SECRET: str
+    VNPAY_URL: str
+    VNPAY_RETURN_URL: str
+    
     class Config:
         env_file = ".env"
         case_sensitive = True

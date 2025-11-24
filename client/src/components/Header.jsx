@@ -106,7 +106,7 @@ const Header = () => {
           <button 
             onClick={() => {
               if (!user) {
-                toast.error('Please login to view wishlist');
+                toast.error('Vui lòng đăng nhập để xem danh sách yêu thích');
                 setShowUserLogin(true);
               } else {
                 navigate('/wishlist');
