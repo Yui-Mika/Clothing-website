@@ -1,0 +1,39 @@
+name: CI/CD Pipeline Hỗn Hợp
+
+# Chạy khi có code đẩy lên bất kỳ nhánh nào
+on:
+  push:
+    branches: [ "main", "dev", "feature-*" ] # Liệt kê các nhánh của bạn ở đây
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # JOB 1: CI - Chạy kiểm thử (Áp dụng cho TẤT CẢ nhánh)
+  test-code:
+    name: Chạy Kiểm Thử (CI)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code về
+        uses: actions/checkout@v4
+
+      # Giả lập cài đặt (Thay bằng ngôn ngữ của bạn: Node, Python, Go...)
+      - name: Cài đặt môi trường
+        run: echo "Đang cài đặt môi trường..."
+
+      - name: Chạy Test
+        run: echo "Đang chạy Unit Test..." 
+        # Thay dòng trên bằng lệnh thật: npm test, pytest, go test...
+
+  # JOB 2: CD - Deploy (Chỉ chạy cho nhánh MAIN và khi Test đã OK)
+  deploy-production:
+    name: Deploy lên Server (CD)
+    needs: test-code  # QUAN TRỌNG: Phải chờ job 'test-code' xong và thành công
+    if: github.ref == 'refs/heads/main' # ĐIỀU KIỆN: Chỉ chạy nếu đang ở nhánh main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lấy code về
+        uses: actions/checkout@v4
+
+      - name: Deploy ra môi trường thật
+        run: echo "Đang deploy code mới nhất từ Main ra server..."
+        # Tại đây bạn sẽ điền các lệnh deploy thật (Docker push, SSH server,...)
