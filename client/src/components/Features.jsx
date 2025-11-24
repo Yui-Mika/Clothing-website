@@ -14,8 +14,8 @@ const Features = () => {
         <div className="flexCenter gap-x-4">
           <LiaShippingFastSolid className="text-4xl"/>
           <div>
-            <h5 className="medium-15">Free Shipping</h5>
-            <p>On above $100 order</p>  
+            <h5 className="medium-15">Miễn phí vận chuyển</h5>
+            <p>Đơn hàng trên 2.400.000₫</p>  
           </div>
         </div>
 
@@ -23,8 +23,8 @@ const Features = () => {
         <div className="flexCenter gap-x-4">
           <MdCurrencyExchange className="text-4xl"/>
           <div>
-            <h5 className="medium-15">Member Discount</h5>
-            <p>Discount for elite Members</p>
+            <h5 className="medium-15">Giảm giá thành viên</h5>
+            <p>Giảm giá cho thành viên VIP</p>
           </div>
         </div>
 
@@ -32,8 +32,8 @@ const Features = () => {
         <div className="flexCenter gap-x-4">
           <BiSupport className="text-4xl"/>
           <div>
-            <h5 className="medium-15">Fast Support</h5>
-            <p>24/7 Customer support</p>
+            <h5 className="medium-15">Hỗ trợ nhanh</h5>
+            <p>Hỗ trợ khách hàng 24/7</p>
           </div>
         </div>
 
@@ -41,8 +41,8 @@ const Features = () => {
         <div className="flexCenter gap-x-4">
           <TbPackageImport className="text-4xl"/>
           <div>
-            <h5 className="medium-15">Easy Returns</h5>
-            <p>14 Days easy returns</p>
+            <h5 className="medium-15">Dễ dàng đổi trả</h5>
+            <p>Đổi trả dễ dàng trong 14 ngày</p>
           </div>
         </div>
       </div>

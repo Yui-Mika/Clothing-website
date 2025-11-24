@@ -3,7 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 
 const MyOrders = () => {
-  const { currency, user, axios } = useContext(ShopContext);
+  const { currency, formatCurrency, user, axios } = useContext(ShopContext);
   const [orders, setOrders] = useState([]);
 
   const loadOrderData = async () => {
@@ -22,7 +22,7 @@ const MyOrders = () => {
 
   return (
     <div className="max-padd-container py-16 pt-28 bg-primary">
-      <Title title1="My Orders" title2="List" titleStyles="pb-10" />
+      <Title title1="Đơn hàng" title2="của tôi" titleStyles="pb-10" />
 
       {orders.map((order) => (
         <div key={order._id} className="bg-white p-2 mt-3 rounded-sm">
@@ -39,15 +39,15 @@ const MyOrders = () => {
                   <h5 className="h5 capitalize line-clamp-1">{item.product.name}</h5>
                   <div className="flex flex-wrap gap-3 max-sm:gap-y-1 mt-1">
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Price:</h5>
-                      <p>{currency}{item.product.offerPrice}</p>
+                      <h5 className="medium-14">Giá:</h5>
+                      <p>{formatCurrency(item.product.offerPrice)}{currency}</p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Quantity:</h5>
+                      <h5 className="medium-14">Số lượng:</h5>
                       <p>{item.quantity}</p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                      <h5 className="medium-14">Size:</h5>
+                      <h5 className="medium-14">Kích cỡ:</h5>
                       <p>{item.size}</p>
                     </div>
                   </div>
@@ -60,32 +60,32 @@ const MyOrders = () => {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 border-t border-gray-300 pt-3">
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-x-2">
-                <h5 className="medium-14">OrderId:</h5>
+                <h5 className="medium-14">Mã đơn:</h5>
                 <p className="text-gray-400 text-xs break-all">{order._id}</p>
               </div>
               <div className="flex gap-4">
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Payment Status:</h5>
+                  <h5 className="medium-14">Thanh toán:</h5>
                   <p className="text-gray-400 text-sm">
-                    {order.isPaid ? "Done" : "Pending"}
+                    {order.isPaid ? "Đã thanh toán" : "Chưa thanh toán"}
                   </p>
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Method:</h5>
+                  <h5 className="medium-14">Phương thức:</h5>
                   <p className="text-gray-400 text-sm">{order.paymentMethod}</p>
                 </div>
                 </div>
               </div>
                <div className="flex gap-4">
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Date:</h5>
+                  <h5 className="medium-14">Ngày:</h5>
                   <p className="text-gray-400 text-sm">
                     {new Date(order.createdAt).toDateString()}
                   </p>
                 </div>
                 <div className="flex items-center gap-x-2">
-                  <h5 className="medium-14">Amount:</h5>
+                  <h5 className="medium-14">Tổng tiền:</h5>
                   <p className="text-gray-400 text-sm">
-                     {currency}{order.amount}
+                     {formatCurrency(order.amount)}{currency}
                   </p>
                 </div>
               </div>
@@ -93,7 +93,7 @@ const MyOrders = () => {
 
             <div className="flex gap-3">
               <div className="flex items-center gap-2">
-                <h5 className="medium-14">Status:</h5>
+                <h5 className="medium-14">Trạng thái:</h5>
                 <div className="flex items-center gap-1">
                   <span className="min-w-2 h-2 rounded-full bg-green-500"></span>
                   <p>{order.status}</p>
@@ -103,7 +103,7 @@ const MyOrders = () => {
                 onClick={loadOrderData}
                 className="btn-secondary !py-1 !text-xs rounded-sm"
               >
-                Track Order
+                Theo dõi đơn hàng
               </button>
             </div>
           </div>

@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "673b1234567890abcdef0020"
+  },
+  "year": 2025,
+  "shippingFee": 10,
+  "taxRate": 0.01,
+  "isActive": true,
+  "createdAt": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-22T13:50:23.597Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef0021"
+  },
+  "year": 2024,
+  "shippingFee": 10,
+  "taxRate": 0.02,
+  "isActive": false,
+  "createdAt": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-12-31T23:59:59.000Z"
+  }
+}]

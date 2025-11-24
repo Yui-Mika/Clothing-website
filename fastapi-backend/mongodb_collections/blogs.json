@@ -1,106 +1,128 @@
-[
-  {
-    "title": "Top 10 Fashion Trends to Watch in 2025",
-    "content": "<h2>Introduction</h2><p>The fashion world is constantly evolving, and 2025 promises to bring exciting new trends that blend sustainability, technology, and timeless elegance. From eco-friendly fabrics to bold color palettes, here's what you need to know about the upcoming fashion trends.</p><h3>1. Sustainable Fashion Takes Center Stage</h3><p>Consumers are increasingly conscious about environmental impact. Brands are responding with recycled materials, organic cotton, and transparent supply chains.</p><h3>2. Tech-Infused Clothing</h3><p>Smart fabrics that regulate temperature, track fitness metrics, and even charge your devices are becoming mainstream.</p><h3>3. Vintage Revival</h3><p>90s and early 2000s fashion is making a strong comeback with baggy jeans, crop tops, and chunky sneakers.</p><p>Stay ahead of the curve by incorporating these trends into your wardrobe!</p>",
-    "excerpt": "Discover the hottest fashion trends of 2025, from sustainable materials to tech-infused clothing and vintage revivals.",
-    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-11-01T10:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-11-01T10:00:00.000Z"
-    }
+[{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2d9c"
   },
-  {
-    "title": "How to Style Your Winter Wardrobe Like a Pro",
-    "content": "<h2>Master Winter Fashion</h2><p>Winter fashion doesn't have to be boring! Learn how to layer effectively, choose the right fabrics, and create stunning outfits that keep you warm and stylish.</p><h3>Layering Techniques</h3><p>Start with a base layer (thermal wear), add a mid-layer (sweater or cardigan), and finish with an outer layer (coat or jacket).</p><h3>Must-Have Winter Pieces</h3><ul><li>Wool coat in neutral colors</li><li>Cashmere sweaters</li><li>Leather boots</li><li>Scarves and beanies</li></ul><h3>Color Palette</h3><p>Stick to earth tones, burgundy, forest green, and navy blue for a sophisticated winter look.</p>",
-    "excerpt": "Master the art of winter styling with layering techniques, must-have pieces, and color palette ideas for the cold season.",
-    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-28T14:30:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-28T14:30:00.000Z"
-    }
+  "title": "Top 10 Xu Hướng Thời Trang Đáng Chú Ý Năm 2025",
+  "content": "<h2>Giới Thiệu</h2><p>Thế giới thời trang không ngừng phát triển, và năm 2025 hứa hẹn mang đến những xu hướng mới thú vị kết hợp giữa tính bền vững, công nghệ và vẻ đẹp vượt thời gian. Từ vải thân thiện với môi trường đến bảng màu táo bạo, đây là những điều bạn cần biết về các xu hướng thời trang sắp tới.</p><h3>1. Thời Trang Bền Vững Lên Ngôi</h3><p>Người tiêu dùng ngày càng quan tâm đến tác động môi trường. Các thương hiệu đang phản hồi bằng vật liệu tái chế, cotton hữu cơ và chuỗi cung ứng minh bạch.</p><h3>2. Quần Áo Tích Hợp Công Nghệ</h3><p>Vải thông minh điều chỉnh nhiệt độ, theo dõi chỉ số sức khỏe và thậm chí sạc thiết bị của bạn đang trở nên phổ biến.</p><h3>3. Hồi Sinh Phong Cách Vintage</h3><p>Thời trang thập niên 90 và đầu những năm 2000 đang quay trở lại mạnh mẽ với quần jean rộng, áo crop top và giày sneaker chunky.</p><p>Hãy dẫn đầu xu hướng bằng cách kết hợp những phong cách này vào tủ đồ của bạn!</p>",
+  "excerpt": "Khám phá những xu hướng thời trang hot nhất năm 2025, từ vật liệu bền vững đến quần áo công nghệ và sự hồi sinh vintage.",
+  "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-11-01T10:00:00.000Z"
   },
-  {
-    "title": "The Ultimate Guide to Building a Capsule Wardrobe",
-    "content": "<h2>What is a Capsule Wardrobe?</h2><p>A capsule wardrobe is a collection of essential items that don't go out of style, which can be mixed and matched to create multiple outfits.</p><h3>Benefits</h3><p>Save money, reduce clutter, make getting dressed easier, and be more sustainable.</p><h3>Essential Pieces (30-40 items total)</h3><ul><li>5-7 tops (t-shirts, blouses, shirts)</li><li>3-5 bottoms (jeans, trousers, skirts)</li><li>3-4 dresses</li><li>2-3 jackets/coats</li><li>3-5 pairs of shoes</li><li>Accessories (bags, belts, scarves)</li></ul><h3>Color Scheme</h3><p>Choose 3 neutral colors (black, white, gray, navy, beige) and 2-3 accent colors.</p>",
-    "excerpt": "Learn how to build a versatile capsule wardrobe with essential pieces that mix and match effortlessly for any occasion.",
-    "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-25T09:15:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-25T09:15:00.000Z"
-    }
-  },
-  {
-    "title": "Spring/Summer 2025: Fresh Colors and Breezy Fabrics",
-    "content": "<h2>Welcome the Warm Season</h2><p>As temperatures rise, it's time to refresh your wardrobe with light fabrics, vibrant colors, and breathable designs.</p><h3>Trending Colors</h3><p>Pastel pink, mint green, lavender, coral, and sky blue dominate the SS25 runways.</p><h3>Fabric Choices</h3><ul><li>Linen - breathable and elegant</li><li>Cotton - versatile and comfortable</li><li>Silk - luxurious and lightweight</li><li>Chambray - casual and cool</li></ul><h3>Key Styles</h3><p>Flowy maxi dresses, wide-leg trousers, crop tops, and oversized sunglasses are must-haves.</p>",
-    "excerpt": "Explore the spring/summer 2025 fashion trends featuring fresh colors, breezy fabrics, and key styles for the warm season.",
-    "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-20T11:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-20T11:00:00.000Z"
-    }
-  },
-  {
-    "title": "How to Care for Your Premium Clothing: A Complete Guide",
-    "content": "<h2>Protect Your Investment</h2><p>Premium clothing requires special care to maintain quality and longevity. Follow these expert tips.</p><h3>Washing Guidelines</h3><ul><li>Always read care labels</li><li>Separate colors from whites</li><li>Use cold water for delicates</li><li>Turn garments inside out</li><li>Use gentle detergent</li></ul><h3>Drying Methods</h3><p>Air dry whenever possible. Avoid direct sunlight. Use padded hangers for suits and dresses.</p><h3>Storage Tips</h3><p>Store in breathable garment bags, use cedar blocks for moths, and fold knits instead of hanging.</p><h3>Professional Cleaning</h3><p>Dry clean suits, coats, and silk items. Build relationship with trusted cleaner.</p>",
-    "excerpt": "Learn professional tips for washing, drying, and storing your premium clothing to extend their lifespan and maintain quality.",
-    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-15T16:45:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-15T16:45:00.000Z"
-    }
-  },
-  {
-    "title": "Accessorize Like a Fashion Icon: Complete Guide",
-    "content": "<h2>The Power of Accessories</h2><p>Accessories can transform a simple outfit into a statement look. Learn how to choose and style them effectively.</p><h3>Essential Accessories</h3><ul><li>Watch - timeless and functional</li><li>Sunglasses - protect and style</li><li>Bags - from casual to formal</li><li>Belts - define your waist</li><li>Jewelry - add sparkle</li><li>Scarves - versatile layers</li></ul><h3>Styling Rules</h3><p>Don't overdo it - choose 2-3 statement pieces. Match metals (gold with gold, silver with silver). Consider outfit color palette.</p><h3>Investment Pieces</h3><p>Quality over quantity. Invest in leather bags, designer watches, and timeless jewelry.</p>",
-    "excerpt": "Master the art of accessorizing with this complete guide on choosing, styling, and investing in the right accessories.",
-    "image": "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-10T13:20:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-10T13:20:00.000Z"
-    }
-  },
-  {
-    "title": "Dressing for Your Body Type: Flatter Your Figure",
-    "content": "<h2>Find Your Best Fit</h2><p>Understanding your body type helps you choose clothes that enhance your natural shape and boost confidence.</p><h3>Body Type Categories</h3><ul><li>Hourglass - balanced bust and hips, defined waist</li><li>Pear - wider hips than shoulders</li><li>Apple - fuller midsection</li><li>Rectangle - straight silhouette</li><li>Inverted Triangle - broader shoulders than hips</li></ul><h3>Universal Tips</h3><p>Proper fit is key. Tailoring makes huge difference. Wear what makes you feel confident.</p><h3>Style Recommendations</h3><p>Hourglass: wrap dresses, fitted tops. Pear: A-line skirts, boat necks. Apple: empire waists, v-necks. Rectangle: belts, peplum tops. Inverted Triangle: wide-leg pants, A-line skirts.</p>",
-    "excerpt": "Discover how to dress for your body type with flattering styles, cuts, and silhouettes that enhance your natural beauty.",
-    "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-05T10:30:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-05T10:30:00.000Z"
-    }
-  },
-  {
-    "title": "Why Sustainable Fashion Matters: Join the Movement",
-    "content": "<h2>Fashion's Environmental Impact</h2><p>The fashion industry is one of the world's largest polluters. Learn why sustainable fashion matters and how you can contribute.</p><h3>The Problems</h3><ul><li>Water pollution from textile dyeing</li><li>Massive carbon footprint</li><li>Textile waste in landfills</li><li>Exploitative labor practices</li></ul><h3>What You Can Do</h3><ul><li>Buy less, choose quality</li><li>Support ethical brands</li><li>Shop secondhand</li><li>Repair and upcycle</li><li>Donate or recycle old clothes</li></ul><h3>Sustainable Materials</h3><p>Organic cotton, recycled polyester, Tencel, hemp, and bamboo are eco-friendly alternatives.</p><h3>Our Commitment</h3><p>At Veloura, we're committed to sustainable practices and transparent sourcing.</p>",
-    "excerpt": "Learn about sustainable fashion's importance, the industry's environmental impact, and how you can make eco-conscious choices.",
-    "image": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=800",
-    "isPublished": true,
-    "createdAt": {
-      "$date": "2025-10-01T08:00:00.000Z"
-    },
-    "updatedAt": {
-      "$date": "2025-10-01T08:00:00.000Z"
-    }
+  "updatedAt": {
+    "$date": "2025-11-01T10:00:00.000Z"
   }
-]
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2d9d"
+  },
+  "title": "Cách Phối Đồ Mùa Đông Như Một Chuyên Gia",
+  "content": "<h2>Làm Chủ Thời Trang Mùa Đông</h2><p>Thời trang mùa đông không nhất thiết phải nhàm chán! Học cách phối lớp hiệu quả, chọn đúng loại vải và tạo ra những bộ trang phục tuyệt đẹp giữ ấm và phong cách.</p><h3>Kỹ Thuật Phối Lớp</h3><p>Bắt đầu với lớp nền (đồ giữ nhiệt), thêm lớp giữa (áo len hoặc cardigan), và hoàn thiện với lớp ngoài (áo khoác hoặc jacket).</p><h3>Món Đồ Mùa Đông Không Thể Thiếu</h3><ul><li>Áo khoác dạ màu trung tính</li><li>Áo len cashmere</li><li>Boots da</li><li>Khăn quàng và mũ len</li></ul><h3>Bảng Màu</h3><p>Sử dụng tông màu đất, đỏ burgundy, xanh rừng và xanh navy cho phong cách mùa đông tinh tế.</p>",
+  "excerpt": "Làm chủ nghệ thuật phối đồ mùa đông với kỹ thuật phối lớp, món đồ không thể thiếu và ý tưởng bảng màu cho mùa lạnh.",
+  "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-28T14:30:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-28T14:30:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2d9e"
+  },
+  "title": "Hướng Dẫn Toàn Diện Xây Dựng Tủ Đồ Capsule",
+  "content": "<h2>Tủ Đồ Capsule Là Gì?</h2><p>Tủ đồ capsule là một bộ sưu tập các món đồ thiết yếu không bao giờ lỗi thời, có thể phối hợp linh hoạt để tạo ra nhiều bộ trang phục khác nhau.</p><h3>Lợi Ích</h3><p>Tiết kiệm tiền, giảm lộn xộn, dễ dàng mặc đẹp hơn và bền vững hơn.</p><h3>Món Đồ Thiết Yếu (Tổng 30-40 món)</h3><ul><li>5-7 áo (áo thun, áo blouse, áo sơ mi)</li><li>3-5 quần/váy (quần jean, quần âu, váy)</li><li>3-4 váy liền</li><li>2-3 áo khoác/áo choàng</li><li>3-5 đôi giày</li><li>Phụ kiện (túi, thắt lưng, khăn)</li></ul><h3>Bảng Màu</h3><p>Chọn 3 màu trung tính (đen, trắng, xám, navy, be) và 2-3 màu nhấn.</p>",
+  "excerpt": "Học cách xây dựng tủ đồ capsule linh hoạt với những món đồ thiết yếu dễ phối hợp cho mọi dịp.",
+  "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-25T09:15:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-25T09:15:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2d9f"
+  },
+  "title": "Xuân Hè 2025: Màu Sắc Tươi Mới Và Vải Thoáng Mát",
+  "content": "<h2>Chào Đón Mùa Ấm</h2><p>Khi nhiệt độ tăng, đã đến lúc làm mới tủ đồ với vải nhẹ, màu sắc rực rỡ và thiết kế thoáng khí.</p><h3>Màu Sắc Xu Hướng</h3><p>Hồng pastel, xanh bạc hà, hoa oải hương, san hô và xanh da trời thống trị sàn diễn SS25.</p><h3>Lựa Chọn Vải</h3><ul><li>Vải lanh - thoáng khí và thanh lịch</li><li>Cotton - linh hoạt và thoải mái</li><li>Lụa - sang trọng và nhẹ nhàng</li><li>Chambray - thoải mái và mát mẻ</li></ul><h3>Phong Cách Chính</h3><p>Váy maxi bay bổng, quần ống rộng, áo crop top và kính râm oversized là món đồ không thể thiếu.</p>",
+  "excerpt": "Khám phá xu hướng thời trang xuân hè 2025 với màu sắc tươi mới, vải thoáng mát và phong cách chính cho mùa ấm.",
+  "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-20T11:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-20T11:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2da0"
+  },
+  "title": "Cách Chăm Sóc Quần Áo Cao Cấp: Hướng Dẫn Hoàn Chỉnh",
+  "content": "<h2>Bảo Vệ Khoản Đầu Tư Của Bạn</h2><p>Quần áo cao cấp cần chăm sóc đặc biệt để duy trì chất lượng và độ bền. Hãy làm theo những mẹo chuyên nghiệp này.</p><h3>Hướng Dẫn Giặt Giũ</h3><ul><li>Luôn đọc nhãn hướng dẫn</li><li>Tách màu tối khỏi màu sáng</li><li>Dùng nước lạnh cho đồ mỏng</li><li>Lộn mặt trong ra ngoài</li><li>Dùng nước giặt nhẹ</li></ul><h3>Phương Pháp Sấy</h3><p>Phơi khô tự nhiên khi có thể. Tránh ánh nắng trực tiếp. Dùng móc đệm cho vest và váy.</p><h3>Mẹo Bảo Quản</h3><p>Cất trong túi vải thoáng khí, dùng khối gỗ tuyết tùng chống mọt, và gấp đồ len thay vì treo.</p><h3>Giặt Chuyên Nghiệp</h3><p>Giặt khô vest, áo khoác và đồ lụa. Xây dựng mối quan hệ với tiệm giặt uy tín.</p>",
+  "excerpt": "Học các mẹo chuyên nghiệp về giặt giũ, sấy khô và bảo quản quần áo cao cấp để kéo dài tuổi thọ và giữ chất lượng.",
+  "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-15T16:45:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-15T16:45:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2da1"
+  },
+  "title": "Phối Phụ Kiện Như Biểu Tượng Thời Trang: Hướng Dẫn Toàn Diện",
+  "content": "<h2>Sức Mạnh Của Phụ Kiện</h2><p>Phụ kiện có thể biến một bộ trang phục đơn giản thành phong cách ấn tượng. Học cách chọn và phối chúng hiệu quả.</p><h3>Phụ Kiện Thiết Yếu</h3><ul><li>Đồng hồ - vượt thời gian và tiện dụng</li><li>Kính râm - bảo vệ và phong cách</li><li>Túi xách - từ casual đến formal</li><li>Thắt lưng - tôn eo</li><li>Trang sức - thêm điểm nhấn</li><li>Khăn quàng - phối lớp linh hoạt</li></ul><h3>Quy Tắc Phối Đồ</h3><p>Đừng lạm dụng - chọn 2-3 món nổi bật. Kết hợp kim loại cùng màu (vàng với vàng, bạc với bạc). Cân nhắc bảng màu trang phục.</p><h3>Món Đồ Đầu Tư</h3><p>Chất lượng hơn số lượng. Đầu tư vào túi da, đồng hồ designer và trang sức vượt thời gian.</p>",
+  "excerpt": "Làm chủ nghệ thuật phối phụ kiện với hướng dẫn toàn diện về cách chọn, phối và đầu tư vào phụ kiện phù hợp.",
+  "image": "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-10T13:20:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-10T13:20:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2da2"
+  },
+  "title": "Mặc Đẹp Theo Dáng Người: Tôn Viết Vóc Dáng",
+  "content": "<h2>Tìm Kiếm Form Dáng Phù Hợp Nhất</h2><p>Hiểu rõ dáng người giúp bạn chọn quần áo tôn lên vóc dáng tự nhiên và tăng sự tự tin.</p><h3>Phân Loại Dáng Người</h3><ul><li>Đồng hồ cát - ngực và hông cân đối, eo thắt</li><li>Quả lê - hông rộng hơn vai</li><li>Quả táo - vùng eo đầy đặn</li><li>Chữ nhật - vóc dáng thẳng</li><li>Tam giác ngược - vai rộng hơn hông</li></ul><h3>Mẹo Chung</h3><p>Form chuẩn là yếu tố quan trọng. May đo tạo sự khác biệt lớn. Mặc điều khiến bạn tự tin.</p><h3>Gợi Ý Phong Cách</h3><p>Đồng hồ cát: váy quấn, áo body. Quả lê: váy chữ A, cổ thuyền. Quả táo: eo empire, cổ chữ V. Chữ nhật: thắt lưng, áo peplum. Tam giác ngược: quần ống rộng, váy chữ A.</p>",
+  "excerpt": "Khám phá cách mặc đẹp theo dáng người với những phong cách, form dáng tôn lên vẻ đẹp tự nhiên của bạn.",
+  "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-05T10:30:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-05T10:30:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "691d6b268ab671e3982f2da3"
+  },
+  "title": "Tại Sao Thời Trang Bền Vững Quan Trọng: Tham Gia Phong Trào",
+  "content": "<h2>Tác Động Môi Trường Của Thời Trang</h2><p>Ngành công nghiệp thời trang là một trong những ngành gây ô nhiễm lớn nhất thế giới. Tìm hiểu tại sao thời trang bền vững quan trọng và bạn có thể đóng góp như thế nào.</p><h3>Vấn Đề</h3><ul><li>Ô nhiễm nước từ nhuộm vải</li><li>Dấu chân carbon khổng lồ</li><li>Rác thải dệt may chất đống</li><li>Thực hành lao động bóc lột</li></ul><h3>Bạn Có Thể Làm Gì</h3><ul><li>Mua ít hơn, chọn chất lượng</li><li>Hỗ trợ thương hiệu đạo đức</li><li>Mua đồ cũ</li><li>Sửa chữa và tái chế</li><li>Quyên góp hoặc tái chế quần áo cũ</li></ul><h3>Vật Liệu Bền Vững</h3><p>Cotton hữu cơ, polyester tái chế, Tencel, cừu đẫu và tre là các lựa chọn thân thiện môi trường.</p><h3>Cam Kết Của Chúng Tôi</h3><p>Tại Veloura, chúng tôi cam kết với thực hành bền vững và nguồn cung ứng minh bạch.</p>",
+  "excerpt": "Tìm hiểu tầm quan trọng của thời trang bền vững, tác động môi trường của ngành và cách bạn có thể lựa chọn có ý thức sinh thái.",
+  "image": "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=800",
+  "isPublished": true,
+  "createdAt": {
+    "$date": "2025-10-01T08:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-10-01T08:00:00.000Z"
+  }
+}]

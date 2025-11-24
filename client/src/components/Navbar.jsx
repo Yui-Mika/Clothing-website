@@ -27,10 +27,10 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
 
     // Dữ liệu liên kết điều hướng
     const navLinks = [
-        { path: '/', title: 'Home' },
+        { path: '/', title: 'Trang chủ' },
         { path: '/blogs', title: 'Blogs' },
-        { path: '/testimonial', title: 'Testimonial' },
-        { path: '/contact', title: 'Contact' },
+        { path: '/testimonial', title: 'Đánh giá' },
+        { path: '/contact', title: 'Liên hệ' },
     ]
 
     const handleCategoryClick = (slug) => {
@@ -64,7 +64,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                     after:transition-transform after:duration-300 after:ease-out
                 `}
             >
-                Home
+                Trang chủ
             </NavLink>
 
             {/* Collection Dropdown */}
@@ -84,7 +84,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                         after:scale-x-0 hover:after:scale-x-100
                         after:transition-transform after:duration-300 after:ease-out"
                 >
-                    Collection
+                    Bộ sưu tập
                     <FiChevronDown className={`transition-transform duration-300 ${showDropdown ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -126,7 +126,7 @@ const Navbar = ({ containerStyles, setMenuOpened }) => { // nhận containerStyl
                                     }}
                                     className="w-full px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition-colors text-center"
                                 >
-                                    View All Products →
+                                    Xem tất cả sản phẩm →
                                 </button>
                             </div>
                         </div>

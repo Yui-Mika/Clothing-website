@@ -1,62 +1,90 @@
-[
-  {
-    "_id": {"$oid": "673b1234567890abcdef6001"},
-    "name": "Brian Harris",
-    "email": "brian.harris@example.com",
-    "phone": "+84901234567",
-    "subject": "Question about t-shirt sizing",
-    "message": "Hello, I'm 1.75m tall and weigh 68kg. Which t-shirt size should I get? I want a fitted look, not too loose. Please advise. Thanks!",
-    "status": "resolved",
-    "isRead": true,
-    "createdAt": {"$date": "2024-10-10T14:20:00.000Z"},
-    "updatedAt": {"$date": "2024-10-12T10:00:00.000Z"}
+[{
+  "_id": {
+    "$oid": "673b1234567890abcdef6001"
   },
-  {
-    "_id": {"$oid": "673b1234567890abcdef6002"},
-    "name": "Alex Turner",
-    "email": "alex.turner@example.com",
-    "phone": "+84912345678",
-    "subject": "Order inquiry",
-    "message": "Hello, I placed order #2002 last week but haven't received shipping information yet. Could you please check on this for me? Thank you!",
-    "status": "in-progress",
-    "isRead": true,
-    "createdAt": {"$date": "2024-10-18T09:15:00.000Z"},
-    "updatedAt": {"$date": "2024-10-19T11:30:00.000Z"}
+  "name": "Brian Harris",
+  "email": "brian.harris@example.com",
+  "phone": "+84901234567",
+  "subject": "Câu hỏi về kích cỡ áo thun",
+  "message": "Xin chào, tôi cao 1.75m và nặng 68kg. Tôi nên chọn size áo thun nào? Tôi muốn kiểu vừa vặn, không quá rộng. Vui lòng tư vấn giúp. Cảm ơn!",
+  "status": "resolved",
+  "isRead": true,
+  "createdAt": {
+    "$date": "2024-10-10T14:20:00.000Z"
   },
-  {
-    "_id": {"$oid": "673b1234567890abcdef6003"},
-    "name": "Steven Brown",
-    "email": "steven.brown@example.com",
-    "phone": "+84923456789",
-    "subject": "Business partnership",
-    "message": "Dear Veloura, I represent a chain of fashion stores in Hanoi. We are interested in partnering to distribute Veloura products. Looking forward to discussing further. Best regards!",
-    "status": "pending",
-    "isRead": false,
-    "createdAt": {"$date": "2024-10-21T13:45:00.000Z"},
-    "updatedAt": {"$date": "2024-10-21T13:45:00.000Z"}
-  },
-  {
-    "_id": {"$oid": "673b1234567890abcdef6004"},
-    "name": "Kevin Davis",
-    "email": "kevin.davis@example.com",
-    "phone": null,
-    "subject": "Product review",
-    "message": "Just received the white Oxford dress shirt, the quality is amazing! Beautiful fabric, perfect fit, carefully packaged. Very satisfied and will recommend to friends. Thank you!",
-    "status": "resolved",
-    "isRead": true,
-    "createdAt": {"$date": "2024-10-15T16:30:00.000Z"},
-    "updatedAt": {"$date": "2024-10-16T09:00:00.000Z"}
-  },
-  {
-    "_id": {"$oid": "673b1234567890abcdef6005"},
-    "name": "Ryan Mitchell",
-    "email": "ryan.mitchell@example.com",
-    "phone": "+84934567890",
-    "subject": "Size exchange request",
-    "message": "Hello, I purchased jeans in size 31 but they're a bit tight. Can I exchange for size 32? The product still has tags and is unused. I'm located in Ho Chi Minh City.",
-    "status": "pending",
-    "isRead": false,
-    "createdAt": {"$date": "2024-10-22T11:00:00.000Z"},
-    "updatedAt": {"$date": "2024-10-22T11:00:00.000Z"}
+  "updatedAt": {
+    "$date": "2024-10-12T10:00:00.000Z"
   }
-]
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef6002"
+  },
+  "name": "Alex Turner",
+  "email": "alex.turner@example.com",
+  "phone": "+84912345678",
+  "subject": "Hỏi về đơn hàng",
+  "message": "Xin chào, tôi đã đặt đơn hàng #2002 tuần trước nhưng chưa nhận được thông tin vận chuyển. Bạn có thể kiểm tra giúp tôi không? Cảm ơn!",
+  "status": "in-progress",
+  "isRead": true,
+  "createdAt": {
+    "$date": "2024-10-18T09:15:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-19T11:30:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef6003"
+  },
+  "name": "Steven Brown",
+  "email": "steven.brown@example.com",
+  "phone": "+84923456789",
+  "subject": "Hợp tác kinh doanh",
+  "message": "Kính gửi Veloura, tôi đại diện cho chuỗi cửa hàng thời trang tại Hà Nội. Chúng tôi quan tâm đến việc hợp tác phân phối sản phẩm Veloura. Mong được thảo luận thêm. Trân trọng!",
+  "status": "pending",
+  "isRead": false,
+  "createdAt": {
+    "$date": "2024-10-21T13:45:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-21T13:45:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef6004"
+  },
+  "name": "Kevin Davis",
+  "email": "kevin.davis@example.com",
+  "phone": null,
+  "subject": "Đánh giá sản phẩm",
+  "message": "Vừa nhận được áo sơ mi Oxford trắng, chất lượng tuyệt vời! Vải đẹp, vừa vặn hoàn hảo, đóng gói cẩn thận. Rất hài lòng và sẽ giới thiệu cho bạn bè. Cảm ơn!",
+  "status": "resolved",
+  "isRead": true,
+  "createdAt": {
+    "$date": "2024-10-15T16:30:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-16T09:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "673b1234567890abcdef6005"
+  },
+  "name": "Ryan Mitchell",
+  "email": "ryan.mitchell@example.com",
+  "phone": "+84934567890",
+  "subject": "Yêu cầu đổi size",
+  "message": "Xin chào, tôi đã mua quần jean size 31 nhưng hơi chật. Tôi có thể đổi sang size 32 không? Sản phẩm vẫn còn nguyên tem và chưa sử dụng. Tôi ở TP. Hồ Chí Minh.",
+  "status": "pending",
+  "isRead": false,
+  "createdAt": {
+    "$date": "2024-10-22T11:00:00.000Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-22T11:00:00.000Z"
+  }
+}]

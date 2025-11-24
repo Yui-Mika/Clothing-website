@@ -37,8 +37,8 @@ const Categories = () => {
   return (
     <section className="max-padd-container py-16 md:py-24">
       <Title
-        title1={"Category"}
-        title2={"List"}
+        title1={"Danh mục"}
+        title2={"sản phẩm"}
         titleStyles={"pb-12"}
         paraStyles={"hidden"}
       />

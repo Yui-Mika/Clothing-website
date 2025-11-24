@@ -1,122 +1,156 @@
-[
-  {
-    "userId": "673b1234567890abcdef0001",
-    "userName": "Sarah Johnson",
-    "userAvatar": "https://i.pravatar.cc/150?img=1",
-    "rating": 5,
-    "comment": "Absolutely love shopping here! The quality of the clothes is outstanding and the delivery was super fast. Customer service was very helpful when I had questions about sizing. Will definitely order again!",
-    "status": "approved",
-    "createdAt": "2025-01-15T10:30:00Z",
-    "updatedAt": "2025-01-15T14:20:00Z"
+[{
+  "_id": {
+    "$oid": "691ec01559571a26417023c0"
   },
-  {
-    "userId": "673b1234567890abcdef0002",
-    "userName": "Michael Chen",
-    "userAvatar": "https://i.pravatar.cc/150?img=12",
-    "rating": 5,
-    "comment": "Best online clothing store I've ever used. The website is easy to navigate, prices are reasonable, and the quality exceeds expectations. Highly recommend to anyone looking for stylish and comfortable clothes!",
-    "status": "approved",
-    "createdAt": "2025-01-20T14:15:00Z",
-    "updatedAt": "2025-01-20T16:45:00Z"
+  "userId": "673b1234567890abcdef0001",
+  "userName": "Sarah Johnson",
+  "userAvatar": "https://i.pravatar.cc/150?img=1",
+  "rating": 5,
+  "comment": "Tôi cực kỳ thích mua sắm ở đây! Chất lượng quần áo xuất sắc và giao hàng siêu nhanh. Dịch vụ khách hàng rất hữu ích khi tôi có thắc mắc về kích cỡ. Chắc chắn sẽ đặt hàng lại!",
+  "status": "approved",
+  "createdAt": "2025-01-15T10:30:00Z",
+  "updatedAt": "2025-01-15T14:20:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c1"
   },
-  {
-    "userId": "673b1234567890abcdef0003",
-    "userName": "Emily Rodriguez",
-    "userAvatar": "https://i.pravatar.cc/150?img=5",
-    "rating": 4,
-    "comment": "Great experience overall! The clothes fit perfectly and the material quality is excellent. Only minor issue was the shipping took a bit longer than expected, but customer support kept me updated. Very satisfied!",
-    "status": "approved",
-    "createdAt": "2025-02-03T09:20:00Z",
-    "updatedAt": "2025-02-03T11:30:00Z"
+  "userId": "673b1234567890abcdef0002",
+  "userName": "Michael Chen",
+  "userAvatar": "https://i.pravatar.cc/150?img=12",
+  "rating": 5,
+  "comment": "Cửa hàng quần áo trực tuyến tốt nhất mà tôi từng sử dụng. Website dễ điều hướng, giá cả hợp lý, và chất lượng vượt mong đợi. Rất khuyên dùng cho bất kỳ ai đang tìm kiếm quần áo thời trang và thoải mái!",
+  "status": "approved",
+  "createdAt": "2025-01-20T14:15:00Z",
+  "updatedAt": "2025-01-20T16:45:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c2"
   },
-  {
-    "userId": "673b1234567890abcdef0004",
-    "userName": "David Thompson",
-    "userAvatar": "https://i.pravatar.cc/150?img=15",
-    "rating": 5,
-    "comment": "Fantastic service from start to finish! The return policy made me feel confident in my purchase. Everything arrived perfectly packaged and the quality is top-notch. This is now my go-to store for all my clothing needs.",
-    "status": "approved",
-    "createdAt": "2025-02-10T16:45:00Z",
-    "updatedAt": "2025-02-10T18:20:00Z"
+  "userId": "673b1234567890abcdef0003",
+  "userName": "Emily Rodriguez",
+  "userAvatar": "https://i.pravatar.cc/150?img=5",
+  "rating": 4,
+  "comment": "Trải nghiệm tuyệt vời nói chung! Quần áo vừa vặn hoàn hảo và chất lượng vải xuất sắc. Vấn đề nhỏ duy nhất là giao hàng mất thời gian lâu hơn dự kiến một chút, nhưng bộ phận hỗ trợ khách hàng đã cập nhật thông tin cho tôi. Rất hài lòng!",
+  "status": "approved",
+  "createdAt": "2025-02-03T09:20:00Z",
+  "updatedAt": "2025-02-03T11:30:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c3"
   },
-  {
-    "userId": "673b1234567890abcdef0005",
-    "userName": "Lisa Anderson",
-    "userAvatar": "https://i.pravatar.cc/150?img=9",
-    "rating": 5,
-    "comment": "I'm impressed with the attention to detail and customer care. The website is beautiful and easy to use. Products match the descriptions perfectly. Fast shipping and excellent packaging. 10/10 would recommend!",
-    "status": "approved",
-    "createdAt": "2025-02-18T11:30:00Z",
-    "updatedAt": "2025-02-18T13:15:00Z"
+  "userId": "673b1234567890abcdef0004",
+  "userName": "David Thompson",
+  "userAvatar": "https://i.pravatar.cc/150?img=15",
+  "rating": 5,
+  "comment": "Dịch vụ tuyệt vời từ đầu đến cuối! Chính sách đổi trả giúp tôi cảm thấy tự tin khi mua hàng. Mọi thứ đến được đóng gói hoàn hảo và chất lượng hàng đầu. Đây giờ là cửa hàng ưa thích của tôi cho mọi nhu cầu về quần áo.",
+  "status": "approved",
+  "createdAt": "2025-02-10T16:45:00Z",
+  "updatedAt": "2025-02-10T18:20:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c4"
   },
-  {
-    "userId": "673b1234567890abcdef0006",
-    "userName": "James Wilson",
-    "userAvatar": "https://i.pravatar.cc/150?img=13",
-    "rating": 4,
-    "comment": "Really happy with my purchase! The clothes are stylish and comfortable. Website is user-friendly and checkout was smooth. The only reason for 4 stars instead of 5 is I wish there were more color options available.",
-    "status": "approved",
-    "createdAt": "2025-03-05T13:20:00Z",
-    "updatedAt": "2025-03-05T15:40:00Z"
+  "userId": "673b1234567890abcdef0005",
+  "userName": "Lisa Anderson",
+  "userAvatar": "https://i.pravatar.cc/150?img=9",
+  "rating": 5,
+  "comment": "Tôi ấn tượng với sự chú ý đến chi tiết và chăm sóc khách hàng. Website đẹp và dễ sử dụng. Sản phẩm khớp hoàn toàn với mô tả. Giao hàng nhanh và đóng gói xuất sắc. 10/10 sẽ giới thiệu!",
+  "status": "approved",
+  "createdAt": "2025-02-18T11:30:00Z",
+  "updatedAt": "2025-02-18T13:15:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c5"
   },
-  {
-    "userId": "673b1234567890abcdef0007",
-    "userName": "Rachel Martinez",
-    "userAvatar": "https://i.pravatar.cc/150?img=10",
-    "rating": 5,
-    "comment": "Outstanding shopping experience! The quality-to-price ratio is amazing. Customer service responded to my inquiry within minutes. Shipping was faster than expected. This store has earned a loyal customer!",
-    "status": "approved",
-    "createdAt": "2025-03-12T08:45:00Z",
-    "updatedAt": "2025-03-12T10:20:00Z"
+  "userId": "673b1234567890abcdef0006",
+  "userName": "James Wilson",
+  "userAvatar": "https://i.pravatar.cc/150?img=13",
+  "rating": 4,
+  "comment": "Thực sự hài lòng với đơn hàng của mình! Quần áo thời trang và thoải mái. Website thân thiện với người dùng và thanh toán diễn ra suôn sẻ. Lý do duy nhất cho 4 sao thay vì 5 là tôi ước có nhiều lựa chọn màu sắc hơn.",
+  "status": "approved",
+  "createdAt": "2025-03-05T13:20:00Z",
+  "updatedAt": "2025-03-05T15:40:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c6"
   },
-  {
-    "userId": "673b1234567890abcdef0008",
-    "userName": "Kevin Brown",
-    "userAvatar": "https://i.pravatar.cc/150?img=14",
-    "rating": 5,
-    "comment": "Exceeded all my expectations! From browsing to delivery, everything was perfect. The clothes are high quality, fit great, and look exactly as pictured. The team clearly cares about their customers. Highly recommended!",
-    "status": "approved",
-    "createdAt": "2025-03-20T15:30:00Z",
-    "updatedAt": "2025-03-20T17:45:00Z"
+  "userId": "673b1234567890abcdef0007",
+  "userName": "Rachel Martinez",
+  "userAvatar": "https://i.pravatar.cc/150?img=10",
+  "rating": 5,
+  "comment": "Trải nghiệm mua sắm xuất sắc! Tỷ lệ chất lượng so với giá cả thật tuyệt vời. Dịch vụ khách hàng trả lời câu hỏi của tôi trong vài phút. Giao hàng nhanh hơn dự kiến. Cửa hàng này đã có được một khách hàng trung thành!",
+  "status": "approved",
+  "createdAt": "2025-03-12T08:45:00Z",
+  "updatedAt": "2025-03-12T10:20:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c7"
   },
-  {
-    "userId": "673b1234567890abcdef0009",
-    "userName": "Amanda Taylor",
-    "userAvatar": "https://i.pravatar.cc/150?img=20",
-    "rating": 4,
-    "comment": "Very pleased with my order! The selection is great and prices are fair. Delivery was prompt and packaging was secure. Only small suggestion would be to add more detailed size charts, but overall a great experience!",
-    "status": "approved",
-    "createdAt": "2025-03-28T12:15:00Z",
-    "updatedAt": "2025-03-28T14:30:00Z"
+  "userId": "673b1234567890abcdef0008",
+  "userName": "Kevin Brown",
+  "userAvatar": "https://i.pravatar.cc/150?img=14",
+  "rating": 5,
+  "comment": "Vượt quá tất cả mong đợi của tôi! Từ lúc duyệt web đến giao hàng, mọi thứ đều hoàn hảo. Quần áo chất lượng cao, vừa vặn tuyệt vời, và trông giống hệt trong hình. Đội ngũ rõ ràng quan tâm đến khách hàng của họ. Rất khuyến nghị!",
+  "status": "approved",
+  "createdAt": "2025-03-20T15:30:00Z",
+  "updatedAt": "2025-03-20T17:45:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c8"
   },
-  {
-    "userId": "673b1234567890abcdef0010",
-    "userName": "Christopher Lee",
-    "userAvatar": "https://i.pravatar.cc/150?img=11",
-    "rating": 5,
-    "comment": "This store is amazing! Professional service, quality products, and excellent communication throughout. I've ordered multiple times now and every experience has been flawless. Keep up the great work!",
-    "status": "approved",
-    "createdAt": "2025-04-05T10:00:00Z",
-    "updatedAt": "2025-04-05T12:15:00Z"
+  "userId": "673b1234567890abcdef0009",
+  "userName": "Amanda Taylor",
+  "userAvatar": "https://i.pravatar.cc/150?img=20",
+  "rating": 4,
+  "comment": "Rất hài lòng với đơn hàng của mình! Lựa chọn tuyệt vời và giá cả hợp lý. Giao hàng nhanh chóng và đóng gói chắc chắn. Gợi ý nhỏ duy nhất là thêm bảng kích cỡ chi tiết hơn, nhưng nhìn chung là trải nghiệm tuyệt vời!",
+  "status": "approved",
+  "createdAt": "2025-03-28T12:15:00Z",
+  "updatedAt": "2025-03-28T14:30:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023c9"
   },
-  {
-    "userId": "673b1234567890abcdef0011",
-    "userName": "Jessica White",
-    "userAvatar": "https://i.pravatar.cc/150?img=16",
-    "rating": 5,
-    "comment": "Absolutely fantastic! The shopping experience was seamless and the products are exactly what I was looking for. Customer service is responsive and helpful. Will definitely be shopping here regularly!",
-    "status": "pending",
-    "createdAt": "2025-04-12T09:30:00Z",
-    "updatedAt": "2025-04-12T09:30:00Z"
+  "userId": "673b1234567890abcdef0010",
+  "userName": "Christopher Lee",
+  "userAvatar": "https://i.pravatar.cc/150?img=11",
+  "rating": 5,
+  "comment": "Cửa hàng này tuyệt vời! Dịch vụ chuyên nghiệp, sản phẩm chất lượng, và giao tiếp xuất sắc xuyên suốt. Tôi đã đặt hàng nhiều lần và mỗi trải nghiệm đều hoàn hảo. Tiếp tục phát huy nhé!",
+  "status": "approved",
+  "createdAt": "2025-04-05T10:00:00Z",
+  "updatedAt": "2025-04-05T12:15:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023ca"
   },
-  {
-    "userId": "673b1234567890abcdef0012",
-    "userName": "Daniel Garcia",
-    "userAvatar": "https://i.pravatar.cc/150?img=17",
-    "rating": 4,
-    "comment": "Great quality clothing at reasonable prices. The website is easy to navigate and the checkout process was quick. Shipping was a bit slow but the products are worth the wait. Overall very satisfied!",
-    "status": "pending",
-    "createdAt": "2025-04-15T14:20:00Z",
-    "updatedAt": "2025-04-15T14:20:00Z"
-  }
-]
+  "userId": "673b1234567890abcdef0011",
+  "userName": "Jessica White",
+  "userAvatar": "https://i.pravatar.cc/150?img=16",
+  "rating": 5,
+  "comment": "Absolutely fantastic! The shopping experience was seamless and the products are exactly what I was looking for. Customer service is responsive and helpful. Will definitely be shopping here regularly!",
+  "status": "pending",
+  "createdAt": "2025-04-12T09:30:00Z",
+  "updatedAt": "2025-04-12T09:30:00Z"
+},
+{
+  "_id": {
+    "$oid": "691ec01559571a26417023cb"
+  },
+  "userId": "673b1234567890abcdef0012",
+  "userName": "Daniel Garcia",
+  "userAvatar": "https://i.pravatar.cc/150?img=17",
+  "rating": 4,
+  "comment": "Great quality clothing at reasonable prices. The website is easy to navigate and the checkout process was quick. Shipping was a bit slow but the products are worth the wait. Overall very satisfied!",
+  "status": "pending",
+  "createdAt": "2025-04-15T14:20:00Z",
+  "updatedAt": "2025-04-15T14:20:00Z"
+}]

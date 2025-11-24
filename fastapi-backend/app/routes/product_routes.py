@@ -156,7 +156,7 @@ async def get_product(product_id: str):  # product_id lấy từ URL path
         # Ném lỗi HTTP 404 Not Found
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,  # Mã lỗi 404
-            detail="Product not found"              # Message lỗi
+            detail="Không tìm thấy sản phẩm"              # Message lỗi
         )
     
     # Bước 4: Chuyển ObjectId thành string
@@ -234,8 +234,8 @@ async def add_product(
     # Bước 6: Trả về response thành công
     return {
         "success": True,
-        "message": "Product added successfully",
-        "productId": str(result.inserted_id)  # Trả về ID sản phẩm vừa tạo
+        "message": "Thêm sản phẩm thành công",
+        "product_id": str(result.inserted_id)  # ID của sản phẩm vừa tạo
     }
 
 # ===== ENDPOINT 4: CẬP NHẬT SẢN PHẨM =====
@@ -259,7 +259,7 @@ async def update_product(
         # Nếu không tìm thấy → ném lỗi 404
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Product not found"
+            detail="Không tìm thấy sản phẩm"
         )
     
     # Bước 3: Khởi tạo dictionary rỗng để chứa các field cần update
@@ -314,7 +314,7 @@ async def update_product(
     # Bước 8: Trả về response thành công
     return {
         "success": True,
-        "message": "Product updated successfully"
+        "message": "Cập nhật sản phẩm thành công"
     }
 
 # ===== ENDPOINT 5: XÓA SẢN PHẨM (SOFT DELETE) =====
@@ -343,13 +343,13 @@ async def delete_product(product_id: str, staff: dict = Depends(auth_staff)):
     if result.matched_count == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Product not found"
+            detail="Không tìm thấy sản phẩm"
         )
     
     # Bước 4: Trả về response thành công
     return {
         "success": True,
-        "message": "Product deleted successfully"
+        "message": "Xóa sản phẩm thành công"
         # Lưu ý: Sản phẩm vẫn còn trong database, chỉ bị ẩn (inStock=False)
         # Lợi ích: Có thể khôi phục, giữ lịch sử đơn hàng
     }
@@ -417,7 +417,7 @@ async def toggle_discount(
     if not product:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Product not found"
+            detail="Không tìm thấy sản phẩm"
         )
     
     # Update hasDiscount field
@@ -462,7 +462,7 @@ async def apply_discount(
     else:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Must provide either productIds or (category with applyToAll=true)"
+            detail="Phải cung cấp productIds hoặc (category với applyToAll=true)"
         )
     
     # Find products
@@ -470,7 +470,7 @@ async def apply_discount(
     if not products:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="No products found"
+            detail="Không tìm thấy sản phẩm nào"
         )
     
     # Update each product
@@ -527,7 +527,7 @@ async def remove_discount(
     else:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Must provide either productIds or (category with removeAll=true)"
+            detail="Phải cung cấp productIds hoặc (category với removeAll=true)"
         )
     
     # Find products
@@ -535,7 +535,7 @@ async def remove_discount(
     if not products:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="No products found"
+            detail="Không tìm thấy sản phẩm nào"
         )
     
     # Update each product
@@ -579,7 +579,7 @@ async def update_discount(
     if not products:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="No products found"
+            detail="Không tìm thấy sản phẩm nào"
         )
     
     # Update each product
