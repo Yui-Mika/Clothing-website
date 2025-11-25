@@ -165,7 +165,10 @@ const ShopContextProvider = ({ children }) => {
     try {
       const { data } = await axios.get("/api/product/list"); // Gọi API để lấy danh sách sản phẩm
       if (data.success) { // Nếu thành công, cập nhật state products với dữ liệu nhận được
-        setProducts(data.products);
+        // Lọc chỉ hiển thị sản phẩm active (isActive !== false) cho người dùng
+        // Admin vẫn thấy tất cả sản phẩm vì họ fetch trực tiếp từ API trong admin pages
+        const activeProducts = data.products.filter(product => product.isActive !== false);
+        setProducts(activeProducts);
       } else { // Nếu thất bại, hiển thị thông báo lỗi
         toast.error(data.message);
       }
@@ -478,6 +481,22 @@ const ShopContextProvider = ({ children }) => {
     }
   }, [user]); // Chạy lại khi user state thay đổi
 
+  // ============================================================================
+  // ORDER STATUS TRANSLATION - Dịch trạng thái đơn hàng sang tiếng Việt
+  // ============================================================================
+  const statusTranslations = {
+    "Order Placed": "Đã đặt hàng",
+    "Processing": "Đang xử lý",
+    "Shipped": "Đang giao hàng",
+    "Delivered": "Đã giao hàng",
+    "Cancelled": "Đã hủy"
+  };
+
+  // Hàm dịch trạng thái đơn hàng từ tiếng Anh sang tiếng Việt
+  const translateStatus = (status) => {
+    return statusTranslations[status] || status; // Trả về bản dịch hoặc giữ nguyên nếu không tìm thấy
+  };
+
   // Đối tượng value chứa tất cả dữ liệu và hàm sẽ được cung cấp cho các component con thông qua Context
   // Bất kỳ component nào sử dụng useContext(ShopContext) đều có thể truy cập bất kỳ thuộc tính nào trong đối tượng value này.
   const value = {
@@ -519,6 +538,8 @@ const ShopContextProvider = ({ children }) => {
     removeFromWishlist,
     checkInWishlist,
     clearWishlist,
+    // Order status translation
+    translateStatus,
   };
 
   // Render Component

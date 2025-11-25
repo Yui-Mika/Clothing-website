@@ -1,27 +1,44 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import ProductDescription from "../components/ProductDescription";
 import ProductFeatures from "../components/ProductFeatures";
 import { FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus, TbHeart, TbHeartFilled, TbStarHalfFilled, TbStarFilled, TbStar } from "react-icons/tb";
 import RelatedProducts from "../components/RelatedProducts";
+import WriteReviewModal from "../components/WriteReviewModal";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 const ProductDetails = () => {
   const { products, navigate, currency, formatCurrency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
   const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const product = products.find((item) => item._id === id);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState(null);
   const [inWishlist, setInWishlist] = useState(false); // Track wishlist status
+  const [showReviewModal, setShowReviewModal] = useState(false); // Track review modal
   const [reviewStats, setReviewStats] = useState({
     averageRating: 0,
     totalReviews: 0,
     ratingDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
   });
+
+  // Scroll to top when product changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+
+  // Check if review=true in URL params
+  useEffect(() => {
+    if (searchParams.get('review') === 'true' && user) {
+      setShowReviewModal(true);
+      // Remove review param from URL
+      setSearchParams({});
+    }
+  }, [searchParams, user]);
 
   // Check if product is in wishlist when component loads
   useEffect(() => {
@@ -245,14 +262,14 @@ const ProductDetails = () => {
             <div className="flex items-center gap-x-2 mt-3">
               <FaTruckFast className="text-lg" />
               <span className="medium-14">
-                Free Delivery on orders over 500$
+                Giao hàng miễn phí cho đơn hàng trên 2.400.000đ
               </span>
             </div>
             <hr className="my-3 w-2/3" />
             <div className="mt-2 flex flex-col gap-1 text-gray-30 text-[14px]">
-              <p>Authenticy You Can Trust</p>
-              <p>Enjoy Cash on Delivery for Your Convenience</p>
-              <p>Easy Returns and Exchanges Within 7 Days</p>
+              <p>Chất lượng bạn có thể tin tưởng</p>
+              <p>Thanh toán khi nhận hàng tiện lợi</p>
+              <p>Đổi trả dễ dàng trong vòng 7 ngày</p>
             </div>
           </div>
         </div>
@@ -260,6 +277,18 @@ const ProductDetails = () => {
         <ProductFeatures />
         {/* Related Products */}
         <RelatedProducts product={product} id={id} />
+        
+        {/* Write Review Modal */}
+        <WriteReviewModal
+          isOpen={showReviewModal}
+          onClose={() => setShowReviewModal(false)}
+          productId={product._id}
+          productName={product.name}
+          onReviewSubmitted={() => {
+            fetchReviewStats(); // Refresh stats after review
+            setShowReviewModal(false);
+          }}
+        />
         </div>
       </div>
     )
@@ -267,3 +296,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+

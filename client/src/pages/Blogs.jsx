@@ -35,7 +35,7 @@ const Blogs = () => {
   // Format date
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
-    return new Date(dateString).toLocaleDateString('en-US', options)
+    return new Date(dateString).toLocaleDateString('vi-VN', options)
   }
 
   // Loading state
@@ -118,7 +118,7 @@ const Blogs = () => {
 
               {/* Button */}
               <button className="text-xs uppercase tracking-wide border border-white/40 px-4 py-2 bg-white/10 hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm">
-                Read More
+                Đọc thêm
               </button>
             </div>
           </div>

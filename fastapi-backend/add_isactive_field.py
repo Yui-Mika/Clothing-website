@@ -1,8 +1,9 @@
 from pymongo import MongoClient
+from app.config.settings import settings
 
 # Kết nối MongoDB
-client = MongoClient('mongodb://localhost:27017/')
-db = client['Shop']
+client = MongoClient(settings.MONGODB_URL)
+db = client[settings.DATABASE_NAME]
 products_collection = db.products
 
 # Đếm products trước khi update

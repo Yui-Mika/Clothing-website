@@ -15,7 +15,7 @@ const Title = ({
         <span className="text-gray-400 font-light ml-2">{title2}</span>
       </h3>
       <p className={`${paraStyles} max-w-2xl text-gray-600 text-sm md:text-base mt-3 leading-relaxed`}>
-        {para ? para : "Explore our collection of stylish clothing and footwear made for comfort, quality, and everyday confidence."}
+        {para ? para : "Khám phá bộ sưu tập quần áo và giày dép thời trang của chúng tôi, mang lại sự thoải mái, chất lượng và sự tự tin mỗi ngày."}
       </p>
     </div>
   );

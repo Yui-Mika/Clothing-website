@@ -766,3 +766,80 @@ async def list_all_users(request: Request):
         "success": True,
         "users": users
     }
+
+# ============================================================================
+# UPDATE PROFILE ENDPOINT - API Cập nhật thông tin cá nhân
+# ============================================================================
+@router.post("/update-profile", response_model=dict)
+async def update_profile(
+    request: Request,
+    current_user: dict = Depends(auth_user)
+):
+    """
+    Cập nhật thông tin cá nhân của user
+    - Chỉ cho phép user cập nhật thông tin của chính họ
+    - Có thể cập nhật: name
+    - Không cho phép thay đổi: email, password (cần endpoint riêng)
+    """
+    # Lấy collection 'users' từ MongoDB
+    users_collection = await get_collection("users")
+    
+    # Lấy data từ request body
+    body = await request.json()
+    
+    # Validate: Chỉ cho phép cập nhật name
+    allowed_fields = ["name"]
+    update_data = {}
+    
+    for field in allowed_fields:
+        if field in body and body[field]:
+            update_data[field] = body[field]
+    
+    # Nếu không có field nào để cập nhật
+    if not update_data:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Không có thông tin nào để cập nhật"
+        )
+    
+    # Kiểm tra nếu name đã tồn tại (của user khác)
+    if "name" in update_data:
+        existing_name = await users_collection.find_one({
+            "name": update_data["name"],
+            "_id": {"$ne": ObjectId(current_user["_id"])}  # Loại trừ user hiện tại
+        })
+        if existing_name:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Tên người dùng đã tồn tại. Vui lòng chọn tên khác."
+            )
+    
+    # Thêm updatedAt timestamp
+    update_data["updatedAt"] = datetime.utcnow()
+    
+    # Update user trong database
+    result = await users_collection.update_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {"$set": update_data}
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Không thể cập nhật thông tin"
+        )
+    
+    # Lấy thông tin user đã cập nhật
+    updated_user = await users_collection.find_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {"password": 0, "verificationCode": 0, "verificationCodeExpiry": 0}
+    )
+    
+    updated_user["_id"] = str(updated_user["_id"])
+    
+    return {
+        "success": True,
+        "message": "Cập nhật thông tin thành công",
+        "user": updated_user
+    }
+

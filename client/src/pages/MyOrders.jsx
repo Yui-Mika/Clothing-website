@@ -1,10 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
+import { FaStar } from "react-icons/fa";
+import OrderTrackingModal from "../components/OrderTrackingModal";
 
 const MyOrders = () => {
-  const { currency, formatCurrency, user, axios } = useContext(ShopContext);
+  const { currency, formatCurrency, user, axios, navigate, translateStatus } = useContext(ShopContext);
   const [orders, setOrders] = useState([]);
+  const [reviewedProducts, setReviewedProducts] = useState(new Set()); // Track reviewed products
+  const [showTracking, setShowTracking] = useState(false); // State for tracking modal
+  const [selectedOrder, setSelectedOrder] = useState(null); // Selected order for tracking
 
   const loadOrderData = async () => {
     if (!user) return;
@@ -16,8 +21,39 @@ const MyOrders = () => {
     }
   };
 
+  // Check if user already reviewed a product
+  const checkIfReviewed = async (productId) => {
+    try {
+      const { data } = await axios.get(`/api/review/user/my-reviews`);
+      if (data.success) {
+        const reviewed = data.reviews.some(review => review.productId === productId);
+        return reviewed;
+      }
+      return false;
+    } catch (error) {
+      console.log("Error checking review:", error);
+      return false;
+    }
+  };
+
+  // Load user's reviewed products
+  const loadReviewedProducts = async () => {
+    try {
+      const { data } = await axios.get(`/api/review/user/my-reviews`);
+      if (data.success) {
+        const productIds = new Set(data.reviews.map(review => review.productId));
+        setReviewedProducts(productIds);
+      }
+    } catch (error) {
+      console.log("Error loading reviewed products:", error);
+    }
+  };
+
   useEffect(() => {
-    if (user) loadOrderData();
+    if (user) {
+      loadOrderData();
+      loadReviewedProducts();
+    }
   }, [user]);
 
   return (
@@ -51,6 +87,25 @@ const MyOrders = () => {
                       <p>{item.size}</p>
                     </div>
                   </div>
+
+                  {/* Review Button - Only show if order is Delivered and not reviewed yet */}
+                  {order.status === "Delivered" && !reviewedProducts.has(item.product._id) && (
+                    <button
+                      onClick={() => navigate(`/product/${item.product._id}?review=true`)}
+                      className="mt-2 flex items-center gap-2 px-3 py-1.5 bg-yellow-50 hover:bg-yellow-100 text-yellow-700 border border-yellow-200 rounded-lg transition-colors text-sm font-medium"
+                    >
+                      <FaStar className="text-yellow-500" />
+                      <span>Viết đánh giá</span>
+                    </button>
+                  )}
+
+                  {/* Already Reviewed Badge */}
+                  {order.status === "Delivered" && reviewedProducts.has(item.product._id) && (
+                    <div className="mt-2 flex items-center gap-2 px-3 py-1.5 bg-green-50 text-green-700 border border-green-200 rounded-lg text-sm font-medium">
+                      <FaStar className="text-green-500" />
+                      <span>Đã đánh giá</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -96,11 +151,14 @@ const MyOrders = () => {
                 <h5 className="medium-14">Trạng thái:</h5>
                 <div className="flex items-center gap-1">
                   <span className="min-w-2 h-2 rounded-full bg-green-500"></span>
-                  <p>{order.status}</p>
+                  <p>{translateStatus(order.status)}</p>
                 </div>
               </div>
               <button
-                onClick={loadOrderData}
+                onClick={() => {
+                  setSelectedOrder(order);
+                  setShowTracking(true);
+                }}
                 className="btn-secondary !py-1 !text-xs rounded-sm"
               >
                 Theo dõi đơn hàng
@@ -110,6 +168,13 @@ const MyOrders = () => {
 
         </div>
       ))}
+
+      {/* Order Tracking Modal */}
+      <OrderTrackingModal 
+        isOpen={showTracking}
+        onClose={() => setShowTracking(false)}
+        order={selectedOrder}
+      />
     </div>
   );
 };

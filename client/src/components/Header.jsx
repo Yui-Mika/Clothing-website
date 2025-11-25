@@ -159,8 +159,17 @@ const Header = () => {
             
             {/* DROPDOWN - phần Dropdown (thả xuống) trong khối Hồ sơ Người dùng */}
             {user && showUserMenu && (
-              <ul className="bg-white p-2 w-36 border border-gray-200 rounded-xl absolute right-0 top-14 flex flex-col text-sm shadow-xl z-50">
+              <ul className="bg-white p-2 w-44 border border-gray-200 rounded-xl absolute right-0 top-14 flex flex-col text-sm shadow-xl z-50">
                 {/* Nội dung Dropdown */}
+                <li
+                  onClick={() => {
+                    navigate("/profile");
+                    setShowUserMenu(false);
+                  }}
+                  className="px-3 py-2.5 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all duration-200 font-medium"
+                >
+                  Thông tin cá nhân
+                </li>
                 <li
                   onClick={() => {
                     navigate("/my-orders");
@@ -168,7 +177,7 @@ const Header = () => {
                   }}
                   className="px-3 py-2.5 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-gray-900 cursor-pointer transition-all duration-200 font-medium"
                 >
-                  My Orders
+                  Đơn hàng của tôi
                 </li>
                 <li
                   onClick={() => {
@@ -177,7 +186,7 @@ const Header = () => {
                   }}
                   className="px-3 py-2.5 text-gray-700 rounded-lg hover:bg-gray-100 hover:text-red-600 cursor-pointer transition-all duration-200 font-medium"
                 >
-                  Logout
+                  Đăng xuất
                 </li>
               </ul>
             )}

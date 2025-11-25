@@ -11,7 +11,7 @@ const CategoryCollection = () => {
   const { products, searchQuery, axios } = useContext(ShopContext); // Lấy danh sách sản phẩm và từ khóa tìm kiếm từ context.
   const [filteredProducts, setFilteredProducts] = useState([]); // Mảng sản phẩm sau khi đã được lọc theo danh mục và từ khóa tìm kiếm.
   const [currentPage, setCurrentPage] = useState(1); //Số trang hiện tại mà người dùng đang xem (dùng cho phân trang).
-  const itemsPerPage = 8; // Số lượng sản phẩm hiển thị trên mỗi trang.
+  const itemsPerPage = 10; // Số lượng sản phẩm hiển thị trên mỗi trang.
   const { category } = useParams(); // Lấy slug từ URL
   const [categoryName, setCategoryName] = useState(""); // Tên category thực sự từ database
 
@@ -81,7 +81,7 @@ const CategoryCollection = () => {
           {/* Elegant Title */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              {categoryName || category} <span className="text-gray-400 font-light">Products</span>
+              {categoryName || category} <span className="text-gray-400 font-light">Sản Phẩm</span>
             </h1>
           </div>
 
@@ -94,7 +94,7 @@ const CategoryCollection = () => {
                 .map((product) => <Item key={product._id} product={product} />)
             ) : (
               <p className="text-gray-500 col-span-full text-center py-10">
-                Oops! Nothing matched your search.
+                Rất tiếc! Không tìm thấy sản phẩm nào phù hợp.
               </p>
             )}
           </div>
@@ -155,7 +155,7 @@ const CategoryCollection = () => {
 
                 {/* Product Count Display */}
                 <p className="text-sm text-gray-500">
-                  Showing {startProduct}-{endProduct} of {inStockProducts.length} products
+                  Hiển thị {startProduct}-{endProduct} trong tổng số {inStockProducts.length} sản phẩm
                 </p>
               </div>
             </div>

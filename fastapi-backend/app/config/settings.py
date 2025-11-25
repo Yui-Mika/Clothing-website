@@ -4,7 +4,7 @@ from typing import Optional
 class Settings(BaseSettings):
     # MongoDB
     MONGODB_URL: str
-    DATABASE_NAME: str = "veloura_db"
+    DATABASE_NAME: str = "veloura"
     
     # JWT
     JWT_SECRET: str

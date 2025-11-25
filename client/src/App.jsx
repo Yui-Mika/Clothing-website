@@ -27,6 +27,7 @@ import Wishlist from './pages/Wishlist' // Import Wishlist page
 import VerifyEmail from './pages/VerifyEmail' // Import VerifyEmail page
 import Blogs from './pages/Blogs' // Import Blogs page
 import BlogDetails from './pages/BlogDetails' // Import BlogDetails page
+import Profile from './pages/Profile' // Import Profile page
 
 const App = () => {
   const {showUserLogin, isAdmin, navigate, setShowUserLogin, user} = useContext(ShopContext)
@@ -59,6 +60,7 @@ const App = () => {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/place-order' element={<PlaceOrder />}/>
         <Route path='/my-orders' element={<MyOrders />}/>
+        <Route path='/profile' element={<Profile />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/wishlist' element={<Wishlist />}/>
         <Route path='/blogs' element={<Blogs />}/>

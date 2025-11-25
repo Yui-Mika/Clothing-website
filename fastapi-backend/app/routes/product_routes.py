@@ -203,23 +203,34 @@ async def add_product(
         image_urls.append(url)
     
     # Bước 4: Tạo document sản phẩm để lưu vào MongoDB
+    # Xử lý giá khuyến mãi: nếu rỗng hoặc không hợp lệ thì dùng giá gốc
+    price = float(product_dict["price"])
+    offer_price_str = product_dict.get("offerPrice", "").strip()
+    offer_price = float(offer_price_str) if offer_price_str else price
+    
     product_doc = {
         # Lấy dữ liệu từ product_dict (đã parse ở bước 2)
         "name": product_dict["name"],                    # Tên sản phẩm
         "description": product_dict["description"],      # Mô tả
-        "price": float(product_dict["price"]),          # Giá gốc (chuyển sang số thực)
-        "offerPrice": float(product_dict["offerPrice"]), # Giá khuyến mãi
+        "price": price,                                   # Giá gốc (chuyển sang số thực)
+        "offerPrice": offer_price,                       # Giá khuyến mãi (nếu rỗng thì = price)
         "category": product_dict["category"],            # Danh mục (Men/Women/Kids)
         "sizes": product_dict["sizes"],                  # Mảng sizes: ["S","M","L","XL"]
         
         # get("popular", False): Lấy giá trị popular, nếu không có → mặc định False
         "popular": product_dict.get("popular", False),
         
+        # Số lượng tồn kho
+        "quantity": int(product_dict.get("quantity", 0)),
+        
         # Mảng URL ảnh đã upload ở bước 3
         "image": image_urls,
         
         # Mặc định sản phẩm mới là inStock (hiển thị trên website)
         "inStock": True,
+        
+        # Mặc định sản phẩm mới được kích hoạt (admin có thể ẩn sau)
+        "isActive": True,
         
         # Thời gian tạo và cập nhật (UTC timezone)
         "createdAt": datetime.utcnow(),
@@ -287,6 +298,8 @@ async def update_product(
             update_data["sizes"] = product_dict["sizes"]
         if "popular" in product_dict:
             update_data["popular"] = product_dict["popular"]
+        if "isActive" in product_dict:
+            update_data["isActive"] = product_dict["isActive"]
     
     # Bước 5: Upload ảnh mới (nếu có)
     if images:
@@ -560,6 +573,44 @@ async def remove_discount(
         "success": True,
         "message": f"Removed discount from {updated_count} products",
         "updatedCount": updated_count
+    }
+
+# ===== ENDPOINT 9B: TOGGLE PRODUCT ACTIVE STATUS =====
+@router.patch("/{product_id}/toggle-active")
+async def toggle_product_active(
+    product_id: str,
+    staff: dict = Depends(auth_staff)
+):
+    """Toggle product isActive status (Admin/Staff only)"""
+    products_collection = await get_collection("products")
+    
+    # Tìm sản phẩm
+    product = await products_collection.find_one({"_id": ObjectId(product_id)})
+    if not product:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Không tìm thấy sản phẩm"
+        )
+    
+    # Đảo ngược trạng thái isActive
+    new_status = not product.get("isActive", True)
+    
+    # Cập nhật database
+    await products_collection.update_one(
+        {"_id": ObjectId(product_id)},
+        {
+            "$set": {
+                "isActive": new_status,
+                "updatedAt": datetime.utcnow()
+            }
+        }
+    )
+    
+    status_text = "hiển thị" if new_status else "ẩn"
+    return {
+        "success": True,
+        "message": f"Đã {status_text} sản phẩm",
+        "isActive": new_status
     }
 
 # ===== ENDPOINT 10: UPDATE DISCOUNT PERCENTAGE =====

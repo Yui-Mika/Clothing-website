@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from fastapi.responses import RedirectResponse
-from app.models.order import OrderCreate, OrderStatusUpdate
+from app.models.order import OrderCreate, OrderStatusUpdate, OrderUpdate
 from app.config.database import get_collection
 from app.middleware.auth_user import auth_user
 from app.middleware.auth_admin import auth_staff
@@ -13,6 +13,32 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 router = APIRouter()
+
+# Helper function to update product quantity
+async def update_product_quantity(product_id: str, quantity_change: int):
+    """
+    Update product quantity in database.
+    
+    Args:
+        product_id: Product ID to update
+        quantity_change: Amount to change (negative for decrease, positive for increase)
+    
+    Returns:
+        Updated product document or None if not found
+    """
+    products_collection = await get_collection("products")
+    
+    # Use atomic $inc operation to safely update quantity
+    result = await products_collection.find_one_and_update(
+        {"_id": ObjectId(product_id)},
+        {
+            "$inc": {"quantity": quantity_change},
+            "$set": {"updatedAt": datetime.utcnow()}
+        },
+        return_document=True
+    )
+    
+    return result
 
 @router.post("/cod", response_model=dict)
 async def place_cod_order(order_data: OrderCreate, request: Request, user: dict = Depends(auth_user)):
@@ -31,6 +57,13 @@ async def place_cod_order(order_data: OrderCreate, request: Request, user: dict 
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"Sản phẩm {item.product} không tồn tại"
+            )
+        
+        # Kiểm tra số lượng tồn kho
+        if product.get("quantity", 0) < item.quantity:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Sản phẩm '{product['name']}' chỉ còn {product.get('quantity', 0)} sản phẩm trong kho"
             )
         
         item_total = product["offerPrice"] * item.quantity
@@ -66,6 +99,10 @@ async def place_cod_order(order_data: OrderCreate, request: Request, user: dict 
     
     result = await orders_collection.insert_one(order_doc)
     
+    # Trừ số lượng sản phẩm trong kho
+    for item in order_data.items:
+        await update_product_quantity(item.product, -item.quantity)
+    
     # Clear user's cart
     await users_collection.update_one(
         {"_id": user["_id"]},
@@ -95,6 +132,13 @@ async def place_stripe_order(order_data: OrderCreate, request: Request, user: di
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"Product {item.product} not found"
+            )
+        
+        # Kiểm tra số lượng tồn kho
+        if product.get("quantity", 0) < item.quantity:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Sản phẩm '{product['name']}' chỉ còn {product.get('quantity', 0)} sản phẩm trong kho"
             )
         
         item_total = product["offerPrice"] * item.quantity
@@ -209,6 +253,13 @@ async def place_vnpay_order(order_data: OrderCreate, request: Request, user: dic
                 raise HTTPException(
                     status_code=status.HTTP_404_NOT_FOUND,
                     detail=f"Product {item.product} not found"
+                )
+            
+            # Kiểm tra số lượng tồn kho
+            if product.get("quantity", 0) < item.quantity:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"Sản phẩm '{product['name']}' chỉ còn {product.get('quantity', 0)} sản phẩm trong kho"
                 )
             
             item_total = product["offerPrice"] * item.quantity
@@ -350,6 +401,60 @@ async def update_order_status(status_update: OrderStatusUpdate, staff: dict = De
         "message": "Cập nhật trạng thái đơn hàng thành công"
     }
 
+@router.post("/update", response_model=dict)
+async def update_order(order_update: OrderUpdate, staff: dict = Depends(auth_staff)):
+    """Update order details (Staff/Admin only)"""
+    orders_collection = await get_collection("orders")
+    
+    # Lấy order hiện tại để kiểm tra trạng thái cũ
+    current_order = await orders_collection.find_one({"_id": ObjectId(order_update.orderId)})
+    if not current_order:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Không tìm thấy đơn hàng"
+        )
+    
+    # Build update dict
+    update_data = {"updatedAt": datetime.utcnow()}
+    
+    if order_update.status:
+        # Validate status
+        valid_statuses = ["Order Placed", "Processing", "Shipped", "Delivered", "Cancelled"]
+        if order_update.status not in valid_statuses:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Trạng thái không hợp lệ"
+            )
+        
+        # Hoàn lại quantity nếu đổi sang Cancelled từ trạng thái khác
+        old_status = current_order.get("status")
+        if order_update.status == "Cancelled" and old_status != "Cancelled":
+            # Hoàn lại số lượng sản phẩm vào kho
+            for item in current_order["items"]:
+                product_id = item["product"]["_id"]
+                await update_product_quantity(product_id, item["quantity"])
+        
+        update_data["status"] = order_update.status
+    
+    if order_update.address:
+        update_data["address"] = order_update.address.model_dump()
+    
+    result = await orders_collection.update_one(
+        {"_id": ObjectId(order_update.orderId)},
+        {"$set": update_data}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Không tìm thấy đơn hàng"
+        )
+    
+    return {
+        "success": True,
+        "message": "Cập nhật đơn hàng thành công"
+    }
+
 @router.post("/verify-stripe", response_model=dict)
 async def verify_stripe_payment(session_id: str, request: Request, user: dict = Depends(auth_user)):
     """Verify Stripe payment and update order"""
@@ -361,6 +466,15 @@ async def verify_stripe_payment(session_id: str, request: Request, user: dict = 
         session = stripe.checkout.Session.retrieve(session_id)
         
         if session.payment_status == "paid":
+            # Get order to retrieve items
+            order = await orders_collection.find_one({"stripeSessionId": session_id})
+            
+            if order:
+                # Trừ số lượng sản phẩm trong kho
+                for item in order["items"]:
+                    product_id = item["product"]["_id"]
+                    await update_product_quantity(product_id, -item["quantity"])
+            
             # Update order
             result = await orders_collection.update_one(
                 {"stripeSessionId": session_id},
@@ -437,6 +551,11 @@ async def vnpay_return(request: Request):
                     url=f"{settings.FRONTEND_URL}/my-orders?success=true&orderId={order_id}",
                     status_code=status.HTTP_303_SEE_OTHER
                 )
+            
+            # Trừ số lượng sản phẩm trong kho
+            for item in order["items"]:
+                product_id = item["product"]["_id"]
+                await update_product_quantity(product_id, -item["quantity"])
             
             # Update order status
             await orders_collection.update_one(
