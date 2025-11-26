@@ -15,15 +15,15 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
 
     // Validation
     if (rating === 0) {
-      toast.error('Please select a rating');
+      toast.error('Vui lòng chọn số sao đánh giá');
       return;
     }
     if (title.trim().length < 5) {
-      toast.error('Title must be at least 5 characters');
+      toast.error('Tiêu đề phải có ít nhất 5 ký tự');
       return;
     }
     if (comment.trim().length < 20) {
-      toast.error('Comment must be at least 20 characters');
+      toast.error('Nội dung đánh giá phải có ít nhất 20 ký tự');
       return;
     }
 
@@ -42,7 +42,7 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
       );
 
       if (response.data.success) {
-        toast.success('Review submitted successfully!');
+        toast.success('Đã gửi đánh giá thành công!');
         // Reset form
         setRating(0);
         setTitle('');
@@ -54,7 +54,7 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
         }
       }
     } catch (error) {
-      const errorMessage = error.response?.data?.detail || 'Failed to submit review. Please try again.';
+      const errorMessage = error.response?.data?.detail || 'Không thể gửi đánh giá. Vui lòng thử lại.';
       toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -69,7 +69,7 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Write a Review</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Viết Đánh Giá</h2>
             <p className="text-sm text-gray-500 mt-1">{productName}</p>
           </div>
           <button
@@ -85,7 +85,7 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
           {/* Rating */}
           <div>
             <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Rating <span className="text-red-500">*</span>
+              Đánh giá <span className="text-red-500">*</span>
             </label>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -108,11 +108,11 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
               ))}
               {rating > 0 && (
                 <span className="ml-3 text-gray-600 self-center">
-                  {rating === 1 && 'Poor'}
-                  {rating === 2 && 'Fair'}
-                  {rating === 3 && 'Good'}
-                  {rating === 4 && 'Very Good'}
-                  {rating === 5 && 'Excellent'}
+                  {rating === 1 && 'Tệ'}
+                  {rating === 2 && 'Tạm được'}
+                  {rating === 3 && 'Tốt'}
+                  {rating === 4 && 'Rất tốt'}
+                  {rating === 5 && 'Xuất sắc'}
                 </span>
               )}
             </div>
@@ -121,36 +121,36 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
           {/* Title */}
           <div>
             <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Review Title <span className="text-red-500">*</span>
+              Tiêu đề đánh giá <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Summarize your experience in a few words"
+              placeholder="Tóm tắt trải nghiệm của bạn trong vài từ"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent"
               maxLength={100}
             />
             <p className="text-xs text-gray-500 mt-1">
-              {title.length}/100 characters (minimum 5)
+              {title.length}/100 ký tự (tối thiểu 5)
             </p>
           </div>
 
           {/* Comment */}
           <div>
             <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Your Review <span className="text-red-500">*</span>
+              Nội dung đánh giá <span className="text-red-500">*</span>
             </label>
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="Tell us more about your experience with this product..."
+              placeholder="Chia sẻ chi tiết về trải nghiệm của bạn với sản phẩm này..."
               rows={6}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent resize-none"
               maxLength={1000}
             />
             <p className="text-xs text-gray-500 mt-1">
-              {comment.length}/1000 characters (minimum 20)
+              {comment.length}/1000 ký tự (tối thiểu 20)
             </p>
           </div>
 
@@ -162,14 +162,14 @@ const WriteReviewModal = ({ isOpen, onClose, productId, productName, onReviewSub
               disabled={isSubmitting}
               className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
             >
-              Cancel
+              Hủy
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
               className="flex-1 px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit Review'}
+              {isSubmitting ? 'Đang gửi...' : 'Gửi đánh giá'}
             </button>
           </div>
         </form>

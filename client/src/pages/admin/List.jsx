@@ -1,18 +1,22 @@
-import axios from "axios"; // (không dùng trực tiếp ở file này, nhưng vẫn import nếu cần)
-import React, { useContext, useState } from "react" // import React và hooks
+import axios from "axios"; // (đã import ở đây, sẽ dùng trực tiếp)
+import React, { useContext, useState, useEffect } from "react" // import React và hooks
 import { toast } from "react-hot-toast" // import toast để hiển thị thông báo
-import { ShopContext } from "../../context/ShopContext" // import ShopContext để truy cập products, currency, axios, fetchProducts
+import { ShopContext } from "../../context/ShopContext" // import ShopContext để truy cập currency, axios
 import { FiEdit2, FiTrash2, FiX, FiSearch, FiFilter, FiCheck } from "react-icons/fi" // import icons
 
 // Component hiển thị danh sách sản phẩm (Admin view)
 const List = () => {
-  // lấy products, currency, axios và hàm fetchProducts từ context
-  const { products, currency, axios, fetchProducts } = useContext(ShopContext);
+  // lấy currency và axios từ context (không dùng products từ context nữa)
+  const { currency, axios } = useContext(ShopContext);
+  
+  // State cho products (fetch trực tiếp trong component này)
+  const [products, setProducts] = useState([])
   
   // States cho Search & Filter
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [selectedCategory, setSelectedCategory] = useState("Tất cả")
   const [showFilterDropdown, setShowFilterDropdown] = useState(false)
+  const [showHiddenProducts, setShowHiddenProducts] = useState(false)
   
   // States cho Discount
   const [discountPercent, setDiscountPercent] = useState("")
@@ -29,26 +33,49 @@ const List = () => {
     price: "",
     offerPrice: "",
     category: "",
-    sizes: []
+    sizes: [],
+    isActive: true
   })
+
+  // Hàm fetch ALL products cho admin (không filter isActive)
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get("/api/product/list")
+      if (data.success) {
+        // Admin nhận tất cả sản phẩm, không filter
+        setProducts(data.products)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  // useEffect để fetch products khi component mount
+  useEffect(() => {
+    fetchProducts()
+  }, [])
 
   // Danh sách categories
   const categories = [
-    "All",
-    "Shirts & Polo",
-    "Bottoms",
-    "Outerwear",
-    "InnerWear & Underwear",
-    "Shoes",
-    "Accessories"
+    "Tất cả",
+    "Áo Sơ Mi & Polo",
+    "Quần",
+    "Áo Khoác",
+    "Đồ Lót & Đồ Mặc Trong",
+    "Giày Dép",
+    "Phụ Kiện"
   ]
 
-  // Lọc sản phẩm theo search query và category
+  // Lọc sản phẩm theo search query, category và trạng thái hiển thị
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.description.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory
-    return matchesSearch && matchesCategory
+    const matchesCategory = selectedCategory === "Tất cả" || product.category === selectedCategory
+    // Nếu không tích "Hiển thị đã ẩn" thì chỉ show active products
+    const matchesActiveStatus = showHiddenProducts || product.isActive !== false
+    return matchesSearch && matchesCategory && matchesActiveStatus
   })
 
   // Hàm toggleDiscount: bật/tắt discount cho sản phẩm
@@ -129,7 +156,7 @@ const List = () => {
 
   // Hàm apply discount cho toàn bộ category
   const applyDiscountToCategory = async () => {
-    if (selectedCategory === "All") {
+    if (selectedCategory === "Tất cả") {
       toast.error("Vui lòng chọn một danh mục cụ thể")
       return
     }
@@ -208,7 +235,7 @@ const List = () => {
 
   // Hàm remove discount cho toàn bộ category
   const removeDiscountFromCategory = async () => {
-    if (selectedCategory === "All") {
+    if (selectedCategory === "Tất cả") {
       toast.error("Vui lòng chọn một danh mục cụ thể")
       return
     }
@@ -259,6 +286,22 @@ const List = () => {
     }
   }
 
+  // Hàm toggleActive: thay đổi trạng thái hiển thị/ẩn sản phẩm
+  const toggleActive = async (productId, isActive) => {
+    try {
+      const {data} = await axios.patch(`/api/product/${productId}/toggle-active`)
+      if(data.success){
+        fetchProducts() // reload danh sách sau khi thay đổi
+        toast.success(data.message)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      console.error("Toggle active error:", error)
+      toast.error(error.response?.data?.message || error.message || "Lỗi khi thay đổi trạng thái")
+    }
+  }
+
   // Hàm deleteProduct: xóa sản phẩm khỏi database
   const deleteProduct = async (productId) => {
     // Xác nhận trước khi xóa
@@ -268,7 +311,7 @@ const List = () => {
     }
     
     try {
-      const {data} = await axios.post('/api/product/delete', {productId})
+      const {data} = await axios.delete(`/api/product/${productId}`)
       if(data.success){
         fetchProducts() // reload danh sách sau khi xóa
         toast.success(data.message || "Xóa sản phẩm thành công!")
@@ -292,7 +335,8 @@ const List = () => {
         price: product.price,
         offerPrice: product.offerPrice,
         category: product.category,
-        sizes: product.sizes || []
+        sizes: product.sizes || [],
+        isActive: product.isActive !== undefined ? product.isActive : true
       })
       setShowEditModal(true)
     }
@@ -399,13 +443,24 @@ const List = () => {
             </div>
           )}
         </div>
+
+        {/* Toggle Hiển thị sản phẩm đã ẩn */}
+        <label className="flex items-center gap-2 px-4 py-2.5 bg-white border-2 border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-200 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={showHiddenProducts}
+            onChange={(e) => setShowHiddenProducts(e.target.checked)}
+            className="w-4 h-4 text-gray-900 border-2 border-gray-300 rounded focus:ring-2 focus:ring-gray-900/20 cursor-pointer"
+          />
+          <span className="text-sm font-medium text-gray-700 whitespace-nowrap">Sản phẩm đã ẩn</span>
+        </label>
       </div>
 
       {/* Results Count */}
       <div className="mb-2 text-sm text-gray-600">
         Hiển thị <span className="font-semibold">{filteredProducts.length}</span> sản phẩm
         {searchQuery && ` cho "${searchQuery}"`}
-        {selectedCategory !== "All" && ` trong danh mục "${selectedCategory}"`}
+        {selectedCategory !== "Tất cả" && ` trong danh mục "${selectedCategory}"`}
       </div>
 
       {/* Discount Control Bar */}
@@ -471,11 +526,11 @@ const List = () => {
           <button
             onClick={applyDiscountToCategory}
             className="flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={selectedCategory === "All"}
-            title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
+            disabled={selectedCategory === "Tất cả"}
+            title={selectedCategory === "Tất cả" ? "Vui lòng chọn một danh mục cụ thể" : ""}
           >
             <FiCheck size={18} />
-            <span>Áp dụng cho category "{selectedCategory}"</span>
+            <span>Áp dụng cho "{selectedCategory}"</span>
           </button>
 
           <button
@@ -489,33 +544,35 @@ const List = () => {
           <button
             onClick={removeDiscountFromCategory}
             className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={selectedCategory === "All"}
-            title={selectedCategory === "All" ? "Vui lòng chọn một danh mục cụ thể" : ""}
+            disabled={selectedCategory === "Tất cả"}
+            title={selectedCategory === "Tất cả" ? "Vui lòng chọn một danh mục cụ thể" : ""}
           >
             <FiX size={18} />
-            <span>Hủy giảm giá cho category "{selectedCategory}"</span>
+            <span>Hủy giảm giá cho "{selectedCategory}"</span>
           </button>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
         {/* Header bảng danh sách sản phẩm */}
-        <div className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1.5fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
+        <div className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1fr_1.2fr_1fr_1fr] items-center py-1 px-2 bg-white bold-14 sm:bold-15 mb-1 rounded">
           <h5></h5>
           <h5>Hình ảnh</h5>
           <h5>Tên sản phẩm</h5>
           <h5>Danh mục</h5>
           <h5>Giá gốc</h5>
           <h5>Giá KM</h5>
+          <h5>Số lượng</h5>
           <h5>Giảm giá</h5>
+          <h5>Trạng thái</h5>
           <h5>Thao tác</h5>
         </div>
         {/* Product List - lặp qua mảng products và render từng sản phẩm */}
         {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
+          filteredProducts.map((product, index) => (
           <div
             key={product._id}
-            className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1.5fr_1fr] items-center gap-2 p-2 bg-white rounded-lg"
+            className="grid grid-cols-[0.5fr_1fr_3fr_1fr_1fr_1fr_1fr_1.2fr_1fr_1fr] items-center gap-2 p-2 bg-white rounded-lg"
           >
             {/* Checkbox để chọn sản phẩm */}
             <div className="flex items-center justify-center">
@@ -536,11 +593,18 @@ const List = () => {
             {/* Tên sản phẩm */}
             <div>
               <h5 className="text-sm font-semibold">{product.name}</h5>
-              {product.hasDiscount && (
-                <span className="inline-block mt-1 px-2 py-0.5 bg-red-100 text-red-600 text-xs font-semibold rounded">
-                  GIẢM GIÁ
-                </span>
-              )}
+              <div className="flex gap-2 mt-1">
+                {product.hasDiscount && (
+                  <span className="inline-block px-2 py-0.5 bg-red-100 text-red-600 text-xs font-semibold rounded">
+                    GIẢM GIÁ
+                  </span>
+                )}
+                {product.isActive === false && (
+                  <span className="inline-block px-2 py-0.5 bg-gray-600 text-white text-xs font-semibold rounded">
+                    ĐÃ ẨN
+                  </span>
+                )}
+              </div>
             </div>
             {/* Danh mục */}
             <p className="text-sm font-semibold">{product.category}</p>
@@ -553,6 +617,19 @@ const List = () => {
             <div className={`text-sm font-semibold ${product.hasDiscount ? 'text-red-600' : 'text-gray-700'}`}>
               {currency}
               {product.offerPrice.toLocaleString()}
+            </div>
+            {/* Số lượng tồn kho */}
+            <div className={`text-sm font-semibold ${
+              product.quantity === 0 
+                ? 'text-red-600' 
+                : product.quantity < 5 
+                  ? 'text-orange-600' 
+                  : 'text-gray-700'
+            }`}>
+              {product.quantity || 0}
+              {product.quantity === 0 && (
+                <span className="text-xs ml-1 block">(Hết hàng)</span>
+              )}
             </div>
             {/* Thông tin discount */}
             <div className="text-xs">
@@ -570,6 +647,23 @@ const List = () => {
               ) : (
                 <span className="text-gray-400">Chưa giảm giá</span>
               )}
+            </div>
+            {/* Trạng thái hiển thị/ẩn */}
+            <div className="flex items-center justify-center">
+              <button
+                onClick={() => toggleActive(product._id, product.isActive)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                  product.isActive !== false
+                    ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+                title={product.isActive !== false ? 'Click để ẩn sản phẩm' : 'Click để hiển thị sản phẩm'}
+              >
+                <span className={`w-2 h-2 rounded-full ${
+                  product.isActive !== false ? 'bg-green-500' : 'bg-gray-400'
+                }`}></span>
+                {product.isActive !== false ? 'Hiển thị' : 'Đã ẩn'}
+              </button>
             </div>
             {/* Actions - nút Edit và Delete */}
             <div className="flex items-center gap-2">
@@ -661,12 +755,12 @@ const List = () => {
                   onChange={(e) => setEditForm({...editForm, category: e.target.value})}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
                 >
-                  <option value="Shirts & Polo">Shirts & Polo</option>
-                  <option value="Bottoms">Bottoms</option>
-                  <option value="Outerwear">Outerwear</option>
-                  <option value="InnerWear & Underwear">InnerWear & Underwear</option>
-                  <option value="Shoes">Shoes</option>
-                  <option value="Accessories">Accessories</option>
+                  <option value="Áo Sơ Mi & Polo">Áo Sơ Mi & Polo</option>
+                  <option value="Quần">Quần</option>
+                  <option value="Áo Khoác">Áo Khoác</option>
+                  <option value="Đồ Lót & Đồ Mặc Trong">Đồ Lót & Đồ Mặc Trong</option>
+                  <option value="Giày Dép">Giày Dép</option>
+                  <option value="Phụ Kiện">Phụ Kiện</option>
                 </select>
               </div>
 
@@ -713,6 +807,22 @@ const List = () => {
                     </button>
                   ))}
                 </div>
+              </div>
+
+              {/* Hiển thị sản phẩm */}
+              <div className="border-t pt-4">
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={editForm.isActive}
+                    onChange={(e) => setEditForm({...editForm, isActive: e.target.checked})}
+                    className="w-5 h-5 text-green-600 border-2 border-gray-300 rounded focus:ring-2 focus:ring-green-500 cursor-pointer"
+                  />
+                  <div>
+                    <span className="font-semibold text-gray-800">Hiển thị sản phẩm trên website</span>
+                    <p className="text-xs text-gray-500 mt-0.5">Bỏ tích để ẩn sản phẩm khỏi người dùng</p>
+                  </div>
+                </label>
               </div>
 
               {/* Form Actions */}

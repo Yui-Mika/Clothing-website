@@ -11,10 +11,11 @@ import asyncio
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime
 from bson import ObjectId
+from app.config.settings import settings
 
 # MongoDB connection
-MONGO_URI = "mongodb://localhost:27017"
-DATABASE_NAME = "Shop"
+MONGO_URI = settings.MONGODB_URL
+DATABASE_NAME = settings.DATABASE_NAME
 
 async def create_sample_wishlist():
     # Connect to MongoDB

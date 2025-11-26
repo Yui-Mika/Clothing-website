@@ -4,10 +4,11 @@ import json
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime
 from bson import ObjectId
+from app.config.settings import settings
 
 # MongoDB connection
-MONGODB_URL = "mongodb://localhost:27017"
-DB_NAME = "Shop"
+MONGODB_URL = settings.MONGODB_URL
+DB_NAME = settings.DATABASE_NAME
 
 async def import_settings():
     """Import settings from settings.json to MongoDB"""

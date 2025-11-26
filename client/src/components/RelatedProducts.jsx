@@ -30,8 +30,8 @@ const RelatedProducts = ({ product, id }) => {
     <section className="pt-16">
       {/* Hiển thị giao diện người dùng */}
       <Title
-        title1={"Related"}
-        title2={"Products"}
+        title1={"Sản phẩm"}
+        title2={"Liên quan"}
         titleStyles={"pb-10"}
       />
       {/* CONTAINER */}

@@ -1,8 +1,9 @@
 from pymongo import MongoClient
 from bson import ObjectId
+from app.config.settings import settings
 
-client = MongoClient('mongodb://localhost:27017/')
-db = client['Shop']
+client = MongoClient(settings.MONGODB_URL)
+db = client[settings.DATABASE_NAME]
 
 test_id = "673b1234567890abcdef1001"
 product = db.products.find_one({"_id": ObjectId(test_id)})

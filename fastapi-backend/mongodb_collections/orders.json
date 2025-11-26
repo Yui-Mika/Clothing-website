@@ -250,7 +250,7 @@
     "phone": "1"
   },
   "status": "Đã đặt hàng",
-  "paymentMethod": "COD"
+  "paymentMethod": "COD",
   "isPaid": false,
   "paidAt": null,
   "createdAt": {

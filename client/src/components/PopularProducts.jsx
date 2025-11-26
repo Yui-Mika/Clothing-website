@@ -23,11 +23,11 @@ const PopularProducts = () => {
       {/* Title Section - Luxury Typography */}
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-3">
-          <span className="font-semibold text-gray-900">Popular</span>
-          <span className="text-gray-400 ml-2">Products</span>
+          <span className="font-semibold text-gray-900">Sản phẩm</span>
+          <span className="text-gray-400 ml-2">Phổ biến</span>
         </h2>
         <p className="text-gray-500 text-sm tracking-wider uppercase mb-4">
-          Explore our collection of stylish clothing and footwear
+          Khám phá bộ sưu tập quần áo và giày dép thời trang của chúng tôi
         </p>
         <div className="w-16 h-0.5 bg-gray-900 mx-auto"></div>
       </div>

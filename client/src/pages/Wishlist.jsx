@@ -75,6 +75,7 @@ const Wishlist = () => {
               product={product}
               onRemove={() => removeFromWishlist(product._id)}
               currency={currency}
+              formatCurrency={formatCurrency}
               navigate={navigate}
             />
           ))}
@@ -85,7 +86,7 @@ const Wishlist = () => {
 };
 
 // Component hiển thị từng sản phẩm trong wishlist
-const WishlistItem = ({ product, onRemove, currency, navigate }) => {
+const WishlistItem = ({ product, onRemove, currency, navigate, formatCurrency }) => {
   // Format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);

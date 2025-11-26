@@ -1,1711 +1,1781 @@
-[{
-  "_id": {
-    "$oid": "673b1234567890abcdef1001"
-  },
-  "name": "Áo Thun Dệt Kim Gân Milano",
-  "description": "Áo thun nam làm từ 100% cotton Supima cao cấp, co giãn và thấm hút tuyệt vời. Kiểu regular fit thoải mái, phù hợp mọi vóc dáng. Thiết kế tối giản phong cách Nhật Bản.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/481004/sub/goods_481004_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature2.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature1.jpg?width=600 height=200"
-  ],
-  "price": 299000,
-  "offerPrice": 299000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Đen",
-    "Trắng"
-  ],
-  "details": {
-    "material": "100% Supima Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Thấm hút mồ hôi",
-      "Mềm mại và thoải mái",
-      "Đường chỉ bền bỉ"
+[
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1001"
+    },
+    "name": "Áo Thun Dệt Kim Gân Milano",
+    "description": "Áo thun nam làm từ 100% cotton Supima cao cấp, co giãn và thấm hút tuyệt vời. Kiểu regular fit thoải mái, phù hợp mọi vóc dáng. Thiết kế tối giản phong cách Nhật Bản.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/481004/sub/goods_481004_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature2.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/481004/feature/vngoods_481004_feature1.jpg?width=600 height=200"
     ],
-    "weight": "180g",
-    "origin": "Sản xuất tại Việt Nam"
+    "price": 299000,
+    "offerPrice": 299000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Đen",
+      "Trắng"
+    ],
+    "details": {
+      "material": "100% Supima Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Thấm hút mồ hôi",
+        "Mềm mại và thoải mái",
+        "Đường chỉ bền bỉ"
+      ],
+      "weight": "180g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": false,
+    "discountPercent": 0,
+    "createdAt": {
+      "$date": "2024-09-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:49:39.914Z"
+    },
+    "isActive": true,
+    "quantity": 20
   },
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": false,
-  "discountPercent": 0,
-  "createdAt": {
-    "$date": "2024-09-01T00:00:00.000Z"
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1002"
+    },
+    "name": "Áo Sơ Mi Oxford Slim Fit Tay Dài",
+    "description": "Áo sơ mi công sở nam vải Oxford cao cấp, chống nhăn. Thiết kế cổ cổ điển với form slim fit. Hoàn hảo cho môi trường văn phòng và các cuộc họp quan trọng.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub15_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/456630/feature/usgoods_456630_feature9.jpg?width=600 height=200"
+    ],
+    "price": 450000,
+    "offerPrice": 450000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Trắng",
+      "Xanh nhạt",
+      "Hồng"
+    ],
+    "details": {
+      "material": "100% Oxford Cotton",
+      "fit": "Slim Fit",
+      "care": "Nên giặt khô, hoặc giặt máy nước lạnh với màu tương tự",
+      "features": [
+        "Chống nhăn",
+        "Cổ cổ điển",
+        "Khuy tay áo",
+        "Thiết kế lịch sự"
+      ],
+      "weight": "220g",
+      "origin": "Sản xuất tại Bangladesh"
+    },
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": false,
+    "discountPercent": 0,
+    "createdAt": {
+      "$date": "2024-09-05T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:49:39.914Z"
+    },
+    "isActive": true,
+    "quantity": 20
   },
-  "updatedAt": {
-    "$date": "2025-11-08T14:49:39.914Z"
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1003"
+    },
+    "name": "Quần Jean Skinny Xanh Đậm",
+    "description": "Quần jean nam làm từ denim co giãn 4 chiều, mềm mại và thoải mái. Dáng slim tôn dáng. Màu xanh đậm ít phai và dễ phối đồ.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub15_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/459688/feature/vngoods_459688_feature6.jpg?width=600 height=200"
+    ],
+    "price": 550000,
+    "offerPrice": 550000,
+    "category": "Quần",
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "colors": [
+      "Xanh đậm",
+      "Đen",
+      "Xanh nhạt"
+    ],
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Co giãn 4 chiều",
+        "Nhuộm không phai",
+        "Thiết kế 5 túi",
+        "Quần có quầi thắt lưng"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": false,
+    "discountPercent": 0,
+    "createdAt": {
+      "$date": "2024-09-10T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-10T08:50:11.450Z"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1004"
+    },
+    "name": "Áo Thun DRY-EX",
+    "description": "Áo polo nam bằng vải pique thoáng khí, thấm hút tốt. Thiết kế cổ lịch sự, form regular. Phù hợp chơi golf, đi chơi hoặc gặp gỡ bạn bè.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477221/sub/goods_477221_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/477221/feature/vngoods_477221_feature4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/477221/feature/vngoods_477221_feature2.jpg?width=600 height=200"
+    ],
+    "price": 380000,
+    "offerPrice": 285000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Xanh hải quân",
+      "Trắng",
+      "Đỏ",
+      "Xanh lá"
+    ],
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 25,
+    "discountStartDate": {
+      "$date": "2024-11-05T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-11-30T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-09-12T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "100% Premium Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Mặc thoải mái",
+        "Đường chỉ bền bỉ",
+        "Dễ chăm sóc"
+      ],
+      "weight": "200g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1005"
+    },
+    "name": "Quần Chinos Beige Slim Fit",
+    "description": "Quần chinos nam dáng slim fit, vải cotton pha co giãn. Màu be trung tính dễ phối đồ. Thiết kế túi chéo hiện đại với đường chỉ ti tỉ mỉ.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub15_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/gb/imagesgoods/450251/feature/gbgoods_450251_feature2.jpg?width=600 height=200"
+    ],
+    "price": 480000,
+    "offerPrice": 336000,
+    "category": "Quần",
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "colors": [
+      "Be",
+      "Xanh hải quân",
+      "Rêu olive",
+      "Đen"
+    ],
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 30,
+    "discountStartDate": {
+      "$date": "2024-11-01T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-12-31T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-09-15T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Vải co giãn",
+        "Vừa vặn thoải mái",
+        "Denim bền bỉ",
+        "Phong cách cổ điển"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1006"
+    },
+    "name": "Áo Khoác Fleece",
+    "description": "Áo hoodie nam vải fleece dày, giữ ấm tuyệt vời. Kiểu dáng oversized đang thịnh hành với mũ trùm và túi kangaroo. Phong cách streetwear năng động.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450195/sub/goods_450195_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/450195/feature/usgoods_450195_feature7.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/450195/feature/usgoods_450195_feature9.jpg?width=600 height=200"
+    ],
+    "price": 650000,
+    "offerPrice": 617500,
+    "category": "Áo Khoác",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Xám",
+      "Đen",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 5,
+    "discountStartDate": {
+      "$date": "2024-10-20T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-12-20T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-09-20T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "Vải polyester pha kèm lớp lót lông mềm",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, phơi khô",
+      "features": [
+        "Chống gió",
+        "Chống nước",
+        "Lót ấm",
+        "Nhiều túi"
+      ],
+      "weight": "600g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1007"
+    },
+    "name": "Áo Thun Cổ Tròn Dệt Kim",
+    "description": "Áo thun cổ tròn nam cơ bản vải cotton compact mềm mại. Kiểu regular fit thoải mái. Nhiều màu sắc để lựa chọn.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479791/sub/goods_479791_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479791/feature/vngoods_479791_feature3.jpg?width=600 height=200"
+    ],
+    "price": 250000,
+    "offerPrice": 220000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Trắng",
+      "Đen",
+      "Xám",
+      "Xanh hải quân",
+      "Đỏ"
+    ],
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 12,
+    "discountStartDate": {
+      "$date": "2024-11-01T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-12-31T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-09-25T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "100% Premium Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Mặc thoải mái",
+        "Đường chỉ bền bỉ",
+        "Dễ chăm sóc"
+      ],
+      "weight": "200g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1008"
+    },
+    "name": "Áo Sơ Mi Flannel Kẻ Ca-rô",
+    "description": "Áo sơ mi flannel nam họa tiết kẻ ca-rô cổ điển. Vải mềm mại và ấm áp. Phong cách casual Hàn Quốc, hoàn hảo cho mùa thu đông.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub15_3x4.jpg?width=600 height=200"
+    ],
+    "price": 420000,
+    "offerPrice": 386400,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Kẻ đỏ",
+      "Kẻ xanh"
+    ],
+    "popular": false,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 8,
+    "discountStartDate": {
+      "$date": "2024-11-01T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-11-15T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-09-28T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "100% Premium Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Mặc thoải mái",
+        "Đường chỉ bền bỉ",
+        "Dễ chăm sóc"
+      ],
+      "weight": "200g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1009"
+    },
+    "name": "Quần Jean Suông Rộng",
+    "description": "Quần jean nam kiểu baggy fit đang thịnh hành, giặt nhạt cho hiệu ứng vintage. Vải denim dày và bền bỉ. Phong cách retro độc đáo.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub15_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/470542/feature/vngoods_470542_feature2.jpg?width=600 height=200"
+    ],
+    "price": 590000,
+    "offerPrice": 483800,
+    "category": "Quần",
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "colors": [
+      "Xanh nhạt",
+      "Đen"
+    ],
+    "popular": true,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 18,
+    "discountStartDate": {
+      "$date": "2024-10-25T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2025-02-28T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-10-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Vải co giãn",
+        "Vừa vặn thoải mái",
+        "Denim bền bỉ",
+        "Phong cách cổ điển"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1010"
+    },
+    "name": "Áo Khoác Blouson Ngắn Kéo Khóa Nam",
+    "description": "Áo khoác bomber nam 2 mặt đảo ngược được, một mặt trơn một mặt có họa tiết. Vải polyester nhẹ chống gió. Thiết kế unisex năng động.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478230/sub/goods_478230_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature2.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature1.jpg?width=600 height=200"
+    ],
+    "price": 750000,
+    "offerPrice": 487500,
+    "category": "Áo Khoác",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Đen/Xám"
+    ],
+    "popular": false,
+    "inStock": true,
+    "hasDiscount": true,
+    "discountPercent": 35,
+    "discountStartDate": {
+      "$date": "2024-11-01T00:00:00.000Z"
+    },
+    "discountEndDate": {
+      "$date": "2024-12-31T23:59:59.000Z"
+    },
+    "createdAt": {
+      "$date": "2024-10-05T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2024-11-08T00:00:00.000Z"
+    },
+    "details": {
+      "material": "Vải polyester pha kèm lớp lót lông mềm",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, phơi khô",
+      "features": [
+        "Chống gió",
+        "Chống nước",
+        "Lót ấm",
+        "Nhiều túi"
+      ],
+      "weight": "600g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1011"
+    },
+    "name": "Dây nịt AIDEN",
+    "description": "Dây nịt AIDEN làm từ da bò cao cấp với thiết kế hiện đại và sang trọng. Khóa kim loại chắc chắn, chống gỉ, dễ dàng điều chỉnh độ dài. Phù hợp cho phong cách công sở lẫn thường ngày, mang lại sự lịch lãm cho quý ông.",
+    "image": [
+      "https://www.leonardo.vn/cdn/shop/files/B_C.jpg?v=1756833027&width=1000",
+      "https://www.leonardo.vn/cdn/shop/files/2_1b7bd09e-9966-4f4a-a00c-bea39350679d.jpg?v=1756833027&width=1000"
+    ],
+    "price": 450000,
+    "offerPrice": 399000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-08T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.290Z"
+    },
+    "details": {
+      "material": "Da bò thật cao cấp, bền và mềm",
+      "fit": "Một kích cỡ – dây có thể cắt chỉnh theo vòng lưng",
+      "care": "Lau sạch bằng khăn mềm, tránh nước và nhiệt độ cao",
+      "features": [
+        "Khóa kim loại chống gỉ, độ bền cao",
+        "Thiết kế sang trọng, tinh tế",
+        "Dễ dàng điều chỉnh chiều dài",
+        "Phù hợp nhiều phong cách trang phục"
+      ],
+      "weight": "Khoảng 200–300g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 11.33,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1012"
+    },
+    "name": "Ví BANMOOR",
+    "description": "Ví BANMOOR làm từ da bò cao cấp với thiết kế sang trọng và thanh lịch. Nhiều ngăn tiện lợi để đựng tiền mặt, thẻ và giấy tờ. Kiểu dáng nhỏ gọn, dễ mang theo và phù hợp cho phong cách hằng ngày của quý ông.",
+    "image": [
+      "https://www.leonardo.vn/cdn/shop/files/Vi_Ca_S_u.png?v=1756833522&width=1000",
+      "https://product.hstatic.net/200000726949/product/banmoor_black_007-002-009_alt1_sq_nt_1200x1200_e1e8968f524b4999ae2c0069e1312ce7_master.jpg?width=600 height=200"
+    ],
+    "price": 380000,
+    "offerPrice": 329000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-10T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.294Z"
+    },
+    "details": {
+      "material": "Da bò thật cao cấp, độ bền cao",
+      "fit": "Thiết kế nhỏ gọn – phù hợp túi quần hoặc túi áo",
+      "care": "Lau sạch bằng khăn mềm, tránh tiếp xúc nước và vật sắc nhọn",
+      "features": [
+        "Nhiều ngăn thẻ và ngăn tiền",
+        "Chất liệu da mềm, bền theo thời gian",
+        "Form gọn dễ mang theo",
+        "Thiết kế sang trọng, nam tính"
+      ],
+      "weight": "Khoảng 80–150g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 13.42,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1013"
+    },
+    "name": "Balo MADOC",
+    "description": "Balo MADOC thiết kế hiện đại, chất liệu bền nhẹ và chống thấm nhẹ. Ngăn chính rộng rãi kèm các ngăn phụ tiện lợi để sắp xếp đồ dùng. Phù hợp đi học, đi làm, du lịch hoặc sử dụng hàng ngày.",
+    "image": [
+      "https://www.leonardo.vn/cdn/shop/files/AYR65413_7055a97b-8406-44a9-833b-0fefce45d9d3.jpg?v=1759041299&width=1000",
+      "https://www.leonardo.vn/cdn/shop/files/AYR65420_e13ea59d-3e6b-474b-9233-b565dc0c2938.jpg?v=1759041299&width=1000"
+    ],
+    "price": 180000,
+    "offerPrice": 149000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh hải quân",
+      "Trắng"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-12T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.295Z"
+    },
+    "details": {
+      "material": "Vải polyester hoặc canvas bền nhẹ",
+      "fit": "Một kích cỡ – dây đeo có thể điều chỉnh độ dài",
+      "care": "Lau sạch bằng khăn ẩm, tránh giặt máy và tránh tiếp xúc nhiệt độ cao",
+      "features": [
+        "Ngăn chính rộng rãi",
+        "Nhiều ngăn phụ để sắp xếp vật dụng",
+        "Dây đeo êm, điều chỉnh linh hoạt",
+        "Chất liệu bền, chống thấm nhẹ"
+      ],
+      "weight": "Khoảng 400–700g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 17.22,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1014"
+    },
+    "name": "Dây nịt LANDON",
+    "description": "Dây nịt LANDON được làm từ da cao cấp với thiết kế tối giản và sang trọng. Khóa kim loại chắc chắn, độ bền cao, phù hợp cho cả trang phục công sở và phong cách thường ngày. Dễ dàng điều chỉnh để mang lại sự vừa vặn thoải mái.",
+    "image": [
+      "https://www.leonardo.vn/cdn/shop/files/1_d81f34bb-e46d-4d8a-a303-0c8ff528b2e6.jpg?v=1756832713&width=1000",
+      "https://www.leonardo.vn/cdn/shop/files/3_4b63681e-9072-4133-be8a-a885a8426f6c.jpg?v=1756832713&width=1000"
+    ],
+    "price": 520000,
+    "offerPrice": 459000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-14T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.296Z"
+    },
+    "details": {
+      "material": "Da bò thật hoặc da tổng hợp cao cấp",
+      "fit": "Một kích cỡ – có thể điều chỉnh độ dài bằng khóa hoặc cắt dây",
+      "care": "Tránh tiếp xúc nước, lau sạch bằng khăn mềm và bảo quản nơi khô ráo",
+      "features": [
+        "Khóa kim loại chắc chắn, chống gỉ",
+        "Thiết kế tối giản và sang trọng",
+        "Độ bền cao, sử dụng lâu dài",
+        "Phù hợp với nhiều phong cách trang phục"
+      ],
+      "weight": "Khoảng 200–300g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 11.73,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1015"
+    },
+    "name": "Túi Tote ZEN",
+    "description": "Túi tote ZEN thiết kế tối giản, chất liệu bền nhẹ và thân thiện sử dụng hằng ngày. Phù hợp đi học, đi làm, dạo phố hoặc mang theo vật dụng cá nhân. Dễ phối với nhiều phong cách và tiện lợi khi mang theo.",
+    "image": [
+      "https://www.leonardo.vn/cdn/shop/files/AT1A0617_0b9fcff3-8519-4d4d-9d02-094f5007f960.jpg?v=1756832639&width=1000",
+      "https://www.leonardo.vn/cdn/shop/files/AT1A0623.jpg?v=1756832639&width=1000"
+    ],
+    "price": 120000,
+    "offerPrice": 99000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Trắng",
+      "Xám"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-16T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.296Z"
+    },
+    "details": {
+      "material": "Canvas hoặc polyester bền nhẹ",
+      "fit": "Một kích cỡ – phù hợp mọi nhu cầu sử dụng",
+      "care": "Giặt tay nhẹ hoặc lau sạch bằng khăn ẩm, tránh giặt máy mạnh",
+      "features": [
+        "Thiết kế tối giản, thời trang",
+        "Dễ phối đồ",
+        "Chịu lực tốt, đường may chắc chắn",
+        "Không gian rộng, tiện để mang theo nhiều vật dụng"
+      ],
+      "weight": "Khoảng 200–350g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 17.5,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1016"
+    },
+    "name": "Áo Polo Tay Dài Kẻ Sọc Rugger",
+    "description": "Áo polo kẻ sọc tay dài cổ điển, làm từ vải cotton pha mềm mại. Phù hợp với phong cách smart-casual và thời tiết mát mẻ.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub18_3x4.jpg?width=600 height=200"
+    ],
+    "price": 420000,
+    "offerPrice": 359000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Kẻ xanh hải quân",
+      "Kẻ xám",
+      "Kẻ xanh lá"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-18T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.296Z"
+    },
+    "details": {
+      "material": "100% Premium Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Mặc thoải mái",
+        "Đường chỉ bền bỉ",
+        "Dễ chăm sóc"
+      ],
+      "weight": "200g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 14.52,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1017"
+    },
+    "name": "Áo Sơ Mi Cổ Mở Cotton Linen Tay Ngắn",
+    "description": "Áo sơ mi vải linen pha nhẹ hoàn hảo cho mùa hè. Thoáng khí và thoải mái với form rộng rãi. Kết cấu nhăn tự nhiên tăng thêm nét quyến rũ thường ngày.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub19_3x4.jpg?width=600 height=200"
+    ],
+    "price": 390000,
+    "offerPrice": 329000,
+    "category": "Áo Sơ Mi & Polo",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Trắng",
+      "Be",
+      "Xanh nhạt"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-19T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.297Z"
+    },
+    "details": {
+      "material": "100% Premium Cotton",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải thoáng khí",
+        "Mặc thoải mái",
+        "Đường chỉ bền bỉ",
+        "Dễ chăm sóc"
+      ],
+      "weight": "200g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 15.64,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1018"
+    },
+    "name": "Quần Cargo Nam Nhiều Túi",
+    "description": "Quần cargo tiện ích với nhiều túi thực dụng. Làm từ vải twill cotton bền bỉ. Kiểu tapered hiện đại cho phong cách đường phố đương đại.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub15_3x4.jpg?width=600 height=200"
+    ],
+    "price": 550000,
+    "offerPrice": 479000,
+    "category": "Quần",
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "colors": [
+      "Rêu olive",
+      "Đen",
+      "Kaki"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-20T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.298Z"
+    },
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Vải co giãn",
+        "Vừa vặn thoải mái",
+        "Denim bền bỉ",
+        "Phong cách cổ điển"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "discountPercent": 12.91,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1019"
+    },
+    "name": "Quần Vải Đăng Corduroy",
+    "description": "Quần vải đăng corduroy cổ điển với sức hấp dẫn vintage. Kết cấu mềm mại và cảm giác ấm áp. Kiểu ống suông phù hợp với mọi phong cách.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/482920/sub/goods_482920_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/482920/sub/goods_482920_sub15_3x4.jpg?width=600 height=200"
+    ],
+    "price": 490000,
+    "offerPrice": 429000,
+    "category": "Quần",
+    "sizes": [
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "colors": [
+      "Nâu",
+      "Xanh hải quân",
+      "Be"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-21T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.298Z"
+    },
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Vải co giãn",
+        "Vừa vặn thoải mái",
+        "Denim bền bỉ",
+        "Phong cách cổ điển"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "discountPercent": 12.45,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1020"
+    },
+    "name": "Quần Thể Thao Jogger Nam",
+    "description": "Quần jogger nỉ mềm thoải mái. Lưng thun có dây rút. Hoàn hảo để mặc ở nhà hoặc đi chơi.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub15_3x4.jpg?width=600 height=200"
+    ],
+    "price": 420000,
+    "offerPrice": 359000,
+    "category": "Quần",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Xám",
+      "Đen",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-22T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.298Z"
+    },
+    "details": {
+      "material": "98% Cotton, 2% Spandex",
+      "fit": "Slim Fit",
+      "care": "Giặt máy nước lạnh mặt trái, phơi khô",
+      "features": [
+        "Vải co giãn",
+        "Vừa vặn thoải mái",
+        "Denim bền bỉ",
+        "Phong cách cổ điển"
+      ],
+      "weight": "450g",
+      "origin": "Sản xuất tại Trung Quốc"
+    },
+    "discountPercent": 14.52,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1021"
+    },
+    "name": "Áo Phao Lông Vũ Cổ Đơn Giản",
+    "description": "Áo khoác phao lông vũ cao cấp với sức lấp đầy 90% lông vũ. Siêu nhẹ nhưng vẫn ấm áp. Thiết kế có thể gập gọn dễ dàng mang theo.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481240/sub/goods_481240_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481240/sub/goods_481240_sub15_3x4.jpg?width=600 height=200"
+    ],
+    "price": 890000,
+    "offerPrice": 749000,
+    "category": "Áo Khoác",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh hải quân",
+      "Rêu olive"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-23T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.299Z"
+    },
+    "details": {
+      "material": "Vải polyester pha kèm lớp lót lông mềm",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, phơi khô",
+      "features": [
+        "Chống gió",
+        "Chống nước",
+        "Lót ấm",
+        "Nhiều túi"
+      ],
+      "weight": "600g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 15.84,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1022"
+    },
+    "name": "Áo Khoác Phông Lông Vũ Siêu Ấm",
+    "description": "Áo parka chống nước với công nghệ chống gió. Mũ trùm điều chỉnh được và nhiều túi tiện lợi. Phù hợp thời tiết mưa gió.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481200/sub/goods_481200_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/481200/feature/usgoods_481200_feature5.jpg?width=600 height=200"
+    ],
+    "price": 790000,
+    "offerPrice": 679000,
+    "category": "Áo Khoác",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Kaki",
+      "Xanh hải quân",
+      "Đen"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-24T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.299Z"
+    },
+    "details": {
+      "material": "Vải polyester pha kèm lớp lót lông mềm",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, phơi khô",
+      "features": [
+        "Chống gió",
+        "Chống nước",
+        "Lót ấm",
+        "Nhiều túi"
+      ],
+      "weight": "600g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 14.05,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1023"
+    },
+    "name": "Áo Khoác Phông Lai Hybrid",
+    "description": "Áo khoác fleece ấm áp với khóa kéo đầy đủ. Lớp lót mềm và ấm. Có hai túi bên tiện dụng.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/478278/sub/goods_478278_sub14_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/478278/feature/usgoods_478278_feature5.jpg?width=600 height=200"
+    ],
+    "price": 590000,
+    "offerPrice": 499000,
+    "category": "Áo Khoác",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Xám",
+      "Đen",
+      "Xanh hải quân",
+      "Xanh lá"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-25T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.299Z"
+    },
+    "details": {
+      "material": "Vải polyester pha kèm lớp lót lông mềm",
+      "fit": "Regular Fit",
+      "care": "Giặt máy nước lạnh, phơi khô",
+      "features": [
+        "Chống gió",
+        "Chống nước",
+        "Lót ấm",
+        "Nhiều túi"
+      ],
+      "weight": "600g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 15.42,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1024"
+    },
+    "name": "Quần Lót Boxer Brief AIRism",
+    "description": "Combo 3 quần lót boxer cotton cao cấp. Thắt lưng co giãn mềm mại. Vải thoáng khí thoải mái cả ngày.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479885/item/goods_08_479885_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479885/feature/vngoods_479885_feature2.jpg?width=600 height=200"
+    ],
+    "price": 350000,
+    "offerPrice": 299000,
+    "category": "Đồ Lót & Đồ Mặc Trong",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Đen",
+      "Xám",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-26T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.299Z"
+    },
+    "details": {
+      "material": "95% Cotton, 5% Elastane",
+      "fit": "Comfortable Fit",
+      "care": "Giặt máy ấm, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải mềm mại",
+        "Thắt lưng co giãn",
+        "Thoáng khí",
+        "Gói 3 chiếc"
+      ],
+      "weight": "150g",
+      "origin": "Sản xuất tại Bangladesh"
+    },
+    "discountPercent": 14.57,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1025"
+    },
+    "name": "Áo Lót Heattech Cổ Tròn",
+    "description": "Công nghệ Heattech tiên tiến giữ ấm vượt trội. Thấm hút mồ hôi và khô nhanh. Thiết kế slim fit mặc lớp dưới quần áo hoàn hảo.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461488/item/goods_64_461488_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461488/sub/goods_461488_sub14_3x4.jpg?width=600 height=200"
+    ],
+    "price": 280000,
+    "offerPrice": 239000,
+    "category": "Đồ Lót & Đồ Mặc Trong",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Đen",
+      "Xám",
+      "Trắng"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-27T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.300Z"
+    },
+    "details": {
+      "material": "95% Cotton, 5% Elastane",
+      "fit": "Comfortable Fit",
+      "care": "Giặt máy ấm, sấy ở nhiệt độ thấp",
+      "features": [
+        "Vải mềm mại",
+        "Thắt lưng co giãn",
+        "Thoáng khí",
+        "Gói 3 chiếc"
+      ],
+      "weight": "150g",
+      "origin": "Sản xuất tại Bangladesh"
+    },
+    "discountPercent": 14.64,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1026"
+    },
+    "name": "Áo Ba Lỗ Lưới AIRism",
+    "description": "Áo ba lỗ lưới AIRism siêu thoáng khí. Công nghệ khô nhanh và kiểm soát mùi. Vải mượt mà mát trên da.",
+    "image": [
+      "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479497/item/goods_04_479497_3x4.jpg?width=600 height=200",
+      "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479497/feature/vngoods_479497_feature8.jpg?width=600 height=200"
+    ],
+    "price": 220000,
+    "offerPrice": 189000,
+    "category": "Đồ Lót & Đồ Mặc Trong",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Trắng",
+      "Đen",
+      "Xám"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-28T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.300Z"
+    },
+    "details": {
+      "material": "95% Cotton, 5% Elastane",
+      "fit": "Comfortable Fit",
+      "care": "Giặt máy nước ấm, sấy nhiệt độ thấp",
+      "features": [
+        "Vải mềm mại",
+        "Thắt lưng co giãn",
+        "Thoáng khí",
+        "Gói 3 chiếc"
+      ],
+      "weight": "150g",
+      "origin": "Sản xuất tại Bangladesh"
+    },
+    "discountPercent": 14.09,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1027"
+    },
+    "name": "Giày Tây FITZPATRICK",
+    "description": "Giày slip-on canvas cổ điển. Đế êm thoải mái. Thiết kế dễ đi hoàn hảo cho phong cách thường ngày.",
+    "image": [
+      "https://product.hstatic.net/200000726949/product/fitzpatrick_brown_220-002-008_main_sq_nt_1200x1200_402b8717bbdc42dda75b53d3a7e9c5e8_master.jpg?width=600 height=200",
+      "https://product.hstatic.net/200000726949/product/fitzpatrick_brown_220-002-008_alt2_sq_nt_1200x1200_72a91b3fe57d4984bf2816e4d5773c5b_master.jpg?width=600 height=200"
+    ],
+    "price": 450000,
+    "offerPrice": 389000,
+    "category": "Giày Dép",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "Trắng",
+      "Đen",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-29T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.300Z"
+    },
+    "details": {
+      "material": "Canvas upper with rubber sole",
+      "fit": "True to size",
+      "care": "Lau sạch bằng khăn ẩm",
+      "features": [
+        "Đế êm ái",
+        "Đế chống trượt",
+        "Thoáng khí",
+        "Cột dây"
+      ],
+      "weight": "800g per pair",
+      "origin": "Sản xuất tại Indonesia"
+    },
+    "discountPercent": 13.56,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1028"
+    },
+    "name": "Giày Thể Thao FONZO",
+    "description": "Giày chạy bộ nhẹ với mặt lưới thoáng khí. Đế đệm hấp thụ lực. Phù hợp chạy bộ và tập gym.",
+    "image": [
+      "https://cdn.hstatic.net/products/200000726949/fonzo_white_100-001-043_main_sq_nt_1200x1200_f2170e550b5d44fa85dd4d52a8c05ece_master.jpg?width=600 height=200",
+      "https://cdn.hstatic.net/products/200000726949/fonzo_white_100-001-043_alt2_sq_nt_1200x1200_75308a823d864a57ad0d8168f0acaf4d_master.jpg?width=600 height=200"
+    ],
+    "price": 590000,
+    "offerPrice": 499000,
+    "category": "Giày Dép",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "Đen",
+      "Xám"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-30T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.300Z"
+    },
+    "details": {
+      "material": "Canvas upper with rubber sole",
+      "fit": "True to size",
+      "care": "Lau sạch bằng khăn ẩm",
+      "features": [
+        "Đế êm ái",
+        "Đế chống trượt",
+        "Thoáng khí",
+        "Cột dây"
+      ],
+      "weight": "800g per pair",
+      "origin": "Sản xuất tại Indonesia"
+    },
+    "discountPercent": 15.42,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1029"
+    },
+    "name": "Giày Tây Nam GEOFF",
+    "description": "Giày lười da cao cấp thiết kế cổ điển. Đế lót êm ái thoải mái. Hoàn hảo cho văn phòng hoặc dịp lịch sự.",
+    "image": [
+      "https://cdn.hstatic.net/products/200000726949/geoff_black_001-001-043_main_sq_nt_1200x1200_de0bd7a7e4dc4e948d759370041d45fc_master.jpg?width=600 height=200",
+      "https://cdn.hstatic.net/products/200000726949/geoff_black_001-001-043_alt2_sq_nt_1200x1200_c63fafb1051f4f3897aa0fd4aefcac4f_master.jpg?width=600 height=200"
+    ],
+    "price": 690000,
+    "offerPrice": 599000,
+    "category": "Giày Dép",
+    "sizes": [
+      "40",
+      "41",
+      "42",
+      "43",
+      "44"
+    ],
+    "colors": [
+      "Nâu",
+      "Đen"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-10-31T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.301Z"
+    },
+    "details": {
+      "material": "Canvas upper with rubber sole",
+      "fit": "True to size",
+      "care": "Lau sạch bằng khăn ẩm",
+      "features": [
+        "Đế êm ái",
+        "Đế chống trượt",
+        "Thoáng khí",
+        "Cột dây"
+      ],
+      "weight": "800g per pair",
+      "origin": "Sản xuất tại Indonesia"
+    },
+    "discountPercent": 13.19,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1030"
+    },
+    "name": "Kính BROOKES",
+    "description": "Kính thời trang BROOKES với thiết kế cá tính, gọng chắc chắn và tròng giảm chói nhẹ. Phù hợp sử dụng hằng ngày, đi chơi, dạo phố hoặc phối đồ theo phong cách hiện đại. Mang lại vẻ ngoài nổi bật và thu hút.",
+    "image": [
+      "https://cdn.hstatic.net/products/200000726949/brookes_black_001_main_sq_nt_1200x1200_0760b073b0434aee82109a2268a48c45_master.jpg?width=600 height=200",
+      "https://cdn.hstatic.net/products/200000726949/brookes_black_001_alt2_sq_nt_1200x1200_02b47893b2ba48ee8c7bf63fd4e21120_master.jpg?width=600 height=200"
+    ],
+    "price": 380000,
+    "offerPrice": 329000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xanh hải quân",
+      "Xám"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.301Z"
+    },
+    "details": {
+      "material": "Gọng nhựa hoặc kim loại cao cấp, tròng chống chói nhẹ",
+      "fit": "Một kích cỡ – phù hợp đa số khuôn mặt",
+      "care": "Lau bằng khăn mềm, tránh va đập mạnh hoặc tiếp xúc nhiệt độ cao",
+      "features": [
+        "Gọng chắc chắn, độ bền cao",
+        "Tròng giảm chói nhẹ",
+        "Thiết kế thời trang, phù hợp nhiều phong cách",
+        "Thoải mái khi đeo trong thời gian dài"
+      ],
+      "weight": "Khoảng 20–40g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 13.42,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1031"
+    },
+    "name": "Kính HERITAGE",
+    "description": "Kính thời trang HERITAGE với thiết kế thanh lịch, gọng nhẹ và chắc chắn. Tròng kính giảm chói nhẹ, phù hợp đi nắng, dạo phố hoặc sử dụng hằng ngày. Mang lại vẻ ngoài hiện đại và sang trọng.",
+    "image": [
+      "https://cdn.hstatic.net/products/200000726949/heritage_gold_710_main_sq_nt_1200x1200_4f127e69875e48af945c20bbbb8fb65a_master.jpg",
+      "https://cdn.hstatic.net/products/200000726949/heritage_gold_710_alt2_sq_nt_1200x1200_5368206d73264a63b8afd6c3f53824d0_master.jpg"
+    ],
+    "price": 150000,
+    "offerPrice": 129000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xám",
+      "Xanh hải quân",
+      "Be"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-02T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.301Z"
+    },
+    "details": {
+      "material": "Gọng nhựa hoặc kim loại cao cấp, tròng kính chống chói nhẹ",
+      "fit": "Một kích cỡ – phù hợp đa số khuôn mặt",
+      "care": "Lau bằng khăn mềm, tránh cọ xát mạnh và không để nơi nhiệt độ cao",
+      "features": [
+        "Gọng nhẹ và bền",
+        "Thiết kế thanh lịch, hiện đại",
+        "Tròng giảm chói nhẹ",
+        "Thoải mái khi đeo thời gian dài"
+      ],
+      "weight": "Khoảng 20–40g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 14,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1032"
+    },
+    "name": "Kính WOADRIC",
+    "description": "Kính thời trang WOADRIC với thiết kế hiện đại, gọng chắc chắn và tròng chống chói nhẹ. Phù hợp đi chơi, dạo phố hoặc sử dụng hằng ngày. Mang lại vẻ ngoài năng động và cá tính.",
+    "image": [
+      "https://product.hstatic.net/200000726949/product/woadric_multi_970_main_sq_nt_1200x1200_742552da09844cdf889a743ad50d2b54_master.jpg",
+      "https://product.hstatic.net/200000726949/product/woadric_multi_970_alt2_sq_nt_1200x1200_5b930546d0194a54b63483d479aadd40_master.jpg"
+    ],
+    "price": 180000,
+    "offerPrice": 149000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xám"
+    ],
+    "popular": false,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-03T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.301Z"
+    },
+    "details": {
+      "material": "Gọng nhựa cao cấp hoặc kim loại nhẹ",
+      "fit": "Một kích cỡ – phù hợp đa số khuôn mặt",
+      "care": "Lau bằng khăn mềm, tránh va đập mạnh và nhiệt độ cao",
+      "features": [
+        "Gọng chắc chắn và nhẹ",
+        "Thiết kế thời trang, hiện đại",
+        "Tròng giảm chói nhẹ",
+        "Thoải mái khi đeo lâu"
+      ],
+      "weight": "Khoảng 20–40g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 17.22,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1033"
+    },
+    "name": "Nón Baseball",
+    "description": "Nón baseball phong cách trẻ trung, được làm từ chất liệu bền nhẹ và thoáng khí. Thiết kế vành cong cổ điển, dễ phối đồ, phù hợp khi đi chơi, tập luyện hoặc sử dụng hằng ngày. Dây khóa phía sau giúp điều chỉnh kích cỡ thoải mái cho mọi người dùng.",
+    "image": [
+      "https://yame.vn/cdn/shop/files/non-l-i-trai-y2010-154-den-1192199017.jpg?v=1760793151&width=600 height=200",
+      "https://yame.vn/cdn/shop/files/non-l-i-trai-y2010-154-den-1192199016.jpg?v=1760793152&width=600 height=200"
+    ],
+    "price": 490000,
+    "offerPrice": 429000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đen",
+      "Xám",
+      "Xanh hải quân"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-03T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.302Z"
+    },
+    "details": {
+      "material": "Vải cotton hoặc polyester bền nhẹ, thoáng khí",
+      "fit": "Một kích cỡ – có dây điều chỉnh phía sau",
+      "care": "Lau sạch bằng khăn ẩm hoặc giặt tay nhẹ, phơi khô tự nhiên",
+      "features": [
+        "Thiết kế vành cong cổ điển",
+        "Dễ phối với nhiều phong cách",
+        "Độ bền cao",
+        "Thoáng khí và thoải mái khi đội"
+      ],
+      "weight": "Khoảng 120–150g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 12.45,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1034"
+    },
+    "name": "Mũ Nhung Đỏ",
+    "description": "Mũ nhung đỏ thời trang với chất liệu mềm mại, ấm áp và thoải mái. Thiết kế trẻ trung, phù hợp đi chơi, dạo phố hoặc phối cùng trang phục thu đông. Dễ phối đồ và tạo điểm nhấn nổi bật.",
+    "image": [
+      "https://yame.vn/cdn/shop/files/non-seventy-seven-48-d-do-1174879862.jpg?v=1760788955&width=600 height=200",
+      "https://yame.vn/cdn/shop/files/non-seventy-seven-48-d-do-1174879859.jpg?v=1760788957&width=600 height=200"
+    ],
+    "price": 890000,
+    "offerPrice": 749000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "OneSize"
+    ],
+    "colors": [
+      "Đỏ",
+      "Đen"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-04T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.302Z"
+    },
+    "details": {
+      "material": "Vải nhung mềm cao cấp",
+      "fit": "Một kích cỡ – co giãn nhẹ, phù hợp đa số người dùng",
+      "care": "Giặt tay nhẹ với nước lạnh, không vắt mạnh, phơi khô tự nhiên",
+      "features": [
+        "Chất liệu nhung mềm mại và ấm",
+        "Đường may chắc chắn",
+        "Form giữ dáng tốt",
+        "Màu sắc nổi bật, dễ phối đồ"
+      ],
+      "weight": "Khoảng 100–150g",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 15.84,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
+  },
+  {
+    "_id": {
+      "$oid": "673b1234567890abcdef1035"
+    },
+    "name": "Tất thời trang ngắn",
+    "description": "Tất thời trang ngắn làm từ chất liệu mềm mại, thấm hút mồ hôi, thoáng khí. Thiết kế tối giản, dễ phối đồ và phù hợp cho mọi hoạt động hằng ngày.",
+    "image": [
+      "https://yame.vn/cdn/shop/files/v-non-branded-09-nau-1174879610.jpg?v=1760786877&width=600 height=200",
+      "https://yame.vn/cdn/shop/files/v-non-branded-09-nau-1174879609.jpg?v=1760786876&width=600 height=200"
+    ],
+    "price": 320000,
+    "offerPrice": 279000,
+    "category": "Phụ Kiện",
+    "sizes": [
+      "FreeSize"
+    ],
+    "colors": [
+      "Đen",
+      "Nâu"
+    ],
+    "popular": true,
+    "inStock": true,
+    "createdAt": {
+      "$date": "2024-11-04T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2025-11-08T14:28:52.303Z"
+    },
+    "details": {
+      "material": "Cotton pha spandex mềm mại, thoáng khí",
+      "fit": "Co giãn linh hoạt, phù hợp nhiều kích cỡ chân",
+      "care": "Giặt máy chế độ nhẹ hoặc giặt tay, phơi khô tự nhiên",
+      "features": [
+        "Thoáng khí và thấm hút mồ hôi",
+        "Đường may chắc chắn",
+        "Mềm mại, thoải mái khi mang",
+        "Không bị trễ gót hoặc tuột khi vận động"
+      ],
+      "weight": "Khoảng 30–50g mỗi đôi",
+      "origin": "Sản xuất tại Việt Nam"
+    },
+    "discountPercent": 12.81,
+    "hasDiscount": true,
+    "isActive": true,
+    "quantity": 20
   }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1002"
-  },
-  "name": "Áo Sơ Mi Oxford Slim Fit Tay Dài",
-  "description": "Áo sơ mi công sở nam vải Oxford cao cấp, chống nhăn. Thiết kế cổ cổ điển với form slim fit. Hoàn hảo cho môi trường văn phòng và các cuộc họp quan trọng.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/456630/sub/goods_456630_sub15_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/456630/feature/usgoods_456630_feature9.jpg?width=600 height=200"
-  ],
-  "price": 450000,
-  "offerPrice": 450000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Trắng",
-    "Xanh nhạt",
-    "Hồng"
-  ],
-  "details": {
-    "material": "100% Oxford Cotton",
-    "fit": "Slim Fit",
-    "care": "Nên giặt khô, hoặc giặt máy nước lạnh với màu tương tự",
-    "features": [
-      "Chống nhăn",
-      "Cổ cổ điển",
-      "Khuy tay áo",
-      "Thiết kế lịch sự"
-    ],
-    "weight": "220g",
-    "origin": "Sản xuất tại Bangladesh"
-  },
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": false,
-  "discountPercent": 0,
-  "createdAt": {
-    "$date": "2024-09-05T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:49:39.914Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1003"
-  },
-  "name": "Dark Blue Skinny Jeans",
-  "description": "Men's jeans in 4-way stretch denim, soft and comfortable. Slim fit with flattering silhouette. Dark blue color that's fade-resistant and easy to pair.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/459688/sub/goods_459688_sub15_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/459688/feature/vngoods_459688_feature6.jpg?width=600 height=200"
-  ],
-  "price": 550000,
-  "offerPrice": 550000,
-  "category": "Bottoms",
-  "sizes": [
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34"
-  ],
-  "colors": [
-    "Xanh đậm",
-    "Đen",
-    "Xanh nhạt"
-  ],
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Giặt máy nước lạnh mặt trái, phơi khô",
-    "features": [
-      "Co giãn 4 chiều",
-      "Nhuộm không phai",
-      "Thiết kế 5 túi",
-      "Quần có quầi thắt lưng"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  },
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": false,
-  "discountPercent": 0,
-  "createdAt": {
-    "$date": "2024-09-10T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-10T08:50:11.450Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1004"
-  },
-  "name": "DRY-EX T-Shirt",
-  "description": "Men's polo shirt in breathable pique cotton, excellent moisture absorption. Elegant collar design with regular fit. Perfect for golf, casual wear, or meeting friends.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/477221/sub/goods_477221_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/477221/feature/vngoods_477221_feature4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/477221/feature/vngoods_477221_feature2.jpg?width=600 height=200"
-  ],
-  "price": 380000,
-  "offerPrice": 285000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Xanh hải quân",
-    "Trắng",
-    "Đỏ",
-    "Xanh lá"
-  ],
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 25,
-  "discountStartDate": {
-    "$date": "2024-11-05T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-11-30T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-09-12T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "100% Premium Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Mặc thoải mái",
-      "Đường chỉ bền bỉ",
-      "Dễ chăm sóc"
-    ],
-    "weight": "200g",
-    "origin": "Sản xuất tại Việt Nam"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1005"
-  },
-  "name": "Quần Chinos Beige Slim Fit",
-  "description": "Quần chinos nam dáng slim fit, vải cotton pha co giãn. Màu be trung tính dễ phối đồ. Thiết kế túi chéo hiện đại với đường chỉ ti tỉ mỉ.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450251/sub/goods_450251_sub15_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/gb/imagesgoods/450251/feature/gbgoods_450251_feature2.jpg?width=600 height=200"
-  ],
-  "price": 480000,
-  "offerPrice": 336000,
-  "category": "Bottoms",
-  "sizes": [
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34"
-  ],
-  "colors": [
-    "Be",
-    "Xanh hải quân",
-    "Rêu olive",
-    "Đen"
-  ],
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 30,
-  "discountStartDate": {
-    "$date": "2024-11-01T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-12-31T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-09-15T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Giặt máy nước lạnh mặt trái, phơi khô",
-    "features": [
-      "Vải co giãn",
-      "Vừa vặn thoải mái",
-      "Denim bền bỉ",
-      "Phong cách cổ điển"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1006"
-  },
-  "name": "Áo Khoác Fleece",
-  "description": "Áo hoodie nam vải fleece dày, giữ ấm tuyệt vời. Kiểu dáng oversized đang thịnh hành với mũ trùm và túi kangaroo. Phong cách streetwear năng động.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/450195/sub/goods_450195_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/450195/feature/usgoods_450195_feature7.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/450195/feature/usgoods_450195_feature9.jpg?width=600 height=200"
-  ],
-  "price": 650000,
-  "offerPrice": 617500,
-  "category": "Outerwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Xám",
-    "Đen",
-    "Xanh hải quân"
-  ],
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 5,
-  "discountStartDate": {
-    "$date": "2024-10-20T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-12-20T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-09-20T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "Polyester blend with fleece lining",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, phơi khô",
-    "features": [
-      "Chống gió",
-      "Chống nước",
-      "Lót ấm",
-      "Nhiều túi"
-    ],
-    "weight": "600g",
-    "origin": "Sản xuất tại Việt Nam"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1007"
-  },
-  "name": "Áo Thun Cổ Tròn Dệt Kim",
-  "description": "Áo thun cổ tròn nam cơ bản vải cotton compact mềm mại. Kiểu regular fit thoải mái. Nhiều màu sắc để lựa chọn.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479791/sub/goods_479791_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479791/feature/vngoods_479791_feature3.jpg?width=600 height=200"
-  ],
-  "price": 250000,
-  "offerPrice": 220000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Trắng",
-    "Đen",
-    "Xám",
-    "Xanh hải quân",
-    "Đỏ"
-  ],
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 12,
-  "discountStartDate": {
-    "$date": "2024-11-01T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-12-31T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-09-25T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "100% Premium Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Mặc thoải mái",
-      "Đường chỉ bền bỉ",
-      "Dễ chăm sóc"
-    ],
-    "weight": "200g",
-    "origin": "Sản xuất tại Việt Nam"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1008"
-  },
-  "name": "Áo Sơ Mi Flannel Kẻ Ca-rô",
-  "description": "Áo sơ mi flannel nam họa tiết kẻ ca-rô cổ điển. Vải mềm mại và ấm áp. Phong cách casual Hàn Quốc, hoàn hảo cho mùa thu đông.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/480767/sub/goods_480767_sub15_3x4.jpg?width=600 height=200"
-  ],
-  "price": 420000,
-  "offerPrice": 386400,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL"
-  ],
-  "colors": [
-    "Kẻ đỏ",
-    "Kẻ xanh"
-  ],
-  "popular": false,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 8,
-  "discountStartDate": {
-    "$date": "2024-11-01T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-11-15T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-09-28T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "100% Premium Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Mặc thoải mái",
-      "Đường chỉ bền bỉ",
-      "Dễ chăm sóc"
-    ],
-    "weight": "200g",
-    "origin": "Sản xuất tại Việt Nam"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1009"
-  },
-  "name": "Quần Jean Suông Rộng",
-  "description": "Quần jean nam kiểu baggy fit đang thịnh hành, giặt nhạt cho hiệu ứng vintage. Vải denim dày và bền bỉ. Phong cách retro độc đáo.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/470542/sub/goods_470542_sub15_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/470542/feature/vngoods_470542_feature2.jpg?width=600 height=200"
-  ],
-  "price": 590000,
-  "offerPrice": 483800,
-  "category": "Bottoms",
-  "sizes": [
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34"
-  ],
-  "colors": [
-    "Xanh nhạt",
-    "Đen"
-  ],
-  "popular": true,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 18,
-  "discountStartDate": {
-    "$date": "2024-10-25T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2025-02-28T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-10-01T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Giặt máy nước lạnh mặt trái, phơi khô",
-    "features": [
-      "Vải co giãn",
-      "Vừa vặn thoải mái",
-      "Denim bền bỉ",
-      "Phong cách cổ điển"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1010"
-  },
-  "name": "Áo Khoác Blouson Ngắn Kéo Khóa Nam",
-  "description": "Áo khoác bomber nam 2 mặt đảo ngược được, một mặt trơn một mặt có họa tiết. Vải polyester nhẹ chống gió. Thiết kế unisex năng động.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/478230/sub/goods_478230_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature2.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/478230/feature/vngoods_478230_feature1.jpg?width=600 height=200"
-  ],
-  "price": 750000,
-  "offerPrice": 487500,
-  "category": "Outerwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL"
-  ],
-  "colors": [
-    "Đen/Xám"
-  ],
-  "popular": false,
-  "inStock": true,
-  "hasDiscount": true,
-  "discountPercent": 35,
-  "discountStartDate": {
-    "$date": "2024-11-01T00:00:00.000Z"
-  },
-  "discountEndDate": {
-    "$date": "2024-12-31T23:59:59.000Z"
-  },
-  "createdAt": {
-    "$date": "2024-10-05T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2024-11-08T00:00:00.000Z"
-  },
-  "details": {
-    "material": "Polyester blend with fleece lining",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, phơi khô",
-    "features": [
-      "Chống gió",
-      "Chống nước",
-      "Lót ấm",
-      "Nhiều túi"
-    ],
-    "weight": "600g",
-    "origin": "Sản xuất tại Việt Nam"
-  }
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1011"
-  },
-  "name": "Ví Da AIDEN",
-  "description": "Ví da nam chính hãng, 100% da bò thật, nhiều ngăn thẻ và ngăn tiền mặt. Thiết kế thanh lịch, hoàn hảo làm quà tặng.",
-  "image": [
-    "https://www.leonardo.vn/cdn/shop/files/B_C.jpg?v=1756833027&width=1000",
-    "https://www.leonardo.vn/cdn/shop/files/2_1b7bd09e-9966-4f4a-a00c-bea39350679d.jpg?v=1756833027&width=1000"
-  ],
-  "price": 450000,
-  "offerPrice": 399000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Nâu"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-08T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.290Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Kết cấu bền bỉ",
-      "Thiết kế phong cách",
-      "Sử dụng thực tế",
-      "Chất liệu chất lượng"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 11.33,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1012"
-  },
-  "name": "Thắt Lưng BANMOOR",
-  "description": "Thắt lưng da bò thật chính hãng, khóa tự động cao cấp không gỉ. Chiều dài có thể điều chỉnh bằng cách cắt dây. Phong cách thanh lịch cho quý ông.",
-  "image": [
-    "https://www.leonardo.vn/cdn/shop/files/Vi_Ca_S_u.png?v=1756833522&width=1000",
-    "https://product.hstatic.net/200000726949/product/banmoor_black_007-002-009_alt1_sq_nt_1200x1200_e1e8968f524b4999ae2c0069e1312ce7_master.jpg?width=600 height=200"
-  ],
-  "price": 380000,
-  "offerPrice": 329000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Nâu"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-10T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.294Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Kết cấu bền bỉ",
-      "Thiết kế phong cách",
-      "Sử dụng thực tế",
-      "Chất liệu chất lượng"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 13.42,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1013"
-  },
-  "name": "Nón Lưỡi Trái MADOC",
-  "description": "Nón lưỡi trái nam vải cao cấp, logo thêu tinh xảo. Kích cỡ có thể điều chỉnh ở phía sau. Phong cách streetwear năng động.",
-  "image": [
-    "https://www.leonardo.vn/cdn/shop/files/AYR65413_7055a97b-8406-44a9-833b-0fefce45d9d3.jpg?v=1759041299&width=1000",
-    "https://www.leonardo.vn/cdn/shop/files/AYR65420_e13ea59d-3e6b-474b-9233-b565dc0c2938.jpg?v=1759041299&width=1000"
-  ],
-  "price": 180000,
-  "offerPrice": 149000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Xanh hải quân",
-    "Trắng"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-12T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.295Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Kết cấu bền bỉ",
-      "Thiết kế phong cách",
-      "Sử dụng thực tế",
-      "Chất liệu chất lượng"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 17.22,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1014"
-  },
-  "name": "Ba Lô LANDON",
-  "description": "Ba lô công sở nam, chất liệu chống nước với nhiều ngăn tiện lợi. Thiết kế đơn giản và hiện đại. Hoàn hảo cho công sở, đi học, hoặc du lịch.",
-  "image": [
-    "https://www.leonardo.vn/cdn/shop/files/1_d81f34bb-e46d-4d8a-a303-0c8ff528b2e6.jpg?v=1756832713&width=1000",
-    "https://www.leonardo.vn/cdn/shop/files/3_4b63681e-9072-4133-be8a-a885a8426f6c.jpg?v=1756832713&width=1000"
-  ],
-  "price": 520000,
-  "offerPrice": 459000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Xanh hải quân"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-14T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.296Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Kết cấu bền bỉ",
-      "Thiết kế phong cách",
-      "Sử dụng thực tế",
-      "Chất liệu chất lượng"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 11.73,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1015"
-  },
-  "name": "Combo 3 Đôi Tất ZEN",
-  "description": "Combo 3 đôi tất nam vải cotton-spandex pha, co giãn và thấm hút tốt. Nhiều màu sắc để lựa chọn. Phù hợp cho mọi dịp.",
-  "image": [
-    "https://www.leonardo.vn/cdn/shop/files/AT1A0617_0b9fcff3-8519-4d4d-9d02-094f5007f960.jpg?v=1756832639&width=1000",
-    "https://www.leonardo.vn/cdn/shop/files/AT1A0623.jpg?v=1756832639&width=1000"
-  ],
-  "price": 120000,
-  "offerPrice": 99000,
-  "category": "Accessories",
-  "sizes": [
-    "M",
-    "L"
-  ],
-  "colors": [
-    "Đen",
-    "Trắng",
-    "Xám"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-16T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.296Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Kết cấu bền bỉ",
-      "Thiết kế phong cách",
-      "Sử dụng thực tế",
-      "Chất liệu chất lượng"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 17.5,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1016"
-  },
-  "name": "Áo Polo Tay Dài Kẻ Sọc Rugger",
-  "description": "Classic striped polo shirt with long sleeves, made from soft cotton blend. Perfect for smart casual occasions and cooler weather.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/462024/sub/goods_462024_sub18_3x4.jpg?width=600 height=200"
-  ],
-  "price": 420000,
-  "offerPrice": 359000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Kẻ xanh hải quân",
-    "Kẻ xám",
-    "Kẻ xanh lá"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-18T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.296Z"
-  },
-  "details": {
-    "material": "100% Premium Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Mặc thoải mái",
-      "Đường chỉ bền bỉ",
-      "Dễ chăm sóc"
-    ],
-    "weight": "200g",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 14.52,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1017"
-  },
-  "name": "Áo Sơ Mi Cổ Mở Cotton Linen Tay Ngắn",
-  "description": "Áo sơ mi vải linen pha nhẹ hoàn hảo cho mùa hè. Thoáng khí và thoải mái với form rộng rãi. Kết cấu nhăn tự nhiên tăng thêm nét quyến rũ thường ngày.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/464944/sub/goods_464944_sub19_3x4.jpg?width=600 height=200"
-  ],
-  "price": 390000,
-  "offerPrice": 329000,
-  "category": "Shirts & Polos",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL"
-  ],
-  "colors": [
-    "Trắng",
-    "Be",
-    "Xanh nhạt"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-19T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.297Z"
-  },
-  "details": {
-    "material": "100% Premium Cotton",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải thoáng khí",
-      "Mặc thoải mái",
-      "Đường chỉ bền bỉ",
-      "Dễ chăm sóc"
-    ],
-    "weight": "200g",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 15.64,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1018"
-  },
-  "name": "Quần Cargo Nam Nhiều Túi",
-  "description": "Quần cargo tiện ích với nhiều túi thực dụng. Làm từ vải twill cotton bền bỉ. Kiểu tapered hiện đại cho phong cách đường phố đương đại.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/463957/sub/goods_463957_sub15_3x4.jpg?width=600 height=200"
-  ],
-  "price": 550000,
-  "offerPrice": 479000,
-  "category": "Bottoms",
-  "sizes": [
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34"
-  ],
-  "colors": [
-    "Rêu olive",
-    "Đen",
-    "Kaki"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-20T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.298Z"
-  },
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Giặt máy nước lạnh mặt trái, phơi khô",
-    "features": [
-      "Vải co giãn",
-      "Vừa vặn thoải mái",
-      "Denim bền bỉ",
-      "Phong cách cổ điển"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  },
-  "discountPercent": 12.91,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1019"
-  },
-  "name": "Quần Vải Đăng Corduroy",
-  "description": "Quần vải đăng corduroy cổ điển với sức hấp dẫn vintage. Kết cấu mềm mại và cảm giác ấm áp. Kiểu ống suông phù hợp với mọi phong cách.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/482920/sub/goods_482920_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/482920/sub/goods_482920_sub15_3x4.jpg?width=600 height=200"
-  ],
-  "price": 490000,
-  "offerPrice": 429000,
-  "category": "Bottoms",
-  "sizes": [
-    "29",
-    "30",
-    "31",
-    "32",
-    "33",
-    "34"
-  ],
-  "colors": [
-    "Nâu",
-    "Xanh hải quân",
-    "Be"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-21T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.298Z"
-  },
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Machine wash cold inside out, hang to dry",
-    "features": [
-      "Vải co giãn",
-      "Vừa vặn thoải mái",
-      "Denim bền bỉ",
-      "Phong cách cổ điển"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  },
-  "discountPercent": 12.45,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1020"
-  },
-  "name": "Quần Thể Thao Jogger Nam",
-  "description": "Comfortable jogger sweatpants in soft fleece. Elastic waistband with drawstring. Perfect for lounging or casual outings.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/451648/sub/goods_451648_sub15_3x4.jpg?width=600 height=200"
-  ],
-  "price": 420000,
-  "offerPrice": 359000,
-  "category": "Bottoms",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Xám",
-    "Đen",
-    "Xanh hải quân"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-22T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.298Z"
-  },
-  "details": {
-    "material": "98% Cotton, 2% Spandex",
-    "fit": "Slim Fit",
-    "care": "Giặt máy nước lạnh mặt trái, phơi khô",
-    "features": [
-      "Vải co giãn",
-      "Vừa vặn thoải mái",
-      "Denim bền bỉ",
-      "Phong cách cổ điển"
-    ],
-    "weight": "450g",
-    "origin": "Sản xuất tại Trung Quốc"
-  },
-  "discountPercent": 14.52,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1021"
-  },
-  "name": "Áo Phao Lông Vũ Cổ Đơn Giản",
-  "description": "Áo khoác phao lông vũ cao cấp với sức lấp đầy 90% lông vũ. Siêu nhẹ nhưng vẫn ấm áp. Thiết kế có thể gập gọn dễ dàng mang theo.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481240/sub/goods_481240_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481240/sub/goods_481240_sub15_3x4.jpg?width=600 height=200"
-  ],
-  "price": 890000,
-  "offerPrice": 749000,
-  "category": "Outerwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Đen",
-    "Xanh hải quân",
-    "Rêu olive"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-23T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.299Z"
-  },
-  "details": {
-    "material": "Polyester blend with fleece lining",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, phơi khô",
-    "features": [
-      "Chống gió",
-      "Chống nước",
-      "Lót ấm",
-      "Nhiều túi"
-    ],
-    "weight": "600g",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 15.84,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1022"
-  },
-  "name": "Áo Khoác Phông Lông Vũ Siêu Ấm",
-  "description": "Water-resistant parka with windproof technology. Adjustable hood and multiple pockets. Perfect for rainy and windy weather.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/481200/sub/goods_481200_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/481200/feature/usgoods_481200_feature5.jpg?width=600 height=200"
-  ],
-  "price": 790000,
-  "offerPrice": 679000,
-  "category": "Outerwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Kaki",
-    "Xanh hải quân",
-    "Đen"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-24T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.299Z"
-  },
-  "details": {
-    "material": "Polyester blend with fleece lining",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, phơi khô",
-    "features": [
-      "Chống gió",
-      "Chống nước",
-      "Lót ấm",
-      "Nhiều túi"
-    ],
-    "weight": "600g",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 14.05,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1023"
-  },
-  "name": "Áo Khoác Phông Lai Hybrid",
-  "description": "Cozy fleece jacket with full-zip closure. Soft and warm interior lining. Two side pockets for convenience.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/478278/sub/goods_478278_sub14_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/us/imagesgoods/478278/feature/usgoods_478278_feature5.jpg?width=600 height=200"
-  ],
-  "price": 590000,
-  "offerPrice": 499000,
-  "category": "Outerwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Xám",
-    "Đen",
-    "Xanh hải quân",
-    "Xanh lá"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-25T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.299Z"
-  },
-  "details": {
-    "material": "Polyester blend with fleece lining",
-    "fit": "Regular Fit",
-    "care": "Giặt máy nước lạnh, phơi khô",
-    "features": [
-      "Chống gió",
-      "Chống nước",
-      "Lót ấm",
-      "Nhiều túi"
-    ],
-    "weight": "600g",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 15.42,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1024"
-  },
-  "name": "Quần Lót Boxer Brief AIRism",
-  "description": "Combo 3 quần lót boxer cotton cao cấp. Thắt lưng co giãn mềm mại. Vải thoáng khí thoải mái cả ngày.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479885/item/goods_08_479885_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479885/feature/vngoods_479885_feature2.jpg?width=600 height=200"
-  ],
-  "price": 350000,
-  "offerPrice": 299000,
-  "category": "Innerwear & Underwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Đen",
-    "Xám",
-    "Xanh hải quân"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-26T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.299Z"
-  },
-  "details": {
-    "material": "95% Cotton, 5% Elastane",
-    "fit": "Comfortable Fit",
-    "care": "Giặt máy ấm, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải mềm mại",
-      "Thắt lưng co giãn",
-      "Thoáng khí",
-      "Gói 3 chiếc"
-    ],
-    "weight": "150g",
-    "origin": "Sản xuất tại Bangladesh"
-  },
-  "discountPercent": 14.57,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1025"
-  },
-  "name": "Áo Lót Heattech Cổ Tròn",
-  "description": "Công nghệ Heattech tiên tiến giữ ấm vượt trội. Thấm hút mồ hôi và khô nhanh. Thiết kế slim fit mặc lớp dưới quần áo hoàn hảo.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461488/item/goods_64_461488_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/461488/sub/goods_461488_sub14_3x4.jpg?width=600 height=200"
-  ],
-  "price": 280000,
-  "offerPrice": 239000,
-  "category": "Innerwear & Underwear",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Đen",
-    "Xám",
-    "Trắng"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-27T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.300Z"
-  },
-  "details": {
-    "material": "95% Cotton, 5% Elastane",
-    "fit": "Comfortable Fit",
-    "care": "Giặt máy ấm, sấy ở nhiệt độ thấp",
-    "features": [
-      "Vải mềm mại",
-      "Thắt lưng co giãn",
-      "Thoáng khí",
-      "Gói 3 chiếc"
-    ],
-    "weight": "150g",
-    "origin": "Sản xuất tại Bangladesh"
-  },
-  "discountPercent": 14.64,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1026"
-  },
-  "name": "Áo Ba Lỗ Lưới AIRism",
-  "description": "Áo ba lỗ lưới AIRism siêu thoáng khí. Công nghệ khô nhanh và kiểm soát mùi. Vải mượt mà mát trên da.",
-  "image": [
-    "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/479497/item/goods_04_479497_3x4.jpg?width=600 height=200",
-    "https://image.uniqlo.com/UQ/ST3/vn/imagesgoods/479497/feature/vngoods_479497_feature8.jpg?width=600 height=200"
-  ],
-  "price": 220000,
-  "offerPrice": 189000,
-  "category": "Innerwear & Underwear",
-  "sizes": [
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ],
-  "colors": [
-    "Trắng",
-    "Đen",
-    "Xám"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-28T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.300Z"
-  },
-  "details": {
-    "material": "95% Cotton, 5% Elastane",
-    "fit": "Comfortable Fit",
-    "care": "Machine wash warm, tumble dry low",
-    "features": [
-      "Soft fabric",
-      "Elastic waistband",
-      "Breathable",
-      "Pack of 3"
-    ],
-    "weight": "150g",
-    "origin": "Made in Bangladesh"
-  },
-  "discountPercent": 14.09,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1027"
-  },
-  "name": "Giày Tây FITZPATRICK",
-  "description": "Giày slip-on canvas cổ điển. Đế êm thoải mái. Thiết kế dễ đi hoàn hảo cho phong cách thường ngày.",
-  "image": [
-    "https://product.hstatic.net/200000726949/product/fitzpatrick_brown_220-002-008_main_sq_nt_1200x1200_402b8717bbdc42dda75b53d3a7e9c5e8_master.jpg?width=600 height=200",
-    "https://product.hstatic.net/200000726949/product/fitzpatrick_brown_220-002-008_alt2_sq_nt_1200x1200_72a91b3fe57d4984bf2816e4d5773c5b_master.jpg?width=600 height=200"
-  ],
-  "price": 450000,
-  "offerPrice": 389000,
-  "category": "Shoes",
-  "sizes": [
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
-  ],
-  "colors": [
-    "Trắng",
-    "Đen",
-    "Xanh hải quân"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-29T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.300Z"
-  },
-  "details": {
-    "material": "Canvas upper with rubber sole",
-    "fit": "True to size",
-    "care": "Lau sạch bằng khăn ẩm",
-    "features": [
-      "Đế êm ái",
-      "Đế chống trượt",
-      "Thoáng khí",
-      "Cột dây"
-    ],
-    "weight": "800g per pair",
-    "origin": "Sản xuất tại Indonesia"
-  },
-  "discountPercent": 13.56,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1028"
-  },
-  "name": "Giày Thể Thao FONZO",
-  "description": "Giày chạy bộ nhẹ với mặt lưới thoáng khí. Đế đệm hấp thụ lực. Phù hợp chạy bộ và tập gym.",
-  "image": [
-    "https://cdn.hstatic.net/products/200000726949/fonzo_white_100-001-043_main_sq_nt_1200x1200_f2170e550b5d44fa85dd4d52a8c05ece_master.jpg?width=600 height=200",
-    "https://cdn.hstatic.net/products/200000726949/fonzo_white_100-001-043_alt2_sq_nt_1200x1200_75308a823d864a57ad0d8168f0acaf4d_master.jpg?width=600 height=200"
-  ],
-  "price": 590000,
-  "offerPrice": 499000,
-  "category": "Shoes",
-  "sizes": [
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
-  ],
-  "colors": [
-    "Đen",
-    "Xám"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-30T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.300Z"
-  },
-  "details": {
-    "material": "Canvas upper with rubber sole",
-    "fit": "True to size",
-    "care": "Lau sạch bằng khăn ẩm",
-    "features": [
-      "Đế êm ái",
-      "Đế chống trượt",
-      "Thoáng khí",
-      "Cột dây"
-    ],
-    "weight": "800g per pair",
-    "origin": "Sản xuất tại Indonesia"
-  },
-  "discountPercent": 15.42,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1029"
-  },
-  "name": "Giày Tây Nam GEOFF",
-  "description": "Giày lười da cao cấp thiết kế cổ điển. Đế lót êm ái thoải mái. Hoàn hảo cho văn phòng hoặc dịp lịch sự.",
-  "image": [
-    "https://cdn.hstatic.net/products/200000726949/geoff_black_001-001-043_main_sq_nt_1200x1200_de0bd7a7e4dc4e948d759370041d45fc_master.jpg?width=600 height=200",
-    "https://cdn.hstatic.net/products/200000726949/geoff_black_001-001-043_alt2_sq_nt_1200x1200_c63fafb1051f4f3897aa0fd4aefcac4f_master.jpg?width=600 height=200"
-  ],
-  "price": 690000,
-  "offerPrice": 599000,
-  "category": "Shoes",
-  "sizes": [
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
-  ],
-  "colors": [
-    "Nâu",
-    "Đen"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-10-31T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.301Z"
-  },
-  "details": {
-    "material": "Canvas upper with rubber sole",
-    "fit": "True to size",
-    "care": "Lau sạch bằng khăn ẩm",
-    "features": [
-      "Đế êm ái",
-      "Đế chống trượt",
-      "Thoáng khí",
-      "Cột dây"
-    ],
-    "weight": "800g per pair",
-    "origin": "Sản xuất tại Indonesia"
-  },
-  "discountPercent": 13.19,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1030"
-  },
-  "name": "Túi Đeo Chéo BROOKES",
-  "description": "Túi crossbody nhỏ gọn với dây đeo điều chỉnh được. Nhiều ngăn để sắp xếp. Vải chống nước bảo vệ đồ dùng.",
-  "image": [
-    "https://cdn.hstatic.net/products/200000726949/brookes_black_001_main_sq_nt_1200x1200_0760b073b0434aee82109a2268a48c45_master.jpg?width=600 height=200",
-    "https://cdn.hstatic.net/products/200000726949/brookes_black_001_alt2_sq_nt_1200x1200_02b47893b2ba48ee8c7bf63fd4e21120_master.jpg?width=600 height=200"
-  ],
-  "price": 380000,
-  "offerPrice": 329000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Xanh hải quân",
-    "Xám"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-01T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.301Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 13.42,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1031"
-  },
-  "name": "Mũ Len HERITAGE",
-  "description": "Mũ len dệt kim mềm mại cho thời tiết lạnh. Vừa vặn co giãn thoải mái. Phong cách cổ điển phù hợp với mọi trang phục mùa đông.",
-  "image": [
-    "https://cdn.hstatic.net/products/200000726949/heritage_gold_710_main_sq_nt_1200x1200_4f127e69875e48af945c20bbbb8fb65a_master.jpg",
-    "https://cdn.hstatic.net/products/200000726949/heritage_gold_710_alt2_sq_nt_1200x1200_5368206d73264a63b8afd6c3f53824d0_master.jpg"
-  ],
-  "price": 150000,
-  "offerPrice": 129000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Xám",
-    "Xanh hải quân",
-    "Be"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-02T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.301Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 14,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1032"
-  },
-  "name": "Găng Tay WOADRIC",
-  "description": "Găng tay len ấm với lớp lót mềm. Đầu ngón tương thích màn hình cảm ứng. Bo cổ co giãn giữ ấm.",
-  "image": [
-    "https://product.hstatic.net/200000726949/product/woadric_multi_970_main_sq_nt_1200x1200_742552da09844cdf889a743ad50d2b54_master.jpg",
-    "https://product.hstatic.net/200000726949/product/woadric_multi_970_alt2_sq_nt_1200x1200_5b930546d0194a54b63483d479aadd40_master.jpg"
-  ],
-  "price": 180000,
-  "offerPrice": 149000,
-  "category": "Accessories",
-  "sizes": [
-    "M",
-    "L"
-  ],
-  "colors": [
-    "Đen",
-    "Xám"
-  ],
-  "popular": false,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-03T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.301Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 17.22,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1033"
-  },
-  "name": "Khăn Quàng Cashmere",
-  "description": "Khăn quàng pha cashmere cao cấp với chất liệu siêu mềm mại. Phong cách thanh lịch sang trọng. Phụ kiện hoàn hảo cho mùa đông trang trọng hay thường ngày.",
-  "image": [
-    "https://yame.vn/cdn/shop/files/non-l-i-trai-y2010-154-den-1192199017.jpg?v=1760793151&width=600 height=200",
-    "https://yame.vn/cdn/shop/files/non-l-i-trai-y2010-154-den-1192199016.jpg?v=1760793152&width=600 height=200"
-  ],
-  "price": 490000,
-  "offerPrice": 429000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Xám",
-    "Xanh hải quân",
-    "Camel"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-03T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.302Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 12.45,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1034"
-  },
-  "name": "Đồng Hồ Thép Không Gỉ",
-  "description": "Đồng hồ thép không gỉ tối giản với dây da. Bộ máy quartz Nhật chống nước. Thiết kế vượt thời gian phù hợp mọi dịp.",
-  "image": [
-    "https://yame.vn/cdn/shop/files/non-seventy-seven-48-d-do-1174879862.jpg?v=1760788955&width=600 height=200",
-    "https://yame.vn/cdn/shop/files/non-seventy-seven-48-d-do-1174879859.jpg?v=1760788957&width=600 height=200"
-  ],
-  "price": 890000,
-  "offerPrice": 749000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Bạc",
-    "Đen"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-04T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.302Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 15.84,
-  "hasDiscount": true
-},
-{
-  "_id": {
-    "$oid": "673b1234567890abcdef1035"
-  },
-  "name": "Kính Mát Phân Cực UV400",
-  "description": "Kính mát phân cực bảo vệ UV400. Khung kim loại bền với miếng đệm mũi thoải mái. Giảm chói cho tầm nhìn rõ trong điều kiện sáng.",
-  "image": [
-    "https://yame.vn/cdn/shop/files/v-non-branded-09-nau-1174879610.jpg?v=1760786877&width=600 height=200",
-    "https://yame.vn/cdn/shop/files/v-non-branded-09-nau-1174879609.jpg?v=1760786876&width=600 height=200"
-  ],
-  "price": 320000,
-  "offerPrice": 279000,
-  "category": "Accessories",
-  "sizes": [
-    "OneSize"
-  ],
-  "colors": [
-    "Đen",
-    "Nâu"
-  ],
-  "popular": true,
-  "inStock": true,
-  "createdAt": {
-    "$date": "2024-11-04T00:00:00.000Z"
-  },
-  "updatedAt": {
-    "$date": "2025-11-08T14:28:52.303Z"
-  },
-  "details": {
-    "material": "Various premium materials",
-    "fit": "One Size / Adjustable",
-    "care": "Chỉ làm sạch chỗ bẩn",
-    "features": [
-      "Cấu trúc bền bỉ",
-      "Thiết kế thời trang",
-      "Sử dụng thực tế",
-      "Chất liệu cao cấp"
-    ],
-    "weight": "Varies",
-    "origin": "Sản xuất tại Việt Nam"
-  },
-  "discountPercent": 12.81,
-  "hasDiscount": true
-}]
+]

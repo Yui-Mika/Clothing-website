@@ -71,3 +71,8 @@ class OrderResponse(BaseModel):
 class OrderStatusUpdate(BaseModel):
     orderId: str
     status: str
+
+class OrderUpdate(BaseModel):
+    orderId: str
+    status: Optional[str] = None
+    address: Optional[OrderAddress] = None

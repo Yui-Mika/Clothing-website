@@ -17,10 +17,10 @@ const Categories = () => {
       if (data.success) {
         setCategories(data.categories);
       } else {
-        console.error("Failed to fetch categories:", data.message);
+        console.error("Không tìm được danh mục:", data.message);
       }
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      console.error("Lỗi khi tải danh mục:", error);
     } finally {
       setLoading(false);
     }
