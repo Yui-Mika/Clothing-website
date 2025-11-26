@@ -25,6 +25,25 @@ export default {
       fontFamily: {
         paci: ['"Pacifico"', 'cursive'],
       },
+      keyframes: {
+        'slide-up': {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-25%)' },
+        },
+        'ping': {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '75%, 100%': { transform: 'scale(2)', opacity: '0' },
+        },
+      },
+      animation: {
+        'slide-up': 'slide-up 0.3s ease-out',
+        'bounce': 'bounce 1s infinite',
+        'ping': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
     },
   },
   plugins: [],

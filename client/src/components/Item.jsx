@@ -6,7 +6,7 @@ import { TbShoppingBagPlus } from "react-icons/tb";
 // Hiển thị hình ảnh, tên, mô tả, danh mục và nút "Thêm vào giỏ hàng" cho một sản phẩm duy nhất.
 const Item = ({ product }) => {
   // Truy cập addToCart (hàm thêm sản phẩm vào giỏ hàng) và Maps (hàm điều hướng trang) từ ShopContext.
-  const { addToCart, navigate } = useContext(ShopContext);
+  const { addToCart, navigate, formatCurrency, currency } = useContext(ShopContext);
   const [hovered, setHovered] = useState(false);
 
   // Get discount info from product (from backend discount system)
@@ -74,29 +74,32 @@ const Item = ({ product }) => {
         {hasDiscount ? (
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xl font-bold text-red-600">
-              ${product.offerPrice.toLocaleString()}
+              {formatCurrency(product.offerPrice)}{currency}
             </span>
             <span className="text-sm text-gray-400 line-through">
-              ${product.price.toLocaleString()}
+              {formatCurrency(product.price)}{currency}
             </span>
           </div>
         ) : (
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xl font-bold text-gray-900">
-              ${product.price.toLocaleString()}
+              {formatCurrency(product.price)}{currency}
             </span>
           </div>
         )}
 
         {/* Add to Cart Button - Bottom */}
         <button
-          onClick={() => addToCart(product._id)}
+          onClick={() => {
+            navigate(`/collection/${product.category.toLowerCase()}/${product._id}`);
+            window.scrollTo(0, 0);
+          }}
           className="w-full bg-gray-900 text-white py-2.5 rounded-lg font-medium text-sm
                    hover:bg-gray-800 active:scale-95 transition-all duration-200 
                    flex items-center justify-center gap-2 shadow-md"
         >
           <TbShoppingBagPlus className="text-lg" />
-          Add to Cart
+          Thêm vào giỏ
         </button>
       </div>
     </div>

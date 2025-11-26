@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom"; // Router để điều hướng
 import { FaSquarePlus } from "react-icons/fa6"; // Icon thêm sản phẩm
-import { FaListAlt, FaUsers, FaChartBar, FaStar } from "react-icons/fa"; // Icon danh sách, khách hàng, báo cáo và testimonials
+import { FaListAlt, FaUsers, FaChartBar, FaStar, FaCog } from "react-icons/fa"; // Icon danh sách, khách hàng, báo cáo, testimonials và settings
 import { MdFactCheck } from "react-icons/md"; // Icon đơn hàng
 import { BiLogOut } from "react-icons/bi"; // Icon đăng xuất
 import { ShopContext } from "../../context/ShopContext"; // Context để sử dụng axios và navigate
@@ -27,33 +27,38 @@ const Sidebar = () => {
   const navItems = [
     {
       path: "/admin", // Đường dẫn trang thêm sản phẩm
-      label: "Add Item", // Nhãn hiển thị
+      label: "Thêm sản phẩm", // Nhãn hiển thị
       icon: <FaSquarePlus/>, // Icon thêm
     },
     {
       path: "/admin/list", // Đường dẫn trang danh sách sản phẩm
-      label: "List", // Nhãn hiển thị
+      label: "Danh sách", // Nhãn hiển thị
       icon: <FaListAlt/>, // Icon danh sách
     },
     {
       path: "/admin/orders", // Đường dẫn trang đơn hàng
-      label: "Orders", // Nhãn hiển thị
+      label: "Đơn hàng", // Nhãn hiển thị
       icon: <MdFactCheck/>, // Icon đơn hàng
     },
     {
       path: "/admin/customers", // Đường dẫn trang danh sách khách hàng
-      label: "List Customer", // Nhãn hiển thị
+      label: "Khách hàng", // Nhãn hiển thị
       icon: <FaUsers/>, // Icon khách hàng
     },
     {
       path: "/admin/testimonials", // Đường dẫn trang quản lý testimonials
-      label: "Testimonials", // Nhãn hiển thị
+      label: "Đánh giá", // Nhãn hiển thị
       icon: <FaStar/>, // Icon testimonials
     },
     {
       path: "/admin/report", // Đường dẫn trang báo cáo thống kê
-      label: "Report", // Nhãn hiển thị
+      label: "Báo cáo", // Nhãn hiển thị
       icon: <FaChartBar/>, // Icon báo cáo
+    },
+    {
+      path: "/admin/settings", // Đường dẫn trang quản lý settings
+      label: "Cài đặt", // Nhãn hiển thị
+      icon: <FaCog/>, // Icon settings
     },
   ];
 
@@ -77,7 +82,7 @@ const Sidebar = () => {
                   <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gray-900 to-transparent opacity-20"></span>
                 </h1>
                 <div className="flex items-center gap-2 px-4 py-1.5 bg-gray-900 rounded-full shadow-sm">
-                  <span className="text-[9px] md:text-[10px] text-white font-bold tracking-[0.2em] uppercase">Admin Panel</span>
+                  <span className="text-[9px] md:text-[10px] text-white font-bold tracking-[0.2em] uppercase">Quản trị viên</span>
                   <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
                 </div>
               </Link>
@@ -111,7 +116,7 @@ const Sidebar = () => {
                 className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 hover:text-red-700 transition-all duration-200"
               >
                 <BiLogOut className="text-lg" />
-                <span className="hidden sm:block">Logout</span>
+                <span className="hidden sm:block">Đăng xuất</span>
               </button>
             </div>
             

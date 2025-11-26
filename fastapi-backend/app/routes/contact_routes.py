@@ -29,7 +29,7 @@ async def submit_contact(contact: ContactCreate):
     
     return {
         "success": True,
-        "message": "Your message has been sent successfully. We'll get back to you soon!",
+        "message": "Tin nhắn của bạn đã được gửi thành công. Chúng tôi sẽ phản hồi sớm nhất!",
         "contactId": str(result.inserted_id)
     }
 
@@ -70,7 +70,7 @@ async def get_contact(contact_id: str, staff: dict = Depends(auth_staff)):
     if not contact:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Contact not found"
+            detail="Không tìm thấy tin nhắn liên hệ"
         )
     
     # Mark as read
@@ -100,7 +100,7 @@ async def update_contact_status(
     if status not in valid_statuses:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Invalid status"
+            detail="Trạng thái không hợp lệ"
         )
     
     result = await contacts_collection.update_one(
@@ -111,12 +111,12 @@ async def update_contact_status(
     if result.matched_count == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Contact not found"
+            detail="Không tìm thấy tin nhắn liên hệ"
         )
     
     return {
         "success": True,
-        "message": "Contact status updated successfully"
+        "message": "Cập nhật trạng thái liên hệ thành công"
     }
 
 @router.delete("/{contact_id}", response_model=dict)
@@ -129,10 +129,10 @@ async def delete_contact(contact_id: str, staff: dict = Depends(auth_staff)):
     if result.deleted_count == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Contact not found"
+            detail="Không tìm thấy tin nhắn liên hệ"
         )
     
     return {
         "success": True,
-        "message": "Contact deleted successfully"
+        "message": "Xóa tin nhắn liên hệ thành công"
     }

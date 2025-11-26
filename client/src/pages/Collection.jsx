@@ -42,7 +42,7 @@ useEffect(() => {
           {/* Elegant Title */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-              All <span className="text-gray-400 font-light">Products</span>
+              Tất cả <span className="text-gray-400 font-light">sản phẩm</span>
             </h1>
           </div>
 
@@ -55,7 +55,7 @@ useEffect(() => {
                 .map((product) => <Item key={product._id} product={product} />)
             ) : (
               <p className="text-gray-500 col-span-full text-center py-10">
-                Oops! Nothing matched your search.
+                Không tìm thấy sản phẩm phù hợp.
               </p>
             )}
           </div>
@@ -116,7 +116,7 @@ useEffect(() => {
 
                 {/* Product Count Display */}
                 <p className="text-sm text-gray-500">
-                  Showing {startProduct}-{endProduct} of {inStockProducts.length} products
+                  Hiển thị {startProduct}-{endProduct} trong tổng số {inStockProducts.length} sản phẩm
                 </p>
               </div>
             </div>

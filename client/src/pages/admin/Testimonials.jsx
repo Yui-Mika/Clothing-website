@@ -23,7 +23,7 @@ const Testimonials = () => {
       }
     } catch (error) {
       console.error("Error fetching testimonials:", error);
-      toast.error("Failed to load testimonials");
+      toast.error("Không thể tải danh sách đánh giá");
     } finally {
       setLoading(false);
     }
@@ -65,7 +65,7 @@ const Testimonials = () => {
       }
     } catch (error) {
       console.error("Approve error:", error);
-      toast.error(error.response?.data?.detail || "Failed to approve");
+      toast.error(error.response?.data?.detail || "Không thể duyệt");
     } finally {
       setActionLoading(null);
     }
@@ -91,7 +91,7 @@ const Testimonials = () => {
       }
     } catch (error) {
       console.error("Reject error:", error);
-      toast.error(error.response?.data?.detail || "Failed to reject");
+      toast.error(error.response?.data?.detail || "Không thể từ chối");
     } finally {
       setActionLoading(null);
     }
@@ -115,7 +115,7 @@ const Testimonials = () => {
       }
     } catch (error) {
       console.error("Delete error:", error);
-      toast.error(error.response?.data?.detail || "Failed to delete");
+      toast.error(error.response?.data?.detail || "Không thể xóa");
     } finally {
       setActionLoading(null);
     }

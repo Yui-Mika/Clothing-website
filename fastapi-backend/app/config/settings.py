@@ -4,7 +4,7 @@ from typing import Optional
 class Settings(BaseSettings):
     # MongoDB
     MONGODB_URL: str
-    DATABASE_NAME: str = "veloura_db"
+    DATABASE_NAME: str = "veloura"
     
     # JWT
     JWT_SECRET: str
@@ -53,6 +53,17 @@ class Settings(BaseSettings):
     
     # Delivery charges
     DELIVERY_CHARGES: float = 10.0
+    
+    # VNPay Configuration
+    VNPAY_TMN_CODE: str
+    VNPAY_HASH_SECRET: str
+    VNPAY_URL: str
+    VNPAY_RETURN_URL: str
+    
+    # Google Gemini Configuration (for RAG Chatbot)
+    GEMINI_API_KEY: Optional[str] = None
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_EMBEDDING_MODEL: str = "models/text-embedding-004"
     
     class Config:
         env_file = ".env"

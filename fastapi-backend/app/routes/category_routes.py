@@ -36,7 +36,7 @@ async def get_category(category_id: str):
     if not category:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Category not found"
+            detail="Không tìm thấy danh mục"
         )
     
     category["_id"] = str(category["_id"])
@@ -57,7 +57,7 @@ async def get_category_by_slug(slug: str):
     if not category:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Category not found"
+            detail="Không tìm thấy danh mục"
         )
     
     category["_id"] = str(category["_id"])
@@ -82,7 +82,7 @@ async def add_category(
     if existing:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Category already exists"
+            detail="Danh mục đã tồn tại"
         )
     
     # Upload image if provided
@@ -114,7 +114,7 @@ async def add_category(
     
     return {
         "success": True,
-        "message": "Category added successfully",
+        "message": "Thêm danh mục thành công",
         "categoryId": str(result.inserted_id)
     }
 
@@ -134,7 +134,7 @@ async def update_category(
     if not category:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Category not found"
+            detail="Không tìm thấy danh mục"
         )
     
     update_data = {}
@@ -161,7 +161,7 @@ async def update_category(
     
     return {
         "success": True,
-        "message": "Category updated successfully"
+        "message": "Cập nhật danh mục thành công"
     }
 
 @router.delete("/{category_id}", response_model=dict)
@@ -178,10 +178,10 @@ async def delete_category(category_id: str, staff: dict = Depends(auth_staff)):
     if result.matched_count == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Category not found"
+            detail="Không tìm thấy danh mục"
         )
     
     return {
         "success": True,
-        "message": "Category deleted successfully"
+        "message": "Xóa danh mục thành công"
     }

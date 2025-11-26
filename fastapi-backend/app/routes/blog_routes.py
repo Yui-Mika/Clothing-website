@@ -35,7 +35,7 @@ async def get_blog(blog_id: str):
     if not blog:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Blog not found"
+            detail="Không tìm thấy bài viết"
         )
     
     blog["_id"] = str(blog["_id"])
@@ -79,7 +79,7 @@ async def add_blog(
     
     return {
         "success": True,
-        "message": "Blog added successfully",
+        "message": "Thêm bài viết thành công",
         "blogId": str(result.inserted_id)
     }
 
@@ -101,7 +101,7 @@ async def update_blog(
     if not blog:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Blog not found"
+            detail="Không tìm thấy bài viết"
         )
     
     update_data = {}
@@ -130,7 +130,7 @@ async def update_blog(
     
     return {
         "success": True,
-        "message": "Blog updated successfully"
+        "message": "Cập nhật bài viết thành công"
     }
 
 @router.delete("/{blog_id}", response_model=dict)
@@ -143,12 +143,12 @@ async def delete_blog(blog_id: str, staff: dict = Depends(auth_staff)):
     if result.deleted_count == 0:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Blog not found"
+            detail="Không tìm thấy bài viết"
         )
     
     return {
         "success": True,
-        "message": "Blog deleted successfully"
+        "message": "Xóa bài viết thành công"
     }
 
 @router.put("/{blog_id}/publish", response_model=dict)
@@ -160,7 +160,7 @@ async def toggle_publish_blog(blog_id: str, staff: dict = Depends(auth_staff)):
     if not blog:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Blog not found"
+            detail="Không tìm thấy bài viết"
         )
     
     new_status = not blog.get("isPublished", True)

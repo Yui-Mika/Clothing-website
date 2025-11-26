@@ -27,7 +27,7 @@ async def create_review(
         # 1. Validate product exists
         product = await products_collection.find_one({"_id": ObjectId(review_data.productId)})
         if not product:
-            raise HTTPException(status_code=404, detail="Product not found")
+            raise HTTPException(status_code=404, detail="Không tìm thấy sản phẩm")
 
         # 2. Check if user already reviewed this product
         existing_review = await reviews_collection.find_one({
@@ -38,7 +38,7 @@ async def create_review(
         if existing_review:
             raise HTTPException(
                 status_code=400,
-                detail="You already reviewed this product. Please edit your existing review."
+                detail="Bạn đã đánh giá sản phẩm này rồi. Vui lòng chỉnh sửa đánh giá hiện tại."
             )
 
         # 3. CHECK VERIFIED PURCHASE (Option 1 - Strict)
@@ -56,7 +56,7 @@ async def create_review(
         if not order:
             raise HTTPException(
                 status_code=403,
-                detail="You must purchase and receive this product before writing a review"
+                detail="Bạn phải mua và nhận sản phẩm này trước khi viết đánh giá"
             )
 
         # Get purchase date from order
@@ -86,7 +86,7 @@ async def create_review(
 
         return {
             "success": True,
-            "message": "Review created successfully",
+            "message": "Tạo đánh giá thành công",
             "reviewId": str(result.inserted_id)
         }
 
@@ -110,7 +110,7 @@ async def get_product_reviews(
 
         # Validate product_id
         if not ObjectId.is_valid(product_id):
-            raise HTTPException(status_code=400, detail="Invalid product ID")
+            raise HTTPException(status_code=400, detail="ID sản phẩm không hợp lệ")
 
         # Build sort query
         sort_query = {}
@@ -159,7 +159,7 @@ async def get_review_stats(product_id: str):
         reviews_collection = await get_collection("reviews")
 
         if not ObjectId.is_valid(product_id):
-            raise HTTPException(status_code=400, detail="Invalid product ID")
+            raise HTTPException(status_code=400, detail="ID sản phẩm không hợp lệ")
 
         # Aggregate statistics
         pipeline = [
@@ -214,16 +214,16 @@ async def update_review(
         reviews_collection = await get_collection("reviews")
 
         if not ObjectId.is_valid(review_id):
-            raise HTTPException(status_code=400, detail="Invalid review ID")
+            raise HTTPException(status_code=400, detail="ID đánh giá không hợp lệ")
 
         # Find the review
         review = await reviews_collection.find_one({"_id": ObjectId(review_id)})
         if not review:
-            raise HTTPException(status_code=404, detail="Review not found")
+            raise HTTPException(status_code=404, detail="Không tìm thấy đánh giá")
 
         # Check if user owns this review
         if str(review["userId"]) != str(current_user["_id"]):
-            raise HTTPException(status_code=403, detail="You can only update your own reviews")
+            raise HTTPException(status_code=403, detail="Bạn chỉ có thể cập nhật đánh giá của mình")
 
         # Build update data (only update provided fields)
         update_data = {"updatedAt": datetime.utcnow()}
@@ -242,7 +242,7 @@ async def update_review(
 
         return {
             "success": True,
-            "message": "Review updated successfully"
+            "message": "Cập nhật đánh giá thành công"
         }
 
     except HTTPException:
@@ -262,26 +262,26 @@ async def delete_review(
         reviews_collection = await get_collection("reviews")
 
         if not ObjectId.is_valid(review_id):
-            raise HTTPException(status_code=400, detail="Invalid review ID")
+            raise HTTPException(status_code=400, detail="ID đánh giá không hợp lệ")
 
         # Find the review
         review = await reviews_collection.find_one({"_id": ObjectId(review_id)})
         if not review:
-            raise HTTPException(status_code=404, detail="Review not found")
+            raise HTTPException(status_code=404, detail="Không tìm thấy đánh giá")
 
         # Check permission (user owns review OR user is admin)
         is_admin = current_user.get("role") in ["admin", "staff"]
         is_owner = str(review["userId"]) == str(current_user["_id"])
 
         if not (is_owner or is_admin):
-            raise HTTPException(status_code=403, detail="You don't have permission to delete this review")
+            raise HTTPException(status_code=403, detail="Bạn không có quyền xóa đánh giá này")
 
         # Delete review
         await reviews_collection.delete_one({"_id": ObjectId(review_id)})
 
         return {
             "success": True,
-            "message": "Review deleted successfully"
+            "message": "Xóa đánh giá thành công"
         }
 
     except HTTPException:

@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 from app.config.database import connect_to_mongo, close_mongo_connection
-from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes, review_routes, wishlist_routes
+from app.routes import user_routes, product_routes, cart_routes, order_routes, admin_routes, category_routes, blog_routes, testimonial_routes, report_routes, contact_routes, review_routes, wishlist_routes, settings_routes, chat_routes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -39,6 +39,7 @@ app.add_middleware(
 # Include routers
 app.include_router(user_routes.router, prefix="/api/user", tags=["Users"])
 app.include_router(admin_routes.router, prefix="/api/admin", tags=["Admin"])
+app.include_router(settings_routes.router, prefix="/api/settings", tags=["Settings"])
 app.include_router(product_routes.router, prefix="/api/product", tags=["Products"])
 app.include_router(category_routes.router, prefix="/api/category", tags=["Categories"])
 app.include_router(cart_routes.router, prefix="/api/cart", tags=["Cart"])
@@ -49,6 +50,7 @@ app.include_router(contact_routes.router, prefix="/api/contact", tags=["Contact"
 app.include_router(report_routes.router, prefix="/api/report", tags=["Reports"])
 app.include_router(review_routes.router, prefix="/api/review", tags=["Reviews"])
 app.include_router(wishlist_routes.router, prefix="/api", tags=["Wishlist"])
+app.include_router(chat_routes.router, prefix="/api", tags=["Chat"])
 
 @app.get("/")
 async def root():

@@ -64,7 +64,7 @@ const BlogDetails = () => {
   // Copy link to clipboard
   const handleShareLink = () => {
     navigator.clipboard.writeText(window.location.href)
-    toast.success('Link copied to clipboard!')
+    toast.success('Đã sao chép link vào clipboard!')
   }
 
   // Loading state

@@ -12,6 +12,7 @@ const PlaceOrder = () => {
     setCartItems,
     products,
     axios,
+    currentSettings,
   } = useContext(ShopContext);
   const [method, setMethod] = useState("COD");
 
@@ -64,11 +65,19 @@ const PlaceOrder = () => {
         size: item.size
       }));
 
+      // Snapshot fees tại thời điểm đặt hàng từ settings
+      const fees = {
+        shippingFee: currentSettings.shippingFee,
+        taxRate: currentSettings.taxRate,
+        year: currentSettings.year
+      };
+
       if (method === "COD") {
         // Place order using COD
         const { data } = await axios.post("/api/order/cod", {
             items,
             address: formData,
+            fees, // Thêm fees snapshot
         });
         if (data.success) {
             toast.success(data.message);
@@ -77,18 +86,30 @@ const PlaceOrder = () => {
         } else {
             toast.error(data.message);
         }
-    } else {
+    } else if (method === "stripe") {
         // Place order using Stripe
         const { data } = await axios.post("/api/order/stripe", {
             items,
             address: formData,
+            fees, // Thêm fees snapshot
         });
         if (data.success) {
            window.location.replace(data.url)
         } else {
             toast.error(data.message);
         }
-        
+    } else if (method === "vnpay") {
+        // Place order using VNPay
+        const { data } = await axios.post("/api/order/vnpay", {
+            items,
+            address: formData,
+            fees, // Thêm fees snapshot
+        });
+        if (data.success) {
+            window.location.replace(data.url);
+        } else {
+            toast.error(data.message);
+        }
     }
 } catch (error) {
     console.log(error)
@@ -104,8 +125,8 @@ return (
           {/* Left Side */}
           <div className="flex flex-[2] flex-col gap-3 text-[95%]">
             <Title
-              title1={"Delivery"}
-              title2={"Information"}
+              title1={"Thông tin"}
+              title2={"giao hàng"}
               titleStyles={"pb-5"}
             />
             <div className="flex gap-3">
@@ -114,7 +135,7 @@ return (
                 value={formData.firstName}
                 type="text"
                 name="firstName"
-                placeholder="First Name"
+                placeholder="Tên"
                 className="ring-1 ring-slate-900/15  p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -123,7 +144,7 @@ return (
                 value={formData.lastName}
                 type="text"
                 name="lastName"
-                placeholder="Last Name"
+                placeholder="Họ"
                 className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -142,7 +163,7 @@ return (
               value={formData.phone}
               type="text"
               name="phone"
-              placeholder="Phone Number"
+              placeholder="Số điện thoại"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm bg-white outline-none"
               required
             />
@@ -151,7 +172,7 @@ return (
               value={formData.street}
               type="text"
               name="street"
-              placeholder="Street"
+              placeholder="Địa chỉ"
               className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm bg-white outline-none"
               required
             />
@@ -161,7 +182,7 @@ return (
                 value={formData.city}
                 type="text"
                 name="city"
-                placeholder="City"
+                placeholder="Thành phố"
                 className="ring-1 ring-slate-900/15  p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -170,7 +191,7 @@ return (
                 value={formData.state}
                 type="text"
                 name="state"
-                placeholder="State"
+                placeholder="Quận/Huyện"
                 className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -181,7 +202,7 @@ return (
                 value={formData.zipcode}
                 type="text"
                 name="zipcode"
-                placeholder="Zip Code"
+                placeholder="Mã bưu điện"
                 className="ring-1 ring-slate-900/15  p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -190,7 +211,7 @@ return (
                 value={formData.country}
                 type="text"
                 name="country"
-                placeholder="Country"
+                placeholder="Quốc gia"
                 className="ring-1 ring-slate-900/15 p-1 pl-3 rounded-sm bg-white outline-none w-1/2"
                 required
               />
@@ -206,11 +227,11 @@ return (
                   onClick={() => navigate("/place-order")}
                   className="btn-dark w-full mt-8"
                 >
-                  Proceed to Delivery
+                  Tiếp tục giao hàng
                 </button>
               ) : (
                 <button type="submit" className="btn-dark w-full mt-8">
-                  Proceed to Order
+                  Đặt hàng
                 </button>
               )}
             </div>

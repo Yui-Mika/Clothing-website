@@ -14,3 +14,8 @@ stripe==11.1.0
 email-validator==2.2.0
 aiosmtplib==5.0.0
 resend==2.7.0
+fastapi-mail==1.4.1
+
+# RAG & AI Dependencies
+google-generativeai==0.8.3
+chromadb==0.5.11

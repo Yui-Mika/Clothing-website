@@ -14,8 +14,8 @@ const ProductFeatures = () => {
                     <TbArrowBackUp className='text-2xl'/>
                 </div>
                 <div className='flex-1'>
-                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-yellow-700 transition-colors'>Easy Returns</h4>
-                    <p className='text-sm text-gray-600 leading-relaxed'>Return products within 7 days of purchase. No questions asked - hassle-free returns for your peace of mind.</p>
+                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-yellow-700 transition-colors'>Đổi trả dễ dàng</h4>
+                    <p className='text-sm text-gray-600 leading-relaxed'>Trả lại sản phẩm trong vòng 7 ngày kể từ ngày mua. Không cần hỏi - đổi trả dễ dàng để bạn yên tâm.</p>
                 </div>
             </div>
 
@@ -25,8 +25,8 @@ const ProductFeatures = () => {
                     <TbTruckDelivery className='text-2xl'/>
                 </div>
                 <div className='flex-1'>
-                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-red-600 transition-colors'>Fast Delivery</h4>
-                    <p className='text-sm text-gray-600 leading-relaxed'>Free shipping on orders over $500. Express delivery available in 2-3 business days across the country.</p>
+                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-red-600 transition-colors'>Giao hàng nhanh</h4>
+                    <p className='text-sm text-gray-600 leading-relaxed'>Giao hàng miễn phí cho đơn hàng trên 2.400.000đ. Giao hàng nhanh trong 2-3 ngày làm việc trên toàn quốc.</p>
                 </div>
             </div>
 
@@ -36,8 +36,8 @@ const ProductFeatures = () => {
                     <RiSecurePaymentLine className='text-2xl'/>
                 </div>
                 <div className='flex-1'>
-                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-600 transition-colors'>Secure Payment</h4>
-                    <p className='text-sm text-gray-600 leading-relaxed'>100% secure transactions with encrypted payment gateway. Cash on delivery available for your convenience.</p>
+                    <h4 className='font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-600 transition-colors'>Thanh toán an toàn</h4>
+                    <p className='text-sm text-gray-600 leading-relaxed'>Giao dịch 100% an toàn với cổng thanh toán được mã hóa. Thanh toán khi nhận hàng tiện lợi cho bạn.</p>
                 </div>
             </div>
         </div>

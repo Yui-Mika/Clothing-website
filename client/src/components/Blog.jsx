@@ -23,7 +23,7 @@ const Blog = () => {
           setBlogs(latestBlogs);
         }
       } catch (error) {
-        console.error("Error fetching blogs:", error);
+        console.error("Lỗi khi tải bài viết:", error);
       } finally {
         setLoading(false);
       }
@@ -34,7 +34,7 @@ const Blog = () => {
   // Format date
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    return new Date(dateString).toLocaleDateString("vi-VN", options);
   };
 
   // Don't show section nếu không có blogs
@@ -45,11 +45,11 @@ const Blog = () => {
   return (
     <section className="max-padd-container py-16 md:py-24">
       <Title
-        title1={"Our Expert"}
-        title2={"Blog"}
+        title2={"Chuyên Gia"}
+        title1={"Blog"}
         titleStyles={"pb-12 pt-30"}
         paraStyles={"!block"}
-        para={"Stay ahead of fashion trends with styling tips, product reviews, and expert advice helping you shop smarter and dress better."}
+        para={"Luôn dẫn đầu xu hướng thời trang với mẹo phối đồ, đánh giá sản phẩm và lời khuyên chuyên gia giúp bạn mua sắm thông minh hơn và mặc đẹp hơn."}
       />
 
       {/* Container */}
@@ -87,7 +87,7 @@ const Blog = () => {
 
               {/* Button */}
               <button className="text-xs uppercase tracking-wide border border-white/40 px-4 py-2 bg-white/10 hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm">
-                Read More
+                Đọc thêm
               </button>
             </div>
           </div>
@@ -103,7 +103,7 @@ const Blog = () => {
           }}
           className="inline-block px-8 py-3 bg-tertiary text-white text-sm font-semibold uppercase tracking-wide hover:bg-secondary transition-all duration-300 shadow-md hover:shadow-lg"
         >
-          View All Blogs
+          Xem tất cả các bài viết
         </button>
       </div>
     </section>

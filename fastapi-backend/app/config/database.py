@@ -12,7 +12,12 @@ async def get_database():
 
 async def connect_to_mongo():
     """Connect to MongoDB"""
-    db.client = AsyncIOMotorClient(settings.MONGODB_URL)
+    # For local development: disable SSL certificate verification
+    # For production (Lambda): SSL works fine
+    db.client = AsyncIOMotorClient(
+        settings.MONGODB_URL,
+        tlsAllowInvalidCertificates=True  # Allow self-signed certs for local dev
+    )
     # Test connection
     await db.client.admin.command('ping')
     print("✅ Connected to MongoDB successfully!")

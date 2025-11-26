@@ -11,6 +11,7 @@ const Cart = () => {
     navigate,
     products,
     currency,
+    formatCurrency,
     cartItems,
     updateQuantity,
   } = useContext(ShopContext);
@@ -63,12 +64,12 @@ const Cart = () => {
         {/* Left Side */}
         <div className="flex flex-[2] flex-col gap-3 text-[95%]">
           {/* Hiển thị tiêu đề Cart Overview */}
-          <Title title1={"Cart"} title2={"Overview"} titleStyles={"pb-5"} />
+          <Title title1={"Giỏ hàng"} title2={"của bạn"} titleStyles={"pb-5"} />
           {/* Cart Items Container */}
           <div className="grid grid-cols-[6fr_1fr_1fr] text-base font-medium bg-white p-2">
-            <h5 className="h5 text-left">Product Details</h5>
-            <h5 className="h5 text-center">Subtotal</h5>
-            <h5 className="h5 text-center">Action</h5>
+            <h5 className="h5 text-left">Thông tin sản phẩm</h5>
+            <h5 className="h5 text-center">Tạm tính</h5>
+            <h5 className="h5 text-center">Thao tác</h5>
           </div>
 
           {/* Lặp qua các sản phẩm ở mảng cartData trong giỏ hàng và hiển thị từng sản phẩm */}
@@ -97,7 +98,7 @@ const Cart = () => {
                       {product.name}
                     </h5>
                     <div className="bold-14 flexStart gap-2 mb-1"> {/* Kích thước sản phẩm */}
-                      Size: <p>{item.size}</p>
+                      Kích cỡ: <p>{item.size}</p>
                     </div>
                     <div className="flexBetween">
                       <div className="flex items-center ring-1 ring-slate-900/5 rounded-full overflow-hidden bg-primary">
@@ -126,8 +127,7 @@ const Cart = () => {
                 {/* Tổng phụ (Cột 2) */}
                 {/* Tính và hiển thị tổng giá trị cho sản phẩm này */}
                 <p className="text-center">
-                  {currency}
-                  {product.offerPrice * quantity} {/* tính tổng phụ: giá khuyến mãi * số lượng */}
+                  {formatCurrency(product.offerPrice * quantity)}{currency} {/* tính tổng phụ: giá khuyến mãi * số lượng */}
                 </p>
 
                 {/* Nút xóa sản phẩm (Cột 3) */}

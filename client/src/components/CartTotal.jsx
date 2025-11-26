@@ -12,8 +12,9 @@ const CartTotal = ({method, setMethod}) => { // Nhận method và setMethod từ
   // currency: đơn vị tiền tệ hiện tại
   // getCartAmount: hàm tính tổng tiền giỏ hàng
   // getCartCount: hàm đếm số lượng mặt hàng trong giỏ hàng
-  // delivery_charges: phí vận chuyển cố định
-  const { currency, getCartAmount, getCartCount, delivery_charges } = useContext(ShopContext);
+  // getShippingFee: hàm lấy phí vận chuyển từ settings
+  // getTaxRate: hàm lấy tax rate từ settings
+  const { currency, formatCurrency, getCartAmount, getCartCount, getShippingFee, getTaxRate } = useContext(ShopContext);
   
   // Lấy thông tin về URL hiện tại để xác định xem người dùng có đang ở trang đặt hàng hay không
   const location = useLocation();
@@ -22,8 +23,8 @@ const CartTotal = ({method, setMethod}) => { // Nhận method và setMethod từ
   return (
     <div>
       <h3 className="bold-22">
-        Order Summary{" "} {/* Hiển thị tiêu đề "Order Summary" */}
-        <span className="bold-14 text-secondary">({getCartCount()} Items)</span> {/* Hiển thị số lượng mặt hàng trong giỏ hàng mà 
+        Tóm tắt đơn hàng{" "} {/* Hiển thị tiêu đề "Tóm tắt đơn hàng" */}
+        <span className="bold-14 text-secondary">({getCartCount()} sản phẩm)</span> {/* Hiển thị số lượng mặt hàng trong giỏ hàng mà 
         ng dùng đã thêm */}
       </h3>
       <hr className="border-gray-300 my-5" />
@@ -34,16 +35,16 @@ const CartTotal = ({method, setMethod}) => { // Nhận method và setMethod từ
         <div className="mb-6">
           <div className="my-6">
             <h4 className="h4 mb-5">
-              Payment <span>Method</span>
+              Phương thức <span>thanh toán</span>
             </h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               <div
                 onClick={() => setMethod("COD")}
                 className={`${
                   method === "COD" ? "btn-secondary" : "btn-light" // Kiểm tra nếu phương thức hiện tại là "COD" để áp dụng kiểu nút tương ứng
                 } !py-1 text-xs cursor-pointer`}
               >
-                Cash on Delivery
+                Tiền mặt khi nhận hàng
               </div>
               <div
                 onClick={() => setMethod("stripe")} // Như trên, stripe ở đây là phương thức thanh toán trực tuyến
@@ -52,6 +53,14 @@ const CartTotal = ({method, setMethod}) => { // Nhận method và setMethod từ
                 } !py-1 text-xs cursor-pointer`}
               >
                 Stripe
+              </div>
+              <div
+                onClick={() => setMethod("vnpay")}
+                className={`${
+                  method === "vnpay" ? "btn-secondary" : "btn-light"
+                } !py-1 text-xs cursor-pointer`}
+              >
+                VNPay
               </div>
             </div>
           </div>
@@ -63,36 +72,31 @@ const CartTotal = ({method, setMethod}) => { // Nhận method và setMethod từ
       {/* Hiển thị các mục chi phí dưới dạng key-value (tên khoản mục - số tiền) */}
       <div className=" mt-4 space-y-2">
         <div className="flex justify-between">
-          <h5 className="h5">Price</h5>
+          <h5 className="h5">Giá sản phẩm</h5>
           <p className="font-bold">
-            {currency}
-            {getCartAmount()} {/* Tổng giá của tất cả sản phẩm trong giỏ hàng, đã tính khuyến mãi */}
+            {formatCurrency(getCartAmount())}
           </p>
         </div>
         <div className="flex justify-between">
-          <h5 className="h5">Shipping Fee</h5>
+          <h5 className="h5">Phí vận chuyển</h5>
           <p className="font-bold">
-            {getCartAmount() === 0 // Nếu giỏ hàng trống, phí vận chuyển là $0.00
-              ? "$0.00"
-              : `${currency}${delivery_charges}.00`} {/* Ngược lại sử dụng phí vận chuyển cố định */}
+            {getCartAmount() === 0
+              ? "0₫"
+              : formatCurrency(getShippingFee())}
           </p>
         </div>
         <div className="flex justify-between">
-          <h5 className="h5">Tax (2%)</h5>
+          <h5 className="h5">Thuế ({(getTaxRate() * 100).toFixed(0)}%)</h5>
           <p className="font-bold">
-            {currency}
-            {(getCartAmount() * 2) / 100} {/* Tính thuế là 2% của tổng tiền giỏ hàng */}
+            {formatCurrency(getCartAmount() * getTaxRate())}
           </p>
         </div>
         <div className="flex justify-between text-lg font-medium mt-3">
-          <h4 className="h4">Total Amount:</h4>
+          <h4 className="h4">Tổng cộng:</h4>
           <p className="bold-18">
-            {currency}
             {getCartAmount() === 0
-              ? "0.00"
-              : getCartAmount() + // Tổng cộng cuối cùng = tổng tiền giỏ hàng + phí vận chuyển + thuế
-                delivery_charges +
-                (getCartAmount() * 2) / 100}
+              ? "0₫"
+              : formatCurrency(getCartAmount() + getShippingFee() + (getCartAmount() * getTaxRate()))}
           </p>
         </div>
       </div>

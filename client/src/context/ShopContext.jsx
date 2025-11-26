@@ -99,8 +99,13 @@ export const ShopContext = createContext();
 // Đây là nơi chứa toàn bộ logic và trạng thái liên quan đến cửa hàng
 const ShopContextProvider = ({ children }) => {
   const navigate = useNavigate(); // Hàm điều hướng giữa các trang
-  const currency = import.meta.env.VITE_CURRENCY; // Đơn vị tiền tệ lấy từ biến môi trường
-  const delivery_charges = 10; // Phí vận chuyển cố định là $10
+  const currency = '₫'; // Đơn vị tiền tệ Việt Nam
+  const delivery_charges = 10; // Phí vận chuyển cố định là $10 (deprecated - sẽ dùng từ settings)
+  
+  // Function format số tiền theo chuẩn Việt Nam (1.000.000₫)
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('vi-VN').format(Math.round(amount));
+  };
   const [showUserLogin, setShowUserLogin] = useState(false); // State kiểm soát việc hiển thị/ẩn modal đăng nhập của người dùng.
   const [products, setProducts] = useState([]); // State lưu trữ tất cả sản phẩm từ backend
   const [categories, setCategories] = useState([]); // State lưu trữ tất cả categories từ backend
@@ -110,10 +115,49 @@ const ShopContextProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState(""); //State lưu trữ chuỗi tìm kiếm hiện tại của người dùng.
   
   // ============================================================================
+  // SETTINGS STATE - Quản lý shipping fee và tax rate từ backend
+  // ============================================================================
+  const [currentSettings, setCurrentSettings] = useState({
+    year: new Date().getFullYear(),
+    shippingFee: 10, // Default fallback
+    taxRate: 0.02, // Default 2%
+    isActive: true
+  });
+  
+  // ============================================================================
   // WISHLIST STATE - Quản lý wishlist của user
   // ============================================================================
   const [wishlistCount, setWishlistCount] = useState(0); // Số lượng sản phẩm trong wishlist (hiển thị badge)
   const [wishlistProducts, setWishlistProducts] = useState([]); // Danh sách sản phẩm trong wishlist (dùng trong Wishlist page)
+
+  // Hàm fetch settings từ backend
+  const fetchSettings = async () => {
+    try {
+      const { data } = await axios.get("/api/settings/current");
+      if (data) {
+        setCurrentSettings({
+          year: data.year,
+          shippingFee: data.shippingFee,
+          taxRate: data.taxRate,
+          isActive: data.isActive
+        });
+        console.log("✅ Settings loaded:", data);
+      }
+    } catch (error) {
+      console.error("❌ Error fetching settings:", error);
+      // Giữ giá trị mặc định nếu fetch thất bại
+      toast.error("Không thể tải cài đặt phí, sử dụng mặc định");
+    }
+  };
+
+  // Helper functions để lấy fees từ settings
+  const getShippingFee = () => {
+    return currentSettings.shippingFee || 10;
+  };
+
+  const getTaxRate = () => {
+    return currentSettings.taxRate || 0.02;
+  };
 
   // Hàm tải sản phẩm từ backend (API Call)
   // Gửi yêu cầu GET đến endpoint /api/product/list để lấy danh sách sản phẩm
@@ -121,7 +165,10 @@ const ShopContextProvider = ({ children }) => {
     try {
       const { data } = await axios.get("/api/product/list"); // Gọi API để lấy danh sách sản phẩm
       if (data.success) { // Nếu thành công, cập nhật state products với dữ liệu nhận được
-        setProducts(data.products);
+        // Lọc chỉ hiển thị sản phẩm active (isActive !== false) cho người dùng
+        // Admin vẫn thấy tất cả sản phẩm vì họ fetch trực tiếp từ API trong admin pages
+        const activeProducts = data.products.filter(product => product.isActive !== false);
+        setProducts(activeProducts);
       } else { // Nếu thất bại, hiển thị thông báo lỗi
         toast.error(data.message);
       }
@@ -236,14 +283,14 @@ const ShopContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log('Error fetching wishlist:', error);
-      toast.error('Failed to load wishlist');
+      toast.error('Không thể tải danh sách yêu thích');
     }
   };
 
   // Add to wishlist - Thêm sản phẩm vào wishlist
   const addToWishlist = async (productId) => {
     if (!user) {
-      toast.error('Please login to add to wishlist');
+      toast.error('Vui lòng đăng nhập để thêm vào yêu thích');
       setShowUserLogin(true);
       return;
     }
@@ -252,15 +299,15 @@ const ShopContextProvider = ({ children }) => {
       const { data } = await axios.post('/api/wishlist/add', { productId });
       if (data.success) {
         setWishlistCount(data.count);
-        toast.success(data.message || 'Added to wishlist!');
+        toast.success(data.message || 'Đã thêm vào danh sách yêu thích!');
         return true;
       } else {
-        toast.error(data.message || 'Product already in wishlist');
+        toast.error(data.message || 'Sản phẩm đã có trong danh sách yêu thích');
         return false;
       }
     } catch (error) {
       console.log('Error adding to wishlist:', error);
-      toast.error('Failed to add to wishlist');
+      toast.error('Không thể thêm vào danh sách yêu thích');
       return false;
     }
   };
@@ -274,7 +321,7 @@ const ShopContextProvider = ({ children }) => {
       if (data.success) {
         setWishlistCount(data.count);
         setWishlistProducts(prev => prev.filter(p => p._id !== productId));
-        toast.success(data.message || 'Removed from wishlist');
+        toast.success(data.message || 'Đã xóa khỏi danh sách yêu thích');
         return true;
       } else {
         toast.error(data.message);
@@ -282,7 +329,7 @@ const ShopContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log('Error removing from wishlist:', error);
-      toast.error('Failed to remove from wishlist');
+      toast.error('Không thể xóa khỏi danh sách yêu thích');
       return false;
     }
   };
@@ -308,38 +355,30 @@ const ShopContextProvider = ({ children }) => {
       if (data.success) {
         setWishlistCount(0);
         setWishlistProducts([]);
-        toast.success('Wishlist cleared');
+        toast.success('Đã xóa toàn bộ danh sách yêu thích');
       }
     } catch (error) {
       console.log('Error clearing wishlist:', error);
-      toast.error('Failed to clear wishlist');
+      toast.error('Không thể xóa danh sách yêu thích');
     }
   };
 
   // Xử lý sau khi đăng nhập thành công
+  // Chỉ fetch data, không navigate - để Login.jsx xử lý navigation
   const handleLoginSuccess = async () => {
     await fetchUser(); // Tải lại thông tin người dùng và giỏ hàng từ server
     await fetchWishlistCount(); // Tải số lượng wishlist sau khi login
     
-    // Kiểm tra role của user để chuyển hướng đúng trang
+    // Trả về role của user để Login.jsx xử lý navigation
     try {
       const { data } = await axios.get("/api/user/is-auth");
       if (data.success && data.user) {
-        const userRole = data.user.role;
-        
-        // Nếu là admin hoặc staff, chuyển đến trang thêm sản phẩm admin
-        if (userRole === "admin" || userRole === "staff") {
-          navigate("/admin"); // Chuyển đến trang thêm sản phẩm (AddProduct) trong admin panel
-        } else {
-          // Nếu là customer, chuyển về trang chủ
-          navigate("/");
-        }
-      } else {
-        navigate("/"); // Mặc định về trang chủ nếu không lấy được thông tin
+        return data.user.role; // Trả về role: admin, staff, hoặc customer
       }
+      return null;
     } catch (error) {
       console.error("Error checking user role:", error);
-      navigate("/"); // Mặc định về trang chủ nếu có lỗi
+      return null;
     }
   };
 
@@ -348,12 +387,12 @@ const ShopContextProvider = ({ children }) => {
   const addToCart = async (itemId, size) => {
     // BƯỚC 1: Kiểm tra size
     if (!size) {
-      return toast.error("Please select size first");
+      return toast.error("Vui lòng chọn kích cỡ trước");
     }
 
     // BƯỚC 2: Kiểm tra đăng nhập TRƯỚC KHI thêm vào giỏ hàng
     if (!user) {
-      toast.error("Please login to add products to cart");
+      toast.error("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
       setShowUserLogin(true); // Hiển thị modal login
       return;
     }
@@ -368,12 +407,12 @@ const ShopContextProvider = ({ children }) => {
     try {
       const { data } = await axios.post("/api/cart/add", { itemId, size });
       if (data.success) {
-        toast.success(data.message || "Product added to cart successfully");
+        toast.success(data.message || "Đã thêm sản phẩm vào giỏ hàng thành công");
       } else {
-        toast.error(data.message || "Failed to add product");
+        toast.error(data.message || "Không thể thêm sản phẩm");
       }
     } catch (err) {
-      toast.error(err.message || "Error adding to cart");
+      toast.error(err.message || "Lỗi khi thêm vào giỏ hàng");
       // Rollback nếu lỗi
       let rollbackCart = structuredClone(cartItems);
       setCartItems(rollbackCart);
@@ -426,6 +465,7 @@ const ShopContextProvider = ({ children }) => {
 
   // Tải dữ liệu ban đầu cần thiết cho ứng dụng khi component được render lần đầu tiên.
   useEffect(() => {
+    fetchSettings(); // Tải settings (shipping fee, tax rate) từ backend
     fetchUser(); // Kiểm tra và tải thông tin người dùng đã đăng nhập (bao gồm cả isAdmin)
     fetchProducts(); // Tải danh sách sản phẩm từ backend
     fetchCategories(); // Tải danh sách categories từ backend
@@ -441,6 +481,22 @@ const ShopContextProvider = ({ children }) => {
     }
   }, [user]); // Chạy lại khi user state thay đổi
 
+  // ============================================================================
+  // ORDER STATUS TRANSLATION - Dịch trạng thái đơn hàng sang tiếng Việt
+  // ============================================================================
+  const statusTranslations = {
+    "Order Placed": "Đã đặt hàng",
+    "Processing": "Đang xử lý",
+    "Shipped": "Đang giao hàng",
+    "Delivered": "Đã giao hàng",
+    "Cancelled": "Đã hủy"
+  };
+
+  // Hàm dịch trạng thái đơn hàng từ tiếng Anh sang tiếng Việt
+  const translateStatus = (status) => {
+    return statusTranslations[status] || status; // Trả về bản dịch hoặc giữ nguyên nếu không tìm thấy
+  };
+
   // Đối tượng value chứa tất cả dữ liệu và hàm sẽ được cung cấp cho các component con thông qua Context
   // Bất kỳ component nào sử dụng useContext(ShopContext) đều có thể truy cập bất kỳ thuộc tính nào trong đối tượng value này.
   const value = {
@@ -451,6 +507,7 @@ const ShopContextProvider = ({ children }) => {
     setShowUserLogin,
     axios,
     currency,
+    formatCurrency,
     delivery_charges,
     products,
     categories,
@@ -467,6 +524,11 @@ const ShopContextProvider = ({ children }) => {
     getCartAmount,
     logoutUser,
     handleLoginSuccess, // <--- call this after login
+    // Settings state & functions
+    currentSettings,
+    fetchSettings,
+    getShippingFee,
+    getTaxRate,
     // Wishlist functions & state
     wishlistCount,
     wishlistProducts,
@@ -476,6 +538,8 @@ const ShopContextProvider = ({ children }) => {
     removeFromWishlist,
     checkInWishlist,
     clearWishlist,
+    // Order status translation
+    translateStatus,
   };
 
   // Render Component

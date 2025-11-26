@@ -103,7 +103,7 @@ async def update_testimonial(
         if not testimonial:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Testimonial not found"
+                detail="Không tìm thấy lời chứng thực"
             )
         
         # Only allow edit if status = pending
@@ -151,7 +151,7 @@ async def delete_my_testimonial(user = Depends(auth_user)):
         if not testimonial:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Testimonial not found"
+                detail="Không tìm thấy lời chứng thực"
             )
         
         # Only allow delete if status = pending
@@ -163,7 +163,7 @@ async def delete_my_testimonial(user = Depends(auth_user)):
         
         await testimonials_collection.delete_one({"userId": user["_id"]})
         
-        return {"success": True, "message": "Review deleted successfully"}
+        return {"success": True, "message": "Xóa đánh giá thành công"}
     except HTTPException:
         raise
     except Exception as e:
@@ -244,7 +244,7 @@ async def approve_testimonial(
         if result.modified_count == 0:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Testimonial not found"
+                detail="Không tìm thấy lời chứng thực"
             )
         
         return {"success": True, "message": "Testimonial approved successfully"}
@@ -274,7 +274,7 @@ async def reject_testimonial(
         if result.modified_count == 0:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Testimonial not found"
+                detail="Không tìm thấy lời chứng thực"
             )
         
         return {"success": True, "message": "Testimonial rejected successfully"}
@@ -303,10 +303,10 @@ async def admin_delete_testimonial(
         if result.deleted_count == 0:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="Testimonial not found"
+                detail="Không tìm thấy lời chứng thực"
             )
         
-        return {"success": True, "message": "Testimonial deleted successfully"}
+        return {"success": True, "message": "Xóa lời chứng thực thành công"}
     except HTTPException:
         raise
     except Exception as e:

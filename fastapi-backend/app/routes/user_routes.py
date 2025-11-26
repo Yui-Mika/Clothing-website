@@ -71,7 +71,7 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,  # Status code 400
-            detail="Email already registered"  # Thông báo lỗi
+            detail="Email đã được đăng ký"  # Thông báo lỗi
         )
     
     # ========================================================================
@@ -84,7 +84,7 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     if existing_name:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,  # Status code 400
-            detail="Username already taken. Please choose another name."  # Thông báo lỗi
+            detail="Tên người dùng đã tồn tại. Vui lòng chọn tên khác."  # Thông báo lỗi
         )
     
     # ========================================================================
@@ -96,28 +96,28 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     if len(password) < 8:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Password must be at least 8 characters long"
+            detail="Mật khẩu phải có ít nhất 8 ký tự"
         )
     
     # Kiểm tra có ít nhất 1 chữ cái in hoa
     if not any(char.isupper() for char in password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Password must contain at least one uppercase letter"
+            detail="Mật khẩu phải có ít nhất một chữ in hoa"
         )
     
     # Kiểm tra có ít nhất 1 chữ cái thường
     if not any(char.islower() for char in password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Password must contain at least one lowercase letter"
+            detail="Mật khẩu phải có ít nhất một chữ thường"
         )
     
     # Kiểm tra có ít nhất 1 chữ số
     if not any(char.isdigit() for char in password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Password must contain at least one number"
+            detail="Mật khẩu phải có ít nhất một chữ số"
         )
     
     # Kiểm tra có ít nhất 1 ký tự đặc biệt
@@ -125,7 +125,7 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     if not any(char in special_characters for char in password):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Password must contain at least one special character (!@#$%^&*()_+-=[]{}|;:,.<>?/)"
+            detail="Mật khẩu phải có ít nhất một ký tự đặc biệt (!@#$%^&*()_+-=[]{}|;:,.<>?/)"
         )
     
     # ========================================================================
@@ -192,7 +192,7 @@ async def register_user(user: UserCreate, background_tasks: BackgroundTasks):
     # ========================================================================
     return {
         "success": True,
-        "message": "Registration successful! Please check your email for verification code.",
+        "message": "Đăng ký thành công! Vui lòng kiểm tra email để nhận mã xác thực.",
         "email": user.email  # 👈 Trả về email để frontend redirect đến trang verify
     }
 
@@ -221,7 +221,7 @@ async def login_user(user: UserLogin, response: Response):
     if not db_user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,  # Status code 401
-            detail="Invalid email or password"  # Message chung (bảo mật)
+            detail="Email hoặc mật khẩu không đúng"  # Message chung (bảo mật)
         )
     
     # ========================================================================
@@ -232,7 +232,7 @@ async def login_user(user: UserLogin, response: Response):
     if not verify_password(user.password, db_user["password"]):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,  # Status code 401
-            detail="Invalid email or password"  # Message chung (bảo mật)
+            detail="Email hoặc mật khẩu không đúng"  # Message chung (bảo mật)
         )
     
     # ========================================================================
@@ -242,7 +242,7 @@ async def login_user(user: UserLogin, response: Response):
     if not db_user.get("emailVerified", True):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,  # Status code 403
-            detail="Please verify your email before logging in. Check your inbox for verification link."
+            detail="Vui lòng xác thực email trước khi đăng nhập. Kiểm tra hộp thư của bạn."
         )
     
     # ========================================================================
@@ -252,7 +252,7 @@ async def login_user(user: UserLogin, response: Response):
     if not db_user.get("isActive", True):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,  # Status code 403
-            detail="Account is inactive"  # Tài khoản bị vô hiệu hóa
+            detail="Tài khoản đã bị vô hiệu hóa"  # Tài khoản bị vô hiệu hóa
         )
     
     # ========================================================================
@@ -276,7 +276,7 @@ async def login_user(user: UserLogin, response: Response):
     # và gửi qua Authorization header
     return {
         "success": True,           # Flag thành công
-        "message": "Login successful",  # Thông báo
+        "message": "Đăng nhập thành công",  # Thông báo
         "token": access_token      # Token để frontend lưu vào localStorage
     }
 
@@ -294,7 +294,7 @@ async def logout_user():
     # ========================================================================
     return {
         "success": True,              # Flag thành công
-        "message": "Logout successful"  # Thông báo
+        "message": "Đăng xuất thành công"  # Thông báo
     }
 
 # ============================================================================
@@ -515,7 +515,7 @@ async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTa
     if code_attempts >= 5:
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail="Too many failed attempts. Please request a new verification code."
+            detail="Quá nhiều lần thử sai. Vui lòng yêu cầu mã xác thực mới."
         )
     
     # ========================================================================
@@ -527,7 +527,7 @@ async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTa
     if not stored_code or not code_expiry:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="No verification code found. Please request a new one."
+            detail="Không tìm thấy mã xác thực. Vui lòng yêu cầu mã mới."
         )
     
     # ========================================================================
@@ -536,7 +536,7 @@ async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTa
     if is_code_expired(code_expiry):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Verification code has expired. Please request a new one."
+            detail="Mã xác thực đã hết hạn. Vui lòng yêu cầu mã mới."
         )
     
     # ========================================================================
@@ -553,7 +553,7 @@ async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTa
         
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid verification code. {remaining_attempts} attempt(s) remaining."
+            detail=f"Mã xác thực không đúng. Còn {remaining_attempts} lần thử."
         )
     
     # ========================================================================
@@ -587,7 +587,7 @@ async def verify_code(request: VerifyCodeRequest, background_tasks: BackgroundTa
     
     return {
         "success": True,
-        "message": "Email verified successfully! You can now login to your account."
+        "message": "Xác thực email thành công! Bây giờ bạn có thể đăng nhập vào tài khoản."
     }
 
 # ============================================================================
@@ -620,16 +620,16 @@ async def resend_verification_code(request: ResendCodeRequest, background_tasks:
         )
     
     # ========================================================================
-    # BƯỚC 2: Kiểm tra đã verify chưa
+    # BƯớc 2: Kiểm tra đã verify chưa
     # ========================================================================
     if user.get("emailVerified", False):
         return {
             "success": False,
-            "message": "Email is already verified. You can login now."
+            "message": "Email đã được xác thực. Bạn có thể đăng nhập ngay bây giờ."
         }
     
     # ========================================================================
-    # BƯỚC 3: Rate limiting - Kiểm tra cooldown
+    # BƯớc 3: Rate limiting - Kiểm tra cooldown
     # ========================================================================
     last_sent = user.get("lastCodeSentAt")
     
@@ -637,7 +637,7 @@ async def resend_verification_code(request: ResendCodeRequest, background_tasks:
         remaining = get_remaining_cooldown(last_sent, cooldown_seconds=60)
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail=f"Please wait {remaining} seconds before requesting a new code."
+            detail=f"Vui lòng đợi {remaining} giây trước khi yêu cầu mã mới."
         )
     
     # ========================================================================
@@ -674,7 +674,7 @@ async def resend_verification_code(request: ResendCodeRequest, background_tasks:
     
     return {
         "success": True,
-        "message": "A new verification code has been sent to your email. Please check your inbox."
+        "message": "Một mã xác thực mới đã được gửi đến email của bạn. Vui lòng kiểm tra hộp thư."
     }
 
 # ============================================================================
@@ -698,20 +698,20 @@ async def resend_verification_email(email: str, background_tasks: BackgroundTask
     if not user:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="User not found with this email"
+            detail="Không tìm thấy người dùng với email này"
         )
     
     # ========================================================================
-    # BƯỚC 2: Kiểm tra email đã verify chưa
+    # BƯớc 2: Kiểm tra email đã verify chưa
     # ========================================================================
     if user.get("emailVerified", False):
         return {
             "success": False,
-            "message": "Email is already verified. You can login now."
+            "message": "Email đã được xác thực. Bạn có thể đăng nhập ngay bây giờ."
         }
     
     # ========================================================================
-    # BƯỚC 3: Gửi lại email xác thực
+    # BƯớc 3: Gửi lại email xác thực
     # ========================================================================
     background_tasks.add_task(
         send_verification_email,
@@ -722,7 +722,7 @@ async def resend_verification_email(email: str, background_tasks: BackgroundTask
     
     return {
         "success": True,
-        "message": "Verification email has been sent. Please check your inbox."
+        "message": "Email xác thực đã được gửi. Vui lòng kiểm tra hộp thư của bạn."
     }
 
 # ============================================================================
@@ -766,3 +766,80 @@ async def list_all_users(request: Request):
         "success": True,
         "users": users
     }
+
+# ============================================================================
+# UPDATE PROFILE ENDPOINT - API Cập nhật thông tin cá nhân
+# ============================================================================
+@router.post("/update-profile", response_model=dict)
+async def update_profile(
+    request: Request,
+    current_user: dict = Depends(auth_user)
+):
+    """
+    Cập nhật thông tin cá nhân của user
+    - Chỉ cho phép user cập nhật thông tin của chính họ
+    - Có thể cập nhật: name
+    - Không cho phép thay đổi: email, password (cần endpoint riêng)
+    """
+    # Lấy collection 'users' từ MongoDB
+    users_collection = await get_collection("users")
+    
+    # Lấy data từ request body
+    body = await request.json()
+    
+    # Validate: Chỉ cho phép cập nhật name
+    allowed_fields = ["name"]
+    update_data = {}
+    
+    for field in allowed_fields:
+        if field in body and body[field]:
+            update_data[field] = body[field]
+    
+    # Nếu không có field nào để cập nhật
+    if not update_data:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Không có thông tin nào để cập nhật"
+        )
+    
+    # Kiểm tra nếu name đã tồn tại (của user khác)
+    if "name" in update_data:
+        existing_name = await users_collection.find_one({
+            "name": update_data["name"],
+            "_id": {"$ne": ObjectId(current_user["_id"])}  # Loại trừ user hiện tại
+        })
+        if existing_name:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Tên người dùng đã tồn tại. Vui lòng chọn tên khác."
+            )
+    
+    # Thêm updatedAt timestamp
+    update_data["updatedAt"] = datetime.utcnow()
+    
+    # Update user trong database
+    result = await users_collection.update_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {"$set": update_data}
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Không thể cập nhật thông tin"
+        )
+    
+    # Lấy thông tin user đã cập nhật
+    updated_user = await users_collection.find_one(
+        {"_id": ObjectId(current_user["_id"])},
+        {"password": 0, "verificationCode": 0, "verificationCodeExpiry": 0}
+    )
+    
+    updated_user["_id"] = str(updated_user["_id"])
+    
+    return {
+        "success": True,
+        "message": "Cập nhật thông tin thành công",
+        "user": updated_user
+    }
+

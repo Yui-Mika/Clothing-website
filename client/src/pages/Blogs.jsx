@@ -35,7 +35,7 @@ const Blogs = () => {
   // Format date
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
-    return new Date(dateString).toLocaleDateString('en-US', options)
+    return new Date(dateString).toLocaleDateString('vi-VN', options)
   }
 
   // Loading state
@@ -52,19 +52,19 @@ const Blogs = () => {
     return (
       <section className="max-padd-container py-16 md:py-24">
         <Title
-          title1={'Our Expert'}
-          title2={'Blog'}
+          title1={'Blog'}
+          title2={'chuyên gia'}
           titleStyles={'pb-12'}
           paraStyles={'!block'}
-          para={'Stay ahead of fashion trends with styling tips, product reviews, and expert advice.'}
+          para={'Đặt trước xu hướng thời trang với mẹo phối đồ, đánh giá sản phẩm và lời khuyên chuyên gia.'}
         />
         <div className="text-center py-16">
-          <p className="text-xl text-gray-500">No blogs available at the moment.</p>
+          <p className="text-xl text-gray-500">Hiện chưa có bài viết nào.</p>
           <button
             onClick={() => navigate('/')}
             className="mt-6 px-6 py-3 bg-tertiary text-white hover:bg-secondary transition-all duration-300"
           >
-            Back to Home
+            Trở về trang chủ
           </button>
         </div>
       </section>
@@ -74,11 +74,11 @@ const Blogs = () => {
   return (
     <section className="max-padd-container py-16 pt-28">
       <Title
-        title1={'Our Expert'}
-        title2={'Blog'}
+        title1={'Blog'}
+        title2={'chuyên gia'}
         titleStyles={'pb-10'}
         paraStyles={'!block'}
-        para={'Stay ahead of fashion trends with styling tips, product reviews, and expert advice helping you shop smarter and dress better.'}
+        para={'Đặt trước xu hướng thới trang với mẹo phối đồ, đánh giá sản phẩm và lời khuyên chuyên gia giúp bạn mua sắm thông minh hơn và ăn mặc đẹp hơn.'}
       />
 
       {/* Grid Container - Responsive: 1 col (mobile), 2 cols (tablet), 4 cols (desktop) */}
@@ -118,7 +118,7 @@ const Blogs = () => {
 
               {/* Button */}
               <button className="text-xs uppercase tracking-wide border border-white/40 px-4 py-2 bg-white/10 hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm">
-                Read More
+                Đọc thêm
               </button>
             </div>
           </div>

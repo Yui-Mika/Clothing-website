@@ -574,18 +574,18 @@ const ListCustomer = () => {
                 <button
                   onClick={() => handleEditClick(customer)}
                   className="flex items-center gap-1 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg transition-colors text-xs font-medium"
-                  title="Sửa khách hàng"
+                  title="Chỉnh sửa"
                 >
                   <FiEdit2 size={14} />
-                  <span>Edit</span>
+                  <span>Sửa</span>
                 </button>
                 <button
                   onClick={() => handleDeleteCustomer(customer._id, customer.name)}
                   className="flex items-center gap-1 px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition-colors text-xs font-medium"
-                  title="Xóa khách hàng"
+                  title="Xóa"
                 >
                   <FiTrash2 size={14} />
-                  <span>Delete</span>
+                  <span>Xóa</span>
                 </button>
               </div>
             </div>

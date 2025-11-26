@@ -1,27 +1,44 @@
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import ProductDescription from "../components/ProductDescription";
 import ProductFeatures from "../components/ProductFeatures";
 import { FaTruckFast } from "react-icons/fa6";
 import { TbShoppingBagPlus, TbHeart, TbHeartFilled, TbStarHalfFilled, TbStarFilled, TbStar } from "react-icons/tb";
 import RelatedProducts from "../components/RelatedProducts";
+import WriteReviewModal from "../components/WriteReviewModal";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 const ProductDetails = () => {
-  const { products, navigate, currency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
+  const { products, navigate, currency, formatCurrency, addToCart, user, addToWishlist, removeFromWishlist, checkInWishlist } = useContext(ShopContext);
   const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const product = products.find((item) => item._id === id);
   const [image, setImage] = useState(null);
   const [size, setSize] = useState(null);
   const [inWishlist, setInWishlist] = useState(false); // Track wishlist status
+  const [showReviewModal, setShowReviewModal] = useState(false); // Track review modal
   const [reviewStats, setReviewStats] = useState({
     averageRating: 0,
     totalReviews: 0,
     ratingDistribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }
   });
+
+  // Scroll to top when product changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+
+  // Check if review=true in URL params
+  useEffect(() => {
+    if (searchParams.get('review') === 'true' && user) {
+      setShowReviewModal(true);
+      // Remove review param from URL
+      setSearchParams({});
+    }
+  }, [searchParams, user]);
 
   // Check if product is in wishlist when component loads
   useEffect(() => {
@@ -71,7 +88,7 @@ const ProductDetails = () => {
   // Handle wishlist toggle (add/remove)
   const handleWishlistToggle = async () => {
     if (!user) {
-      toast.error('Please login to add to wishlist');
+      toast.error('Vui lòng đăng nhập để thêm vào danh sách yêu thích');
       return;
     }
 
@@ -162,7 +179,7 @@ const ProductDetails = () => {
               <p className="medium-14">
                 {reviewStats.totalReviews > 0 
                   ? `(${reviewStats.totalReviews})` 
-                  : '(No reviews yet)'}
+                  : '(Chưa có đánh giá)'}
               </p>
             </div>
 
@@ -183,24 +200,20 @@ const ProductDetails = () => {
                 {/* Price with discount */}
                 <div className="flex items-baseline gap-3">
                   <h3 className="h3 text-red-600 font-bold">
-                    {currency}
-                    {product.offerPrice.toLocaleString()}
+                    {formatCurrency(product.offerPrice)}{currency}
                   </h3>
                   <h4 className="h4 line-through text-gray-400">
-                    {currency}
-                    {product.price.toLocaleString()}
+                    {formatCurrency(product.price)}{currency}
                   </h4>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">
-                  Tiết kiệm: {currency}
-                  {(product.price - product.offerPrice).toLocaleString()}
+                  Tiết kiệm: {formatCurrency(product.price - product.offerPrice)}{currency}
                 </p>
               </div>
             ) : (
               <div className="my-3">
                 <h3 className="h3 text-gray-900 font-bold">
-                  {currency}
-                  {product.price.toLocaleString()}
+                  {formatCurrency(product.price)}{currency}
                 </h3>
               </div>
             )}
@@ -232,12 +245,12 @@ const ProductDetails = () => {
                 onClick={() => addToCart(product._id, size)}
                 className="btn-dark  sm:w-1/2 flexCenter gap-x-2 capitalize"
               >
-                Add to Cart <TbShoppingBagPlus />
+                Thêm vào giỏ <TbShoppingBagPlus />
               </button>
               <button 
                 onClick={handleWishlistToggle}
                 className={`btn-light ${inWishlist ? 'bg-red-50 border-red-200' : ''}`}
-                title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+                title={inWishlist ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích'}
               >
                 {inWishlist ? (
                   <TbHeartFilled className="text-xl text-red-500" />
@@ -249,14 +262,14 @@ const ProductDetails = () => {
             <div className="flex items-center gap-x-2 mt-3">
               <FaTruckFast className="text-lg" />
               <span className="medium-14">
-                Free Delivery on orders over 500$
+                Giao hàng miễn phí cho đơn hàng trên 2.400.000đ
               </span>
             </div>
             <hr className="my-3 w-2/3" />
             <div className="mt-2 flex flex-col gap-1 text-gray-30 text-[14px]">
-              <p>Authenticy You Can Trust</p>
-              <p>Enjoy Cash on Delivery for Your Convenience</p>
-              <p>Easy Returns and Exchanges Within 7 Days</p>
+              <p>Chất lượng bạn có thể tin tưởng</p>
+              <p>Thanh toán khi nhận hàng tiện lợi</p>
+              <p>Đổi trả dễ dàng trong vòng 7 ngày</p>
             </div>
           </div>
         </div>
@@ -264,6 +277,18 @@ const ProductDetails = () => {
         <ProductFeatures />
         {/* Related Products */}
         <RelatedProducts product={product} id={id} />
+        
+        {/* Write Review Modal */}
+        <WriteReviewModal
+          isOpen={showReviewModal}
+          onClose={() => setShowReviewModal(false)}
+          productId={product._id}
+          productName={product.name}
+          onReviewSubmitted={() => {
+            fetchReviewStats(); // Refresh stats after review
+            setShowReviewModal(false);
+          }}
+        />
         </div>
       </div>
     )
@@ -271,3 +296,4 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+

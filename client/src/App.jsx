@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Route, Routes, useLocation } from "react-router-dom"
 import { ShopContext } from './context/ShopContext'
+import { ChatProvider } from './context/ChatContext'
 import { Toaster } from "react-hot-toast"
 import Home from './pages/Home'
 import Header from './components/Header'
@@ -21,31 +22,39 @@ import Orders from './pages/admin/Orders'
 import ListCustomer from './pages/admin/ListCustomer' // Import ListCustomer page
 import Report from './pages/admin/Report' // Import Report page
 import Testimonials from './pages/admin/Testimonials' // Import Testimonials admin page
+import Settings from './pages/admin/Settings' // Import Settings admin page
 import Loading from './components/Loading'
 import Wishlist from './pages/Wishlist' // Import Wishlist page
 import VerifyEmail from './pages/VerifyEmail' // Import VerifyEmail page
 import Blogs from './pages/Blogs' // Import Blogs page
 import BlogDetails from './pages/BlogDetails' // Import BlogDetails page
+import Profile from './pages/Profile' // Import Profile page
+import ChatWidget from './components/ChatWidget' // Import ChatWidget
+import ChatModal from './components/ChatModal' // Import ChatModal
 
 const App = () => {
-  const {showUserLogin, isAdmin, navigate, setShowUserLogin} = useContext(ShopContext)
+  const {showUserLogin, isAdmin, navigate, setShowUserLogin, user} = useContext(ShopContext)
   const location = useLocation();
   const isAdminPath = location.pathname.includes('admin')
   const isVerifyPath = location.pathname.includes('verify-email')
 
   // Redirect về home và mở login modal nếu truy cập admin mà chưa login
   React.useEffect(() => {
-    if (isAdminPath && !isAdmin) {
+    const hasAdminToken = localStorage.getItem('admin_token');
+    // Chỉ redirect nếu đang ở admin path và không có token
+    // isAdmin state có thể chưa update ngay, nên ưu tiên check token
+    if (isAdminPath && !hasAdminToken) {
       navigate('/');
       setShowUserLogin(true); // Mở login modal
     }
-  }, [isAdminPath, isAdmin, navigate, setShowUserLogin]);
+  }, [isAdminPath, navigate, setShowUserLogin]);
 
   return (
-    <main className='overflow-hidden text-tertiary'>
-      {showUserLogin && <Login />}
-      {!isAdminPath && !isVerifyPath && <Header />}
-      <Toaster position="bottom-right"/>
+    <ChatProvider>
+      <main className='overflow-hidden text-tertiary'>
+        {showUserLogin && <Login />}
+        {!isAdminPath && !isVerifyPath && <Header />}
+        <Toaster position="bottom-right"/>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/collection' element={<Collection />}/>
@@ -55,6 +64,7 @@ const App = () => {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/place-order' element={<PlaceOrder />}/>
         <Route path='/my-orders' element={<MyOrders />}/>
+        <Route path='/profile' element={<Profile />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/wishlist' element={<Wishlist />}/>
         <Route path='/blogs' element={<Blogs />}/>
@@ -70,10 +80,20 @@ const App = () => {
             <Route path='customers' element={isAdmin ? <ListCustomer /> : null}/>
             <Route path='testimonials' element={isAdmin ? <Testimonials /> : null}/>
             <Route path='report' element={isAdmin ? <Report /> : null}/>
+            <Route path='settings' element={isAdmin ? <Settings /> : null}/>
         </Route>
       </Routes>
       {!isAdminPath && !isVerifyPath && <Footer />}
+      
+      {/* Chat Components - Available on all pages except admin */}
+      {!isAdminPath && (
+        <>
+          <ChatWidget />
+          <ChatModal />
+        </>
+      )}
     </main>
+    </ChatProvider>
   )
 }
 

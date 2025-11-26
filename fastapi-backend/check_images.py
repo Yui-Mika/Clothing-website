@@ -4,9 +4,10 @@ Script to check product images in MongoDB
 import asyncio
 from motor.motor_asyncio import AsyncIOMotorClient
 from bson import ObjectId
+from app.config.settings import settings
 
-MONGODB_URL = "mongodb://localhost:27017/"
-DATABASE_NAME = "Shop"
+MONGODB_URL = settings.MONGODB_URL
+DATABASE_NAME = settings.DATABASE_NAME
 
 async def check_product_images():
     print("=" * 70)

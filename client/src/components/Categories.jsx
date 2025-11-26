@@ -17,10 +17,10 @@ const Categories = () => {
       if (data.success) {
         setCategories(data.categories);
       } else {
-        console.error("Failed to fetch categories:", data.message);
+        console.error("Không tìm được danh mục:", data.message);
       }
     } catch (error) {
-      console.error("Error fetching categories:", error);
+      console.error("Lỗi khi tải danh mục:", error);
     } finally {
       setLoading(false);
     }
@@ -37,8 +37,8 @@ const Categories = () => {
   return (
     <section className="max-padd-container py-16 md:py-24">
       <Title
-        title1={"Category"}
-        title2={"List"}
+        title1={"Danh mục"}
+        title2={"sản phẩm"}
         titleStyles={"pb-12"}
         paraStyles={"hidden"}
       />

@@ -52,27 +52,27 @@ import blog4 from "../assets/blogs/blog4.png";
 
 export const categories = [
   {
-    name: "Men",
+    name: "Nam",
     image: men,
   },
   {
-    name: "Women",
+    name: "Nữ",
     image: women,
   },
   {
-    name: "Kids",
+    name: "Trẻ em",
     image: kids,
   },
   {
-    name: "Footwear",
+    name: "Giày dép",
     image: Footwear,
   },
   {
-    name: "Winterwear",
+    name: "Đồ mùa đông",
     image: Winterwear,
   },
   {
-    name: "Sportswear",
+    name: "Đồ thể thao",
     image: Sportswear,
   },
 ];
@@ -550,19 +550,19 @@ export const dummyProducts = [
 
 export const blogs = [
   {
-    title: "Top Shopping Tips for Smart Buyers",
-    category: "Women",
+    title: "Mẹo Mua Sắm Hàng Đầu Cho Người Mua Thông Minh",
+    category: "Nữ",
     image: blog1,
   },
   {
-    title: "Latest Trends in Online Shopping 2024",
-    category: "Footwear",
+    title: "Xu Hướng Mua Sắm Trực Tuyến Mới Nhất 2024",
+    category: "Giày dép",
     image: blog2,
   },
-  { title: "How to Spot the Best Deals Online", category: "Men", image: blog3 },
+  { title: "Cách Tìm Kiếm Ưu Đãi Tốt Nhất Trực Tuyến", category: "Nam", image: blog3 },
   {
-    title: "Why E-Commerce is the Future of Shopping",
-    category: "Winterwear",
+    title: "Tại Sao Thương Mại Điện Tử Là Tương Lai Của Mua Sắm",
+    category: "Đồ mùa đông",
     image: blog4,
   },
 ];
@@ -597,7 +597,7 @@ export const dummyOrders = [
     amount: 40,
     paymentMethod: "stripe",
     isPaid: true,
-    status: "Delivered",
+    status: "Đã giao hàng",
     createdAt: "2024-06-10T10:00:00.000Z"
   },
 
@@ -629,7 +629,7 @@ export const dummyOrders = [
     amount: 999,
     paymentMethod: "COD",
     isPaid: true,
-    status: "Shipped",
+    status: "Đang giao hàng",
     createdAt: "2024-06-08T15:30:00.000Z"
   }
 ];
